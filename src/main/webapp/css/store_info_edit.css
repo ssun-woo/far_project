@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+}
+
+body h2 {
+	text-align: center;
+}
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	border: none;
+	border-top: 1px solid #000000;
+}
+
+.infoRegistration {
+	width: 90%;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #000000;
+	border-radius: 15px;
+	margin-top: -10px;
+}
+
+.storeInfo {
+	margin-bottom: 15px;
+}
+
+.storeInfo label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-left: 10px;
+}
+
+#storeIntroEdit {
+	width: 95%;
+	padding: 8px;
+	border: 1px solid #000000;
+	resize: none;
+	display: block;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+.storeAddressEditArea {
+	display: flex;
+	flex-direction: column;
+}
+
+#storeAddressEditFirst {
+	width: 50%;
+    padding: 8px;
+    border: 1px solid #000000;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    margin-left: 16px;
+}
+
+#storeAddressEditSearchBtn {
+	/* 주소 검색 버튼 */
+}
+
+#storeAddressEditSecond {
+	width: 60%;
+    padding: 8px;
+    border: 1px solid #000000;
+    display: block;
+    margin: 0 auto;
+    margin-top: 7px;
+    border-radius: 10px;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    margin-left: 16px;
+}
+
+::placeholder {
+	text-decoration: none;
+}
+
+.storeInfo textarea {
+	resize: vertical;
+}
+
+.storeInfoButton {
+	text-align: right;
+	margin-right: 5px;
+}
+
+.storeInfoBtn {
+	padding: 8px 13px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	border-radius: 10px;
+}

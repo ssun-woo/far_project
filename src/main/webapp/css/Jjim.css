@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.jjim_img {
+	width: 150px;
+	height: 150px;
+}
+
+.jjim_list{
+	display: flex;
+}
+
+.jjim_cont{
+	margin-left: 15px;
+	margin-top: -5px;
+}
+.jjim_cont p{
+	font-size:10pt;
+}
+.jjim_cont2{
+	margin-left: 170px;
+	position: inherit;
+}

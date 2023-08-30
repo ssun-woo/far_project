@@ -1,0 +1,41 @@
+@charset "EUC-KR";
+
+.hotelcont_top1{
+	
+}
+
+
+.hotelcont_top1 hr{
+	width: 1000px;
+}
+
+.hotelcont_top2 {
+	margin-top: 30px;
+	display: flex;
+}
+
+
+.hotelcont_top2 ul{
+	list-style: none;
+	margin-top: -20px;
+	margin-right: -20px;
+}
+
+.hotelcont_top2 h2{
+	margin-left: 10px;
+	margin-bottom: 30px;
+}
+
+.hotelcont_top2 p{
+	font-size: 13pt;
+	margin-bottom: 40px;
+}
+
+.hotelcont_top2 li{
+	
+}
+
+
+.hotelInfo{
+	display: flex;
+}
