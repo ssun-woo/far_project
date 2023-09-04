@@ -18,9 +18,16 @@ public class MainController {
 	// 로그인 페이지 이동
 	@RequestMapping("/login")
 	public ModelAndView login() {
-		
 		ModelAndView mav = new ModelAndView("login/login");
 		return mav;
 	}
+	
+	// 고객센터 이동
+	@RequestMapping("/customer_service")
+	public ModelAndView customer_service() {
+		return new ModelAndView("cs/cs_main");
+	}
+	
+	// 마이페이지 
 	
 }
