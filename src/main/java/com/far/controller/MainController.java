@@ -50,4 +50,25 @@ public class MainController {
    public ModelAndView findPwd() {
       return new ModelAndView("login/findPwd");
    }
+   
+   // 테스트 페이지
+   @RequestMapping("/test")
+   public String test() {
+	   return "../ex/new_header";
+   }
+   
+   // 테스트 페이지2
+   @RequestMapping("/test2")
+   public String test2() {
+	   return "../ex/new_header2";
+   }
 }
+
+
+
+
+
+
+
+
+
