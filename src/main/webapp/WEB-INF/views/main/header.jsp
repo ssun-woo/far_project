@@ -63,8 +63,10 @@
 						<img src="/images/main/member.png" class="loginIcon">
 					</button>
 				</a> 
-				<a href="/my_page">&#124; 마이페이지 &#124;</a> 
-				<a href="/customer_service">고객센터</a>
+
+				<a href="/my_page">&#124; 마이페이지 &#124;</a> <a
+					href="/customer_service">고객센터</a>
+
 
 			</div>
 		</div>

@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/beauty")
 public class BeautyController {
 	
-	@RequestMapping("/all_list")
+	@RequestMapping("/cate_list")
 	public ModelAndView acc_list() {
 		
 		ModelAndView mav = new ModelAndView("beauty/beauty_index");

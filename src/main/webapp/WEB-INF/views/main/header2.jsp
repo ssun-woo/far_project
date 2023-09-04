@@ -48,8 +48,8 @@
 	<div id="wrap">
 		<div class="top_category">
    			<ul>
-   				<li><a href="/accommodation/acc_index.jsp"><button>숙소</button></a></li>
-   				<li><a href="/restaurant/rest_index.jsp"><button>식당</button></a></li>
+   				<li><a href="/acc/all_list"><button>숙소</button></a></li>
+   				<li><a href="/resto/all_list"><button>식당</button></a></li>
    				<li><a href="/culture/all_list"><button>문화</button></a></li>
    				<li><a href="/beauty/all_list"><button>뷰티</button></a></li>
    				
@@ -60,8 +60,10 @@
    		</div>
 		<div class="top2">
 			<div class="logo">
-				<a href="/main/index.jsp"> <img alt="logo"
-					src="/images/main/logo.png" width="auto" height="auto"
+
+				<a href="/"> <img alt="logo"
+					src="../images/main/logo.png" width="auto" height="auto"
+
 					class="logo_img">
 				</a>
 			</div>
@@ -80,7 +82,8 @@
             <ul>
                <li>
                  <button class="loginButton" type="button" onclick="location='/login'">
-                     <img src="/images/main/member.png" class="loginIcon">
+
+                     <img src="../images/main/member.png" class="loginIcon">
                  </button>
                </li>
             <li class="separator">|</li>
