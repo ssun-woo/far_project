@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/culture")
 public class CultureController {
 
-	@RequestMapping("/all_list")
+	@RequestMapping("/cate_list")
 	public ModelAndView acc_list() {
 		
 		ModelAndView mav = new ModelAndView("culture/culture_index");

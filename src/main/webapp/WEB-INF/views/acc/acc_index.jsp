@@ -6,25 +6,25 @@
 <div class="acc_list">
 	
 	<div class="acc_list01">
-		<a href="../accommodation/acc_search_list.jsp">
+		<a href="/acc/list?cate=hotel">
 			<img src="../images/acc/hotel.png" alt="호텔" width="70px" height="60px">
 			<p>호텔</p>
 		</a>
 	</div>
 	<div class="acc_list02">
-		<a href="../accommodation/acc_search_Motel_list.jsp">
+		<a href="/acc/list?cate=motel">
 			<img src="../images/acc/motel.png" alt="모텔" width="70px" height="60px">
 			<p>모텔</p>
 		</a>
 	</div>
 	<div class="acc_list03">
-		<a href="../accommodation/acc_search_Pension_list.jsp">
+		<a href="/acc/list?cate=pension">
 			<img src="../images/acc/pool_house.png" alt="펜션/풀빌라" width="70px" height="60px">
 			<p>펜션/풀빌라</p>
 		</a>
 	</div>
 	<div class="acc_list04">
-		<a href="../accommodation/acc_search_Camping_list.jsp">
+		<a href="/acc/list?cate=camping">
 			<img src="../images/acc/camping.png" alt="글램핑/캠핑" width="70px" height="60px">
 			<p>글램핑/캠핑</p>
 		</a>

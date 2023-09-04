@@ -29,5 +29,8 @@ public class MainController {
 	}
 	
 	// 마이페이지 
-	
+	@RequestMapping("/my_page")
+	public ModelAndView my_page() {
+		return new ModelAndView("myPage/myPage");
+	}
 }

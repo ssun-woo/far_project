@@ -22,7 +22,7 @@
 	<div id="wrap">
 		<div class="top">
 			<div class="logo">
-				<a href="../main/index.jsp"> 
+				<a href="/login"> 
 				<img alt="logo"
 					src="../images/main/logo.png" width="auto" height="auto"
 					class="logo_img">
@@ -38,8 +38,8 @@
 					<button class="loginButton" type="button" onclick="#">
 						<img src="../images/main/member.png" class="loginIcon">
 					</button>
-				</a> <a href="../myPage/myPage.jsp">&#124; 마이페이지 &#124;</a> <a
-					href="../customer_service/cs_main.jsp">고객센터</a>
+				</a> <a href="/my_page">&#124; 마이페이지 &#124;</a> <a
+					href="/customer_service">고객센터</a>
 
 			</div>
 		</div>
