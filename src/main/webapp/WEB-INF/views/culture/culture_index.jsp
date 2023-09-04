@@ -1,30 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<jsp:include page="../main/header.jsp"/>
+<jsp:include page="../main/header2.jsp"/>
+
 
 <div class="culture_list">
 	
 	<div class="culture_list01">
-		<a href="cu_search_Concert_list.jsp">
+		<a href="all_list/consert">
 			<img src="../images/culture/concert.png" alt="콘서트" width="70px" height="60px">
 			<p>콘서트</p>
 		</a>
 	</div>
 	<div class="culture_list02">
-		<a href="cu_search_Play_list.jsp">
+		<a href="all_list/play">
 			<img src="../images/culture/play.png" alt="연극" width="70px" height="60px">
 			<p>연극</p>
 		</a>
 	</div>
 	<div class="culture_list03">
-		<a href="cu_search_Musical_list.jsp">
+		<a href="all_list/musical">
 			<img src="../images/culture/musical.png" alt="뮤지컬" width="70px" height="60px">
 			<p>뮤지컬</p>
 		</a>
 	</div>
 	<div class="culture_list04">
-		<a href="cu_search_Exhibition_list.jsp">
+		<a href="all_list/exhibition">
 			<img src="../images/culture/exhibition.png" alt="전시회" width="70px" height="60px">
 			<p>전시회</p>
 		</a>

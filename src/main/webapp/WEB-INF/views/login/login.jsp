@@ -28,7 +28,7 @@
 				<input class="submit" type="submit" value="로그인"><br>
 			</form>
 			<br><br>
-			<span><a href="signUp.jsp"><u>회원가입</u></a>&nbsp;|&nbsp;<u>아이디 찾기</u>&nbsp;|&nbsp;<u>비밀번호 찾기</u>&nbsp;</span>
+			<span><a href="signUp"><u>회원가입</u></a>&nbsp;|&nbsp;<a href="findId"><u>아이디 찾기</u></a>&nbsp;|&nbsp;<a href="findPwd"><u>비밀번호 찾기</u></a>&nbsp;</span>
 		</div>
 	</div>
 </body>

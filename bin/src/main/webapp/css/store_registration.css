@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+}
+
+body h2 {
+	text-align: center;
+}
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	border: none;
+	border-top: 1px solid #000000;
+}
+
+.storeRegistrationForm {
+	width: 90%;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #000000;
+	border-radius: 15px;
+	margin-top: -10px;
+}
+
+.storeRegistration {
+	margin-bottom: 15px;
+}
+
+.storeRegistration label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-left: 20px;
+}
+
+#typeSelect1, #typeSelect2 {
+	margin-left: 10px;
+}
+
+#storeName, #businessRegistrationNumber, #logoImage, #menuImage {
+	width: 95%;
+	padding: 8px;
+	border: 1px solid #000000;
+	display: block;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+#storeIntro {
+	width: 95%;
+	padding: 8px;
+	border: 1px solid #000000;
+	resize: none;
+	display: block;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+.storeAddressArea {
+	display: flex;
+	flex-direction: column;
+}
+
+.storeAddressF {
+	
+}
+
+#storeAddressFirst {
+	/*flex: 2;*/
+	width: 50%;
+    padding: 8px;
+    border: 1px solid #000000;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    margin-left: 16px;
+}
+
+#storeAddressSearchBtn {
+	/* 주소 검색 버튼 */
+}
+
+#storeAddressSecond {
+	width: 60%;
+    padding: 8px;
+    border: 1px solid #000000;
+    display: block;
+    margin: 0 auto;
+    margin-top: 7px;
+    border-radius: 10px;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    margin-left: 16px;
+}
+
+.storeRegistrationButton {
+	text-align: right;
+	margin-right: 5px;
+}
+
+.storeRegistrationBtn {
+	padding: 8px 13px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	border-radius: 10px;
+}

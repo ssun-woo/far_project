@@ -25,6 +25,8 @@
 <link rel="stylesheet" type="text/css" href="/css/restaurant.css">
 <link rel="stylesheet" type="text/css" href="/css/shopList.css">
 <link rel="stylesheet" type="text/css" href="/css/signupForm.css">
+<link rel="stylesheet" type="text/css" href="/css/findId.css">
+<link rel="stylesheet" type="text/css" href="/css/findPwd.css">
 <link rel="stylesheet" type="text/css" href="/css/top.css">
 <link rel="stylesheet" type="text/css" href="/css/topten.css">
 <link rel="stylesheet" type="text/css" href="/css/rs_stopic.css">
@@ -61,8 +63,8 @@
 						<img src="/images/main/member.png" class="loginIcon">
 					</button>
 				</a> 
-				<a href="">&#124; 마이페이지 &#124;</a> <a
-					href="/customer_service">고객센터</a>
+				<a href="/my_page">&#124; 마이페이지 &#124;</a> 
+				<a href="/customer_service">고객센터</a>
 
 			</div>
 		</div>

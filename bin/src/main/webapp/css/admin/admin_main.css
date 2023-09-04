@@ -1,0 +1,76 @@
+@charset "UTF-8";
+#admin_main{
+	display: flex;
+}
+#menu{
+	height: 100%;
+	width: 20%;
+	text-align: center;
+}
+
+#menu ul{
+	list-style: none;
+	margin-left: -40px;
+}
+
+#menu li{
+	margin-bottom: 10px;
+}
+
+
+
+#menu .button{
+	text-decoration: none;
+	color: gray;
+	
+}
+
+#menu .button:focus{
+	color: black;
+	font-weight: bolder;
+}
+
+
+#menu_cont{
+	margin-left: 20px;
+	
+}
+
+#menu_cont table{
+	width: 700px;
+}
+
+#menu_cont #shop{
+	width: 30%;
+}
+
+#menu_cont #cate{
+	width: 20%;
+}
+
+#menu_cont #name{
+	width: 20%;
+}
+
+#menu_cont #check{
+	width: 20%;
+}
+
+#menu_cont td{
+	text-align: center;
+}
+
+#cate_cont{
+	margin-left: 20px;
+}
+
+#shop_info {
+	width: 800px;
+	height: 100%;
+	border: 3px solid black;
+}
+
+#shop_info h4{
+	margin-left: 20px;
+}
+

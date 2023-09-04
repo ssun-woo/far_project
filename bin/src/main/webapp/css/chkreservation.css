@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.chk_img {
+	width: 150px;
+	height: 150px;
+}
+
+.chk_list{
+	display: flex;
+}
+
+.chk_cont{
+	margin-left: 15px;
+	margin-top: -5px;
+}
+.chk_cont p{
+	font-size:10pt;
+}
+.chk_cont2{
+	margin-left: 170px;
+	position: inherit;
+}

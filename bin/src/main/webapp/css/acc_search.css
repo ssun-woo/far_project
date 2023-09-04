@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+.accSearch {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.location {
+	margin: 0 auto;
+	width: 450px;
+	height: 250px;
+	border: 1.5px solid black;
+	display: flex;
+	justify-content: space-between;
+}
+
+.locationList {
+	/*width: 50%;*/
+	border-right: 1.5px solid gray;
+	flex: 1;
+}
+
+.cityList {
+	/*width: 50%;*/
+	flex: 1;
+}
+
+.locationList ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.cityList ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.locationList li, .cityList li {
+	cursor: pointer;
+	padding: 5px 10px;
+}
+
+.locationList li:hover, .cityList li:hover {
+	background-color: #ccc;
+}
+
+.accEvent img {
+	width: 100%;
+	height: 150px;
+}
+
+.searchResult {
+	display: flex;
+	flex-direction: column; /* list 세로 정렬 */
+	padding: 20px;
+}
+
+.searchResult ul {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.resultList {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.resultList img {
+	width: 220px;
+	height: 180px;
+	margin-right: 20px;
+	border-radius: 5px;
+}
+
+.resultList+.resultList {
+	border-top: 1.5px solid gray;
+	padding-top: 20px;
+}
+
+.resultInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.resultInfo h2 {
+	margin: 0;
+}
+
+.resultInfo p {
+	margin: 5px 0;
+}

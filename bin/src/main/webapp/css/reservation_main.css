@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.reservationMainWrap {
+	display: flex;
+	/*align-items: center;*/ /* 수직 중앙 정렬 */
+	justify-content: center; /* 수평 중앙 정렬 */
+	padding: 10px;
+}
+
+.reservationStickyArea {
+	width: 20%;
+	position: sticky;
+	top: 40px;
+	z-index: 100;
+}
+
+.reservationMain {
+	border: 1px solid #000000;
+	/*padding-left: 10px;*/
+}
+
+.lastReservation {
+	margin-bottom: 5px;
+}
+
+.lastReservation, .waitReservation {
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#reservationContentArea {
+	width: 80%;
+	padding: 10px;
+	/* background-color: #ffd2da; */
+}

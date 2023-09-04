@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+.csBoard form{
+	margin-left: 200px;
+}
+
+.cs_question_input{
+	margin-bottom : 100px;
+	display: flex;
+	float: left;
+}
+
+.cs_searchInput{
+	height: 50px;
+	width: 500px;
+	border-radius: 20px;
+	margin-bottom: 30px;
+	
+}
+
+
+.cs_searchButton{
+	border: none;
+	cursor: pointer;
+	background-color: white;
+	width: 50px;
+	height: 50px;
+}
+
+.cs_searchIcon{
+	width: 50px;
+	height: 50px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+
+.csMenu {
+	display: flex;
+	width: 60%;
+	margin-bottom: 50px;
+}
+
+.csMenu>div {
+	width: 17%;
+	text-align: center;
+	height: 60px;
+	line-height: 30px;
+	height: 30px;
+	margin-right: 10px;
+	border: 1px solid black;
+	border-radius: 30px;
+	overflow: hidden;
+	background-color: rgb(25, 25, 25, 0.2);
+	
+}
+
+
+.csBoard {
+	width: 93%;
+	margin: 0 auto;
+	margin-top: 60px;
+}
+
+.cs_question_line {
+	clear: both;
+}
+
+[class^="cs_question_line"] {
+	display: flex;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	margin-bottom: 10px;
+	background-color: rgb(250, 224, 212, 0.2);
+}
+
+
+.cs_question {
+	width: 90%;
+	height: 50px;
+	line-height: 50px;
+}
+
+.cs_down_arrow {
+	display: flex;
+	justify-content: center;
+	width: 10%;
+}
+
+.cs_down_arrow img {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	margin: auto;
+}
+
+
+[class^="cs_answer_line"] {
+	background-color: rgb(250, 224, 212, 0.2);
+	opacity: 0;
+	height: 0;
+	transition: opacity 0.3s ease, height 0.3s ease; /* 트랜지션 속성 추가 */
+	overflow: hidden;
+	padding-left: 30px;
+	margin-bottom: 20px;
+}
+
+
+.cs_answer_line.show {
+  height: auto;
+  opacity: 1;
+}
+
+.cs_answer_line2.show{
+  height: auto;
+  opacity: 1;
+}
+
+.cs_answer_line3.show{
+	height: auto;
+  opacity: 1;
+}
+
+.cs_answer_line4.show{
+	height: auto;
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
