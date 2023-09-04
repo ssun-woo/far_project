@@ -39,7 +39,7 @@
 	<div id="wrap">
 		<div class="top">
 			<div class="logo">
-				<a href="/main/index.jsp"> <img alt="logo"
+				<a href="/"> <img alt="logo"
 					src="/images/main/logo.png" width="auto" height="auto"
 					class="logo_img">
 				</a>
@@ -56,8 +56,8 @@
 			</form>
 
 			<div class="login">
-				<a href="/login/login.jsp">
-					<button class="loginButton" type="button" onclick="#">
+				<a href="/login">
+					<button class="loginButton" type="button">
 						<img src="/images/main/member.png" class="loginIcon">
 					</button>
 				</a> 
