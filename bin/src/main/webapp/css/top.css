@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+#wrap {
+   width: 100%;
+   height: 100%;
+   margin: 0 auto;
+}
+
+.top_category{
+	width: 1000px;
+	height:60px;
+	display:flex;
+	margin-top: 20px;
+	margin-left: 20px;
+	border-radius: 10px;
+	margin-bottom: -10px;
+}
+.top_category ul{
+	display: flex;
+	list-style: none;
+	margin-top: 0;
+	margin-left: -20px;
+}
+.top_category button{
+	width: 70px;
+	height: 30px;
+	border: none;
+	border: solid 1px rgba(0,0,0,0.2);
+	border-bottom: none;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	
+}
+.top_category button:hover{
+	background-color: white;
+	font-weight: bold;
+}
+
+
+.top {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+  
+}
+
+.top2 {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   margin-top: -40px;
+}
+
+
+
+.logo {
+   width: 25%;
+   height: 150px;
+   border-radius: 10px 0px 0px 10px;
+   display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.logo_img{
+   width: auto;
+   height: auto;
+   max-width: 45%;
+   max-height: 45%;
+   margin-left: 40px;
+   margin-top: 10px;
+}
+.search {
+   display: flex;
+   align-items: center;
+   border: solid 1px;
+   margin-top: 60px;
+   width: 480px;
+   height: 40px;
+   margin: 5px auto;
+   justify-content: center;
+   text-align: center;
+   border-radius: 20px;
+}
+.searchInput {
+   padding: 7px;
+   border: none;
+   width: 400px;
+   outline: none;
+}
+
+.searchButton {
+   border: none;
+   cursor: pointer;
+   margin-right: 5px;
+   margin-left: 5px;
+   background-color: white;
+}
+
+.searchIcon{
+   width: 20px;
+   height: 20px;
+}
+
+
+.login {
+   width: 50%;
+   height: 150px;
+   line-height: 100px;
+   text-align: center;
+   line-height: 100px;
+   margin-bottom: 20px;
+   float: right;
+}
+
+
+.loginIcon{
+   width: 20px; 
+   height: 20px;
+   opacity: 0.5;
+   vertical-align: middle;
+   margin-bottom: 5px;
+}
+
+.login ul{
+	display: flex;
+   list-style: none;
+}
+
+.login li a{
+   text-decoration: none;
+   color: rgba(0,0,0,0.6);
+   margin-top: -10px;
+}
+
+.login li a:hover{
+   text-decoration: underline;
+   color: black;
+}
+
+.separator {
+   margin-right: 4px;
+   margin-left: 4px;
+}
+
+.login a {
+   text-decoration: none;
+   color: black;
+}
+
+
+
+.loginIcon:hover{
+	opacity: 1;
+}
+
+.loginIcon{
+   width: 20px; 
+   height: 20px;
+}
+
+.loginButton{
+   cursor: pointer;
+   margin-right: 5px;
+   margin-left: 5px;
+   width: 30px;
+   height: 30px;
+   border: none;
+   background-color: white;
+}

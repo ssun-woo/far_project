@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+}
+
+body h2 {
+	text-align: center;
+}
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	border: none;
+	border-top: 1px solid #000000;
+}
+
+.customerDeleteForm {
+	width: 60%;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #000000;
+	margin-top: 60px;
+	border-radius: 15px;
+}
+
+.delCustomer {
+	margin-bottom: 15px;
+}
+
+.delCustomer label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-left: 10px;
+}
+
+.delCustomer input {
+	width: 95%;
+	padding: 8px;
+	border: 1px solid #000000;	/* #c0c0c0 */
+	display: block;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+.delCustomerBtn {
+	text-align: right;
+	margin-right: 5px;
+}
+
+.delCusBtn {
+	padding: 8px 13px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	border-radius: 10px;
+	/*background-color: #3498db;
+	color: #ffffff;*/
+}

@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+}
+
+body h2 {
+	text-align: center;
+}
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	border: none;
+	border-top: 1px solid #000000;
+}
+
+.menuEditForm {
+	width: 90%;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #000000;
+	border-radius: 15px;
+	margin-top: -10px;
+}
+
+.menuEdit {
+	margin-bottom: 15px;
+}
+
+#menuSelect {
+	width: 50%;
+	padding: 8px;
+	border: 1px solid #000000;
+	display: block;
+	border-radius: 10px;
+	margin-left: 16px;
+}
+
+.menuEdit label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-left: 10px;
+}
+
+.menuEditPlus {
+	display: flex;
+    align-items: center;
+}
+
+.menuEdit textarea {
+	width: 80%;
+	padding: 8px;
+	border: 1px solid #000000;
+	resize: none;
+	display: block;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+.menuEdit input {
+	width: 80%;
+	padding: 8px;
+	border: 1px solid #000000;
+	display: block;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+.menuEditButton {
+	text-align: right;
+	margin-top: 15px;
+	margin-right: 10px;
+}
+
+.loadExistingBtn {
+	padding: 6px 11px;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 10px;
+}
+
+.menuEditBtn {
+	padding: 8px 13px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	border-radius: 10px;
+}
