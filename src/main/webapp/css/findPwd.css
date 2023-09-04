@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+#findPwdwrap {
+	text-align: center;
+	margin-top: 100px;
+}
+
+#memclassTitle {
+	margin-right: 280px;
+	margin-bottom: 10px;
+	
+}
+
+#memclassSelect {
+	width: 360px;
+	height: 30px;
+	border: solid 1px #CFCFCF;
+}
+
+#findSelect {
+	margin-right: 170px;
+	margin-top: 10px;
+}
+
+#findPwdByEmail {
+	
+	margin-top: 20px;
+}
+
+#findPwdByEmailIdTitle {
+	margin-right: 310px;	
+}
+
+#findPwdByEmailNameTitle {
+	margin-right: 325px;	
+}
+
+#findPwdByEmailIdInput {
+	width: 350px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: solid 1px #CFCFCF;
+}
+
+#findPwdByEmailNameInput {
+	width: 350px;
+	margin-top: 10px;
+	border: none;
+	border-bottom: solid 1px #CFCFCF;
+}
+
+#findPwdByEmailNameInput:focus {
+	outline: solid 1px #CFCFCF;
+	outline: none;
+}
+
+#findPwdByEmailInput:focus {
+	outline: solid 1px #CFCFCF;
+	outline: none;
+}
+
+#findPwdByEmailTitle {
+	padding-right: 310px;
+	margin-top: 30px;
+}
+
+#findPwdByEmailInput {
+	width: 350px;
+	margin-top: 23px;
+	border: none;
+	border-bottom: solid 1px #CFCFCF;
+}
+
+#findPwdEmailSubmit {
+	margin-top: 40px;
+	width: 360px;
+	height: 40px;
+}
+
+/* ===================================================== */
+
+#memclassSelect {
+	width: 360px;
+	height: 30px;
+	border: solid 1px #CFCFCF;
+}
+
+#findSelect {
+	margin-right: 170px;
+	margin-top: 10px;
+}
+
+#findPwdByTel {
+	
+	margin-top: 20px;
+}
+
+#findPwdByTelNameTitle {
+	margin-right: 325px;	
+}
+
+#findPwdByTelNameInput {
+	width: 350px;
+	margin-top: 10px;
+	border: none;
+	border-bottom: solid 1px #CFCFCF;
+}
+
+#findPwdByTelNameInput:focus {
+	outline: solid 1px #CFCFCF;
+	outline: none;
+}
+
+#findPwdByTelInput:focus {
+	outline: solid 1px #CFCFCF;
+	outline: none;
+}
+
+#findPwdByTelTitle {
+	padding-right: 270px;
+	margin-top: 30px;
+}
+
+#findPwdByTelInput {
+	width: 350px;
+	border: none;
+	border-bottom: solid 1px #CFCFCF;
+}
+
+#findPwdByTelSubmit {
+	margin-top: 40px;
+	width: 360px;
+	height: 40px;
+}
