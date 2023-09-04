@@ -1,0 +1,24 @@
+@charset "UTF-8";
+#event_no {
+	width: 20px;
+}
+
+#event_title{
+	width: 100px;
+}
+
+#event_name{
+	width: 30px;
+}
+
+#event_hit{
+	width: 30px;
+}
+
+#new_date{
+	width: 40px;
+}
+
+#event_date{
+	width: 60px;
+}
