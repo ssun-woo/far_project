@@ -1,167 +1,183 @@
-@charset "UTF-8";
-
-#wrap {
-   margin: 0 auto;
-}
-
-.top_category{
-	width: 1000px;
-	height:60px;
-	display:flex;
-	margin-top: 20px;
-	margin-left: 20px;
-	border-radius: 10px;
-	margin-bottom: -10px;
-}
-.top_category ul{
-	display: flex;
-	list-style: none;
-	margin-top: 0;
-	margin-left: -20px;
-}
-.top_category button{
-	width: 70px;
-	height: 30px;
-	border: none;
-	border: solid 1px rgba(0,0,0,0.2);
-	border-bottom: none;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	
-}
-.top_category button:hover{
-	background-color: white;
-	font-weight: bold;
-}
-
-
 .top {
-   display: flex;
-   justify-content: flex-start;
-   align-items: center;
-  
+	width: 1300px;
+	height: 200px;
+	margin-top: 30px;
+	margin-left: 50px;
 }
 
-.top2 {
-   display: flex;
-   justify-content: flex-start;
-   align-items: center;
-   margin-top: -40px;
+.nav_bar {
+	float: left;
+	margin-left: 120px;
+	margin-top: 37px;
 }
 
+.top_nav2 {
+	list-style: none;
+	display: flex;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	float: right;
+}
 
+.top_nav2 li {
+	height: 26px;
+	width: 80px;
+	margin-left: 0px;
+	text-align: center;
+	line-height: 26px;
+}
+
+.top_nav2 a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.middle_line {
+	clear: both;
+	height: 100px;
+	margin-left: 11px;
+	margin-right: 60px;
+}
 
 .logo {
-   width: 25%;
-   height: 150px;
-   border-radius: 10px 0px 0px 10px;
-   display: flex;
-      justify-content: center;
-      align-items: center;
+	height: 100px;
+	width: 220px;
+	float: left;
+	position: relative;
+	display: inline-block;
 }
-.logo_img{
-   width: auto;
-   height: auto;
-   max-width: 45%;
-   max-height: 45%;
-   margin-left: 40px;
-   margin-top: 10px;
+
+.logo img {
+	height: 60px;
+	width: 210px;
+	margin-top: 20px;
+	margin-left: 5px;
 }
+
+.index_search {
+	height: 30px;
+	width: 400px;
+	border: hidden;
+	margin-left: 20px;
+	overflow: hidden;
+	outline: none;
+}
+
 .search {
-   display: flex;
-   align-items: center;
-   border: solid 1px;
-   margin-top: 60px;
-   width: 480px;
-   height: 40px;
-   margin: 5px auto;
-   justify-content: center;
-   text-align: center;
-   border-radius: 20px;
+	height: 100px;
+	width: 600px;
+	float: left;
 }
-.searchInput {
-   padding: 7px;
-   border: none;
-   width: 400px;
-   outline: none;
+
+.search_bar {
+	height: 50px;
+	border: 1px solid black;
+	margin-top: 25px;
+	margin-left: 30px;
+	margin-right: 100px;
+	border-radius: 30px;
 }
 
 .searchButton {
-   border: none;
-   cursor: pointer;
-   margin-right: 5px;
-   margin-left: 5px;
-   background-color: white;
+	border: 0px;
+	margin-top: 10px;
+	height: 23px;
+	background-color: white;
 }
 
-.searchIcon{
-   width: 20px;
-   height: 20px;
+.searchIcon {
+	height: 25px;
 }
 
-
-.login {
-   width: 50%;
-   height: 150px;
-   line-height: 100px;
-   text-align: center;
-   line-height: 100px;
-   margin-bottom: 20px;
-   float: right;
+.search_input {
+	float: left;
+	margin-top: 10px;
 }
 
-
-.loginIcon{
-   width: 20px; 
-   height: 20px;
-   opacity: 0.5;
-   vertical-align: middle;
-   margin-bottom: 5px;
+.end_line {
+	clear: both;
+	margin-left: 11px;
+	margin-right: 60px;
+	height: 60px;
 }
 
-.login ul{
+.end_line ul {
+	list-style: none;
 	display: flex;
-   list-style: none;
+	margin-top: 10px;
+	padding-left: 0px;
 }
 
-.login li a{
-   text-decoration: none;
-   color: rgba(0,0,0,0.6);
-   margin-top: -10px;
+.end_line li {
+	height: 40px;
+	width: 90px;
+	margin-right: 50px;
+	text-align: center;
+	line-height: 30px;
 }
 
-.login li a:hover{
-   text-decoration: underline;
-   color: black;
+.end_line i {
+	display: block;
+	height: 40px;
+	width: 40px;
+	float: left;
 }
 
-.separator {
-   margin-right: 4px;
-   margin-left: 4px;
+.end_line span {
+	display: block;
+	width: 32px;
+	float: left;
+	margin-top: 10px;
+	margin-left: 5px;
 }
 
-.login a {
-   text-decoration: none;
-   color: black;
+.end_line img {
+	height: 40px;
+	width: 40px;
 }
 
-
-
-.loginIcon:hover{
-	opacity: 1;
+.end_line a {
+	text-decoration: none;
+	color: black;
 }
 
-.loginIcon{
-   width: 20px; 
-   height: 20px;
+.logo-popup {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 80px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 10px;
+	width: 120px;
+	z-index: 1;
 }
 
-.loginButton{
-   cursor: pointer;
-   margin-right: 5px;
-   margin-left: 5px;
-   width: 30px;
-   height: 30px;
-   border: none;
-   background-color: white;
+.logo-popup ul {
+	list-style: none;
+	padding: 0;
+}
+
+.logo-popup li {
+	margin: 5px 0;
+}
+
+/* 마우스를 로고 이미지 위로 올렸을 때 팝업을 표시합니다. */
+.logo:hover .logo-popup {
+	display: block;
+}
+
+.logo-popup a {
+	text-decoration: none;
+	color: black;
+}
+
+.logo-popup hr {
+	color: black;
+	opacity: 0.5;
+}
+
+.end_hr {
+	opacity: 0.5;
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../main/header2.jsp"/>
+<jsp:include page="../main/new_header2.jsp"/>
 <div class="shop_List">
 	<div class="filter">
 	 <div class="filter_top">
