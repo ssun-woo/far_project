@@ -47,16 +47,6 @@
 			<div class="middle_line">
 				<div class="logo">
         			<a href="/"><img src="/images/main/logo.jpg" alt="logo"></a>
-       			<div class="logo-popup">
-		            <ul>
-		                <li><a href="/">홈</a></li>
-		                <hr>
-		                <li><a href="/acc/cate_list">숙소</a></li>
-		                <li><a href="/resto/cate_list">식당</a></li>
-		                <li><a href="/culture/cate_list">문화</a></li>
-		                <li><a href="/beauty/cate_list">뷰티</a></li>
-		            </ul>
-        		</div>
    		 	</div>
 				
 				<div class="search">
