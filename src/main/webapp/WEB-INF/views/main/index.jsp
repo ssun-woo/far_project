@@ -397,6 +397,7 @@
 		 
 	});
 	
+	
 	$('.topTen_culture').on(
 			'init reInit afterChange',
 			function(event, slick, currentSlide) {
