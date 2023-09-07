@@ -110,12 +110,12 @@
 				</ul>
 			</div>
 			
-		<hr class="end_hr">
+		
 			
 		</div>
 		
 		
-		
+		<hr class="end_hr">
 		
 		
 		
