@@ -18,7 +18,7 @@
         }; 
     </script>
     
-    <jsp:include page="../main/header.jsp"/>
+    <jsp:include page="../main/new_header2.jsp"/>
 </head>
 <body>
 <div id="findPwdwrap">

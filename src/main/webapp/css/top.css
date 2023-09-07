@@ -48,10 +48,10 @@
 }
 
 .logo img {
-   height: 80px;
-   width: 200px;
-   margin-top: 0px;
-   margin-left: 5px;
+	height: 80px;
+	width: 200px;
+	margin-top: 0px;
+	margin-left: 5px;
 }
 
 .index_search {
@@ -179,6 +179,7 @@
 }
 
 .end_hr {
+<<<<<<< HEAD
    opacity: 0.5;
    margin-top: 0px;
 }
