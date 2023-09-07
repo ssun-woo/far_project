@@ -41,18 +41,18 @@
 }
 
 #tptext {
-    width: calc(100px- 10px);
+    width: calc(100% - 10px);
     height: 80px;
     background-color: gray;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    margin: 0 0px;
+    margin: 0 1px;
     padding: 5px;
     flex: 1;
 }
 
 .topTen img {
-    width: calc(1050px- 10px);
+    width: calc(100% - 1px);
     height: 300px;
     object-fit: cover;
     display: block;
