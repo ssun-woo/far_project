@@ -15,8 +15,8 @@ public class AccResvController {
 	@Autowired
 	private AccResvServiceimpl accResvService;
 	
-	@RequestMapping("")
-	public ModelAndView 
+//	@RequestMapping("")
+//	public ModelAndView 
 	
 	
 }
