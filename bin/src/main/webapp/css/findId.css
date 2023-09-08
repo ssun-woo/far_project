@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+#findIdwrap {
+	text-align: center;
+	margin-top: 100px;
+}
+
+#memclassTitle {
+	margin-right: 280px;
+	margin-bottom: 10px;
+	
+}
+
+#memclassSelect {
+	width: 360px;
+	height: 30px;
+	border: solid 1px #CFCFCF;
+}
+
+#findSelect {
+	margin-right: 170px;
+	margin-top: 10px;
+}
+
+#findIdByEmail {
+	
+	margin-top: 20px;
+}
+
+#findIdByEmailNameTitle {
+	margin-right: 325px;	
+}
+
+#findIdByEmailNameInput {
+	width: 350px;
+	margin-top: 10px;
+	border: none;
+	border-bottom: solid 1px #CFCFCF;
+}
+
+#findIdByEmailNameInput:focus {
+	outline: solid 1px #CFCFCF;
+	outline: none;
+}
+
+#findIdByEmailInput:focus {
+	outline: solid 1px #CFCFCF;
+	outline: none;
+}
+
+#findIdByEmailTitle {
+	padding-right: 310px;
+	margin-top: 30px;
+}
+
+#findIdByEmailInput {
+	width: 350px;
+	margin-top: 23px;
+	border: none;
+	border-bottom: solid 1px #CFCFCF;
+}
+
+#findIdEmailSubmit {
+	margin-top: 40px;
+	width: 360px;
+	height: 40px;
+}
+
+/* ===================================================== */
+
+#memclassSelect {
+	width: 360px;
+	height: 30px;
+	border: solid 1px #CFCFCF;
+}
+
+#findSelect {
+	margin-right: 170px;
+	margin-top: 10px;
+}
+
+#findIdByTel {
+	
+	margin-top: 20px;
+}
+
+#findIdByTelNameTitle {
+	margin-right: 325px;	
+}
+
+#findIdByTelNameInput {
+	width: 350px;
+	margin-top: 10px;
+	border: none;
+	border-bottom: solid 1px #CFCFCF;
+}
+
+#findIdByTelNameInput:focus {
+	outline: solid 1px #CFCFCF;
+	outline: none;
+}
+
+#findIdByTelInput:focus {
+	outline: solid 1px #CFCFCF;
+	outline: none;
+}
+
+#findIdByTelTitle {
+	padding-right: 270px;
+	margin-top: 30px;
+}
+
+#findIdByTelInput {
+	width: 350px;
+	border: none;
+	border-bottom: solid 1px #CFCFCF;
+}
+
+#findIdByTelSubmit {
+	margin-top: 40px;
+	width: 360px;
+	height: 40px;
+}

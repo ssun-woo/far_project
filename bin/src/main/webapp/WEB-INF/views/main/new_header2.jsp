@@ -12,7 +12,6 @@
 <script src="/js/rs_menu.js"></script>
 <script src="/js/rs_pic.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/acc_search.css">
-<link rel="stylesheet" type="text/css" href="/css/acc_cont.css">
 <link rel="stylesheet" type="text/css" href="/css/accommodation.css">
 <link rel="stylesheet" type="text/css" href="/css/beauty.css">
 <link rel="stylesheet" type="text/css" href="/css/cs.css">
@@ -37,204 +36,6 @@
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-<style>
-
-	.top{
-		width: 1400px;
-		height: 200px;
-		margin-top: 30px;
-		margin-left: 50px;
-	}
-	
-	.nav_bar{
-		float:left;
-		margin-left: 180px;
-		margin-top: 37px;
-	}
-	
-	.top_nav2 {
-		list-style: none;
-		display: flex;
-		margin-top: 0px;
-		margin-bottom: 0px;
-		float: right;
-		
-	}
-	
-	.top_nav2 li{
-		height: 26px;
-		width: 80px;
-		margin-left: 0px;
-		text-align: center;
-		line-height: 26px;
-	}
-	
-	.top_nav2 a{
-		text-decoration: none;
-		color: inherit;	
-	}
-	
-	.middle_line{
-		clear: both;
-		height: 100px;
-		margin-left: 11px;
-		margin-right: 60px;
-	}
-	
-	.logo{
-		height: 100px;
-		width: 220px;
-		float: left;
-		position: relative;
-		display: inline-block;
-	}
-	
-	.logo img{
-		height: 60px;
-		width: 210px;
-		margin-top: 20px;
-		margin-left: 5px;
-	}
-	
-	.index_search{
-		height: 30px;
-		width: 400px;
-		border: hidden;
-		margin-left: 20px;
-		overflow: hidden;
-		outline: none;
-	}
-	
-	.search{
-		height: 100px;
-		width: 600px;
-		float: left;
-	}
-	
-	.search_bar{
-		height: 50px;
-		border: 1px solid black;
-		margin-top: 25px;
-		margin-left: 30px;
-		margin-right: 100px;
-		border-radius: 30px;
-		
-	}
-	
-	.searchButton{
-		border: 0px;
-		margin-top: 10px;
-		height: 23px;
-		background-color: white;
-			
-	}
-	
-	.searchIcon{
-		height: 25px;
-	}
-	
-	.search_input{
-		float: left;
-		margin-top: 10px;
-	}
-	
-	.end_line{
-		clear: both;
-		margin-left: 11px;
-		margin-right: 60px;
-		height: 60px;
-	}
-	
-	.end_line ul{
-		list-style: none;
-		display: flex;
-		margin-top: 10px;
-		padding-left: 0px;
-	}
-	
-	.end_line li{
-		height: 40px;
-		width: 90px;
-		margin-right: 50px;
-		text-align: center;
-		line-height: 30px;
-	}
-	
-	.end_line i{
-		display: block;
-		height: 40px;
-		width: 40px;
-		float: left;
-	}
-	
-	.end_line span{
-		display: block;
-		width: 32px;
-		float: left;
-		margin-top: 10px;
-		margin-left: 5px;
-	}
-	
-	.end_line img{
-		height: 40px;
-		width: 40px;
-	}
-	
-	.end_line a{
-		text-decoration: none;
-		color: black;	
-	}
-	
-	 /* 스타일을 추가합니다. */
-        .logo-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .logo-popup {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 80px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 10px;
-            width: 120px;
-        }
-
-        .logo-popup ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .logo-popup li {
-            margin: 5px 0;
-        }
-
-        /* 마우스를 로고 이미지 위로 올렸을 때 팝업을 표시합니다. */
-        .logo:hover .logo-popup {
-            display: block;
-        }
-        
-        .logo-popup a{
-        	text-decoration: none;
-        	color: black;
-        }
-        
-        .logo-popup hr{
-        	color: black;
-        	opacity: 0.5;
-        }
-        
-        .end_hr{
-        	opacity: 0.5;
-        	margin-top: -30px;
-        }
-	
-	
-	
-</style>
 </head>
 
 <body>
@@ -293,28 +94,20 @@
 			<div class="end_line">
 				<ul>
 					<li>
-						<a href="/acc/cate_list">
-						<i><img src="/images/main/travel.png" alt="숙소"></i>
-						<span>숙소</span>
-						</a>
+						<i></i>
+						<span></span>
 					</li>
 					<li>
-						<a href="/resto/cate_list">
-						<i><img src="/images/main/restaurant.png" alt="식당"></i>
-						<span>식당</span>
-						</a>
+						<i></i>
+						<span></span>
 					</li>
 					<li>
-						<a href="/culture/cate_list">
-						<i><img src="/images/main/ticket.png" alt="문호"></i>
-						<span>문화</span>
-						</a>
+						<i></i>
+						<span></span>
 					</li>
 					<li>
-						<a href="/beauty/cate_list">
-						<i><img src="/images/main/makeup.png" alt="뷰티"></i>
-						<span>뷰티</span>
-						</a>
+						<i></i>
+						<span></span>
 					</li>
 				</ul>
 			</div>
@@ -323,8 +116,8 @@
 			
 		</div>
 		
-		<hr class="end_hr">
 		
+		<hr class="end_hr">
 		
 		
 		
