@@ -12,6 +12,7 @@
 <script src="/js/rs_menu.js"></script>
 <script src="/js/rs_pic.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/acc_search.css">
+<link rel="stylesheet" type="text/css" href="/css/acc_cont.css">
 <link rel="stylesheet" type="text/css" href="/css/accommodation.css">
 <link rel="stylesheet" type="text/css" href="/css/beauty.css">
 <link rel="stylesheet" type="text/css" href="/css/cs.css">
