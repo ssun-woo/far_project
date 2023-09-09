@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../main/new_header2.jsp" />
+
 
 
 
@@ -53,7 +54,9 @@
 </div> 
 
 <div class="re-buttons">
-  <button id="rs-button1" onclick="makeReservation()" tag="예약하기">예약하기</button>
+	<input type="hidden" name="cate" value="${cate}">
+	<input type="hidden" name="store_num" value="${store_num }">
+  <button id="rs-button1" onclick="location = '/acc/payment_info?cate=${cate}&store_num=${store_num}'">예약하기</button>
   <button id="rs-button1" onclick="addToShopWish()" tag="찜하기">찜하기</button>
 </div>
 

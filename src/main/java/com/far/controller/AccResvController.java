@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.far.service.AccResvServiceimpl;
+import com.far.service.AccResvServiceImpl;
 
 // 숙소 예약관리자 Controller
 @Controller
@@ -13,10 +13,10 @@ import com.far.service.AccResvServiceimpl;
 public class AccResvController {
 	
 	@Autowired
-	private AccResvServiceimpl accResvService;
+	private AccResvServiceImpl accResvService;
 	
-	@RequestMapping("")
-	public ModelAndView 
+//	@RequestMapping("")
+//	public ModelAndView 
 	
 	
 }
