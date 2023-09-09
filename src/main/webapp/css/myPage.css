@@ -1,10 +1,10 @@
 @charset "UTF-8";
 .myPageReservation {
-	display: flex;
+	display: inline-block;
 	width: 80%;
 	margin-top: 80px;
 	justify-content: flex-end;
-	margin-left: auto; /* 수정된 부분 */
+	margin-left: auto;
 	background-color: blue;
 }
 
@@ -92,12 +92,21 @@
 }
 
 .myPageInclude_logo {
-	display: inline-block;
-	margin-top: -30px;
-	
+	float:left;
 }
 
-.myPageInclude_logo>select {
-	display: inline-block;
+.myPage_select {
 	margin-left: 700px; 
+}
+
+.chk_list_img {
+	float:left;
+}
+
+.chk_info {
+	float:right;
+}
+
+.chk_cont {
+	float:right;
 }
