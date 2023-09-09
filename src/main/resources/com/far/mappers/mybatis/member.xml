@@ -6,5 +6,10 @@
  
  <mapper namespace="Member">
  	
+ 	<insert id="mem_in">
+	 	insert into member(mem_id, mem_pwd, mem_email_id, mem_email_domain, mem_tel)
+	 	 values(#{mem_id}, #{mem_pwd}, #{mem_email_id}, #{mem_email_domain}, #{mem_tel})
+ 	</insert>
+ 	
  </mapper>
  

@@ -4,17 +4,17 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.far.dto.ResvDTO;
+import com.far.dto.MemberDTO;
 
 @Repository
-public class AccResvDAOImpl implements AccResvDAO {
-	
+public class MemberDAOImpl implements MemberDAO {
+
 	@Autowired
 	private SqlSession sqlSession;
 
 	@Override
-	public void resvStroe(ResvDTO resv) {
-		sqlSession.insert("resv_acc", resv);
+	public void insertMember(MemberDTO m) {
+		sqlSession.insert("mem_in", m);
 	}
 	
 }
