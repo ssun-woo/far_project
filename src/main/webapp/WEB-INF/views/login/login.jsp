@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<jsp:include page="../main/header.jsp"/>
+<jsp:include page="../main/new_header2.jsp"/>
 <title>로그인</title>
 </head>
 <body>
@@ -10,19 +10,21 @@
 	</div>
 	<div class="wrap">
 		<div class="login_form">
-			<form name="frmLogin" action="">
+			<form name="frmLogin" method="post" action="login_ok">
+			<input type="hidden" name="target" value="${param.target}">
+			<input type="hidden" name="store_num" value="${param.store_num}">
 				<div class="id_wrap">
 					<div class="id_img">
 						<img class="login_id" src="../images/login/login_id.png">
 					</div>
-					<input class="id" type="text" name="user_id" placeholder="아이디">
+					<input class="id" type="text" name="mem_id" placeholder="아이디">
 				</div>
 				
 				<div class="pwd_wrap">
 					<div class="pwd_img">
 						<img class="login_pwd" src="../images/login/login_pwd.png">
 					</div>
-					<input class="pwd" type="password" name="user_pwd" placeholder="비밀번호">
+					<input class="pwd" type="password" name="mem_pwd" placeholder="비밀번호">
 				</div>
 				<br>
 				<input class="submit" type="submit" value="로그인"><br>

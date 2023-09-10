@@ -5,18 +5,26 @@
 	height: 150px;
 }
 
-.jjim_list{
+.chk_list{
 	display: flex;
 }
 
-.jjim_cont{
-	margin-left: 15px;
-	margin-top: -5px;
+.chk_list_img {
+	float:left;
 }
-.jjim_cont p{
-	font-size:10pt;
+
+.jjim_info {
+	float:right;
 }
-.jjim_cont2{
-	margin-left: 170px;
-	position: inherit;
+
+.chk_cont {
+	float:right;
+}
+
+.myPageInclude_logo {
+	float:left;
+}
+
+.myPage_select {
+	margin-left: 700px; 
 }

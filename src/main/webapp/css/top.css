@@ -1,183 +1,300 @@
 .top {
-	width: 1300px;
-	height: 200px;
-	margin-top: 30px;
-	margin-left: 50px;
+   width: 1300px;
+   height: 200px;
+   margin-top: 30px;
+   margin-left: 50px;
 }
 
 .nav_bar {
-	float: left;
-	margin-left: 120px;
-	margin-top: 37px;
+   float: left;
+   margin-left: 120px;
+   margin-top: 37px;
 }
 
 .top_nav2 {
-	list-style: none;
-	display: flex;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	float: right;
+   list-style: none;
+   display: flex;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   float: right;
 }
 
 .top_nav2 li {
-	height: 26px;
-	width: 80px;
-	margin-left: 0px;
-	text-align: center;
-	line-height: 26px;
+   height: 26px;
+   width: 80px;
+   margin-left: 0px;
+   text-align: center;
+   line-height: 26px;
 }
 
 .top_nav2 a {
-	text-decoration: none;
-	color: inherit;
+   text-decoration: none;
+   color: inherit;
 }
 
 .middle_line {
-	clear: both;
-	height: 100px;
-	margin-left: 11px;
-	margin-right: 60px;
+   clear: both;
+   height: 100px;
+   margin-left: 11px;
+   margin-right: 60px;
 }
 
 .logo {
-	height: 100px;
-	width: 220px;
-	float: left;
-	position: relative;
-	display: inline-block;
+   height: 100px;
+   width: 220px;
+   float: left;
+   position: relative;
+   display: inline-block;
 }
 
 .logo img {
-	height: 60px;
-	width: 210px;
-	margin-top: 20px;
+	height: 80px;
+	width: 200px;
+	margin-top: 0px;
 	margin-left: 5px;
 }
 
 .index_search {
-	height: 30px;
-	width: 400px;
-	border: hidden;
-	margin-left: 20px;
-	overflow: hidden;
-	outline: none;
+   height: 30px;
+   width: 400px;
+   border: hidden;
+   margin-left: 20px;
+   overflow: hidden;
+   outline: none;
 }
 
 .search {
-	height: 100px;
-	width: 600px;
-	float: left;
+   height: 100px;
+   width: 600px;
+   float: left;
 }
 
 .search_bar {
-	height: 50px;
-	border: 1px solid black;
-	margin-top: 25px;
-	margin-left: 30px;
-	margin-right: 100px;
-	border-radius: 30px;
+   height: 50px;
+   border: 1px solid black;
+   margin-top: 25px;
+   margin-left: 30px;
+   margin-right: 100px;
+   border-radius: 30px;
 }
 
 .searchButton {
-	border: 0px;
-	margin-top: 10px;
-	height: 23px;
-	background-color: white;
+   border: 0px;
+   margin-top: 10px;
+   height: 23px;
+   background-color: white;
 }
 
 .searchIcon {
-	height: 25px;
+   height: 25px;
 }
 
 .search_input {
-	float: left;
-	margin-top: 10px;
+   float: left;
+   margin-top: 10px;
 }
 
 .end_line {
-	clear: both;
-	margin-left: 11px;
-	margin-right: 60px;
-	height: 60px;
+   clear: both;
+   margin-left: 11px;
+   margin-right: 60px;
+   height: 60px;
 }
 
 .end_line ul {
-	list-style: none;
-	display: flex;
-	margin-top: 10px;
-	padding-left: 0px;
+   list-style: none;
+   display: flex;
+   margin-top: 10px;
+   padding-left: 0px;
 }
 
 .end_line li {
-	height: 40px;
-	width: 90px;
-	margin-right: 50px;
-	text-align: center;
-	line-height: 30px;
+   height: 40px;
+   width: 90px;
+   margin-right: 50px;
+   text-align: center;
+   line-height: 30px;
 }
 
 .end_line i {
-	display: block;
-	height: 40px;
-	width: 40px;
-	float: left;
+   display: block;
+   height: 40px;
+   width: 40px;
+   float: left;
 }
 
 .end_line span {
-	display: block;
-	width: 32px;
-	float: left;
-	margin-top: 10px;
-	margin-left: 5px;
+   display: block;
+   width: 32px;
+   float: left;
+   margin-top: 10px;
+   margin-left: 5px;
 }
 
 .end_line img {
-	height: 40px;
-	width: 40px;
+   height: 40px;
+   width: 40px;
 }
 
 .end_line a {
-	text-decoration: none;
-	color: black;
+   text-decoration: none;
+   color: black;
 }
 
 .logo-popup {
-	display: none;
-	position: absolute;
-	top: 100%;
-	left: 80px;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	border-radius: 10px;
-	padding: 10px;
-	width: 120px;
-	z-index: 1;
+   display: none;
+   position: absolute;
+   top: 100%;
+   left: 80px;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   border-radius: 10px;
+   padding: 10px;
+   width: 120px;
+   z-index: 1;
 }
 
 .logo-popup ul {
-	list-style: none;
-	padding: 0;
+   list-style: none;
+   padding: 0;
 }
 
 .logo-popup li {
-	margin: 5px 0;
+   margin: 5px 0;
 }
 
 /* 마우스를 로고 이미지 위로 올렸을 때 팝업을 표시합니다. */
 .logo:hover .logo-popup {
-	display: block;
+   display: block;
 }
 
 .logo-popup a {
-	text-decoration: none;
-	color: black;
+   text-decoration: none;
+   color: black;
 }
 
 .logo-popup hr {
-	color: black;
-	opacity: 0.5;
+   color: black;
+   opacity: 0.5;
 }
 
 .end_hr {
-	opacity: 0.5;
+<<<<<<< HEAD
+   opacity: 0.5;
+   margin-top: 0px;
+}
+
+/* 지역, 날짜, 객실.인원 검색창 */
+.search2 {
+	border: 1px solid;
+	border-radius: 20px;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	width: 1000px;
+	height: 150px;
+	position: relative;
+}
+
+.search2Destination {
+	width: 250px;
+	margin-left: 10px;
+	border-right: 1px solid gray;
+	padding: 5px;
+}
+.search2Date {
+	width: 330px;
+	margin-left: 15px;
+	border-right: 1px solid gray;
+	padding: 5px;
+}
+.search2Personnel {
+	width: 280px;
+	margin-left: 15px;
+	padding: 5px;
+}
+
+.search2Destination2,
+.search2Date2,
+.search2Personnel2 {
+	margin-top: 35px;
+}
+
+.search2Destination label,
+.search2Date label,
+.search2Personnel label {
+	color: #808080;
+	font-weight: bold;
+	margin-bottom: 15px;
+	display: block;
+}
+
+#destination {
+	width: 130px;
+	padding: 5px;
+	color: black;
+	font-size: 22px;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+}
+#date {
+	width: 280px;
+	padding: 5px;
+	color: black;
+	font-size: 22px;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+}
+.search2Personnel p {
+	color: black;
+	font-weight: bold;
+	font-size: 20px;
+	border: none;
+}
+
+.search2Button button {
+	width: 95px;
+	height: 45px;
+	margin-top: 55px;
+	margin-right: 20px;
+	background-color: #0074d9;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+}
+
+.accSearch {
+	position: absolute;
+	top: 190px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  	display: none;
+}
+
+.personnel-controls {
+  	position: absolute;
+ 	width: 110px;
+ 	height: 90px;
+ 	top: 190px;
+ 	border: 1px solid;
+ 	padding: 25px;
+ 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: none;
+}
+.personnelAdult {
+	margin-bottom: 10px;
+}
+.personnelChild {
+	margin-bottom: 10px;
+}
+.personnelRoom {
+}
+.personnelAdult span,
+.personnelChild span,
+.personnelRoom span {
+	font-size: 16px;
+	font-weight: bold;
+	color: black;
 }
