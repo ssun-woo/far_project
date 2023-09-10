@@ -15,7 +15,7 @@
 	</div>
 	<div class="wrap">
 		<div class="join_form">
-			<form name="frmLogin" action="/signUp_ok">
+			<form name="frmLogin" action="/signUp" method="post">
 			
 				<div class="=joinid_wrap">
 					<div class="joinid_img">
@@ -30,6 +30,12 @@
 					</div>
 					<input class="joinpwd" type="password" name="mem_pwd" placeholder="비밀번호">
 				</div>
+				<div class="joinpwd_wrap">
+					<div class="joinpwd_img">
+						<img class="join_pwd" src="../images/login/login_pwd.png">
+					</div>
+					<input class="joinpwd" type="password" name="mem_pwdchk" placeholder="비밀번호 확인">
+				</div>
 				<br><br>
 				
 				<div class="joinname_wrap">
@@ -43,9 +49,7 @@
 					<div class="joinemail_img">
 						<img class="join_email" src="../images/login/email.png">
 					</div>
-					<input class="joinemail" type="text" name="mem_email_id" placeholder="이메일">
-					<input class="joinemail_domain" type="text" name="mem_email_domain" placeholder="이메일 도메인">
-					<%-- 이부분 수정해야함 --%>
+					<input class="joinemail" type="text" name="mem_email" placeholder="이메일">
 				</div>
 				
 				<div class="jointel_wrap">
