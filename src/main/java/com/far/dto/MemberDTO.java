@@ -1,5 +1,12 @@
 package com.far.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,12 +25,26 @@ import lombok.Setter;
 @Setter
 public class MemberDTO {
 	
+	@NotBlank
+	@Length(min=6, max=16, message="아이디는 6글자 이상 16글자 이하여야합니다.")
+	@Pattern(regexp = "/^[a-z0-9]/", message = "아이디는 영소문자와 숫자만 가능합니다")
 	private String mem_id;
+	
+	@NotBlank
+	@Pattern(regexp = "/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/", message = "비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.")
 	private String mem_pwd;
 	
+	@NotBlank
 	private String mem_name;
+	
+	@NotBlank
+	@Pattern(regexp = "^(?:\\w+\\.?)*\\w+@(?:\\w+\\.)+\\w+$", message = "이메일 형식이 올바르지 않습니다.")
 	private String mem_email;
+	
+	@NotBlank
+	@Pattern(regexp="/^[0-9]/", message="숫자만 입력 가능합니다.")
 	private String mem_tel;
+	
 	public String getMem_id() {
 		return mem_id;
 	}

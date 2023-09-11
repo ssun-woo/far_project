@@ -20,12 +20,12 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
-	// 로그인 페이지 이동
-	@RequestMapping("/login")
-	public ModelAndView login(@RequestParam(defaultValue = "/") String target) {
-		ModelAndView mav = new ModelAndView("login/login");
-		return mav;
-	}
+//	// 로그인 페이지 이동
+//	@RequestMapping("/login")
+//	public ModelAndView login(@RequestParam(defaultValue = "/") String target) {
+//		ModelAndView mav = new ModelAndView("login/login");
+//		return mav;
+//	}
 	
 	// 로그인인증 처리
 	@RequestMapping("/login_ok")

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="../main/new_header2.jsp"/>
+
 <title>로그인</title>
 </head>
 <body>
@@ -10,7 +11,7 @@
 	</div>
 	<div class="wrap">
 		<div class="login_form">
-			<form name="frmLogin" method="post" action="login_ok">
+			<form name="frmLogin" method="post" action="/login">
 			<input type="hidden" name="target" value="${param.target}">
 			<input type="hidden" name="store_num" value="${param.store_num}">
 				<div class="id_wrap">

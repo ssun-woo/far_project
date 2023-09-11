@@ -11,5 +11,8 @@
 	 	 values(#{mem_id}, #{mem_pwd}, #{mem_name}, #{mem_email}, #{mem_tel})
  	</insert>
  	
+ 	<select id="mem_select" resultType="Int">
+ 		select count(*) from member where mem_id = #{mem_id} and mem_pwd = #{mem_pwd}
+ 	</select>
  </mapper>
  
