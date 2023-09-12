@@ -16,12 +16,13 @@ hr {
 }
 
 .menuRegisForm {
-	width: 90%;
+	width: 900px;
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #000000;
 	border-radius: 15px;
 	margin-top: -10px;
+	margin-left: 15px;
 }
 
 .menuRegis {
@@ -41,22 +42,24 @@ hr {
 }
 
 .menuRegis textarea {
-	width: 95%;
+	width: 850px;
 	padding: 8px;
 	border: 1px solid #000000;
 	resize: none;
 	display: block;
 	margin: 0 auto;
 	border-radius: 10px;
+	margin-left: 15px;
 }
 
 .menuRegis input {
-	width: 95%;
+	width: 850px;
 	padding: 8px;
 	border: 1px solid #000000;
 	display: block;
 	margin: 0 auto;
 	border-radius: 10px;
+	margin-left: 15px;
 }
 
 .menuRegisButton {

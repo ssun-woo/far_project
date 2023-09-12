@@ -1,35 +1,31 @@
 .eventMs {
     width: 1150px;
     height: 350px;
-    position: absolute;
+    position: relative; /* 변경: 부모 요소를 relative로 설정 */
     overflow: hidden;
     border-radius: 20px;
     margin: 0 auto;
-   
 }
 
-
 .eventMs img {
-  	width: calc(100% - 10px);
+    width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     border-radius: 20px;
-    margin-left: 5px;
+    
 }
 
 .eventMs button {
-   position: absolute;
+    position: absolute;
     z-index: 50;
     width: 30px;
     height: 30px;
     border-radius: 100%;
     background: rgba(0, 0, 0, 0.5);
     border: none;
-    margin: 0 auto;
-    top: 40%;
+    top: 50%;
     transform: translateY(-50%);
-    
 }
 
 .eventMs button:before {
@@ -43,7 +39,7 @@
 }
 
 .eventMs button.slick-prev {
-    left: 10px;
+    left: 5px; /* 변경: 왼쪽 여백을 5px로 설정 */
     font-size: 0;
     color: transparent;
 }
@@ -53,11 +49,11 @@
 }
 
 .eventMs button.slick-next {
-    right: 30px;
+    right: 5px; /* 변경: 오른쪽 여백을 5px로 설정 */
     font-size: 0;
     color: transparent;
 }
 
 .eventMs button.slick-next:before {
     content: "\e940";
-} 
+}

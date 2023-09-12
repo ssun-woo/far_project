@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+
 <jsp:include page="new_header.jsp" />
+
 
 
 
@@ -369,6 +371,7 @@
 		slidesToScroll : 1,
 		 
 	});
+	
 	
 	$('.topTen_culture').on(
 			'init reInit afterChange',
