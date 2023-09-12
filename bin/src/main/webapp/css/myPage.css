@@ -1,0 +1,103 @@
+@charset "UTF-8";
+.myPageReservation {
+	display: flex;
+	width: 80%;
+	margin-top: 80px;
+	justify-content: flex-end;
+	margin-left: auto; /* 수정된 부분 */
+	background-color: blue;
+}
+
+.myPageReservation>div {
+	width: 20%;
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+}
+
+.myPageCommon {
+	background-color: pink;
+}
+
+.myPageAcc {
+	background-color: yellow;
+}
+
+.myPageRestaurant {
+	background-color: skyblue;
+}
+
+.myPageBeauty {
+	background-color: aqua;
+}
+
+.myPageArt {
+	background-color: green;
+}
+
+.myPageListwrap {
+	display:flex;	
+}
+
+.myPageList{
+	margin-top: -90px;
+	width: 200px;
+}
+.myPageList>ul {
+	margin-top: 100px;
+	margin-right: 20px;
+	border: 1px solid black;
+	padding: 20px; /* 간격 벌리기 */
+	padding-left: 20px;
+}
+.myPageList>ul>li {
+	margin-left: 30px;
+	margin-bottom:30px;
+}
+
+.myPageListReservation {
+	margin-top: 30px;
+	text-decoration: none; 
+    transition: color 0.5s;
+}
+
+.myPageListReservation:hover {
+   top: -5px;
+   font-weight: bold;
+}
+
+.myPageJjim:hover {
+   top: -5px;
+   font-weight: bold;
+}
+
+.myPageInfo:hover {
+   top: -5px;
+   font-weight: bold;
+}
+
+.myPagecs:hover {
+   top: -5px;
+   font-weight: bold;
+}
+
+
+#pageContent {
+	margin-top: 15px;
+	width: 800px;
+}
+
+.myPageheader {
+	display: flex;
+}
+
+.myPageInclude_logo {
+	display: inline-block;
+	margin-top: -30px;
+	
+}
+
+.myPageInclude_logo>select {
+	display: inline-block;
+	margin-left: 700px; 
+}

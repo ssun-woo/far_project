@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+.payment_end {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 80px;
+	border: 1px solid black;
+	height: 500px;
+	border-radius: 5px;
+}
+
+.product_img {
+	border-radius: 10px;
+	width: 250px;
+	height: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	display:
+}
+
+.product_img img {
+	width: 250px;
+	height: 250px;
+}
+
+.payment_msg {
+	text-align: center;
+}
+
+.payment_product {
+	margin: 50px 30px 0 30px;
+}
+
+.reservation_list {
+	background-color: white;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 1px solid #999999;
+	width: 250px;
+	height: 40px;
+	margin-right: 50px;
+	margin-top: 50px;
+}
+
+.pay_details {
+	background-color: white;
+	border-radius: 10px;
+	cursor: pointer;
+	border: 1px solid #999999;
+	width: 250px;
+	height: 40px;
+	margin-top: 50px;
+}
+
+.payment {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.pay_storeInfo {
+	border: 1px solid black;
+}
+
+.title, .info {
+	margin-left: 50px;
+}
+
+.pay_storeInfo .info table {
+	width: 80%;
+	margin: auto;
+}
+
+.pay_storeInfo .info div {
+	width: 150px;
+	height: 150px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.pay_storeInfo .info img {
+	width: 150px;
+	height: 150px;
+}
+
+.info2 {
+	margin-left: 60px;
+}
+
+.pay_total .info2 table {
+	width: 280px;
+}
+
+.pay_dcInfo {
+	border: 1px solid black;
+	display: flex;
+}
+
+.pay_dcInfo .info .table1 {
+	margin-top: 50px;
+	width: 500px;
+}
+
+.dc_point {
+	width: 62%;
+	border-right: 1px solid black;
+}
+
+.dc_point .info .table1 {
+	
+}
+
+.dc_point .info .table2 {
+	width: 500px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.pay_total {
+	width: 38%;
+}
+
+.pay_means {
+	border: 1px solid black;
+}
+
+.pay_payment {
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+}
+
+.pay_means .info {
+	height: 500px;
+}
+
+.pay_storeInfo, .pay_dcInfo, .pay_means {
+	border-radius: 10px;
+}
+
+.payment_button {
+	width: 300px;
+	height: 80px;
+	margin-left: 50px;
+}
+
+.cancle_button {
+	width: 300px;
+	height: 80px;
+}

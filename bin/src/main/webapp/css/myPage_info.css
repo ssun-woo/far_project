@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+.myPageInfo_logo {
+	margin-left: 165px;
+}
+.myPageInfo_form {
+	width: 600px;
+	height: 350px;
+	margin: 0 auto;
+	margin-top: 0px;
+	text-align: center;
+}
+
+.myPageInfoid_wrap, .myPageInfopwd_wrap, .myPageInfoname_wrap, .myPageInfoemail_wrap, .myPageInfoetel_wrap {
+	position: relative;
+  	display: inline-block;
+}
+
+.myPageInfoid_img, .myPageInfopwd_img, .myPageInfoname_img, .myPageInfoemail_img, .myPageInfotel_img {
+	display: inline-block;
+}
+
+.myPageInfoid, .myPageInfopwd, .myPageInfoname, .myPageInfoemail, .myPageInfotel {
+	width: 400px;
+	height: 45px;
+	margin-top: 40px;
+	border: none;
+	border-bottom: solid 1px gray;
+	display: inline-block;
+}
+
+.myPageInfo_id, .myPageInfo_pwd, .myPageInfo_name, .myPageInfo_email, .myPageInfo_tel {
+	width: 20px;
+	height: 20px;
+}
+
+.id, .pwd::placeholder {
+	
+	text-decoration: none;
+}
+
+
+.submit {
+	width: 60%;
+	height: 45px;
+	margin-top: 25px;
+	border: none;
+	background-color: skyblue;
+}
+
+span {
+	color: lightgray;
+}

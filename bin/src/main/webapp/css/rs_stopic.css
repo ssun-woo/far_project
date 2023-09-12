@@ -1,0 +1,138 @@
+.rs-top {
+	width: 750px;
+	height: 100px;
+	margin: 0 auto;
+	background-color : #ff8f10f4;
+	margin-bottom: 20px;
+	color: white;
+	border-radius: 5px;
+}
+
+.stopic {
+	width: 750px;
+	height: 450px;
+	position: relative;
+	margin: 0 auto;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.stopic img {
+	width: 750px;
+	height: 550px;
+	object-fit: cover;
+	border-radius: 20px;
+}
+
+.stopic button {
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	border: none;
+}
+
+.stopic button:before {
+	font-family: 'xeicon';
+	color: #fff;
+	font-size: 25px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.stopic button.slick-prev {
+	left: 20px;
+	font-size: 0;
+	color: transparent;
+	cursor: pointer;
+}
+
+.stopic button.slick-prev:before {
+	content: "\e93d";
+}
+
+.stopic button.slick-next {
+	right: 20px;
+	font-size: 0;
+	color: transparent;
+	cursor: pointer;
+}
+
+.stopic button.slick-next:before {
+	content: "\e940";
+}
+
+.re-buttons {
+	display: flex;
+	justify-content: center;
+	margin-top: .5px;
+}
+
+.store {
+	width: 750px;
+	height: 350px;
+	margin: 80px auto;
+	position: relative;
+	border: dotted;
+	border-radius: 8%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	margin-top: 20px;
+}
+
+.st-buttons {
+	display: flex;
+	justify-content: center;
+	margin-top: 8px;
+}
+
+#menu-button, #review-button, #information-button {
+	margin: 0px 2px;
+	padding: 12px 80px;
+	font-size: 18px;
+	background-color: #ff8f10f4;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 12px;
+}
+
+#st-button1.active {
+	background-color: #44bd32;
+	/* Change this to the desired color for the active button */
+}
+
+#rs-button1 {
+	margin: 0px 10px;
+	padding: 10px 22px;
+	font-size: 16px;
+	background-color: #ff8f10f4;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 12px;
+}
+
+.menu-content, .review-content, .information-content {
+	display: none;
+}
+
+.information {
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #f2f2f2;
+	border-radius: 4px;
+}
+
+#menu-button.active, #review-button.active, #information-button.active {
+	background-color: #44bd32;
+	
+}

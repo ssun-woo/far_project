@@ -1,0 +1,106 @@
+.topTen {
+	width: 1150px;
+	height: 450px;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	border-radius: 20px;
+	display: flex;
+}
+
+.evFont {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.evViewAll {
+	text-align: center;
+	display: block;
+	margin: 10px auto;
+	position: relative;
+	margin-bottom: 100px;
+}
+.evViewAll button{
+	position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+
+.tpbox {
+	width: 1150px;
+	height: 450px;
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+}
+
+#tptext {
+	width: calc(100% - 10px);
+	height: 80px;
+	background-color: gray;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	margin: 0 1px;
+	padding: 5px;
+	flex: 1;
+}
+
+.topTen img {
+	width: calc(100% - 1px);
+	height: 300px;
+	object-fit: cover;
+	display: block;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	margin: 0 1px;
+	padding: 0;
+}
+
+.topTen button {
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.5);
+	border: none;
+	transform: translateY(-50%);
+}
+
+.topTen button:before {
+	font-family: 'xeicon';
+	color: #fff;
+	font-size: 18px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.topTen button.slick-prev {
+	left: 10px;
+	font-size: 0;
+	color: transparent;
+}
+
+.topTen button.slick-prev:before {
+	content: "\e93b";
+}
+
+.topTen button.slick-next {
+	right: 10px;
+	font-size: 0;
+	color: transparent;
+}
+
+.topTen button.slick-next:before {
+	content: "\e93e";
+}

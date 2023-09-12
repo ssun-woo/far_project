@@ -9,14 +9,22 @@
 	display: flex;
 }
 
-.chk_cont{
-	margin-left: 15px;
-	margin-top: -5px;
+.chk_list_img {
+	float:left;
 }
-.chk_cont p{
-	font-size:10pt;
+
+.chk_info {
+	float:right;
 }
-.chk_cont2{
-	margin-left: 170px;
-	position: inherit;
+
+.chk_cont {
+	float:right;
+}
+
+.myPageInclude_logo {
+	float:left;
+}
+
+.myPage_select {
+	margin-left: 700px; 
 }

@@ -1,0 +1,63 @@
+.eventMs {
+    width: 1150px;
+    height: 350px;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 0 auto;
+   
+}
+
+
+.eventMs img {
+  	width: calc(100% - 10px);
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    margin-left: 5px;
+}
+
+.eventMs button {
+   position: absolute;
+    z-index: 50;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    margin: 0 auto;
+    top: 40%;
+    transform: translateY(-50%);
+    
+}
+
+.eventMs button:before {
+    font-family: 'xeicon';
+    color: #fff;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.eventMs button.slick-prev {
+    left: 10px;
+    font-size: 0;
+    color: transparent;
+}
+
+.eventMs button.slick-prev:before {
+    content: "\e93d";
+}
+
+.eventMs button.slick-next {
+    right: 30px;
+    font-size: 0;
+    color: transparent;
+}
+
+.eventMs button.slick-next:before {
+    content: "\e940";
+} 

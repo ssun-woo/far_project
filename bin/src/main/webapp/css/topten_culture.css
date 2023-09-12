@@ -1,0 +1,78 @@
+.topTen_culture {
+	width: 1150px;
+	height: 540px;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	border-radius: 20px;
+	display: flex;
+}
+
+.tpbox_culture {
+    width: 1150px; 
+    height: 150px;
+    margin: 5px; 
+    display: flex;
+    flex-direction: column; 
+    
+}
+
+.topTen_culture img {
+	width: calc(100% - 5px);
+	height: 400px;
+	object-fit: cover;
+    display: block;
+	border-radius: 5px;
+    margin-left: 5px;
+}
+
+.topTen_culture button {
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.5);
+	border: none;
+	transform: translateY(-50%);
+}
+
+.topTen_culture button:before {
+	font-family: 'xeicon';
+	color: #fff;
+	font-size: 18px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.topTen_culture button.slick-prev {
+	left: 10px;
+	font-size: 0;
+	color: transparent;
+}
+
+.topTen_culture button.slick-prev:before {
+	content: "\e93b";
+}
+
+.topTen_culture button.slick-next {
+	right: 10px;
+	font-size: 0;
+	color: transparent;
+}
+
+.topTen_culture button.slick-next:before {
+	content: "\e93e";
+}
+
+#tptext_culture {
+    width: 220px - 5px;
+    height: 120px;
+    background-color: #3CB4FF;
+    margin-left: 5px;
+    border-radius: 5px;
+  	color: white;

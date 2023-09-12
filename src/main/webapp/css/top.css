@@ -1,169 +1,300 @@
-@charset "UTF-8";
-
-#wrap {
-   width: 100%;
-   height: 100%;
-   margin: 0 auto;
-}
-
-.top_category{
-	width: 1000px;
-	height:60px;
-	display:flex;
-	margin-top: 20px;
-	margin-left: 20px;
-	border-radius: 10px;
-	margin-bottom: -10px;
-}
-.top_category ul{
-	display: flex;
-	list-style: none;
-	margin-top: 0;
-	margin-left: -20px;
-}
-.top_category button{
-	width: 70px;
-	height: 30px;
-	border: none;
-	border: solid 1px rgba(0,0,0,0.2);
-	border-bottom: none;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	
-}
-.top_category button:hover{
-	background-color: white;
-	font-weight: bold;
-}
-
-
 .top {
+   width: 1300px;
+   height: 200px;
+   margin-top: 30px;
+   margin-left: 50px;
+}
+
+.nav_bar {
+   float: left;
+   margin-left: 120px;
+   margin-top: 37px;
+}
+
+.top_nav2 {
+   list-style: none;
    display: flex;
-   justify-content: flex-start;
-   align-items: center;
-  
-}
-
-.top2 {
-   display: flex;
-   justify-content: flex-start;
-   align-items: center;
-   margin-top: -40px;
-}
-
-
-
-.logo {
-   width: 25%;
-   height: 150px;
-   border-radius: 10px 0px 0px 10px;
-   display: flex;
-      justify-content: center;
-      align-items: center;
-}
-.logo_img{
-   width: auto;
-   height: auto;
-   max-width: 45%;
-   max-height: 45%;
-   margin-left: 40px;
-   margin-top: 10px;
-}
-.search {
-   display: flex;
-   align-items: center;
-   border: solid 1px;
-   margin-top: 60px;
-   width: 480px;
-   height: 40px;
-   margin: 5px auto;
-   justify-content: center;
-   text-align: center;
-   border-radius: 20px;
-}
-.searchInput {
-   padding: 7px;
-   border: none;
-   width: 400px;
-   outline: none;
-}
-
-.searchButton {
-   border: none;
-   cursor: pointer;
-   margin-right: 5px;
-   margin-left: 5px;
-   background-color: white;
-}
-
-.searchIcon{
-   width: 20px;
-   height: 20px;
-}
-
-
-.login {
-   width: 50%;
-   height: 150px;
-   line-height: 100px;
-   text-align: center;
-   line-height: 100px;
-   margin-bottom: 20px;
+   margin-top: 0px;
+   margin-bottom: 0px;
    float: right;
 }
 
-
-.loginIcon{
-   width: 20px; 
-   height: 20px;
-   opacity: 0.5;
-   vertical-align: middle;
-   margin-bottom: 5px;
+.top_nav2 li {
+   height: 26px;
+   width: 80px;
+   margin-left: 0px;
+   text-align: center;
+   line-height: 26px;
 }
 
-.login ul{
-	display: flex;
-   list-style: none;
-}
-
-.login li a{
+.top_nav2 a {
    text-decoration: none;
-   color: rgba(0,0,0,0.6);
-   margin-top: -10px;
+   color: inherit;
 }
 
-.login li a:hover{
-   text-decoration: underline;
-   color: black;
+.middle_line {
+   clear: both;
+   height: 100px;
+   margin-left: 11px;
+   margin-right: 60px;
 }
 
-.separator {
-   margin-right: 4px;
-   margin-left: 4px;
+.logo {
+   height: 100px;
+   width: 220px;
+   float: left;
+   position: relative;
+   display: inline-block;
 }
 
-.login a {
-   text-decoration: none;
-   color: black;
+.logo img {
+	height: 80px;
+	width: 200px;
+	margin-top: 0px;
+	margin-left: 5px;
 }
 
-
-
-.loginIcon:hover{
-	opacity: 1;
-}
-
-.loginIcon{
-   width: 20px; 
-   height: 20px;
-}
-
-.loginButton{
-   cursor: pointer;
-   margin-right: 5px;
-   margin-left: 5px;
-   width: 30px;
+.index_search {
    height: 30px;
-   border: none;
+   width: 400px;
+   border: hidden;
+   margin-left: 20px;
+   overflow: hidden;
+   outline: none;
+}
+
+.search {
+   height: 100px;
+   width: 600px;
+   float: left;
+}
+
+.search_bar {
+   height: 50px;
+   border: 1px solid black;
+   margin-top: 25px;
+   margin-left: 30px;
+   margin-right: 100px;
+   border-radius: 30px;
+}
+
+.searchButton {
+   border: 0px;
+   margin-top: 10px;
+   height: 23px;
    background-color: white;
+}
+
+.searchIcon {
+   height: 25px;
+}
+
+.search_input {
+   float: left;
+   margin-top: 10px;
+}
+
+.end_line {
+   clear: both;
+   margin-left: 11px;
+   margin-right: 60px;
+   height: 60px;
+}
+
+.end_line ul {
+   list-style: none;
+   display: flex;
+   margin-top: 10px;
+   padding-left: 0px;
+}
+
+.end_line li {
+   height: 40px;
+   width: 90px;
+   margin-right: 50px;
+   text-align: center;
+   line-height: 30px;
+}
+
+.end_line i {
+   display: block;
+   height: 40px;
+   width: 40px;
+   float: left;
+}
+
+.end_line span {
+   display: block;
+   width: 32px;
+   float: left;
+   margin-top: 10px;
+   margin-left: 5px;
+}
+
+.end_line img {
+   height: 40px;
+   width: 40px;
+}
+
+.end_line a {
+   text-decoration: none;
+   color: black;
+}
+
+.logo-popup {
+   display: none;
+   position: absolute;
+   top: 100%;
+   left: 80px;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   border-radius: 10px;
+   padding: 10px;
+   width: 120px;
+   z-index: 1;
+}
+
+.logo-popup ul {
+   list-style: none;
+   padding: 0;
+}
+
+.logo-popup li {
+   margin: 5px 0;
+}
+
+/* 마우스를 로고 이미지 위로 올렸을 때 팝업을 표시합니다. */
+.logo:hover .logo-popup {
+   display: block;
+}
+
+.logo-popup a {
+   text-decoration: none;
+   color: black;
+}
+
+.logo-popup hr {
+   color: black;
+   opacity: 0.5;
+}
+
+.end_hr {
+<<<<<<< HEAD
+   opacity: 0.5;
+   margin-top: 0px;
+}
+
+/* 지역, 날짜, 객실.인원 검색창 */
+.search2 {
+	border: 1px solid;
+	border-radius: 20px;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	width: 1000px;
+	height: 150px;
+	position: relative;
+}
+
+.search2Destination {
+	width: 250px;
+	margin-left: 10px;
+	border-right: 1px solid gray;
+	padding: 5px;
+}
+.search2Date {
+	width: 330px;
+	margin-left: 15px;
+	border-right: 1px solid gray;
+	padding: 5px;
+}
+.search2Personnel {
+	width: 280px;
+	margin-left: 15px;
+	padding: 5px;
+}
+
+.search2Destination2,
+.search2Date2,
+.search2Personnel2 {
+	margin-top: 35px;
+}
+
+.search2Destination label,
+.search2Date label,
+.search2Personnel label {
+	color: #808080;
+	font-weight: bold;
+	margin-bottom: 15px;
+	display: block;
+}
+
+#destination {
+	width: 130px;
+	padding: 5px;
+	color: black;
+	font-size: 22px;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+}
+#date {
+	width: 280px;
+	padding: 5px;
+	color: black;
+	font-size: 22px;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+}
+.search2Personnel p {
+	color: black;
+	font-weight: bold;
+	font-size: 20px;
+	border: none;
+}
+
+.search2Button button {
+	width: 95px;
+	height: 45px;
+	margin-top: 55px;
+	margin-right: 20px;
+	background-color: #0074d9;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+}
+
+.accSearch {
+	position: absolute;
+	top: 190px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  	display: none;
+}
+
+.personnel-controls {
+  	position: absolute;
+ 	width: 110px;
+ 	height: 90px;
+ 	top: 190px;
+ 	border: 1px solid;
+ 	padding: 25px;
+ 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: none;
+}
+.personnelAdult {
+	margin-bottom: 10px;
+}
+.personnelChild {
+	margin-bottom: 10px;
+}
+.personnelRoom {
+}
+.personnelAdult span,
+.personnelChild span,
+.personnelRoom span {
+	font-size: 16px;
+	font-weight: bold;
+	color: black;
 }
