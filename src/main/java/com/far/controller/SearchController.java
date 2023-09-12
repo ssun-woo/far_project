@@ -35,9 +35,18 @@ public class SearchController {
 	}
 
 	@GetMapping("/acc")
-	public ModelAndView acc_search(String keyword) {
+	public ModelAndView acc_search(@RequestParam("keyword") String keyword) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("search/search_detail_rest");
+		mav.addObject("keyword", keyword);
 		return mav;
 	}
 }
+
+
+
+
+
+
+
+

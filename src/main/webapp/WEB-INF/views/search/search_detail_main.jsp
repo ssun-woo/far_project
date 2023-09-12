@@ -20,14 +20,13 @@
 			<ul class="n1 nav nav-tabs" id="myTabs">
 
 				<li class="nav-item"><a class="nav-link active"
-					data-toggle="tab" href="#main">통합검색</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
-					href="#rest">숙소</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
+					data-toggle="tab" href="">통합검색</a></li>
+				<li class="nav-item"><a class="nav-link" href="/search/acc?keyword=${keyword}">숙소</a></li>
+				<li class="nav-item"><a class="nav-link"
 					href="#food">음식</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
+				<li class="nav-item"><a class="nav-link" 
 					href="#cultrue">문화</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab"
+				<li class="nav-item"><a class="nav-link"
 					href="#beauty">뷰티</a></li>
 			</ul>
 		</div>
