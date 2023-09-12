@@ -1,7 +1,13 @@
 package com.far.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.directory.SearchResult;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -49,6 +55,7 @@ public class MainController {
    @RequestMapping("/findPwd")
    public ModelAndView findPwd() {
       return new ModelAndView("login/findPwd");
+      
    }
    
 //   // 테스트 페이지
