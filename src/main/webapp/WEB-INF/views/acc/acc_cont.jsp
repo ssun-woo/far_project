@@ -46,7 +46,7 @@
  		 <input type="radio" id="review" name="show" />
  		 
  		 <div class="tab">
-   			<label for="service">메뉴</label>
+   			<label for="service">상품</label>
     		<label for="information">정보</label>
     		<label for="cancellation">이용안내 / 취소규정</label>
     		<label for="map">지도</label>
@@ -80,7 +80,9 @@
                </div>
     
     		<script src="/js/acc_cont.js"></script>
-    		<script src="/js/popup.js"></script>
+    		
+    		
+    		
     		
 	</div>
 	
@@ -89,6 +91,8 @@
 </div><!-- shop_cont -->	
 	
 <jsp:include page="../main/footer.jsp" />
+
+
 
 
 

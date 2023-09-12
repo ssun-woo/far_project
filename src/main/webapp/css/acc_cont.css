@@ -452,11 +452,16 @@
 	margin-bottom: -30px;
 }
 
-#review_write{
-	margin-left: 1150px;
-	width: 100px;
-	height: 40px;
+.review_write{
+	margin-left: 100px;
+	margin-bottom: 50px;
 }
+
+.review_write td{
+	text-align: left;
+}
+
+
 
 .detail_review{
 	width: 1500px;
@@ -515,7 +520,7 @@
 	font-weight: lighter;
 	color: #a8a8a8;
 }
-.review_form hr{
+#review_form hr{
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid lightgray;

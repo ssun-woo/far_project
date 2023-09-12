@@ -2,9 +2,14 @@ package com.far.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.far.dto.ReviewDTO;
+import com.far.service.ReviewService;
 
 @Controller
 @RequestMapping("/acc")
@@ -45,7 +50,10 @@ public class AccController {
 		
 		
 		return mav;
+		
 	}
+	
+	
 	
 	
 	

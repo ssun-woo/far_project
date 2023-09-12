@@ -108,34 +108,16 @@ const radioButtons = document.querySelectorAll('input[type="radio"]');
                         	contentDiv.innerHTML = 
                         		'<!-- 리뷰 --><div class="content-dis">'+
       							'<div class="Review_cont">'+
-								'<ul><li><h3>이용후기 (건수)</h3> </li>'+
-			'<li><input type="button" value="작성하기" id="review_write"></li>'+
-			'<li><div class="background"><div class="window"><div class="popup">'+
-			'<h2>이용 후기 작성</h2><button id = "closeButton">닫기</button></div></div></div><li>'+
+      							
+								
+				
 			
-		'</ul><hr><div class="review_form">'+
-				'<div class="detail_review">'+
-					'<ul class="detail_review_ul">'+
-					'<li> <h4>출장숙소로좋음</h4> </li>'+
-					'<li> <p>간단한 식사 가능하고 편안 [더보기]</p></li>'+
-					'<li> <h5>/비즈니스</h5> </li>'+
-				'</ul>'+
-				
-				'<ul class="detail_review_ul2">'+
-					'<li> 별점 </li>'+
-					'<li> <label>시설(객실/부대시설) 좋아요</label> </li>'+
-					'<li> hs11*** 2023.09.05</li>'+
-					'<li> <input type="button" value="수정" class="review_edit"> <input type="button" value="삭제" class="review_del"> </li>'+
-				'</ul>'+
-				'</div>'+
-				
-				
-				'<button class="review_recommend"><img src="../images/main/review_recommend.png"><p>0</p></button>'+
-				'<hr>'+
-			'</div>'+
 			'<div class="review_form">'+
+			'<h3> 이용후기 (건수) </h3>'+
 				'<div class="detail_review">'+
+					
 					'<ul class="detail_review_ul">'+
+				
 					'<li> <h4>출장숙소로좋음</h4> </li>'+
 					'<li> <p>간단한 식사 가능하고 편안 [더보기]</p></li>'+
 					'<li> <h5>/비즈니스</h5> </li></ul>'+
@@ -146,7 +128,34 @@ const radioButtons = document.querySelectorAll('input[type="radio"]');
 					'<li> <input type="button" value="수정" class="review_edit"> <input type="button" value="삭제" class="review_del"></li>'+
 				'</ul></div>'+
 				'<button class="review_recommend"><img src="../images/main/review_recommend.png"><p>0</p></button><hr></div>'+
-				'<br><div class="review_page">1 | 2 | 3 | 4 | 5 </div></div></div>';
+				'<br><div class="review_page">1 | 2 | 3 | 4 | 5 </div></div></div>'+
+				
+				'<form action=""><table class="review_write">'+
+									'<tr>'+
+										'<td> ID <input type="text" id="mem_id"> </td>'+
+									'</tr>'+
+									'<tr>'+
+										'<td> 예약 번호 <input type="text" id="book_id"></td>'+
+									'</tr>'+
+									'<tr>'+
+										'<td> 상품명 <input type="text" id="review_goods"></td>'+
+									'</tr>'+
+      								'<tr>'+
+      									'<td>제목&nbsp;&nbsp;<input type="text" id="title" pattern="[ㄱ-ㅎ ㅏ-ㅣ 가-힣0-9]"></td>'+
+      								'</tr>'+
+      								'<tr>'+
+      									'<td>별점  ★★★★★</td>'+
+      								'</tr>'+
+      								'<tr>'+
+      									'<td>내용</td>'+
+      								'</tr>'+
+      								'<tr>'+
+      									'<td><textarea rows="10" cols="30" id="review_content"></textarea></td>'+
+      								'</tr>'+
+      								'<tr>'+
+      									'<td><input type="submit" value="등록" onclick="submit_check();"></td>'+
+      								'</tr>'+
+      							'</table></form>';
                             break;
                     }
                 }
@@ -154,4 +163,18 @@ const radioButtons = document.querySelectorAll('input[type="radio"]');
         });
 
 
+function submit_check(){
+	var title = document.getElementById("title");
+	var content = document.getElementById("review_content");
+	
+	if(title.value==""){
+	alert("제목을 입력하세요.");
+	title.focus();
+	return false;
+	} else if(content.value==""){
+	alert("내용을 입력하세요.");
+	content.focus();
+	return false;
+	}
+}
     	
