@@ -32,32 +32,48 @@
 </div>
 
 <div class="main">
- <section class="eventMs">
+	<section class="eventMs">
 		<div>
-			<img src="../images/ev_images/sup01.jpg" alt="">
+			<a href="https://google.com"> <img
+				src="/images/ev_images/intev1.avif" alt="">
+			</a>
 		</div>
 		<div>
-			<img src="../images/ev_images/sup02.jpg" alt="">
+			<a href="https://www.naver.com"> <img
+				src="/images/ev_images/intev2.avif" alt="">
+			</a>
 		</div>
 		<div>
-			<img src="../images/ev_images/sup03.jpg" alt="">
+			<a href="https://www.yanolja.com"> <img
+				src="/images/ev_images/intev3.avif" alt="">
+			</a>
 		</div>
 		<div>
-			<img src="../images/ev_images/sup04.jpg" alt="">
+			<a href="https://www.goodchoice.kr"> <img
+				src="/images/ev_images/intev4.avif" alt="">
+			</a>
 		</div>
 		<div>
-			<img src="../images/ev_images/sup05.jpg" alt="">
+			<a href="https://www.airbnb.co.kr"> <img
+				src="/images/ev_images/intev5.avif" alt="">
+			</a>
+		</div>
+		<div>
+			<a href="https://www.airbnb.co.kr"> <img
+				src="/images/ev_images/intev6.avif" alt="">
+			</a>
 		</div>
 	</section>
 
 	<script type="text/javascript">
 		$('.eventMs').slick({
-			slidesToShow : 1,
+			slidesToShow : 2,
 			slidesToScroll : 1,
 			autoplay : true,
 			autoplaySpeed : 12000,
 		});
 	</script>
+
 </div>
 
 

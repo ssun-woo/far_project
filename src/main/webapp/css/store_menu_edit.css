@@ -16,12 +16,13 @@ hr {
 }
 
 .menuEditForm {
-	width: 90%;
+	width: 900px;
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #000000;
 	border-radius: 15px;
 	margin-top: -10px;
+	margin-left: 15px;
 }
 
 .menuEdit {
@@ -29,12 +30,12 @@ hr {
 }
 
 #menuSelect {
-	width: 50%;
+	width: 250px;
 	padding: 8px;
 	border: 1px solid #000000;
 	display: block;
 	border-radius: 10px;
-	margin-left: 16px;
+	margin-left: 15px;
 }
 
 .menuEdit label {
@@ -49,8 +50,16 @@ hr {
     align-items: center;
 }
 
+#newMenu, #newPrice, #newMenuInfo, #newMenuImage {
+	margin-left: 15px;
+}
+
+.menuEditPlus button {
+	margin-left: 5px;
+}
+
 .menuEdit textarea {
-	width: 80%;
+	width: 750px;
 	padding: 8px;
 	border: 1px solid #000000;
 	resize: none;
@@ -60,7 +69,7 @@ hr {
 }
 
 .menuEdit input {
-	width: 80%;
+	width: 750px;
 	padding: 8px;
 	border: 1px solid #000000;
 	display: block;

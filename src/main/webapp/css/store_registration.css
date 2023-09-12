@@ -16,12 +16,13 @@ hr {
 }
 
 .storeRegistrationForm {
-	width: 90%;
+	width: 900px;
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #000000;
 	border-radius: 15px;
 	margin-top: -10px;
+	margin-left: 15px;
 }
 
 .storeRegistration {
@@ -32,30 +33,30 @@ hr {
 	display: block;
 	font-weight: bold;
 	margin-bottom: 5px;
-	margin-left: 20px;
-}
-
-#typeSelect1, #typeSelect2 {
 	margin-left: 10px;
 }
 
+#typeSelect1, #typeSelect2 {
+	margin-left: 15px;
+}
+
 #storeName, #businessRegistrationNumber, #logoImage, #menuImage {
-	width: 95%;
+	width: 850px;
 	padding: 8px;
 	border: 1px solid #000000;
 	display: block;
-	margin: 0 auto;
 	border-radius: 10px;
+	margin-left: 15px;
 }
 
 #storeIntro {
-	width: 95%;
+	width: 850px;
 	padding: 8px;
 	border: 1px solid #000000;
 	resize: none;
 	display: block;
-	margin: 0 auto;
 	border-radius: 10px;
+	margin-left: 15px;
 }
 
 .storeAddressArea {
@@ -63,36 +64,25 @@ hr {
 	flex-direction: column;
 }
 
-.storeAddressF {
-	
-}
-
 #storeAddressFirst {
-	/*flex: 2;*/
-	width: 50%;
+	width: 400px;
     padding: 8px;
     border: 1px solid #000000;
     display: block;
-    margin: 0 auto;
     border-radius: 10px;
     align-items: flex-start; /* 왼쪽 정렬 */
-    margin-left: 16px;
-}
-
-#storeAddressSearchBtn {
-	/* 주소 검색 버튼 */
+    margin-left: 15px;
 }
 
 #storeAddressSecond {
-	width: 60%;
+	width: 500px;
     padding: 8px;
     border: 1px solid #000000;
     display: block;
-    margin: 0 auto;
     margin-top: 7px;
     border-radius: 10px;
     align-items: flex-start; /* 왼쪽 정렬 */
-    margin-left: 16px;
+    margin-left: 15px;
 }
 
 .storeRegistrationButton {

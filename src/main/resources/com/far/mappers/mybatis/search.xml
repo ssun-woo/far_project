@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Search">
+
+	<resultMap type="com.far.dto.StoreDTO" id="storeDTOMap">
+		<result property="store_name" column="store_name" jdbcType="VARCHAR" />
+		<result property="store_addr" column="store_addr" jdbcType="VARCHAR" />
+		<result property="cate" column="cate" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- <resultMap type="com.far.dto.MenuDTO" id="menuDTOMap">
+		<result property="menu01" column="menu01" jdbcType="VARCHAR" />
+	</resultMap> -->
+	
+	<select id="searchStore" resultType="com.far.dto.StoreDTO">
+	    SELECT *
+		FROM store
+		WHERE
+		(
+		    (
+		        REPLACE(store_name, ' ', '') LIKE '%' || #{keyword} || '%' 
+		        OR REPLACE(store_addr, ' ', '') LIKE '%' || #{keyword} || '%'
+		        OR REPLACE(cate, ' ', '') LIKE '%' || #{keyword} || '%'
+		    )
+		)
+	</select>
+	
+	<!-- <select id="searchMenu" resultType="com.far.dto.MenuDTO">
+	    
+	</select> -->
+
+
+</mapper>
