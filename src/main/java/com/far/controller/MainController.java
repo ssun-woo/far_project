@@ -36,10 +36,11 @@ public class MainController {
 		return new ModelAndView("myPage/myPage");
 	}
 
-	@RequestMapping("/search")
-	public ModelAndView search() {
-		return new ModelAndView("search/search_detail_main");
-	}
+//	// 검색 시 결과창
+//	@RequestMapping("/search")
+//	public ModelAndView search() {
+//		return new ModelAndView("search/search_detail_main");
+//	}
 
 // // 로그인 페이지 이동
 // @RequestMapping("/login")

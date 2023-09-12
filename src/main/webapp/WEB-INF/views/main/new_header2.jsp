@@ -23,7 +23,6 @@
 <link rel="stylesheet" type="text/css" href="/css/myPage.css">
 <link rel="stylesheet" type="text/css" href="/css/myPage_info.css">
 <link rel="stylesheet" type="text/css" href="/css/jjim.css">
-
 <link rel="stylesheet" type="text/css" href="/css/payment.css">
 <link rel="stylesheet" type="text/css" href="/css/rest_com.css">
 <link rel="stylesheet" type="text/css" href="/css/restaurant.css">

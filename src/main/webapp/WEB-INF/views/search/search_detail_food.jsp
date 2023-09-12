@@ -39,7 +39,7 @@
                 <h4 class="mainText">
                     <br>
                     <strong>
-                        " "
+                        "${keyword }"
                     </strong>
                     에 대한 결과 검색
                 </h4>

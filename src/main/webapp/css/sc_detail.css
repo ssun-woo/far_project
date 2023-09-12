@@ -1,147 +1,144 @@
- .mainText {
-            margin-left: 15px;
-        }
-
-        .tab-content {
-            padding: 20px;
-            /* Add padding as needed */
-        }
-
-        .button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .addListBtn {
-            background-color: #d8d8d8;
-            cursor: pointer;
-            height: 60px;
-            margin-left: 60px;
-            margin-right: 10px;
-            display: flex;
-            border-bottom: 1px solid #c9c7c7;
-            background-color: #fff;
-
-        }
-
-        .addView {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-            vertical-align: middle;
-        }
 
 
+.searchArea{
+	width: 1300px;
+}
 
+.mainText {
+	margin-left: 15px;
+}
 
-        .box_img {
-            height: 320px;
-            width: 320px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
+.tab-content {
+	padding: 20px;
+	/* Add padding as needed */
+}
 
-        .box_img img {
-            height: 90%;
-            width: 90%;
-            margin: auto;
-        }
+.button {
+	background-color: #007BFF;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+}
 
-        .n2.nav.nav-tabs {
-            display: flex;
-            justify-content: flex-end;
-        }
+.addListBtn {
+	background-color: #d8d8d8;
+	cursor: pointer;
+	height: 60px;
+	margin-left: 60px;
+	margin-right: 10px;
+	display: flex;
+	border-bottom: 1px solid #c9c7c7;
+	background-color: #fff;
+}
 
-        .nav-item {
-            margin-left: 10px;
+.addView {
+	background-color: #007BFF;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+}
 
-        }
+.box_img {
+	height: 320px;
+	width: 320px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
 
-        /* 메인 컨테이너 스타일 */
-        .box_list {
-            margin: 20px;
-        }
+.box_img img {
+	height: 90%;
+	width: 90%;
+	margin: auto;
+}
 
-        /* 제품 박스 스타일 */
-        .box_prd {
-            display: flex;
-            border-bottom: 1px solid #e5e5e5;
-            background-color: #fff;
-            margin-top: 20px;
-        }
+.n2.nav.nav-tabs {
+	display: flex;
+	justify-content: flex-end;
+}
 
+.nav-item {
+	margin-left: 10px;
+}
 
-        /* 제품 정보 스타일 */
-        .box_text {
-            float: left;
-            margin-right: 10px;
-            flex: 1;
-        }
+/* 메인 컨테이너 스타일 */
+.box_list {
+	margin: 20px;
+}
 
-        /* infoIcon 섹션 스타일 */
-        .infoIcon {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
+/* 제품 박스 스타일 */
+.box_prd {
+	display: flex;
+	border-bottom: 1px solid #e5e5e5;
+	background-color: #fff;
+	margin-top: 20px;
+}
 
-        /* "호텔" 아이콘 스타일 */
-        .icondHot {
-            background-color: #fff;
-            color: #007BFF;
-            padding: 2px 5px;
-            border: 1px solid #007BFF;
-            border-radius: 4px;
-            margin-right: 5px;
-        }
+/* 제품 정보 스타일 */
+.box_text {
+	float: left;
+	margin-right: 10px;
+	flex: 1;
+}
 
+/* infoIcon 섹션 스타일 */
+.infoIcon {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
 
-        /* 위치 정보 스타일 */
-        .infoIcon i:nth-child(2) {
-            color: #777;
+/* "호텔" 아이콘 스타일 */
+.icondHot {
+	background-color: #fff;
+	color: #007BFF;
+	padding: 2px 5px;
+	border: 1px solid #007BFF;
+	border-radius: 4px;
+	margin-right: 5px;
+}
 
-        }
+/* 위치 정보 스타일 */
+.infoIcon i:nth-child(2) {
+	color: #777;
+}
 
-        /* 제품 제목 스타일 */
-        .infoTitle {
-            font-size: 18px;
-            margin: 0;
-        }
+/* 제품 제목 스타일 */
+.infoTitle {
+	font-size: 18px;
+	margin: 0;
+}
 
-        /* 제품 부제목 스타일 */
-        .infoSubTitle {
-            color: #777;
-            font-size: 14px;
-            margin-top: 5px;
-        }
+/* 제품 부제목 스타일 */
+.infoSubTitle {
+	color: #777;
+	font-size: 14px;
+	margin-top: 5px;
+}
 
-        /* 가격 섹션 스타일 */
-        .infoPrice strong {
-            font-size: 24px;
-            color: #007BFF;
-            font-weight: bold;
-        }
+/* 가격 섹션 스타일 */
+.infoPrice strong {
+	font-size: 24px;
+	color: #007BFF;
+	font-weight: bold;
+}
 
-        /* 별점 및 주소 스타일 */
-        .infoInfostar {
-            color: #777;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
+/* 별점 및 주소 스타일 */
+.infoInfostar {
+	color: #777;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
 
-
-        .info {
-            color: #777;
-            font-size: 14px;
-        }
+.info {
+	color: #777;
+	font-size: 14px;
+}

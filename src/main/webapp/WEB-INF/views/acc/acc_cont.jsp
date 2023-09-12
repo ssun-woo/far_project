@@ -4,8 +4,6 @@
 <jsp:include page="../main/new_header2.jsp" />
 
 
-
-
 <body>
 
   <div class="rs-top">header 위치</div>
