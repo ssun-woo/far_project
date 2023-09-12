@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Resv">
+ 	
+ 	<insert id="resv_acc">
+ 		insert into reservation values(#{resv_num}, #{store_num}, #{mem_id}, #{start_day}, #{end_day}, #{people_num})
+ 	</insert>
+ 	
+ </mapper>
+ 
+ 
