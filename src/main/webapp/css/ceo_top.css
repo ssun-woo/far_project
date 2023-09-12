@@ -1,34 +1,29 @@
 @charset "UTF-8";
 
 #wrap {
-	height: 100%;
-	margin: auto;
-	margin-left: 120px;
-	margin-right: 120px;
+	width: 1300px;
+	margin: 0 auto;
 }
 
 #logo {
-	width: 20%;
-	height: 150px;
+	height: 120px;
 	border-radius: 10px 0px 0px 10px;
 	display: flex;
-	margin-left: -30px;
 }
 
-.logoImg {
-	width: auto;
-	height: auto;
-	max-width: 40%;
-	max-height: 40%;
+.logoimg {
+	width: 110px;
+	height: 110px;
 	margin-left: 60px;
 	margin-top: 20px;
 }
 
 #logo h3 {
 	margin-left: 20px;
-	margin-top: 40px;
+	margin-top: 60px;
+	font-size: 22px;
 }
 
 #top hr {
-	margin-top: -50px;
+	margin-top: 40px;
 }

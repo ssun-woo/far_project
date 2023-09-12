@@ -2,13 +2,15 @@
 
 .reservationWaitTable {
 	font-family: Arial, sans-serif;
+	display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 table {
-	width: 90%;
-	margin: 0 auto;
+	width: 1000px;
 	border-collapse: collapse;
-	margin-top: -10px;
+	margin-left: 15px;
 }
 
 th, td {
