@@ -80,7 +80,7 @@
 				
 				<div class="nav_bar">
 					<ul class="top_nav2">
-						<c:if test="${id == null}">
+						<c:if test="test="${empty sessionScope.mem_id}">
 							<li><a href="/login">로그인</a></li>
 							<li><a href="/signUp">회원가입</a></li>
 						</c:if>

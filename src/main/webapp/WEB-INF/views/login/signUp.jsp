@@ -18,13 +18,13 @@
 		</div>
 		<div class="wrap">
 			<div class="join_form">
-				<form name="frmLogin" action="/signUp" method="post" onsubmit="return join_check()">
+				<form name="frmLogin" action="/signUp" method="post">
 				
 					<div class="joinid_wrap">
 						<div class="joinid_img">
 							<img class="join_id" src="../images/login/login_id.png">
 						</div>
-						<input id="mem_id" class="joinid" type="text" name="mem_id" placeholder="아이디">
+						<input id="mem_id" class="joinid" type="text" name="mem_id" placeholder="아이디" oninput="idcheck()">
 						<br><span id="idcheck" class="error-message"></span><br>
 					</div>
 					
@@ -69,7 +69,7 @@
 					</div>
 					<br><span id="telcheck" class="error-message"></span><br>
 					
-					<input class="submit" type="submit" value="회원가입" ><br>
+					<input class="submit" type="submit" value="회원가입" onclick="return submitForm()"><br>
 				</form>
 				<br><br>
 			</div>

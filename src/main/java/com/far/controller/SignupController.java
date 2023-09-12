@@ -7,9 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.far.dto.MemberDTO;
+import com.far.service.MemberExistService;
 import com.far.service.SignUpService;
 
 @Controller
@@ -17,6 +20,9 @@ public class SignupController {
 	
 	@Autowired
 	private SignUpService signUpService;
+	
+	@Autowired
+	private MemberExistService memexservice;
 	
 	// 회원가입 페이지 이동
 	  @GetMapping("/signUp")
@@ -36,4 +42,14 @@ public class SignupController {
 	            return "main/index";
 	        }
 	    }
+	  
+	  @PostMapping("/signup/check")
+	  @ResponseBody
+	  public int iddbchk(String mem_id) throws ClassNotFoundException {
+			
+		int cnt = memexservice.isexist_mem_id(mem_id);
+		System.out.println(mem_id);
+		return cnt;
+		}
+		
 }
