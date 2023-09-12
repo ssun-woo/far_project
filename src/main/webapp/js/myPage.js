@@ -9,7 +9,7 @@
                 pageContent.innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "chkReservation.jsp", true);
+        xhttp.open("GET", "/my_page/chkResv", true);
         xhttp.send();
     }
     
@@ -21,7 +21,7 @@
                 pageContent.innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "Jjim.jsp", true);
+        xhttp.open("GET", "/my_page/wishlist", true);
         xhttp.send();
     }
     
@@ -33,6 +33,6 @@
                 pageContent.innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "chk_pwd.jsp", true);
+        xhttp.open("GET", "/my_page/changeMyInfo", true);
         xhttp.send();
     }

@@ -61,12 +61,7 @@ public class MemberController {
 		return new ModelAndView("redirect:/");
 	}
 
-	// 회원가입 페이지 이동
-	@RequestMapping("/signUp")
-	public ModelAndView signUp() {
-		return new ModelAndView("login/signUp");
-	}
-
+	
 	// 회원가입 완료
 	@RequestMapping("/signUp_ok")
 	public ModelAndView signUp_ok(MemberDTO m, HttpServletResponse response) throws Exception {
@@ -94,6 +89,31 @@ public class MemberController {
 		return null;
 		
 	}
+//	@RequestMapping("/signUp_ok")
+//	public ModelAndView signUp_ok(MemberDTO m, HttpServletResponse response) throws Exception {
+//		
+//		response.setContentType("text/html;charset=UTF-8");
+//		PrintWriter out = response.getWriter();
+//		
+//		memberService.insertMember(m);
+//		
+//		int re = -1;	// 가입 실패시
+//		
+//		if (/*아이디 중복체크, 유효성 검증 실시, true 지움*/true){
+//			re = 1;
+//		}
+//		
+//		
+//		if(re == 1) {	// 회원가입 성공시
+//			out.println("<script>");
+//			out.println("alert('가입이 완료 됐습니다. 로그인 해주세요')");
+//			out.println("location='/login';");
+//			out.println("</script>");
+//		}
+//		
+//		return null;
+//		
+//	}
 
 	// 아이디 찾기
 	@RequestMapping("/findId")

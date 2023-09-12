@@ -1,9 +1,14 @@
 package com.far.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.directory.SearchResult;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -31,12 +36,30 @@ public class MainController {
 		return new ModelAndView("myPage/myPage");
 	}
 
+	@RequestMapping("/search")
+	public ModelAndView search() {
+		return new ModelAndView("search/search_detail_main");
+	}
+
 // // 로그인 페이지 이동
 // @RequestMapping("/login")
 // public ModelAndView login() {
 //    ModelAndView mav = new ModelAndView("login/login");
 //    return mav;
 // }
+   
+//   // 아이디 찾기
+//   @RequestMapping("/findId")
+//   public ModelAndView findId() {
+//      return new ModelAndView("login/findId");
+//   }
+//   
+//   // 비밀번호 찾기
+//   @RequestMapping("/findPwd")
+//   public ModelAndView findPwd() {
+//      return new ModelAndView("login/findPwd");
+//      
+//   }
 
 //   // 회원가입 
 //   @RequestMapping("/signUp")

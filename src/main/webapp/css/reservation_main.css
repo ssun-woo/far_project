@@ -1,22 +1,21 @@
 @charset "UTF-8";
 
 .reservationMainWrap {
+	width: 1300px;
 	display: flex;
-	/*align-items: center;*/ /* 수직 중앙 정렬 */
 	justify-content: center; /* 수평 중앙 정렬 */
 	padding: 10px;
 }
 
 .reservationStickyArea {
-	width: 20%;
+	width: 200px;
+	height: 130px;
 	position: sticky;
-	top: 40px;
 	z-index: 100;
 }
 
 .reservationMain {
 	border: 1px solid #000000;
-	/*padding-left: 10px;*/
 }
 
 .lastReservation {
@@ -30,7 +29,6 @@
 }
 
 #reservationContentArea {
-	width: 80%;
-	padding: 10px;
-	/* background-color: #ffd2da; */
+	width: 950px;
+	margin-left: 15px;
 }
