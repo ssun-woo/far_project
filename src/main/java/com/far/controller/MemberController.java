@@ -74,7 +74,8 @@ public class MemberController {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		memberService.insertMember(m);
+		memberService.insertMember(m);	// 여기가 들어가는 메서드
+		
 		
 		int re = -1;	// 가입 실패시
 		
