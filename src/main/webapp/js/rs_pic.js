@@ -13,7 +13,7 @@ function displayPhoto() {
 }
 
 function prev_but(event) {
-  event.preventDefault(); // Prevent page refresh
+  event.preventDefault(); // 페이지 새로고침 방지
   currentPhotoIndex--;
   if (currentPhotoIndex < 0) {
     currentPhotoIndex = photos.length - 1;
@@ -22,7 +22,7 @@ function prev_but(event) {
 }
 
 function next_but(event) {
-  event.preventDefault(); // Prevent page refresh
+  event.preventDefault(); // 페이지 새로고침 방지
   currentPhotoIndex++;
   if (currentPhotoIndex >= photos.length) {
     currentPhotoIndex = 0;
@@ -31,29 +31,29 @@ function next_but(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // same JavaScript code as before
+  // 이전과 동일한 JavaScript 코드
   var informationData = [
-    // array of information to display
+    // 표시할 정보 배열
     {
-      title: "Menu",
-      text: "Potato Sauteed with Alcohol"
+      title: "메뉴",
+      text: "주류와 함께 볶은 감자"
     },
     {
-      title: "Review",
-      text: "The snacks are kind and the boss is delicious"
+      title: "리뷰",
+      text: "스낵은 다양하고 사장님 맛있어요"
     },
     {
-      title: "Information",
-      text: "Restaurant Location: XX Street, City"
+      title: "정보",
+      text: "레스토랑 위치: XX 거리, 도시"
     },
-    // add additional info objects as needed
+    // 필요한 경우 추가 정보 객체 추가
   ];
 
   var currentIndex = 0;
   var informationTitle = document.querySelector(".information h1");
   var informationText = document.querySelector(".information p");
 
-  // Function to display the selected content
+  // 선택한 내용을 표시하는 함수
   function displayContent(button, content) {
     var info = informationData.find((item) => item.title === content);
     if (info) {
@@ -63,14 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // information display update function
+  // 정보 표시 업데이트 함수
   function updateInformation() {
     var info = informationData[currentIndex];
     informationTitle.textContent = info.title;
     informationText.textContent = info.text;
   }
 
-  // button color update function
+  // 버튼 색상 업데이트 함수
   function updateButtonColors(activeButton) {
     var menuButtons = document.querySelectorAll(".menu-button");
     menuButtons.forEach((button) => {
@@ -82,22 +82,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Reservation button click processing function
+  // 예약 버튼 클릭 처리 함수
   function makeReservation(event) {
-    event.preventDefault(); // Prevent page refresh
-    alert("Reservation complete!"); // Replace with your desired scheduling logic
+    event.preventDefault(); // 페이지 새로고침 방지
+    alert("예약 완료!"); // 원하는 예약 로직으로 대체
   }
 
-  // Function to handle the click of the Save button
+  // '찜하기' 버튼 클릭 처리 함수
   function addToShopWish(event) {
-    event.preventDefault(); // Prevent page refresh
-    alert("Save completed!"); // Replace with your wish logic
+    event.preventDefault(); // 페이지 새로고침 방지
+    alert("저장 완료!"); // 원하는 찜 로직으로 대체
   }
 
-  // display initial information
+  // 초기 정보 표시
   updateInformation();
 
-  // Add event listeners to the buttons
   var prevButton = document.getElementById("prevButton");
   var nextButton = document.getElementById("nextButton");
   var reservationButton = document.getElementById("reservationButton");

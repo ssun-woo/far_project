@@ -12,31 +12,35 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class MainController {		
-         
-   // index 페이지를 나타냄
-   @RequestMapping("/")
-   public ModelAndView index(HttpSession session) {
-      ModelAndView mav = new ModelAndView("main/index");
-      String id = (String)session.getAttribute("id");
-      System.out.println(id);
-      
-      return mav;   
-   }
-   
-   
-   // 고객센터 이동
-   @RequestMapping("/customer_service")
-   public ModelAndView customer_service() {
-      return new ModelAndView("cs/cs_main");
-   }
-   
-   // 마이페이지 
-   @RequestMapping("/my_page")
-   public ModelAndView my_page() {
-      return new ModelAndView("myPage/myPage");
-   }
-   
+public class MainController {
+
+	// index 페이지를 나타냄
+	@RequestMapping("/")
+	public ModelAndView index(HttpSession session) {
+		ModelAndView mav = new ModelAndView("main/index");
+		String id = (String) session.getAttribute("id");
+		System.out.println(id);
+
+		return mav;
+	}
+
+	// 고객센터 이동
+	@RequestMapping("/customer_service")
+	public ModelAndView customer_service() {
+		return new ModelAndView("cs/cs_main");
+	}
+
+	// 마이페이지
+	@RequestMapping("/my_page")
+	public ModelAndView my_page() {
+		return new ModelAndView("myPage/myPage");
+	}
+
+	@RequestMapping("/search")
+	public ModelAndView search() {
+		return new ModelAndView("search/search_detail_main");
+	}
+
 // // 로그인 페이지 이동
 // @RequestMapping("/login")
 // public ModelAndView login() {
@@ -56,6 +60,7 @@ public class MainController {
       return new ModelAndView("login/findPwd");
       
    }
+
 //   // 회원가입 
 //   @RequestMapping("/signUp")
 //   public ModelAndView signUp() {
@@ -73,8 +78,8 @@ public class MainController {
 //   public ModelAndView findPwd() {
 //      return new ModelAndView("login/findPwd");
 //   }
-   // 이 부분들 LoginController로 이동
-   
+	// 이 부분들 LoginController로 이동
+
 //   // 테스트 페이지
 //   @RequestMapping("/test")
 //   public String test() {
@@ -86,16 +91,5 @@ public class MainController {
 //   public String test2() {
 //	   return "../ex/new_header2";
 //   }
-   
-   
-   
+
 }
-
-
-
-
-
-
-
-
-
