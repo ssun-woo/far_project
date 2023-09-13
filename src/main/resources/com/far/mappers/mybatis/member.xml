@@ -7,8 +7,8 @@
  <mapper namespace="Member">
  	
  	<insert id="mem_in">
-	 	insert into member(mem_id, mem_pwd, mem_name, mem_email, mem_tel)
-	 	 values(#{mem_id}, #{mem_pwd}, #{mem_name}, #{mem_email}, #{mem_tel})
+	 	insert into member(mem_id, mem_pwd, mem_name, mem_email, mem_tel, mem_class)
+	 	 values(#{mem_id}, #{mem_pwd}, #{mem_name}, #{mem_email}, #{mem_tel}, #{mem_class})
  	</insert>
  	
  	<select id="mem_select" resultType="int">
