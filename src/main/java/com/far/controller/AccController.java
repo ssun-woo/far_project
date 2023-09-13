@@ -1,6 +1,7 @@
 package com.far.controller;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.far.dto.ResvDTO;
+import com.far.dto.ReviewDTO;
 import com.far.service.AccResvService;
+import com.far.service.ReviewService;
 
 @Controller
 @RequestMapping("/acc")
@@ -20,6 +23,9 @@ public class AccController {
 
 	@Autowired
 	private AccResvService accResvService;
+
+	@Autowired
+	private ReviewService reviewService;
 
 	// 숙소 상세 카테고리 페이지
 	@RequestMapping("/cate_list")
@@ -45,9 +51,12 @@ public class AccController {
 		
 		String cate = request.getParameter("cate"); // 현재 cate 받아옴
 //		int page = Integer.parseInt(request.getParameter("page"));	// 페이지 책갈피 기능
-		String store_num = request.getParameter("store_num");
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		
+		List<ReviewDTO> rlist = reviewService.getReview(store_num);
 
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("reviewList", rlist);
 		mav.addObject("cate", cate);
 //		mav.addObject("page", page);
 		mav.addObject("store_num", store_num);
@@ -62,7 +71,8 @@ public class AccController {
 
 	// 숙소 결제페이지 이동
 	@RequestMapping("/payment_info")
-	public ModelAndView acc_payment_info(String cate, int store_num, HttpSession session, HttpServletResponse response, String target) throws Exception {
+	public ModelAndView acc_payment_info(String cate, int store_num, HttpSession session, HttpServletResponse response,
+			String target) throws Exception {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		store_num = 10;
@@ -101,24 +111,18 @@ public class AccController {
 		return mav;
 	}
 
-	
-	
-	 
-	 // 숙소 결제 페이지
-		/*
-		 * @RequestMapping("/payment_end") public ModelAndView acc_payment_end(String
-		 * cate, int store_num, HttpSession session) {
-		 * 
-		 * String id = (String)session.getAttribute("id"); id = "a";
-		 * 
-		 * ResvDTO resv = new ResvDTO(); resv.setResv_num(1);
-		 * resv.setStore_num(store_num); resv.setMem_id(id);
-		 * resv.setStart_day("시작일, 시간입니다"); resv.setEnd_day("마지막날, 시간입니다");
-		 * resv.setPeople_num(2); accResvService.resvStroe(resv); ModelAndView mav = new
-		 * ModelAndView(); mav.setViewName("payment/payment_end"); return mav; }
-		 */
-	
-	
-	
-	
+	// 숙소 결제 페이지
+	/*
+	 * @RequestMapping("/payment_end") public ModelAndView acc_payment_end(String
+	 * cate, int store_num, HttpSession session) {
+	 * 
+	 * String id = (String)session.getAttribute("id"); id = "a";
+	 * 
+	 * ResvDTO resv = new ResvDTO(); resv.setResv_num(1);
+	 * resv.setStore_num(store_num); resv.setMem_id(id);
+	 * resv.setStart_day("시작일, 시간입니다"); resv.setEnd_day("마지막날, 시간입니다");
+	 * resv.setPeople_num(2); accResvService.resvStroe(resv); ModelAndView mav = new
+	 * ModelAndView(); mav.setViewName("payment/payment_end"); return mav; }
+	 */
+
 }

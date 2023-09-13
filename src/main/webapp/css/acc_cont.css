@@ -109,11 +109,12 @@
     user-select: none;
     -webkit-user-select: none;
 }
-
-.content-dis{
+.shop_cont_div{
+	margin-top: 50px;
 	margin-bottom: 50px;
-	margin-top: 50px
 }
+
+
 .shop_info_cont hr{
 	border: 1px solid #303030;
 	border-width: thin;
@@ -453,14 +454,18 @@
 }
 
 .review_write{
-	margin-left: 100px;
+	margin-top: 30px;
+	margin-left: 150px;
 	margin-bottom: 50px;
 }
 
 .review_write td{
 	text-align: left;
 }
-
+.review_write textarea{
+	width: 700px;
+	resize: none;
+}
 
 
 .detail_review{

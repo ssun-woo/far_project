@@ -11,6 +11,8 @@ public class ReviewDTO {
 
 	private int review_num; //리뷰 글번호
 	
+	private int store_num;
+	
 	private int book_id; //예약번호
 	
 	private String mem_id; //아이디
@@ -24,7 +26,9 @@ public class ReviewDTO {
 	private String review_goods;//이용한 상품
 	
 	private double review_rating; //평점
-
+	
+	private String review_title;
+	
 	public int getReview_num() {
 		return review_num;
 	}
@@ -87,6 +91,22 @@ public class ReviewDTO {
 
 	public void setReview_rating(double review_rating) {
 		this.review_rating = review_rating;
+	}
+
+	public int getStore_num() {
+		return store_num;
+	}
+
+	public void setStore_num(int store_num) {
+		this.store_num = store_num;
+	}
+
+	public String getReview_title() {
+		return review_title;
+	}
+
+	public void setReview_title(String review_title) {
+		this.review_title = review_title;
 	}
 	
 	

@@ -4,12 +4,26 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="com.far.mapper.ReviewMapper">
+ <mapper namespace="Review">
  
- 	<!-- 댓글 등록 -->
- 	<insert id = "enrollReply">
- 		insert into review(book_id,mem_id,  review_rating, review_goods, review_cont, review_recommend)
- 		values(#{book_id},#{mem_id},#{review_rating},#{review_goods},#{review_cont},#{review_recommend})
- 	</insert>
+ 	<!-- 리뷰 등록
+ 	<insert id = "Review_in" parameterType="reviewDTO">
+ 		insert into review(review_num,book_id,mem_id,review_title, review_rating, review_goods, review_cont, review_recommend,review_date)
+ 		values(
+ 		#{review_num},
+ 		#{book_id},
+ 		#{mem_id},
+ 		#{review_title},
+ 		#{review_rating},
+ 		#{review_goods},
+ 		#{review_cont},
+ 		#{review_recommend},
+ 		#{review_date }
+ 	</insert> -->
+ 	
+ 	<!-- 리뷰 목록 -->
+ 	<select id = "get_review" resultType="com.far.dto.ReviewDTO">
+ 		select * from review where store_num = 10 order by review_num desc
+ 	</select>
  	
  </mapper>
