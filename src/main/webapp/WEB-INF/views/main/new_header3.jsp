@@ -11,7 +11,6 @@
 <script src="/js/acc_script.js"></script>
 <script src="/js/rs_menu.js"></script>
 <script src="/js/rs_pic.js"></script>
-<script src="/js/acc_cont.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/acc_search.css">
 <link rel="stylesheet" type="text/css" href="/css/accommodation.css">
 <link rel="stylesheet" type="text/css" href="/css/beauty.css">
@@ -31,13 +30,13 @@
 <link rel="stylesheet" type="text/css" href="/css/signupForm.css">
 <link rel="stylesheet" type="text/css" href="/css/findId.css">
 <link rel="stylesheet" type="text/css" href="/css/findPwd.css">
-<link rel="stylesheet" type="text/css" href="/css/top2.css">
+<link rel="stylesheet" type="text/css" href="/css/top.css">
 <link rel="stylesheet" type="text/css" href="/css/topten.css">
 <link rel="stylesheet" type="text/css" href="/css/rs_stopic.css">
 <link rel="stylesheet" type="text/css" href="/css/topten_culture.css">
 <link rel="stylesheet" type="text/css" href="/css/notice.css">
-<link rel="stylesheet" type="text/css" href="/css/acc_cont.css">
 <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="/css/notice_list.css">
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
@@ -47,34 +46,14 @@
 	<!-- 이쪽은 가장 Main index를 제외한 Header -->
 	<div id="wrap">
 		<div class="top">
+		
+		
 			<div class="middle_line">
 				<div class="logo">
         			<a href="/"><img src="/images/main/logo.jpg" alt="logo"></a>
-       			<div class="logo-popup">
-		            <ul>
-		                <li><a href="/">홈</a></li>
-		                <hr>
-		                <li><a href="/acc/cate_list">숙소</a></li>
-		                <li><a href="/resto/cate_list">식당</a></li>
-		                <li><a href="/culture/cate_list">문화</a></li>
-		                <li><a href="/beauty/cate_list">뷰티</a></li>
-		            </ul>
-        		</div>
    		 	</div>
 				
 				<div class="search">
-					<div class="search_bar">
-						<form>	
-							<div class="search_input">
-								<input type="text" name="index_search" class="index_search">
-							</div>
-							<div class="search_button">
-								<button class="searchButton" type="submit">
-									<img src="/images/main/search_icon.png" class="searchIcon">
-								</button>		
-							</div>
-						</form>
-					</div>
 				
 				</div>
 				

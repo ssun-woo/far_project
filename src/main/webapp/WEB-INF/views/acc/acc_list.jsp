@@ -97,20 +97,20 @@
 	<ul>
 		<li><img src="../images/acc/motel.png"></li>
 		<li class="region_name">
-			<c:if test="${param.cate == 'motel'}">
+			<c:if test="${param.detail_cate == 'motel'}">
 				'모텔' 검색결과
 			</c:if>
-			<c:if test="${param.cate == 'hotel'}">
+			<c:if test="${param.detail_cate == 'hotel'}">
 				'호텔' 검색결과
 			</c:if>
-			<c:if test="${param.cate == 'pension'}">
+			<c:if test="${param.detail_cate == 'pension'}">
 				'펜션/풀빌라' 검색결과
 			</c:if>
-			<c:if test="${param.cate == 'camping'}">
+			<c:if test="${param.detail_cate == 'camping'}">
 				'캠핑/글램핑' 검색결과
 			</c:if>
 		</li>
-		<li >&nbsp;&nbsp;[검색결과수]</li>
+		<li >&nbsp;&nbsp;['${totalCount }'개의 검색 결과]</li>
 		<li class="space"></li>
 		<li class="sort">인기순</li>
 		<li class="separator">|</li>
@@ -122,65 +122,41 @@
 	<div class="list_main">
 	
 		<hr>
-		<div class="list_div">
-		
-		<a href='/acc/cont?cate=${cate}&store_num=10'><img src="../images/acc/motel1-2.jpg"></a>
-		<%-- 여기 10의 값은 임의의 값 --%>
-		<div class="list_cont">
-			<div class="shop_Name">
-				<h3>명동 밀리오레 호텔</h3>
+		<%-- 여기부분이 list 돌아가는 for문 --%>
+		<c:forEach var="store" items="${slist}">
+			<div class="list_div">
+			<a href='/acc/cont?detail_cate=${detail_cate}&store_num=${store.store_num}'>
+			<img src="/upload/store_logo${store.store_logo}"></a>
+			<%-- 여기 10의 값은 임의의 값 --%>
+			<div class="list_cont">
+				<div class="shop_Name">
+					<h3>${store.store_name }</h3>
+				</div>
+				
+				<p>등급미정</p>
+				<p>${store.store_addr1} ${store.store_addr2}</p>
+				<br>
+				<p>자가 무료주차 가능</p>
 			</div>
-			
-			<p>등급미정</p>
-			<p>서울특별시 중구 퇴계로 115</p>
-			<br>
-			<p>자가 무료주차 가능</p>
-		</div>
-		<div class="list_cont2">
-			<h2>75,000원</h2>
-			<p>★★★★☆</p>
-			<p>리뷰 196</p>
-			<div class="shop_JJim">
-				<button type="button" onclick="imgToggle()">
-				<img src="../images/acc/NoJJim.png" id="no">
-				<img src="../images/acc/YesJJim.png" id="yes">
-				</button>
-			</div>
-			
-		</div>
-		
-		
-		</div>
-	
-	
-	<hr>
-	<div class="list_div">
-		
-		<a href='acc_cont.jsp'><img src="../images/acc/motel1-3.jpg"></a>
-		<div class="list_cont">
-			<div class="shop_Name">
-				<h3>종로 호텔 앳 홈</h3>
+			<div class="list_cont2">
+				<h2>75,000원</h2>
+				<p>★★★★☆</p>
+				<p>리뷰 196</p>
+				<div class="shop_JJim">
+					<button type="button" onclick="imgToggle()">
+					<img src="../images/acc/NoJJim.png" id="no">
+					<img src="../images/acc/YesJJim.png" id="yes">
+					</button>
+				</div>
 				
 			</div>
-			<p>등급미정</p>
-			<p>서울특별시 종로구 종로31길 40(연지동) </p>
-			<br>
-			<p>넷플릭스 디즈니+ 개인계정으로 사용가능합니다</p>
-		</div>
-		<div class="list_cont2">
-			<h2>60,000원</h2>
-			<p>★★★★☆</p>
-			<p>리뷰 1</p>
 			
-			<div class="shop_JJim">
-				<button type="button" onclick="imgToggle2()">
-				<img src="../images/acc/NoJJim.png" id="no2">
-				<img src="../images/acc/YesJJim.png" id="yes2">
-			</button>
+			
 			</div>
-		</div>
-		
-	</div>
+			<hr>
+		</c:forEach>
+	
+	
 	
 	<p class="page_number"> 1 | 2 | 3 | 4 | 5 </p>
 	

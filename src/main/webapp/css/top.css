@@ -3,6 +3,7 @@
    height: 200px;
    margin-top: 30px;
    margin-left: 50px;
+   margin: auto;
 }
 
 .nav_bar {
@@ -179,9 +180,8 @@
 }
 
 .end_hr {
-<<<<<<< HEAD
    opacity: 0.5;
-   margin-top: 0px;
+   margin-top: -30px;
 }
 
 /* 지역, 날짜, 객실.인원 검색창 */

@@ -18,7 +18,8 @@ public class SearchController {
 
 	@Autowired
 	private SearchService searchService;
-
+	
+	// 통합검색 결과
 	@GetMapping("")
 	public ModelAndView search(@RequestParam("keyword") String keyword) {
 		List<StoreDTO> stores = searchService.searchStore(keyword);
@@ -33,7 +34,8 @@ public class SearchController {
 
 		return mav;
 	}
-
+	
+	// 숙소탭 클릭시
 	@GetMapping("/acc")
 	public ModelAndView acc_search(@RequestParam("keyword") String keyword) {
 		ModelAndView mav = new ModelAndView();

@@ -1,8 +1,9 @@
 @charset "UTF-8";
 .shop_List{
-	
+	width: 1300px;
 	display: flex;
-	margin-top: 15px;
+	margin: 15px auto;
+
 }
 .filter{
 	height: 100%;

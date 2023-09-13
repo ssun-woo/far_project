@@ -1,46 +1,42 @@
 package com.far.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.far.dto.StoreDTO;
+
 @Controller
 @RequestMapping("/culture")
 public class CultureController {
+	
+//	@Autowired
+//	private CultrueService cultureService;
 
 	@RequestMapping("/cate_list")
 	public ModelAndView acc_list() {
-		
 		ModelAndView mav = new ModelAndView("culture/culture_index");
 		return mav;
 	}
 	
-	// 콘서트 리스트로 이동
-	@GetMapping("/all_list/consert")
-	public ModelAndView concert_list() {
-		ModelAndView mav = new ModelAndView("culture/cu_Concert_list");
+	// 세부 카테 클릭 시 출력되는 목록
+	@RequestMapping("/list")
+	public ModelAndView acc_hotel(HttpServletRequest request) {
+		String detail_cate = request.getParameter("detail_cate");
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("detail_cate", detail_cate);
+		mav.setViewName("culture/cu_list");
 		return mav;
 	}
 	
-	// 플레이 리스트로 이동
-	@GetMapping("/all_list/play")
-	public ModelAndView play_list() {
-		ModelAndView mav = new ModelAndView("culture/cu_Play_list");
-		return mav;
-	}
 	
-	// 뮤지컬 리스트로 이동
-	@GetMapping("/all_list/musical")
-	public ModelAndView musical_list() {
-		ModelAndView mav = new ModelAndView("culture/cu_Musical_list");
-		return mav;
-	}
 	
-	// 전시회 리스트로 이동
-	@GetMapping("/all_list/exhibition")
-	public ModelAndView exhibition_list() {
-		ModelAndView mav = new ModelAndView("culture/cu_Exhibition_list");
-		return mav;
-	}
 }

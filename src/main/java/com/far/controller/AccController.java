@@ -1,6 +1,7 @@
 package com.far.controller;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.far.dto.ResvDTO;
+import com.far.dto.StoreDTO;
 import com.far.service.AccResvService;
 
 @Controller
@@ -20,7 +22,7 @@ public class AccController {
 
 	@Autowired
 	private AccResvService accResvService;
-
+	
 	// 숙소 상세 카테고리 페이지
 	@RequestMapping("/cate_list")
 	public ModelAndView acc_list() {
@@ -28,31 +30,57 @@ public class AccController {
 		return mav;
 	}
 
-	// 세부 카테 클릭 시
+	// 세부 카테 클릭 시 출력되는 목록
 	@RequestMapping("/list")
 	public ModelAndView acc_hotel(HttpServletRequest request) {
-		String cate = request.getParameter("cate");
+		String detail_cate = request.getParameter("detail_cate");
+		
+		List<StoreDTO> slist = accResvService.getCateList(detail_cate);
+		int totalCount = accResvService.getTotalCount(detail_cate);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("cate", cate);
+		
+		
+		mav.addObject("detail_cate", detail_cate);
+		mav.addObject("totalCount", totalCount);
 		mav.setViewName("acc/acc_list");
+		mav.addObject("slist", slist);
 		return mav;
 	}
 
 	// 상품 상세보기
 	@RequestMapping("/cont")
 	public ModelAndView acc_cont(HttpServletRequest request) {
-		String cate = request.getParameter("cate"); // 현재 cate 받아옴
+		String detail_cate = request.getParameter("detail_cate"); // 현재 cate 받아옴
 //		int page = Integer.parseInt(request.getParameter("page"));	// 페이지 책갈피 기능
-		String store_num = request.getParameter("store_num");
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		
+		StoreDTO s = accResvService.getInfo(store_num);
+		
+		String region = s.getStore_addr1().substring(0, 2);
+		String sebu_cate = null;
+		
+		System.out.println(s.getDetail_cate());
+		
+		if(s.getDetail_cate().equals("hotel")) {
+			sebu_cate = "호텔";
+		}else if(s.getDetail_cate().equals("motel")) {
+			sebu_cate = "모텔";
+		}else if(s.getDetail_cate().equals("camping")) {
+			sebu_cate = "캠핑";
+		}else {
+			sebu_cate = "팬션";
+		}
+		
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("cate", cate);
+		mav.addObject("detail_cate", detail_cate);
+		mav.addObject("s", s);
 //		mav.addObject("page", page);
 		mav.addObject("store_num", store_num);
+		mav.addObject("region", region);
+		mav.addObject("sebu_cate", sebu_cate);
 		mav.setViewName("acc/acc_cont");
-		System.out.println("cate : " + cate);
 //		System.out.println(page);
-		System.out.println("store_num : " + store_num);
 
 		return mav;
 	}
@@ -97,6 +125,7 @@ public class AccController {
 		mav.setViewName("payment/payment_end");
 		return mav;
 	}
+	
 
 	
 	
