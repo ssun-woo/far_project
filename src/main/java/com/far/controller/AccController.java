@@ -38,7 +38,8 @@ public class AccController {
 		String cate = request.getParameter("cate");	// 현재 cate 받아옴
 		String page = request.getParameter("page");	// 페이지 책갈피 기능
 		String no = request.getParameter("no");
-	
+		
+		
 		
 		ModelAndView mav = new ModelAndView("acc/acc_cont");
 		mav.addObject("cate", cate);
