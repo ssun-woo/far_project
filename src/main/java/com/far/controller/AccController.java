@@ -41,6 +41,8 @@ public class AccController {
 	// 상품 상세보기
 	@RequestMapping("/cont")
 	public ModelAndView acc_cont(HttpServletRequest request) {
+		
+		
 		String cate = request.getParameter("cate"); // 현재 cate 받아옴
 //		int page = Integer.parseInt(request.getParameter("page"));	// 페이지 책갈피 기능
 		String store_num = request.getParameter("store_num");
@@ -55,6 +57,7 @@ public class AccController {
 		System.out.println("store_num : " + store_num);
 
 		return mav;
+		
 	}
 
 	// 숙소 결제페이지 이동
@@ -114,6 +117,8 @@ public class AccController {
 		 * resv.setPeople_num(2); accResvService.resvStroe(resv); ModelAndView mav = new
 		 * ModelAndView(); mav.setViewName("payment/payment_end"); return mav; }
 		 */
+	
+	
 	
 	
 }

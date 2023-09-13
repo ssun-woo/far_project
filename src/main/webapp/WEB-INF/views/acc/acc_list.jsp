@@ -95,7 +95,21 @@
 	<div class="list_page">
 	<div class="list_top">
 	<ul>
-		<li><img src="../images/acc/motel.png"></li>
+		<li>
+			<c:if test="${param.cate == 'motel'}">
+				<img src="../images/acc/motel.png">
+			</c:if>
+			<c:if test="${param.cate == 'hotel'}">
+				<img src="../images/acc/hotel.png">
+			</c:if>
+			<c:if test="${param.cate == 'pension'}">
+				<img src="../images/acc/poolhouse.png">
+			</c:if>
+			<c:if test="${param.cate == 'camping'}">
+				<img src="../images/acc/camping.png">
+			</c:if>
+		
+		</li>
 		<li class="region_name">
 			<c:if test="${param.cate == 'motel'}">
 				'모텔' 검색결과

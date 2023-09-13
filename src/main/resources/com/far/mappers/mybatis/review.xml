@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.far.mapper.ReviewMapper">
+ 
+ 	<!-- 댓글 등록 -->
+ 	<insert id = "enrollReply">
+ 		insert into review(book_id,mem_id,  review_rating, review_goods, review_cont, review_recommend)
+ 		values(#{book_id},#{mem_id},#{review_rating},#{review_goods},#{review_cont},#{review_recommend})
+ 	</insert>
+ 	
+ </mapper>
