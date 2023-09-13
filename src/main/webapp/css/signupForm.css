@@ -19,6 +19,7 @@
 .joinid_wrap, .joinpwd_wrap, .joinname_wrap, .joinemail_wrap, .joinetel_wrap {
 	position: relative;
   	display: inline-block;
+  	
 }
 
 .joinid_img, .joinpwd_img, .joinname_img, .joinemail_img, .jointel_img {

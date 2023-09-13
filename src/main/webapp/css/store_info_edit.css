@@ -15,13 +15,14 @@ hr {
 	border-top: 1px solid #000000;
 }
 
-.infoRegistration {
-	width: 90%;
+.infoRegisForm {
+	width: 900px;
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #000000;
 	border-radius: 15px;
 	margin-top: -10px;
+	margin-left: 15px;
 }
 
 .storeInfo {
@@ -36,13 +37,17 @@ hr {
 }
 
 #storeIntroEdit {
-	width: 95%;
+	width: 850px;
 	padding: 8px;
 	border: 1px solid #000000;
 	resize: none;
 	display: block;
-	margin: 0 auto;
 	border-radius: 10px;
+	margin-left: 15px;
+}
+
+.storeAddressEditF, .storeAddressEditS {
+	margin-left: 15px;
 }
 
 .storeAddressEditArea {
@@ -51,30 +56,22 @@ hr {
 }
 
 #storeAddressEditFirst {
-	width: 50%;
+	width: 350px;
     padding: 8px;
     border: 1px solid #000000;
     display: block;
-    margin: 0 auto;
     border-radius: 10px;
     align-items: flex-start; /* 왼쪽 정렬 */
-    margin-left: 16px;
-}
-
-#storeAddressEditSearchBtn {
-	/* 주소 검색 버튼 */
 }
 
 #storeAddressEditSecond {
-	width: 60%;
+	width: 400px;
     padding: 8px;
     border: 1px solid #000000;
     display: block;
-    margin: 0 auto;
     margin-top: 7px;
     border-radius: 10px;
     align-items: flex-start; /* 왼쪽 정렬 */
-    margin-left: 16px;
 }
 
 ::placeholder {
@@ -87,7 +84,8 @@ hr {
 
 .storeInfoButton {
 	text-align: right;
-	margin-right: 5px;
+	margin-top: 15px;
+	margin-right: 10px;
 }
 
 .storeInfoBtn {

@@ -18,6 +18,8 @@
 <script src="/js/acc_menu.js"></script>
 <script src="/js/rs_pic.js"></script>
 <script src="/js/topten.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
 
 
 
@@ -41,8 +43,8 @@
 <link rel="stylesheet" type="text/css" href="/css/ev.css">
 <link rel="stylesheet" type="text/css" href="/css/topten.css">	
 <link rel="stylesheet" type="text/css" href="/css/acc_cont.css">	
-
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/search_detail.css">
 </head>
 
 <body>

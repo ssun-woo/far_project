@@ -51,9 +51,9 @@
 				
 				<div class="search">
 					<div class="search_bar">
-						<form>	
+						<form onsubmit="performSearch(); return false;">	
 							<div class="search_input">
-								<input type="text" name="index_search" class="index_search">
+								<input type="text" name="index_search" class="index_search" id="index_search">
 							</div>
 							<div class="search_button">
 								<button class="searchButton" type="submit">
@@ -61,19 +61,30 @@
 								</button>		
 							</div>
 						</form>
+						<script>	// 리다이렉션
+						    function performSearch() {
+						        var keyword = document.getElementById("index_search").value.trim();
+						        console.log("검색어 : " + keyword);
+						        window.location.href = "/search?keyword=" + encodeURIComponent(keyword);
+						        keyword = "%" + keyword + "%";
+						    }
+						</script>
 					</div>
 				
 				</div>
 				
 				<div class="nav_bar">
 					<ul class="top_nav2">
-						<c:if test="${session.id == null}">
+						<c:if test="${id == null}">
 							<li><a href="/login">로그인</a></li>
 							<li><a href="/signUp">회원가입</a></li>
 						</c:if>
-						<c:if test="${session.id != null}">
+						<c:if test="${id != null}">
 							<li><a href="/logout">로그아웃</a></li>
 						</c:if>
+						<%-- <c:if test="${class == 'c'}">
+							<li><a href="">가게관리</a></li>
+						</c:if> --%>
 						<li><a href="/my_page">마이페이지</a></li>
 					</ul>
 				</div>
