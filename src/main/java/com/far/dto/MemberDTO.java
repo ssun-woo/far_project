@@ -45,6 +45,8 @@ public class MemberDTO {
 	@Pattern(regexp="[0-9]+$", message="숫자만 입력 가능합니다.")
 	private String mem_tel;
 	
+	private String mem_class;
+	
 	public String getMem_id() {
 		return mem_id;
 	}
@@ -74,6 +76,12 @@ public class MemberDTO {
 	}
 	public void setMem_tel(String mem_tel) {
 		this.mem_tel = mem_tel;
+	}
+	public String getMem_class() {
+		return mem_class;
+	}
+	public void setMem_class(String mem_class) {
+		this.mem_class = mem_class;
 	}
 	
 }
