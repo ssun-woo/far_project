@@ -16,13 +16,14 @@
 </head>
 <body>
 	<jsp:include page="../main/new_header2.jsp" />
+	<!-- 탭 네비게이션을 상단으로 이동 -->
 	<div class="tabArea">
 		<ul class="n1 nav nav-tabs" id="myTabs">
 			<li class="nav-item"><a class="nav-link " data-toggle="tab"
-				href="/search?keyword=${keyword}">통합검색</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/search/acc?keyword=${keyword}">숙소</a></li>
+				href="/search/search?keyword=${keyword}">통합검색</a></li>
 			<li class="nav-item"><a class="nav-link active"
+				href="/search/acc?keyword=${keyword}">숙소</a></li>
+			<li class="nav-item"><a class="nav-link"
 				href="/search/food?keyword=${keyword}">음식</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="/search/culture?keyword=${keyword}">문화</a></li>
@@ -32,21 +33,23 @@
 
 		<!-------------- 숙소 ---------------->
 
-		<h3 class="mainText">-음식</h3>
-		<div class="food_all result-section" id="foodResults">
+		
+
+		<h3 class="mainText">-숙소</h3>
+		<div class="acc_all result-section" id="accommodationResults">
 			<div class="titleTab">
 				<div class="subWrap">
-					<ul class="n2 nav nav-tabs" id="foodTabs">
+					<ul class="n2 nav nav-tabs" id="accommodationTabs">
 						<li class="nav-item"><a class="nav-link active"
-							data-toggle="tab" href="#all_food">통합</a></li>
+							data-toggle="tab" href="#all_rest">통합</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#row_food">최신순</a></li>
+							href="#row_rest">최신순</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#high_food">추천순</a></li>
+							href="#high_rest">추천순</a></li>
 					</ul>
 				</div>
 			</div>
-			<c:set var="foodCount" value="0" />
+			<c:set var="accCount" value="0" />
 			<c:choose>
 				<c:when test="${empty stores}">
 					<!-- 데이터가 없을 때 메시지 표시 -->
@@ -57,13 +60,13 @@
 				<c:otherwise>
 					<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 					<c:forEach var="store" items="${stores}" varStatus="loop">
-						<c:if test="${store.cate == '음식점'}">
+						<c:if test="${store.cate == '숙소'}">
 							<!-- 최대 2개의 결과만 출력 -->
 							<div class="box_list">
 								<ul class="box_meun">
 									<li class="box_prd">
 										<div class="box_img">
-											<a href=""><img src="img/feature-6.jpg" alt="food"></a>
+											<a href=""><img src="img/feature-6.jpg" alt="acc"></a>
 										</div>
 										<div class="box_text">
 											<div data-row>
@@ -99,29 +102,29 @@
 									</li>
 								</ul>
 							</div>
-							<c:set var="accCount" value="$foodCount + 1}" />
+							<c:set var="accCount" value="${accCount + 1}" />
 						</c:if>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 		</div>
-
 	</div>
-	<br>
 
-	<script>			
-	// 음식 카테고리 결과 처리
-    if (${empty stores || foodCount == 0}) {
+	<script>
+    // 숙소 카테고리 결과 처리
+    if (${empty stores || accCount == 0}) {
         // 결과가 없을 때 "검색 결과에 대한 정보가 존재하지 않습니다" 메시지를 표시하고 "더보기" 버튼을 숨깁니다
-        document.getElementById("foodResults").innerHTML = '<br><h4>&nbsp;&nbsp;"검색 결과에 대한 정보가 존재하지 않습니다"</h4><br>';
-        document.getElementById("foodMore").style.display = "none";
+        document.getElementById("accommodationResults").innerHTML = '<br><h4>&nbsp;&nbsp;"검색 결과에 대한 정보가 존재하지 않습니다"</h4><br>';
+        document.getElementById("accommodationMore").style.display = "none";
     }
 	
-    document.getElementById('foodTabs').addEventListener('click', function (e) {
+    document.getElementById('accTabs').addEventListener('click', function (e) {
         e.preventDefault();
-        switchTab('food', e.target.getAttribute('href').substr(1));
+        switchTab('acc', e.target.getAttribute('href').substr(1));
     });
-    </script>
+   
+	</script>
+
 
 	<!-- footer -->
 	<jsp:include page="../main/footer.jsp" />
