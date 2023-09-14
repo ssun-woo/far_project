@@ -88,7 +88,7 @@ public class AccController {
 		ResvDTO resv = new ResvDTO();
 		resv.setResv_num(1);
 		resv.setStore_num(store_num);
-		resv.setMem_id(id);
+		resv.setmemId(id);
 		resv.setStart_day("시작일, 시간입니다");
 		resv.setEnd_day("마지막날, 시간입니다");
 		resv.setPeople_num(2);

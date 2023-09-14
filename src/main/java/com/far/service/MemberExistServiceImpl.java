@@ -13,8 +13,8 @@ public class MemberExistServiceImpl implements MemberExistService{
 	MemberExistDAO memexDAO;
 	
 	@Override
-	public int isexist_mem_id(String mem_id) {
-		return memexDAO.isexist_mem_id(mem_id);
+	public int isexist_mem_id(String memId) {
+		return memexDAO.isexist_mem_id(memId);
 	}
 	
 }

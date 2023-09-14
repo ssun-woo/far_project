@@ -18,14 +18,14 @@
 					<div class="id_img">
 						<img class="login_id" src="../images/login/login_id.png">
 					</div>
-					<input class="id" type="text" name="mem_id" placeholder="아이디">
+					<input class="id" type="text" name="memId" placeholder="아이디">
 				</div>
 				
 				<div class="pwd_wrap">
 					<div class="pwd_img">
 						<img class="login_pwd" src="../images/login/login_pwd.png">
 					</div>
-					<input class="pwd" type="password" name="mem_pwd" placeholder="비밀번호">
+					<input class="pwd" type="password" name="memPwd" placeholder="비밀번호">
 				</div>
 				<br>
 				<input class="submit" type="submit" value="로그인"><br>
