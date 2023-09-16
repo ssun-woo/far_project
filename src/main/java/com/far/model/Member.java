@@ -23,6 +23,7 @@ public class Member {
 	private String memTel;
 	@Column(name = "MEMCLASS")
 	private String memClass;
+	
 	public String getMemId() {
 		return memId;
 	}
