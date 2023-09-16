@@ -1,18 +1,29 @@
 package com.far.controller;
 
+
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.far.Repository.StoreRepository;
 import com.far.dto.ResvDTO;
+import com.far.dto.StoreDTO;
+import com.far.model.Store;
 import com.far.service.AccResvService;
+import com.far.service.ListUpService;
 
 @Controller
 @RequestMapping("/acc")
@@ -20,7 +31,10 @@ public class AccController {
 
 	@Autowired
 	private AccResvService accResvService;
-
+	
+	@Autowired
+	private ListUpService listUpService;
+	
 	// 숙소 상세 카테고리 페이지
 	@RequestMapping("/cate_list")
 	public ModelAndView acc_list() {
@@ -30,9 +44,14 @@ public class AccController {
 
 	// 세부 카테 클릭 시
 	@RequestMapping("/list")
-	public ModelAndView acc_hotel(HttpServletRequest request) {
+	public ModelAndView acc_hotel(HttpServletRequest request, @PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC)Pageable pageable) {
 		String cate = request.getParameter("cate");
+		
+		Page<Store> acc_list = listUpService.storeList(pageable);
+		System.out.println(acc_list);
+		System.out.println(acc_list.getSize());
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("acc_list", acc_list);
 		mav.addObject("cate", cate);
 		mav.setViewName("acc/acc_list");
 		return mav;
@@ -58,12 +77,13 @@ public class AccController {
 	}
 
 	// 숙소 결제페이지 이동
+	
 	@RequestMapping("/payment_info")
 	public ModelAndView acc_payment_info(String cate, int store_num, HttpSession session, HttpServletResponse response, String target) throws Exception {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		store_num = 10;
-		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("memId") == null) {
 			out.println("<script>");
 			out.println("alert('로그인이 필요한 기능입니다');");
 			out.println("location = '/login?target=/acc/payment_info?cate=" + cate + "&store_num=" + store_num + "'");
@@ -73,6 +93,7 @@ public class AccController {
 			mav.setViewName("payment/payment");
 			mav.addObject("cate", cate);
 			mav.addObject("store_num", 10);
+			
 			return mav;
 		}
 		return null;

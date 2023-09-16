@@ -28,7 +28,7 @@ public class PrincipalDetailsService implements UserDetailsService {
 
         // UserDetails를 구성하여 반환
         PrincipalDetails userDetails = new PrincipalDetails(memberEntity);
-        SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()));
+        //SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities()));
 
         return userDetails;
     }
