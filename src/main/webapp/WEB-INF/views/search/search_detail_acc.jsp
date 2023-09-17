@@ -20,7 +20,7 @@
 	<div class="tabArea">
 		<ul class="n1 nav nav-tabs" id="myTabs">
 			<li class="nav-item"><a class="nav-link " data-toggle="tab"
-				href="/search/search?keyword=${keyword}">통합검색</a></li>
+				href="/search?keyword=${keyword}">통합검색</a></li>
 			<li class="nav-item"><a class="nav-link active"
 				href="/search/acc?keyword=${keyword}">숙소</a></li>
 			<li class="nav-item"><a class="nav-link"
@@ -43,9 +43,9 @@
 						<li class="nav-item"><a class="nav-link active"
 							data-toggle="tab" href="#all_rest">통합</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#row_rest">최신순</a></li>
+							href="#look_rest">조회순</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#high_rest">추천순</a></li>
+							href="#good_rest">추천순</a></li>
 					</ul>
 				</div>
 			</div>

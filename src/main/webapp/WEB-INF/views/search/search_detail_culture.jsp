@@ -37,13 +37,13 @@
 		<div class="culture_all result-section" id="cultureResults">
 			<div class="titleTab">
 				<div class="subWrap">
-					<ul class="n2 nav nav-tabs" id="cultureTabs">
+					<ul class="n2 nav nav-tabs" id="accommodationTabs">
 						<li class="nav-item"><a class="nav-link active"
-							data-toggle="tab" href="#all_culture">통합</a></li>
+							data-toggle="tab" href="#all_rest">통합</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#row_culture">최신순</a></li>
+							href="#look_rest">조회순</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#high_culture">추천순</a></li>
+							href="#good_rest">추천순</a></li>
 					</ul>
 				</div>
 			</div>

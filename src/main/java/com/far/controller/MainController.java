@@ -51,7 +51,8 @@ public class MainController {
         return mav;
 		
 	}
-
+	
+	
 	// 고객센터 이동
 	@RequestMapping("/customer_service")
 	public ModelAndView customer_service() {

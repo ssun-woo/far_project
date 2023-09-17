@@ -30,6 +30,7 @@ public class SearchController {
 	 * 
 	 * return mav; }
 	 */
+//검색 메인(통합검색)창
 	@GetMapping("")
 	public ModelAndView search(@RequestParam("keyword") String keyword) {
 		List<StoreDTO> stores = searchService.searchStore(keyword);
@@ -40,6 +41,7 @@ public class SearchController {
 		return mav;
 	}
 
+//숙소 카테로 이동
 	@GetMapping("/acc")
 	public ModelAndView acc_search(@RequestParam("keyword") String keyword) {
 		List<StoreDTO> stores = searchService.searchStore(keyword);
@@ -50,6 +52,7 @@ public class SearchController {
 		return mav;
 	}
 
+//음식 카테로 이동
 	@GetMapping("/food")
 	public ModelAndView food_search(@RequestParam("keyword") String keyword) {
 		List<StoreDTO> stores = searchService.searchStore(keyword);
@@ -60,6 +63,7 @@ public class SearchController {
 		return mav;
 	}
 
+//예술/문화 카테로 이동 
 	@GetMapping("/culture")
 	public ModelAndView culture_search(@RequestParam("keyword") String keyword) {
 		List<StoreDTO> stores = searchService.searchStore(keyword);
@@ -69,4 +73,6 @@ public class SearchController {
 		mav.addObject("keyword", keyword);
 		return mav;
 	}
+
+	
 }

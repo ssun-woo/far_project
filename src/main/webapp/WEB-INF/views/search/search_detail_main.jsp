@@ -31,8 +31,6 @@
 					href="/search/food?keyword=${keyword}">음식</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/search/culture?keyword=${keyword}">문화</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/search/beauty?keyword=${keyword}">뷰티</a></li>
 			</ul>
 		</div>
 
@@ -43,7 +41,7 @@
 				<div class="tab-pane fade show active" id="main">
 					<div class="sc_textBox">
 						<h4 class="mainText">
-							<br> <strong> "${keyword}" </strong> 에 대한 결과 검색
+							<strong> "${keyword}" </strong> 에 대한 결과 검색
 						</h4>
 					</div>
 					<br>
@@ -57,11 +55,14 @@
 							<div class="subWrap">
 								<ul class="n2 nav nav-tabs" id="accommodationTabs">
 									<li class="nav-item"><a class="nav-link active"
-										data-toggle="tab" href="#all_rest">통합</a></li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab"
-										href="#row_rest">최신순</a></li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab"
-										href="#high_rest">추천순</a></li>
+										th:href="@{/community/tab/{category_name}(category_name=${category_name}, orderby='id')}">최신순</a>
+									</li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/community/tab/{category_name}(category_name=${category_name}, orderby='views')}">조회순</a>
+									</li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/community/tab/{category_name}(category_name=${category_name}, orderby='likes')}">추천순</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -82,7 +83,8 @@
 											<ul class="box_meun">
 												<li class="box_prd">
 													<div class="box_img">
-														<a href=""><img src="img/feature-6.jpg" alt="acc"></a>
+														<a href=""><img src="images/ev_images/feature-4.jpg"
+															alt="acc"></a>
 													</div>
 													<div class="box_text">
 														<div data-row>
@@ -138,13 +140,13 @@
 				<div class="food_all result-section" id="foodResults">
 					<div class="titleTab">
 						<div class="subWrap">
-							<ul class="n2 nav nav-tabs" id="foodTabs">
+							<ul class="n2 nav nav-tabs" id="accommodationTabs">
 								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#all_food">통합</a></li>
+									data-toggle="tab" href="#all_rest">통합</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#row_food">최신순</a></li>
+									href="#look_rest">조회순</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#high_food">추천순</a></li>
+									href="#good_rest">추천순</a></li>
 							</ul>
 						</div>
 					</div>
@@ -220,13 +222,13 @@
 			<div class="culture_all result-section" id="cultureResults">
 				<div class="titleTab">
 					<div class="subWrap">
-						<ul class="n2 nav nav-tabs" id="cultureTabs">
+						<ul class="n2 nav nav-tabs" id="accommodationTabs">
 							<li class="nav-item"><a class="nav-link active"
-								data-toggle="tab" href="#all_culture">통합</a></li>
+								data-toggle="tab" href="#all_rest">통합</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab"
-								href="#row_culture">최신순</a></li>
+								href="#look_rest">조회순</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab"
-								href="#high_culture">추천순</a></li>
+								href="#good_rest">추천순</a></li>
 						</ul>
 					</div>
 				</div>
@@ -318,7 +320,7 @@
         document.getElementById("cultureMore").style.display = "none";
     }
     
-    <script>
+   
     // 활성 탭을 기반으로 탭을 전환하고 내용을 표시하고 숨깁니다
     function switchTab(category, tabName) {
         const tabs = document.getElementById(`${category}Tabs`).getElementsByTagName('a');
@@ -346,7 +348,7 @@
         switchTab('culture', e.target.getAttribute('href').substr(1));
     });
 </script>
-	</script>
+
 
 
 
