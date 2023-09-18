@@ -11,8 +11,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		
 		<!-- <typeAlias type="com.far.dto.MenuDTO" alias="Menu" /> -->
 	
-		
-		<typeAlias type="com.far.dto.ResvDTO" alias="resv"/>
+		<typeAlias type="com.far.dto.ReviewDTO" alias="review"/>
+ 		<typeAlias type="com.far.dto.ResvDTO" alias="resv"/>
 		
 		<typeAlias type="com.far.dto.MemberDTO" alias="member"/>
 		

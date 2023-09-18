@@ -14,19 +14,48 @@ public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	private ReviewDAO reviewDao;
 
-	@Override
-	public int enrollReview(ReviewDTO dto) {
-		return reviewDao.enrollReview(dto);
-	}
+	
 
 	@Override
 	public List<ReviewDTO> getReview(int store_num) {
 		return reviewDao.getReview(store_num);
 	}
+
+
+
+	@Override
+	public void setReview(ReviewDTO dto) {
+		reviewDao.setReview(dto);
+	}
+
+
+
+
+	@Override
+	public void delReview(int review_num) {
+		reviewDao.delReview(review_num);		
+	}
+
+
+
+	@Override
+	public void editReview(int review_num) {
+		reviewDao.editReview(review_num);
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 	
-//	@Override
-//	public int enrollReview(ReviewDTO dto) {
-//		return result;
-//	}
+
 
 }

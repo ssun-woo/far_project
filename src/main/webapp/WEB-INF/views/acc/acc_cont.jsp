@@ -238,11 +238,15 @@
 			</div>
 
 			<!-- 지도 -->
-			<div id="map_content" style="display: none;" class="shop_cont_div">
+			<div id="map_content" style="display: none;" class="shop_cont_div" >
 				<div class="acc_map">
 					<h3>지도 상세 보기</h3>
 					<hr>
-					<div class="map"></div>
+					
+					<div id="map" class="kakao_map"></div>
+					
+					
+	
 				</div>
 				<div class="guide">
 					<h3>교통안내</h3>
@@ -255,64 +259,107 @@
 			<!-- 리뷰 -->
 			<div id="review_content" style="display: none;" class="shop_cont_div">
 				<div class="Review_cont">
+				<div class="review_rating_form">
+				
+				<form action="#" method="post" id="reviewForm">
+					<table class="review_write">
+					<tr>
+						<th colspan="2"><h3>후기 작성</h3></th>
+					</tr>
+					<tr>
+							
+								<td colspan="2"><div class="mb-3" id="review_rating"><fieldset>
+								<span>별점을 선택해주세요</span>
+		<input type="radio" name="review_rating" value="5" id="rate1">
+		<label for="rate1">★</label>
+		<input type="radio" name="review_rating" value="4" id="rate2">
+		<label for="rate2">★</label>
+		<input type="radio" name="review_rating" value="3" id="rate3">
+		<label for="rate3">★</label>
+		<input type="radio" name="review_rating" value="2" id="rate4">
+		<label for="rate4">★</label>
+		<input type="radio" name="review_rating" value="1" id="rate5">
+		<label for="rate5">★</label>
+	</fieldset></div></td>
+	
+							
+						</tr>
+						
+						<tr>
+							<th colspan="2"><textarea rows="10" cols="30"
+									id="review_cont" name="review_cont" placeholder="후기를 입력해주세요"></textarea></th>
+									
+						</tr>
+						<tr>
+						<td><input type="submit" value="등록"
+								onclick="submit_check();" class="ReviewWriteBtn"></td>
+						<td class="text_length">글자수</td>
+						</tr>
+						
+					</table>
+				</form>
+				</div>
 					<div class="review_form">
 						<h3>이용후기 (건수)</h3>
 						<div class="detail_review">
-							<ul class="detail_review_ul">
+							
 								<c:forEach var="review" items="${reviewList}">
-									<li>
-										<h4>${review.review_title}</h4>
-										<p>${review.review_cont}</p>
-										<p>평점: ${review.review_rating}</p>
-										<p>${review.mem_id}${review.review_date}</p>
-									</li>
+								<div class="detail_review_table_div">
+									<table class="detail_review_table">
+									<tr>
+										<td rowspan="3" id="review_num">${review.review_num}&nbsp;&nbsp;&nbsp;</td>
+										<td style="text-align: left;">${review.memId} <label style="color:gray;">| ${review.review_date}</label></td>
+										<td style="text-align: left;">평점: ${review.review_rating}</td>
+									</tr>
+									<tr>
+										<c:if test="/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}">d</c:if>
+										<td style="text-align: left;">${review.review_cont}</td>
+									</tr>
+									</table>
+									
+																
+									<div class="review_buttons">
+									<button class="review_recommend">
+									<img src="../images/main/review_recommend.png">
+									<p>0</p>
+									</button>
+									
+										<form action="/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}" method="POST">
+   											<input type="hidden" name="review_num" value="${review.review_num}">
+    										<button type="submit" onclick="return confirm('후기를 수정하시겠습니까?')">수정</button>
+										</form>
+										<form action="/acc/cont/delete?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}" method="POST">
+   											<input type="hidden" name="review_num" value="${review.review_num}">
+    										<button type="submit" onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
+										</form>
+
+										
+									</div>
+									
+									
+								</div>
+							
+									<hr>
 								</c:forEach>
-							</ul>
+							
 
 
-							<input type="button" value="수정" class="review_edit"> <input
-								type="button" value="삭제" class="review_del">
+							
 
 						</div>
-						<button class="review_recommend">
-							<img src="../images/main/review_recommend.png">
-							<p>0</p>
-						</button>
-						<hr>
+						
+						
 					</div>
 					<br>
 					<div class="review_page">1 | 2 | 3 | 4 | 5</div>
 				</div>
-
-
-				<form action="#">
-					<table class="review_write" method="post">
-						<tr>
-							<td><label for="review_title">제목&nbsp;&nbsp;</label> <input
-								type="text" id="review_title" name="review_title"></td>
-							<td><label for="mem_id"> 아이디 </label><input type="text"
-								id="mem_id" name="mem_id"></td>
-						</tr>
-						<tr>
-							<td>상품명 <input type="text" id="review_goods"></td>
-							<td>별점 ★★★★★</td>
-						</tr>
-						<tr>
-							<td>내용</td>
-						</tr>
-						<tr>
-							<td colspan="2"><textarea rows="10" cols="30"
-									id="review_content"></textarea></td>
-						</tr>
-						<tr>
-							<td><input type="submit" value="등록"
-								onclick="submit_check();" class="ReviewWriteBtn"></td>
-						</tr>
-					</table>
-				</form>
+		
+		
 			</div>
 
+			
 
+ 	
 			<script src="/js/acc_cont.js"></script>
 
 
@@ -326,8 +373,5 @@
 <!-- shop_cont -->
 
 <jsp:include page="../main/footer.jsp" />
-
-
-
 
 

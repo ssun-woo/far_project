@@ -37,29 +37,58 @@ $('input[type=radio][name=show]').on('click',function(){
 
 
 function submit_check(){
+	let rf = document.getElementById("reviewForm");
+	
+	rf.addEventListener("submit",function(e){
+	
 	var title = document.getElementById("review_title");
 	var goods = document.getElementById("review_goods");
-	var content = document.getElementById("review_content");
+	var cont = document.getElementById("review_cont");
 	var id = document.getElementById("mem_id");
+	var rating = document.getElementById("review_rating");
 	
-	if(title.value==""){
-	alert("제목을 입력하세요.");
-	title.focus();
+	if($("input[name=review_rating]:radio:checked").length<1){
+	alert("별점을 선택하세요.");
+	e.preventDefault();
 	return false;
-	}else if(id.value==""){
-	alert("아이디를 입력하세요.");
-	id.focus();
-	return false;
-	}else if(goods.value==""){
-	alert("상품명을 입력하세요.");
-	goods.focus();
-	return false;
-	}else if(content.value==""){
+	}else if(cont.value==""){
 	alert("내용을 입력하세요.");
-	content.focus();
+	cont.focus();
+	e.preventDefault();
 	return false;
+	}else{
+	alert("리뷰 등록 완료");
+	return true;
 	}
+	});
+	
 }
 
+function reviewDel(){
+	if(!confirm("후기를 삭제하시겠습니까?")) return;
+	
+	 var review_num = $("#review_num").val();
+	
+	$.ajax({
+        type: "POST",
+        url: `/acc/cont/delete?store_num=${store_num}`, // 삭제 요청을 처리할 컨트롤러 엔드포인트 URL
+        success: function (data) {
+            // 삭제가 성공적으로 완료되면 페이지를 다시 로드합니다.
+            location.reload();
+        },
+        error: function () {
+            alert("삭제 중 오류가 발생했습니다.");
+        }
+    });
+}
+
+
+var container = document.getElementById("map");
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
 
 	

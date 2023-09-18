@@ -8,9 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.far.dto.ResvDTO;
 import com.far.dto.ReviewDTO;
@@ -45,29 +54,127 @@ public class AccController {
 	}
 
 	// 상품 상세보기
-	@RequestMapping("/cont")
-	public ModelAndView acc_cont(HttpServletRequest request) {
-		
-		
-		String cate = request.getParameter("cate"); // 현재 cate 받아옴
+//	@RequestMapping("/cont")
+//	public ModelAndView acc_cont(HttpServletRequest request, ReviewDTO rdto) {
+//		
+//		reviewService.setReview(rdto);
+//		int store_num = Integer.parseInt(request.getParameter("store_num"));
+//		List<ReviewDTO> rlist = reviewService.getReview(store_num);
+//		String cate = request.getParameter("cate"); // 현재 cate 받아옴
 //		int page = Integer.parseInt(request.getParameter("page"));	// 페이지 책갈피 기능
+		
+
+		 
+		
+//		ModelAndView mav = new ModelAndView();
+//		
+//		mav.addObject("cate", cate);
+////		mav.addObject("page", page);
+//		
+//		mav.setViewName("acc/acc_cont");
+//		mav.addObject("reviewList", rlist);
+//		mav.addObject("store_num", store_num);
+//		mav.addObject("dto",rdto);
+//		System.out.println("store_num : " + store_num);
+//
+//		System.out.println("cate : " + cate);
+////		System.out.println(page);
+//		System.out.println(rdto);
+//		
+//		
+//
+//		return mav;
+//		
+//	}
+
+	//리뷰목록
+	@GetMapping("/cont")
+	public ModelAndView acc_reviewlist(HttpServletRequest request) {
+		
+		
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
-		
 		List<ReviewDTO> rlist = reviewService.getReview(store_num);
-
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("reviewList", rlist);
-		mav.addObject("cate", cate);
-//		mav.addObject("page", page);
-		mav.addObject("store_num", store_num);
-		mav.setViewName("acc/acc_cont");
-		System.out.println("cate : " + cate);
-//		System.out.println(page);
-		System.out.println("store_num : " + store_num);
-
-		return mav;
+		String cate = request.getParameter("cate");
 		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("acc/acc_cont");
+		mav.addObject("cate", cate);
+		mav.addObject("reviewList", rlist);
+		mav.addObject("store_num", store_num);
+		System.out.println("store_num : " + store_num);
+		System.out.println("cate : " + cate);
+		return mav;
 	}
+	
+	//리뷰등록
+	@PostMapping("/cont")
+	public String acc_reviewForm(HttpServletRequest request,ReviewDTO rdto) {
+		
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		reviewService.setReview(rdto);
+//		reviewService.delReview(rdto);
+		String cate = request.getParameter("cate");
+		
+		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+	}
+	
+
+//	@PostMapping("/delete/{review_num}")
+//	public String deleteReview(@PathVariable("review_num") int review_num, HttpServletRequest request)throws Exception {
+//		
+//		int store_num = Integer.parseInt(request.getParameter("store_num"));
+//		reviewService.delReview(review_num);
+//		String cate = request.getParameter("cate");
+//		
+//		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+//	}
+	
+	//리뷰 삭제
+	 @RequestMapping("/cont/delete")
+	 public ModelAndView delete_review(HttpServletRequest request) {
+		 
+		 int review_num = Integer.parseInt(request.getParameter("review_num"));
+		 String store_num  = request.getParameter("store_num");
+		 String cate = request.getParameter("cate");
+		 
+		 System.out.println(cate);
+		 System.out.println(store_num);
+//		 System.out.println(review_num);
+		 
+		 reviewService.delReview(review_num);
+		 
+		 
+		 
+		 return new ModelAndView("redirect:/acc/cont?cate=" + cate + "&store_num="+ store_num);
+	 }
+	 
+	 //리뷰 수정폼 이동
+	 @RequestMapping("/cont/edit")
+	 public ModelAndView update_review(HttpServletRequest request) {
+		 int review_num = Integer.parseInt(request.getParameter("review_num"));
+		 String store_num = request.getParameter("store_num");
+		 String cate = request.getParameter("cate");
+		 
+		// reviewService.editReview(review_num);
+		 
+		 ModelAndView mav = new ModelAndView();
+		 mav.addObject("review_num", review_num);
+		 mav.addObject("store_num",store_num);
+		 mav.addObject("cate", cate);
+		 mav.setViewName("acc/acc_review_edit");
+		
+		 
+		 return mav;
+		 
+		 
+		 
+		// return new ModelAndView("redirect:/acc/cont?cate=" + cate + "&store_num="+ store_num);
+	 }
+	 
+	 //리뷰 수정
+	
+	
+	
 
 	// 숙소 결제페이지 이동
 	@RequestMapping("/payment_info")
