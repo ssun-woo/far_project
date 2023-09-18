@@ -1,15 +1,10 @@
 package com.far.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@Setter
-@Getter
-@ToString
 public class StoreDTO {
 
+
 	private String store_name; // 가게 이름
+
 
 	public String getStore_name() {
 		return store_name;
@@ -37,6 +32,7 @@ public class StoreDTO {
 
 	private String store_addr;
 	private String cate;
+
 
 	private String detail_cate; // 세부 카페 예 - food 일경우 한식 일식 등
 
@@ -77,4 +73,5 @@ public class StoreDTO {
 	public void setReg_data(String reg_data) {
 		this.reg_data = reg_data;
 	}
+
 }

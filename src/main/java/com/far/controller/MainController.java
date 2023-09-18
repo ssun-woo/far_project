@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.session.SessionInformation;
@@ -16,6 +18,7 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,17 +44,34 @@ public class MainController {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String memId = authentication.getName();
-
         // 세션에 memId 저장
-        session.setAttribute("memId", memId);
-
+        //session.setAttribute("memId", memId);
+        
         ModelAndView mav = new ModelAndView("main/index");
         mav.addObject("memId", memId);
-
+        System.out.println(memId);
         return mav;
 		
 	}
+
+	 
 	
+
+	
+//	// security 예시(지우지말 것)
+//	@Secured("c")
+//	@GetMapping("/securedexample")
+//	public String info() {
+//		return "security example";
+//	}
+//	
+//	// security 예시(지우지말 것)
+//	@PreAuthorize("hasRole('a') or hasRole('c')")
+//	@GetMapping("/securedexample")
+//	public String info() {
+//		return "security example";
+//	}
+
 	
 	// 고객센터 이동
 	@RequestMapping("/customer_service")
@@ -71,12 +91,7 @@ public class MainController {
 //		return new ModelAndView("search/search_detail_main");
 //	}
 
-// // 로그인 페이지 이동
-// @RequestMapping("/login")
-// public ModelAndView login() {
-//    ModelAndView mav = new ModelAndView("login/login");
-//    return mav;
-// }
+
    
 //   // 아이디 찾기
 //   @RequestMapping("/findId")
@@ -91,11 +106,7 @@ public class MainController {
 //      
 //   }
 
-//   // 회원가입 
-//   @RequestMapping("/signUp")
-//   public ModelAndView signUp() {
-//      return new ModelAndView("login/signUp");
-//   }
+
 //   
 //   // 아이디 찾기
 //   @RequestMapping("/findId")

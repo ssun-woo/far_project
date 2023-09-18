@@ -18,5 +18,8 @@
  	<select id="mem_select_id" resultType="int">
  		select count(*) from member where memId = #{memId}
  	</select>
+ 	
+ 	
+ 	
  </mapper>
  
