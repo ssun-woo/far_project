@@ -78,6 +78,7 @@
 								<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 								<c:forEach var="store" items="${stores}" varStatus="loop">
 									<c:if test="${store.cate == 'acc' && accCount < 2}">
+										<!--  메인 카테 -->
 										<!-- 최대 2개의 결과만 출력 -->
 										<div class="box_list">
 											<ul class="box_meun">
@@ -90,30 +91,41 @@
 														<div data-row>
 															<div data-cell>
 																<div class="infoIcon">
-																	<i class="icon icondHot">${store.detail_cate}</i> 
+																	<i class="icon icondHot">${store.detail_cate}</i>
+																	<!-- 디테일 카테 예- 호텔 모텔등  -->
 																	<i class="icon"> ${store.store_addr} </i>
+																	<!-- 가게 주소 -->
 																</div>
 															</div>
 														</div>
 														<div data-row>
 															<div data-cell>
 																<a href="">
-																	<h5 class="infoTitle">${store.store_name}</h5>
+																	<h5 class="infoTitle">${store.store_name}</h5> <!--  가게 이름 -->
 																</a>
 																<p class="infoSubTitle">이벤트</p>
+																<!--  이벤트  -->
 															</div>
 															<div data-cell>
 																<div class="infoPrice" tabindex="0">
 																	<p class="final">
 																		<span class="bilnd">판매가</span> <strong>가격</strong> 원 ~
+																		<!--  가격 -->
 																	</p>
 																</div>
 															</div>
 														</div>
 														<div data-row="bottom">
 															<div data-cell>
-																<p class="infoInfostar">등급</p>
-																<p class="info">상세주소</p>
+																<p class="infoInfostar">
+																	<!-- 가게 등급 -->
+																	${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+																	<strong>(${store.store_score})</strong>
+																</p>
+																<p class="info">
+																	<!-- 가게 상세 주소 -->
+																	${store.store_detail_addr}
+																</p>
 															</div>
 														</div>
 													</div>
@@ -173,30 +185,41 @@
 													<div data-row>
 														<div data-cell>
 															<div class="infoIcon">
-																<i class="icon icondHot">${store.detail_cate}</i> 
+																<i class="icon icondHot">${store.detail_cate}</i>
+																<!-- 디테일 카테 예 - 일식 중식등 -->
 																<i class="icon"> ${store.store_addr} </i>
+																<!--  가게 주소 -->
 															</div>
 														</div>
 													</div>
 													<div data-row>
 														<div data-cell>
 															<a href="">
-																<h5 class="infoTitle">${store.store_name}</h5>
+																<h5 class="infoTitle">${store.store_name}</h5> <!--  가게 이름 -->
 															</a>
 															<p class="infoSubTitle">이벤트</p>
+															<!--  이벤트 -->
 														</div>
 														<div data-cell>
 															<div class="infoPrice" tabindex="0">
 																<p class="final">
 																	<span class="bilnd">판매가</span> <strong>가격</strong> 원 ~
+																	<!--  가격 -->
 																</p>
 															</div>
 														</div>
 													</div>
 													<div data-row="bottom">
 														<div data-cell>
-															<p class="infoInfostar">등급</p>
-															<p class="info">상세주소</p>
+															<p class="infoInfostar">
+																<!-- 가게 등급 -->
+																${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+																<strong>(${store.store_score})</strong>
+															</p>
+															<p class="info">
+																<!-- 가게 상세 주소 -->
+																${store.store_detail_addr}
+															</p>
 														</div>
 													</div>
 												</div>
@@ -255,8 +278,10 @@
 												<div data-row>
 													<div data-cell>
 														<div class="infoIcon">
-														<i class="icon icondHot">${store.detail_cate}</i> 
-														<i class="icon"> ${store.store_addr} </i>
+															<i class="icon icondHot">${store.detail_cate}</i>
+															<!-- 디테일 카테 예- 공연 전시회 등 -->
+															<i class="icon"> ${store.store_addr} </i>
+															<!-- 주소 -->
 														</div>
 													</div>
 												</div>
@@ -271,14 +296,22 @@
 														<div class="infoPrice" tabindex="0">
 															<p class="final">
 																<span class="bilnd">판매가</span> <strong>가격</strong> 원 ~
+																<!-- 가격  -->
 															</p>
 														</div>
 													</div>
 												</div>
 												<div data-row="bottom">
 													<div data-cell>
-														<p class="infoInfostar">등급</p>
-														<p class="info">상세주소</p>
+														<p class="infoInfostar">
+															<!-- 가게 등급 -->
+															${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+															<strong>(${store.store_score})</strong>
+														</p>
+														<p class="info">
+															<!-- 가게 상세 주소 -->
+															${store.store_detail_addr}
+														</p>
 													</div>
 												</div>
 											</div>

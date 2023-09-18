@@ -70,8 +70,8 @@
 											<div data-row>
 												<div data-cell>
 													<div class="infoIcon">
-														<i class="icon icondHot">${store.detail_cate}</i> <i class="icon">
-															${store.store_addr} </i>
+														<i class="icon icondHot">${store.detail_cate}</i> <i
+															class="icon"> ${store.store_addr} </i>
 													</div>
 												</div>
 											</div>
@@ -92,8 +92,15 @@
 											</div>
 											<div data-row="bottom">
 												<div data-cell>
-													<p class="infoInfostar">등급</p>
-													<p class="info">상세주소</p>
+													<p class="infoInfostar">
+														<!-- 가게 등급 -->
+														${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+														<strong>(${store.store_score})</strong>
+													</p>
+													<p class="info">
+														<!-- 가게 상세 주소 -->
+														${store.store_detail_addr}
+													</p>
 												</div>
 											</div>
 										</div>
