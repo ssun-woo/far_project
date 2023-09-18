@@ -6,7 +6,7 @@
  
  <mapper namespace="ListUp">
  	
- 	<select id="acc_list" resultType="com.far.dto.StoreDTO">
+ 	<select id="acc_list" resultType="com.far.dto.StoreDTO2">
  		select * from store
  	</select>
  	

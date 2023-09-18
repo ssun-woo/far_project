@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.springframework.data.domain.Sort;
+
 @Entity
 public class Store {
 	@Id
@@ -12,6 +14,7 @@ public class Store {
 	
 	@Column(name = "STOREADDR")
 	private String storeAddr;
+	
 	public String getStoreName() {
 		return storeName;
 	}
@@ -21,7 +24,7 @@ public class Store {
 	public String getStoreAddr() {
 		return storeAddr;
 	}
-	public void setStoreAddr(String storeAddr) {
+	public void setStoreAddr(String storeAddr, Sort sort) {
 		this.storeAddr = storeAddr;
 	}
 	

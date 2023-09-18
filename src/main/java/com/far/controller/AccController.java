@@ -10,12 +10,15 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.far.Repository.StoreRepository;
@@ -23,7 +26,7 @@ import com.far.dto.ResvDTO;
 import com.far.dto.StoreDTO;
 import com.far.model.Store;
 import com.far.service.AccResvService;
-import com.far.service.ListUpService;
+import com.far.service.StoreService;
 
 @Controller
 @RequestMapping("/acc")
@@ -33,7 +36,7 @@ public class AccController {
 	private AccResvService accResvService;
 	
 	@Autowired
-	private ListUpService listUpService;
+	private StoreService storeService;
 	
 	// 숙소 상세 카테고리 페이지
 	@RequestMapping("/cate_list")
@@ -44,17 +47,17 @@ public class AccController {
 
 	// 세부 카테 클릭 시
 	@RequestMapping("/list")
-	public ModelAndView acc_hotel(HttpServletRequest request, @PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC)Pageable pageable) {
-		String cate = request.getParameter("cate");
-		
-		Page<Store> acc_list = listUpService.storeList(pageable);
-		System.out.println(acc_list);
-		System.out.println(acc_list.getSize());
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("acc_list", acc_list);
-		mav.addObject("cate", cate);
-		mav.setViewName("acc/acc_list");
-		return mav;
+	public ModelAndView acc_hotel(HttpServletRequest request, Model model, @RequestParam(defaultValue = "0") int page) {
+	    String cate = request.getParameter("cate");
+	    
+	    Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.ASC, "storeName"));
+
+	    ModelAndView mav = new ModelAndView();
+	    Page<Store> storePage = storeService.storeList(pageable);
+	    model.addAttribute("list", storePage);
+	    mav.addObject("cate", cate);
+	    mav.setViewName("acc/acc_list");
+	    return mav;
 	}
 
 	// 상품 상세보기
