@@ -75,16 +75,15 @@
 				
 				<div class="nav_bar">
 					<ul class="top_nav2">
-						<c:if test="${id == null}">
-							<li><a href="/login">로그인</a></li>
-							<li><a href="/signUp">회원가입</a></li>
-						</c:if>
-						<c:if test="${id != null}">
+						<c:if test="${memId != null && memId != 'anonymousUser'}">
+							<li>${memId }님</li>
 							<li><a href="/logout">로그아웃</a></li>
 						</c:if>
-						<%-- <c:if test="${class == 'c'}">
-							<li><a href="">가게관리</a></li>
-						</c:if> --%>
+						<c:if test="${memId == null || memId == 'anonymousUser'}">
+							<li><a href="/loginForm">로그인</a></li>
+							<li><a href="/signUp">회원가입</a></li>
+						</c:if>
+						
 						<li><a href="/my_page">마이페이지</a></li>
 					</ul>
 				</div>

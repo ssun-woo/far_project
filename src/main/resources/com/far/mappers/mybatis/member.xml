@@ -7,9 +7,19 @@
  <mapper namespace="Member">
  	
  	<insert id="mem_in">
-	 	insert into member(mem_id, mem_pwd, mem_name, mem_email, mem_tel)
-	 	 values(#{mem_id}, #{mem_pwd}, #{mem_name}, #{mem_email}, #{mem_tel})
+	 	insert into member(memId, memPwd, memName, memEmail, memTel, memClass)
+	 	 values(#{memId}, #{memPwd}, #{memName}, #{memEmail}, #{memTel}, #{memClass})
  	</insert>
+ 	
+ 	<select id="mem_select" resultType="int">
+ 		select count(*) from member where memId = #{memId} and memPwd = #{memPwd}
+ 	</select>
+ 	
+ 	<select id="mem_select_id" resultType="int">
+ 		select count(*) from member where memId = #{memId}
+ 	</select>
+ 	
+ 	
  	
  </mapper>
  

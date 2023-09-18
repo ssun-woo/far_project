@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,7 @@
 <script src="/js/rs_pic.js"></script>
 <script src="/js/acc_cont.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/acc_search.css">
+<link rel="stylesheet" type="text/css" href="/css/acc_cont.css">
 <link rel="stylesheet" type="text/css" href="/css/accommodation.css">
 <link rel="stylesheet" type="text/css" href="/css/beauty.css">
 <link rel="stylesheet" type="text/css" href="/css/cs.css">
@@ -35,11 +36,24 @@
 <link rel="stylesheet" type="text/css" href="/css/topten.css">
 <link rel="stylesheet" type="text/css" href="/css/rs_stopic.css">
 <link rel="stylesheet" type="text/css" href="/css/topten_culture.css">
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="/css/notice.css">
 <link rel="stylesheet" type="text/css" href="/css/acc_cont.css">
+=======
+
+<link rel="stylesheet" type="text/css" href="/css/starEx.css">
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
 <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet"
+	href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<script type="text/javascript"
+	src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
 </head>
 
@@ -47,31 +61,42 @@
 	<!-- 이쪽은 가장 Main index를 제외한 Header -->
 	<div id="wrap">
 		<div class="top">
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
 			<div class="middle_line">
 				<div class="logo">
-        			<a href="/"><img src="/images/main/logo.jpg" alt="logo"></a>
-       			<div class="logo-popup">
-		            <ul>
-		                <li><a href="/">홈</a></li>
-		                <hr>
-		                <li><a href="/acc/cate_list">숙소</a></li>
-		                <li><a href="/resto/cate_list">식당</a></li>
-		                <li><a href="/culture/cate_list">문화</a></li>
-		                <li><a href="/beauty/cate_list">뷰티</a></li>
-		            </ul>
-        		</div>
-   		 	</div>
-				
+					<a href="/"><img src="/images/main/logo.jpg" alt="logo"></a>
+					<div class="logo-popup">
+						<ul>
+							<li><a href="/">홈</a></li>
+							<hr>
+							<li><a href="/acc/cate_list">숙소</a></li>
+							<li><a href="/resto/cate_list">식당</a></li>
+							<li><a href="/culture/cate_list">문화</a></li>
+							<li><a href="/beauty/cate_list">뷰티</a></li>
+						</ul>
+					</div>
+				</div>
+
 				<div class="search">
 					<div class="search_bar">
+<<<<<<< HEAD
 						<form onsubmit="performSearch(); return false;">	
+=======
+
+						<form onsubmit="performSearch(); return false;">	
+
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
 							<div class="search_input">
 								<input type="text" name="index_search" class="index_search" id="index_search">
 							</div>
 							<div class="search_button">
 								<button class="searchButton" type="submit">
 									<img src="/images/main/search_icon.png" class="searchIcon">
-								</button>		
+								</button>
 							</div>
 						</form>
 						<script>	// 리다이렉션
@@ -83,88 +108,39 @@
 						    }
 						</script>
 					</div>
-				
+
 				</div>
-				
+
 				<div class="nav_bar">
 					<ul class="top_nav2">
-						<c:if test="${id == null}">
-							<li><a href="/login">로그인</a></li>
-							<li><a href="/signUp">회원가입</a></li>
-						</c:if>
-						<c:if test="${id != null}">
+						<c:if test="${memId != null && memId != 'anonymousUser'}">
+							<li>${memId }님</li>
 							<li><a href="/logout">로그아웃</a></li>
 						</c:if>
+						<c:if test="${memId == null || memId == 'anonymousUser'}">
+							<li><a href="/loginForm">로그인</a></li>
+							<li><a href="/signUp">회원가입</a></li>
+						</c:if>
+
 						<li><a href="/my_page">마이페이지</a></li>
 					</ul>
 				</div>
-				
+
 			</div>
-			
-			
+
+
 			<div class="end_line">
 				<ul>
-					<li>
-						<i></i>
-						<span></span>
-					</li>
-					<li>
-						<i></i>
-						<span></span>
-					</li>
-					<li>
-						<i></i>
-						<span></span>
-					</li>
-					<li>
-						<i></i>
-						<span></span>
-					</li>
+					<li><i></i> <span></span></li>
+					<li><i></i> <span></span></li>
+					<li><i></i> <span></span></li>
+					<li><i></i> <span></span></li>
 				</ul>
 			</div>
-			
-		
-			
+
+
+
 		</div>
-		
-		
+
+
 		<hr class="end_hr">
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		

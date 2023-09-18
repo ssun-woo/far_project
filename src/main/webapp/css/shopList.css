@@ -1,13 +1,20 @@
 @charset "UTF-8";
 .shop_List{
+<<<<<<< HEAD
 	width: 1300px;
 	display: flex;
 	margin: 15px auto;
 
+=======
+	width: 1400px;
+	display: flex;
+	margin-top: 30px;
+	margin-left: 50px;
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
 }
 .filter{
 	height: 100%;
-	width: 20%;
+	width: 250px;
 	background-color: rgba(0,0,0,0.08);
 	margin-right: 20px;
 	border-radius: 10px;
@@ -203,7 +210,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .space{
-	margin-left: 250px;
+	margin-left: 550px;
 }
 
 .page_number{
@@ -215,6 +222,7 @@ input[type="range"]::-webkit-slider-thumb {
 /*문화 제외 모든 가게 리스트*/
 .list_div{
 	display: flex;
+	margin-left: 25px;
 }
 
 .list_div img{
@@ -233,7 +241,7 @@ input[type="range"]::-webkit-slider-thumb {
 	font-size:10pt;
 }
 .list_cont2{
-	margin-left: 650px;
+	margin-left: 850px;
 	position: absolute;
 	margin-top: -15px;
 	width: 150px;
