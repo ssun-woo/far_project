@@ -77,7 +77,7 @@
 							<c:otherwise>
 								<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 								<c:forEach var="store" items="${stores}" varStatus="loop">
-									<c:if test="${store.cate == '숙소' && accCount < 2}">
+									<c:if test="${store.cate == 'acc' && accCount < 2}">
 										<!-- 최대 2개의 결과만 출력 -->
 										<div class="box_list">
 											<ul class="box_meun">
@@ -90,8 +90,8 @@
 														<div data-row>
 															<div data-cell>
 																<div class="infoIcon">
-																	<i class="icon icondHot">${store.cate}</i> <i
-																		class="icon"> ${store.store_addr} </i>
+																	<i class="icon icondHot">${store.detail_cate}</i> 
+																	<i class="icon"> ${store.store_addr} </i>
 																</div>
 															</div>
 														</div>
@@ -161,7 +161,7 @@
 						<c:otherwise>
 							<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 							<c:forEach var="store" items="${stores}" varStatus="loop">
-								<c:if test="${store.cate == '음식점' && foodCount < 2}">
+								<c:if test="${store.cate == 'food' && foodCount < 2}">
 									<!-- 최대 2개의 결과만 출력 -->
 									<div class="box_list">
 										<ul class="box_meun">
@@ -173,8 +173,8 @@
 													<div data-row>
 														<div data-cell>
 															<div class="infoIcon">
-																<i class="icon icondHot">${store.cate}</i> <i
-																	class="icon"> ${store.store_addr} </i>
+																<i class="icon icondHot">${store.detail_cate}</i> 
+																<i class="icon"> ${store.store_addr} </i>
 															</div>
 														</div>
 													</div>
@@ -243,7 +243,7 @@
 					<c:otherwise>
 						<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 						<c:forEach var="store" items="${stores}" varStatus="loop">
-							<c:if test="${store.cate == '예술/문화' && cultureCount < 2}">
+							<c:if test="${store.cate == 'culture' && cultureCount < 2}">
 								<!-- 최대 2개의 결과만 출력 -->
 								<div class="box_list">
 									<ul class="box_meun">
@@ -255,8 +255,8 @@
 												<div data-row>
 													<div data-cell>
 														<div class="infoIcon">
-															<i class="icon icondHot">${store.cate}</i> <i
-																class="icon"> ${store.store_addr} </i>
+														<i class="icon icondHot">${store.detail_cate}</i> 
+														<i class="icon"> ${store.store_addr} </i>
 														</div>
 													</div>
 												</div>
