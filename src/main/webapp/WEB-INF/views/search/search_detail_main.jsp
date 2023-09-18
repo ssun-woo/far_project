@@ -119,7 +119,7 @@
 															<div data-cell>
 																<p class="infoInfostar">
 																	<!-- 가게 등급 -->
-																	${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+																	${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}   <!-- 오류는 뜨지만 아주 잘 작동함...! -->
 																	<strong>(${store.store_score})</strong>
 																</p>
 																<p class="info">
@@ -213,7 +213,7 @@
 														<div data-cell>
 															<p class="infoInfostar">
 																<!-- 가게 등급 -->
-																${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+																${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}   <!-- 오류는 뜨지만 아주 잘 작동함...! -->
 																<strong>(${store.store_score})</strong>
 															</p>
 															<p class="info">
@@ -305,7 +305,7 @@
 													<div data-cell>
 														<p class="infoInfostar">
 															<!-- 가게 등급 -->
-															${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+															${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}  <!-- 오류는 뜨지만 아주 잘 작동함...! -->
 															<strong>(${store.store_score})</strong>
 														</p>
 														<p class="info">
