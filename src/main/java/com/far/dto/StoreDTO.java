@@ -31,6 +31,7 @@ public class StoreDTO {
 	private String reg_num;
 	private String store_logo;
 	private String reg_date;
+	private String mem_id;
 	
 	
 }

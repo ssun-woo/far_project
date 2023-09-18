@@ -11,6 +11,7 @@ import lombok.Getter;
 //	    start_day varchar2(50),-- 시작일
 //	    end_day varchar2(50),  -- 마감일
 //	    people_num int         -- 인원수
+//
 //	);
 
 @Getter

@@ -43,15 +43,8 @@
 <jsp:include page="ceo_footer.jsp" />
 
 <script>
-	var store_num2 = "${store_num}";
-	console.log(store_num2);
-	window.onload = function() {
-		if(store_num2 == ""){
-			loadCeoPage3();
-		}else{
-			loadStorePage4(store_num2);
-		}
-		
+	window.onload = function(store_num) {
+		loadStorePage4(store_num);
 	};
 
 	function loadCeoPage1() {
@@ -84,7 +77,7 @@
 		xhttp.onreadystatechange = function() {
 			if (this.readyState === 4 && this.status === 200) {
 				pageContent.innerHTML = this.responseText;
-			};
+			}
 		};
 		xhttp.open("GET", "/ceo/store_main", true);
 		xhttp.send();

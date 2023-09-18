@@ -25,7 +25,7 @@
 			<ul class="info_cont">
 				<li><p>서울/등급미정/호텔</p></li>
 				<li><p>
-						<a href="#">7998</a>의 상품평
+						<a onclick="">7998</a>의 상품평
 					</p></li>
 				<li><p>
 						서울특별시 종로구 율곡로2길 7.<br>
@@ -324,6 +324,10 @@
 
 </div>
 <!-- shop_cont -->
+
+<div class="list_button_div">
+	<button class="list_button" onclick="location='/acc/list?detail_cate=${detail_cate}'">목록보기</button>
+</div>
 
 <jsp:include page="../main/footer.jsp" />
 

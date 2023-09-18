@@ -3,7 +3,6 @@
 /*숙박 상세정보 전체*/
 .shop_cont{
 	width: 1000px;
-	height: 100%;
 	text-align: center;
 	margin-left: -100px;
 	margin-bottom: 60px;
@@ -580,3 +579,39 @@
   transform: translate(-50%, -50%);
   transition: all .5s;
 }
+
+.list_button_div{
+	width: 1300px;
+	justify-content: center;
+	display: flex;
+}
+
+.list_button{
+	height: 100px;
+	width: 400px;
+	margin-left: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
