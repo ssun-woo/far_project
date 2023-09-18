@@ -82,14 +82,21 @@ public class ReviewDTO {
 	}
 
 	public double getReview_rating() {
-		return review_rating;
+		return review_rating; // 별점 값
 	}
 
 	public void setReview_rating(double review_rating) {
 		this.review_rating = review_rating;
 	}
 	
-	
+	/*
+	 * public class RatingDTO { private int review_rating; // 별점 값
+	 * 
+	 * public int getRating() { return review_rating; }
+	 * 
+	 * public void setRating(int review_rating) { this.review_rating =
+	 * review_rating; } }
+	 */
 	
 	
 	

@@ -31,8 +31,6 @@
 					href="/search/food?keyword=${keyword}">음식</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/search/culture?keyword=${keyword}">문화</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/search/beauty?keyword=${keyword}">뷰티</a></li>
 			</ul>
 		</div>
 
@@ -43,7 +41,7 @@
 				<div class="tab-pane fade show active" id="main">
 					<div class="sc_textBox">
 						<h4 class="mainText">
-							<br> <strong> "${keyword}" </strong> 에 대한 결과 검색
+							<strong> "${keyword}" </strong> 에 대한 결과 검색
 						</h4>
 					</div>
 					<br>
@@ -57,11 +55,14 @@
 							<div class="subWrap">
 								<ul class="n2 nav nav-tabs" id="accommodationTabs">
 									<li class="nav-item"><a class="nav-link active"
-										data-toggle="tab" href="#all_rest">통합</a></li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab"
-										href="#row_rest">최신순</a></li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab"
-										href="#high_rest">추천순</a></li>
+										th:href="@{/community/tab/{category_name}(category_name=${category_name}, orderby='id')}">최신순</a>
+									</li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/community/tab/{category_name}(category_name=${category_name}, orderby='views')}">조회순</a>
+									</li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/community/tab/{category_name}(category_name=${category_name}, orderby='likes')}">추천순</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -76,42 +77,55 @@
 							<c:otherwise>
 								<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 								<c:forEach var="store" items="${stores}" varStatus="loop">
-									<c:if test="${store.cate == '숙소' && accCount < 2}">
+									<c:if test="${store.cate == 'acc' && accCount < 2}">
+										<!--  메인 카테 -->
 										<!-- 최대 2개의 결과만 출력 -->
 										<div class="box_list">
 											<ul class="box_meun">
 												<li class="box_prd">
 													<div class="box_img">
-														<a href=""><img src="img/feature-6.jpg" alt="acc"></a>
+														<a href=""><img src="images/ev_images/feature-4.jpg"
+															alt="acc"></a>
 													</div>
 													<div class="box_text">
 														<div data-row>
 															<div data-cell>
 																<div class="infoIcon">
-																	<i class="icon icondHot">${store.cate}</i> <i
-																		class="icon"> ${store.store_addr} </i>
+																	<i class="icon icondHot">${store.detail_cate}</i>
+																	<!-- 디테일 카테 예- 호텔 모텔등  -->
+																	<i class="icon"> ${store.store_addr} </i>
+																	<!-- 가게 주소 -->
 																</div>
 															</div>
 														</div>
 														<div data-row>
 															<div data-cell>
 																<a href="">
-																	<h5 class="infoTitle">${store.store_name}</h5>
+																	<h5 class="infoTitle">${store.store_name}</h5> <!--  가게 이름 -->
 																</a>
 																<p class="infoSubTitle">이벤트</p>
+																<!--  이벤트  -->
 															</div>
 															<div data-cell>
 																<div class="infoPrice" tabindex="0">
 																	<p class="final">
 																		<span class="bilnd">판매가</span> <strong>가격</strong> 원 ~
+																		<!--  가격 -->
 																	</p>
 																</div>
 															</div>
 														</div>
 														<div data-row="bottom">
 															<div data-cell>
-																<p class="infoInfostar">등급</p>
-																<p class="info">상세주소</p>
+																<p class="infoInfostar">
+																	<!-- 가게 등급 -->
+																	${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}   <!-- 오류는 뜨지만 아주 잘 작동함...! -->
+																	<strong>(${store.store_score})</strong>
+																</p>
+																<p class="info">
+																	<!-- 가게 상세 주소 -->
+																	${store.store_detail_addr}
+																</p>
 															</div>
 														</div>
 													</div>
@@ -138,13 +152,13 @@
 				<div class="food_all result-section" id="foodResults">
 					<div class="titleTab">
 						<div class="subWrap">
-							<ul class="n2 nav nav-tabs" id="foodTabs">
+							<ul class="n2 nav nav-tabs" id="accommodationTabs">
 								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#all_food">통합</a></li>
+									data-toggle="tab" href="#all_rest">통합</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#row_food">최신순</a></li>
+									href="#look_rest">조회순</a></li>
 								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#high_food">추천순</a></li>
+									href="#good_rest">추천순</a></li>
 							</ul>
 						</div>
 					</div>
@@ -159,7 +173,7 @@
 						<c:otherwise>
 							<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 							<c:forEach var="store" items="${stores}" varStatus="loop">
-								<c:if test="${store.cate == '음식점' && foodCount < 2}">
+								<c:if test="${store.cate == 'food' && foodCount < 2}">
 									<!-- 최대 2개의 결과만 출력 -->
 									<div class="box_list">
 										<ul class="box_meun">
@@ -171,30 +185,41 @@
 													<div data-row>
 														<div data-cell>
 															<div class="infoIcon">
-																<i class="icon icondHot">${store.cate}</i> <i
-																	class="icon"> ${store.store_addr} </i>
+																<i class="icon icondHot">${store.detail_cate}</i>
+																<!-- 디테일 카테 예 - 일식 중식등 -->
+																<i class="icon"> ${store.store_addr} </i>
+																<!--  가게 주소 -->
 															</div>
 														</div>
 													</div>
 													<div data-row>
 														<div data-cell>
 															<a href="">
-																<h5 class="infoTitle">${store.store_name}</h5>
+																<h5 class="infoTitle">${store.store_name}</h5> <!--  가게 이름 -->
 															</a>
 															<p class="infoSubTitle">이벤트</p>
+															<!--  이벤트 -->
 														</div>
 														<div data-cell>
 															<div class="infoPrice" tabindex="0">
 																<p class="final">
 																	<span class="bilnd">판매가</span> <strong>가격</strong> 원 ~
+																	<!--  가격 -->
 																</p>
 															</div>
 														</div>
 													</div>
 													<div data-row="bottom">
 														<div data-cell>
-															<p class="infoInfostar">등급</p>
-															<p class="info">상세주소</p>
+															<p class="infoInfostar">
+																<!-- 가게 등급 -->
+																${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}   <!-- 오류는 뜨지만 아주 잘 작동함...! -->
+																<strong>(${store.store_score})</strong>
+															</p>
+															<p class="info">
+																<!-- 가게 상세 주소 -->
+																${store.store_detail_addr}
+															</p>
 														</div>
 													</div>
 												</div>
@@ -220,13 +245,13 @@
 			<div class="culture_all result-section" id="cultureResults">
 				<div class="titleTab">
 					<div class="subWrap">
-						<ul class="n2 nav nav-tabs" id="cultureTabs">
+						<ul class="n2 nav nav-tabs" id="accommodationTabs">
 							<li class="nav-item"><a class="nav-link active"
-								data-toggle="tab" href="#all_culture">통합</a></li>
+								data-toggle="tab" href="#all_rest">통합</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab"
-								href="#row_culture">최신순</a></li>
+								href="#look_rest">조회순</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab"
-								href="#high_culture">추천순</a></li>
+								href="#good_rest">추천순</a></li>
 						</ul>
 					</div>
 				</div>
@@ -241,7 +266,7 @@
 					<c:otherwise>
 						<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 						<c:forEach var="store" items="${stores}" varStatus="loop">
-							<c:if test="${store.cate == '예술/문화' && cultureCount < 2}">
+							<c:if test="${store.cate == 'culture' && cultureCount < 2}">
 								<!-- 최대 2개의 결과만 출력 -->
 								<div class="box_list">
 									<ul class="box_meun">
@@ -253,8 +278,10 @@
 												<div data-row>
 													<div data-cell>
 														<div class="infoIcon">
-															<i class="icon icondHot">${store.cate}</i> <i
-																class="icon"> ${store.store_addr} </i>
+															<i class="icon icondHot">${store.detail_cate}</i>
+															<!-- 디테일 카테 예- 공연 전시회 등 -->
+															<i class="icon"> ${store.store_addr} </i>
+															<!-- 주소 -->
 														</div>
 													</div>
 												</div>
@@ -269,14 +296,22 @@
 														<div class="infoPrice" tabindex="0">
 															<p class="final">
 																<span class="bilnd">판매가</span> <strong>가격</strong> 원 ~
+																<!-- 가격  -->
 															</p>
 														</div>
 													</div>
 												</div>
 												<div data-row="bottom">
 													<div data-cell>
-														<p class="infoInfostar">등급</p>
-														<p class="info">상세주소</p>
+														<p class="infoInfostar">
+															<!-- 가게 등급 -->
+															${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}  <!-- 오류는 뜨지만 아주 잘 작동함...! -->
+															<strong>(${store.store_score})</strong>
+														</p>
+														<p class="info">
+															<!-- 가게 상세 주소 -->
+															${store.store_detail_addr}
+														</p>
 													</div>
 												</div>
 											</div>
@@ -318,7 +353,7 @@
         document.getElementById("cultureMore").style.display = "none";
     }
     
-    <script>
+   
     // 활성 탭을 기반으로 탭을 전환하고 내용을 표시하고 숨깁니다
     function switchTab(category, tabName) {
         const tabs = document.getElementById(`${category}Tabs`).getElementsByTagName('a');
@@ -346,7 +381,7 @@
         switchTab('culture', e.target.getAttribute('href').substr(1));
     });
 </script>
-	</script>
+
 
 
 

@@ -36,13 +36,13 @@
 		<div class="food_all result-section" id="foodResults">
 			<div class="titleTab">
 				<div class="subWrap">
-					<ul class="n2 nav nav-tabs" id="foodTabs">
+					<ul class="n2 nav nav-tabs" id="accommodationTabs">
 						<li class="nav-item"><a class="nav-link active"
-							data-toggle="tab" href="#all_food">통합</a></li>
+							data-toggle="tab" href="#all_rest">통합</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#row_food">최신순</a></li>
+							href="#look_rest">조회순</a></li>
 						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#high_food">추천순</a></li>
+							href="#good_rest">추천순</a></li>
 					</ul>
 				</div>
 			</div>
@@ -57,20 +57,20 @@
 				<c:otherwise>
 					<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 					<c:forEach var="store" items="${stores}" varStatus="loop">
-						<c:if test="${store.cate == '음식점'}">
+						<c:if test="${store.cate == 'food' && foodCount < 2}">
 							<!-- 최대 2개의 결과만 출력 -->
 							<div class="box_list">
 								<ul class="box_meun">
 									<li class="box_prd">
 										<div class="box_img">
-											<a href=""><img src="img/feature-6.jpg" alt="food"></a>
+											<a href=""><img src="img/feature-6.jpg" alt="acc"></a>
 										</div>
 										<div class="box_text">
 											<div data-row>
 												<div data-cell>
 													<div class="infoIcon">
-														<i class="icon icondHot">${store.cate}</i> <i class="icon">
-															${store.store_addr} </i>
+														<i class="icon icondHot">${store.detail_cate}</i> <i
+															class="icon"> ${store.store_addr} </i>
 													</div>
 												</div>
 											</div>
@@ -91,30 +91,34 @@
 											</div>
 											<div data-row="bottom">
 												<div data-cell>
-													<p class="infoInfostar">등급</p>
-													<p class="info">상세주소</p>
+													<p class="infoInfostar">
+														<!-- 가게 등급 -->
+														${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}  <!-- 오류는 뜨지만 아주 잘 작동함...! -->
+														<strong>(${store.store_score})</strong>
+													</p>
+													<p class="info">
+														<!-- 가게 상세 주소 -->
+														${store.store_detail_addr}
+													</p>
 												</div>
 											</div>
 										</div>
 									</li>
 								</ul>
 							</div>
-							<c:set var="accCount" value="$foodCount + 1}" />
+							<c:set var="foodCount" value="${foodCount + 1}" />
 						</c:if>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 		</div>
 
-	</div>
-	<br>
-
-	<script>			
+		<script>			
 	// 음식 카테고리 결과 처리
     if (${empty stores || foodCount == 0}) {
         // 결과가 없을 때 "검색 결과에 대한 정보가 존재하지 않습니다" 메시지를 표시하고 "더보기" 버튼을 숨깁니다
         document.getElementById("foodResults").innerHTML = '<br><h4>&nbsp;&nbsp;"검색 결과에 대한 정보가 존재하지 않습니다"</h4><br>';
-        document.getElementById("foodMore").style.display = "none";
+      
     }
 	
     document.getElementById('foodTabs').addEventListener('click', function (e) {
@@ -123,6 +127,6 @@
     });
     </script>
 
-	<!-- footer -->
-	<jsp:include page="../main/footer.jsp" />
+		<!-- footer -->
+		<jsp:include page="../main/footer.jsp" />
 </body>
