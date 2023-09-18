@@ -136,6 +136,7 @@
 	<div class="list_main">
 	
 		<hr>
+<<<<<<< HEAD
 		<%-- 여기부분이 list 돌아가는 for문 --%>
 		<c:forEach var="store" items="${slist}">
 			<div class="list_div">
@@ -177,6 +178,74 @@
 	</div>
 	
 	
+=======
+		<c:forEach var="store" items="${list.content }">
+		<div class="list_div">
+		
+		<a href='/acc/cont?cate=${cate}&store_num=10'><img src="../images/acc/motel1-2.jpg"></a>
+		<%-- 여기 10의 값은 임의의 값 --%>
+		<div class="list_cont">
+			<div class="shop_Name">
+				<h3>${store.storeName }</h3>
+			</div>
+			
+			<p>등급미정</p>
+			<p>${store.storeAddr }</p>
+			<br>
+			<p>자가 무료주차 가능</p>
+		</div>
+		<div class="list_cont2">
+			<h2>75,000원</h2>
+			<p>★★★★☆</p>
+			<p>리뷰 196</p>
+			<div class="shop_JJim">
+				<button type="button" onclick="imgToggle()">
+				<img src="../images/acc/NoJJim.png" id="no">
+				<img src="../images/acc/YesJJim.png" id="yes">
+				</button>
+			</div>
+		</div>
+		</div>
+		</c:forEach>
+	<hr>
+	</div>
+	<div class="pagination">
+    <c:if test="${not empty list}">
+        <ul class="pagination-list">
+            <li><a href="?page=0">첫 페이지</a></li>
+            <li><a href="?page=${list.number - 1}">이전</a></li>
+            
+            <!-- JavaScript로 페이지 번호 그룹 생성 -->
+            <script>
+                var currentPage = ${list.number}; // 현재 페이지 번호
+                var pageSize = 5; // 한 번에 보여줄 페이지 인덱스 수
+
+                var startPage = Math.floor(currentPage / pageSize) * pageSize + 1;
+                var endPage = startPage + pageSize - 1;
+                var totalPages = ${list.totalPages};
+
+                if (endPage > totalPages) {
+                    endPage = totalPages;
+                }
+
+                for (var i = startPage; i <= endPage; i++) {
+                    document.write('<li><a href="?page=' + (i - 1) + '">' + i + '</a></li>');
+                }
+
+                if (currentPage < totalPages - 1) { // 현재 페이지가 마지막 페이지에서 두 번째 페이지보다 작을 경우에만 "다음" 표시
+                    document.write('<li><a href="?page=' + (currentPage + 1) + '">다음</a></li>');
+                }
+            </script>
+            
+            <li><a href="?page=${list.totalPages - 1}">마지막 페이지</a></li>
+        </ul>
+    </c:if>
+</div>
+
+
+
+
+>>>>>>> 80bd44ac2fb449782e4d89aa3977b429aa538ec5
 	</div>
 </div>
 	
