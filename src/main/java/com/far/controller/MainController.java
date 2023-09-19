@@ -23,7 +23,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.far.dao.FindMemClassDAO;
+import com.far.dao.FindMemClassDAOImpl;
 import com.far.model.Member;
+import com.far.security.auth.PrincipalDetails;
 import com.far.security.auth.PrincipalDetailsService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +39,7 @@ public class MainController {
 	private SessionRegistry sessionRegistry;
 	
 	@Autowired
-	private PrincipalDetailsService principalDetailsService;
+	private FindMemClassDAO findMemClass;
 	
 	// index 페이지를 나타냄
 	@RequestMapping("/")
@@ -44,11 +47,13 @@ public class MainController {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String memId = authentication.getName();
+        String memClass = findMemClass.findMemClass(memId);
+        System.out.println("memClass = " + memClass);
         // 세션에 memId 저장
         //session.setAttribute("memId", memId);
-        
         ModelAndView mav = new ModelAndView("main/index");
         mav.addObject("memId", memId);
+        session.setAttribute("memClass", memClass);
         System.out.println(memId);
         return mav;
 		

@@ -40,6 +40,10 @@ public class PrincipalDetails implements UserDetails {
 	public String getUsername() {
 		return member.getMemId();
 	}
+	
+	public String getMemClass() {
+		return member.getMemClass();
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
