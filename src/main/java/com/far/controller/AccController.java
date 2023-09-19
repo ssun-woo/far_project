@@ -46,8 +46,28 @@ public class AccController {
 		return mav;
 	}
 
-	// 세부 카테 클릭 시
+	// 세부 카테 클릭 시 출력되는 목록
 	@RequestMapping("/list")
+<<<<<<< HEAD
+	public ModelAndView acc_hotel(HttpServletRequest request, @PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC)Pageable pageable) {
+		String cate = request.getParameter("cate");
+		String detail_cate = request.getParameter("detail_cate");
+
+		List<StoreDTO> slist = accResvService.getCateList(detail_cate);
+		int totalCount = accResvService.getTotalCount(detail_cate);
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("detail_cate", detail_cate);
+		mav.addObject("totalCount", totalCount);
+		Page<Store> acc_list = listUpService.storeList(pageable);
+		System.out.println(acc_list);
+		System.out.println(acc_list.getSize());
+		mav.addObject("acc_list", acc_list);
+		mav.addObject("cate", cate);
+		mav.setViewName("acc/acc_list");
+		mav.addObject("slist", slist);
+		return mav;
+=======
 	public ModelAndView acc_hotel(HttpServletRequest request, Model model, @RequestParam(defaultValue = "0") int page) {
 	    String cate = request.getParameter("cate");
 	    
@@ -59,25 +79,45 @@ public class AccController {
 	    mav.addObject("cate", cate);
 	    mav.setViewName("acc/acc_list");
 	    return mav;
+>>>>>>> 80bd44ac2fb449782e4d89aa3977b429aa538ec5
 	}
 
 	// 상품 상세보기
 	@RequestMapping("/cont")
 	public ModelAndView acc_cont(HttpServletRequest request) {
+		String detail_cate = request.getParameter("detail_cate"); // 현재 cate 받아옴
 		
 		
 		String cate = request.getParameter("cate"); // 현재 cate 받아옴
 //		int page = Integer.parseInt(request.getParameter("page"));	// 페이지 책갈피 기능
-		String store_num = request.getParameter("store_num");
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		
+		StoreDTO s = accResvService.getInfo(store_num);
+
+		String region = s.getStore_addr1().substring(0, 2);
+		String sebu_cate = null;
+
+		System.out.println(s.getDetail_cate());
+
+		if (s.getDetail_cate().equals("hotel")) {
+			sebu_cate = "호텔";
+		} else if (s.getDetail_cate().equals("motel")) {
+			sebu_cate = "모텔";
+		} else if (s.getDetail_cate().equals("camping")) {
+			sebu_cate = "캠핑";
+		} else {
+			sebu_cate = "팬션";
+		}
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("cate", cate);
+		mav.addObject("detail_cate", detail_cate);
+		mav.addObject("s", s);
 //		mav.addObject("page", page);
 		mav.addObject("store_num", store_num);
+		mav.addObject("region", region);
+		mav.addObject("sebu_cate", sebu_cate);
 		mav.setViewName("acc/acc_cont");
-		System.out.println("cate : " + cate);
 //		System.out.println(page);
-		System.out.println("store_num : " + store_num);
 
 		return mav;
 		
@@ -86,10 +126,17 @@ public class AccController {
 	// 숙소 결제페이지 이동
 	
 	@RequestMapping("/payment_info")
-	public ModelAndView acc_payment_info(String cate, int store_num, HttpSession session, HttpServletResponse response, String target) throws Exception {
+	public ModelAndView acc_payment_info(String cate, int store_num, HttpSession session, HttpServletResponse response,
+			String target) throws Exception {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		store_num = 10;
+//		if (session.getAttribute("id") != null) {
+//			out.println("<script>");
+//			out.println("alert('로그인이 필요한 기능입니다');");
+//			out.println("location = '/login?target=/acc/payment_info?cate=" + cate + "&store_num=" + store_num + "'");
+//			out.println("</script>");
+//		} else {
 		if (session.getAttribute("memId") == null) {
 			out.println("<script>");
 			out.println("alert('로그인이 필요한 기능입니다');");
@@ -109,12 +156,10 @@ public class AccController {
 	// 숙소 결제 페이지
 	@RequestMapping("/payment_end")
 	public ModelAndView acc_payment_end(String cate, int store_num, HttpSession session) {
-
 		String id = (String) session.getAttribute("id");
 		id = "a";
-
 		ResvDTO resv = new ResvDTO();
-		resv.setResv_num(1);
+		resv.setResv_num(3);	// 시퀀스가 들어갈 자리
 		resv.setStore_num(store_num);
 		resv.setmemId(id);
 		resv.setStart_day("시작일, 시간입니다");
@@ -126,22 +171,27 @@ public class AccController {
 		return mav;
 	}
 
+//	// 숙소 결제 페이지
+//	@RequestMapping("/payment_end")
+//	public ModelAndView acc_payment_end2(String cate, int store_num, HttpSession session) {
+//
+//		String id = (String) session.getAttribute("id");
+//		id = "a";
+//
+//		ResvDTO resv = new ResvDTO();
+//		resv.setResv_num(1);
+//		resv.setStore_num(store_num);
+//		resv.setMem_id(id);
+//		resv.setStart_day("시작일, 시간입니다");
+//		resv.setEnd_day("마지막날, 시간입니다");
+//		resv.setPeople_num(2);
+//		accResvService.resvStroe(resv);
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("payment/payment_end");
+//		return mav;
+//	}
+
 	
-	
-	 
-	 // 숙소 결제 페이지
-		/*
-		 * @RequestMapping("/payment_end") public ModelAndView acc_payment_end(String
-		 * cate, int store_num, HttpSession session) {
-		 * 
-		 * String id = (String)session.getAttribute("id"); id = "a";
-		 * 
-		 * ResvDTO resv = new ResvDTO(); resv.setResv_num(1);
-		 * resv.setStore_num(store_num); resv.setMem_id(id);
-		 * resv.setStart_day("시작일, 시간입니다"); resv.setEnd_day("마지막날, 시간입니다");
-		 * resv.setPeople_num(2); accResvService.resvStroe(resv); ModelAndView mav = new
-		 * ModelAndView(); mav.setViewName("payment/payment_end"); return mav; }
-		 */
 	
 	
 	

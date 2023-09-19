@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../main/header2.jsp"/>
+<jsp:include page="../main/new_header2.jsp"/>
 <div class="shop_List">
 	<div class="filter">
 	 <div class="filter_top">
@@ -57,21 +57,29 @@
 	 		
 	 </div>
 	  <div class="theme option">
-	 	<h4>분류</h4>
+	 	<h4>장르</h4>
 	 		<input type="checkbox" name="all3" onclick="allselect3(this.checked);">
 	 		<label>전체</label> 
 	 		<br>
-	 		<input type="checkbox" name="theme"> <label>오리지널/내한공연</label> 
+	 		<input type="checkbox" name="theme"> <label>발라드</label> 
 	 		<br>
-	 		<input type="checkbox" name="theme"> <label>라이센스</label>
+	 		<input type="checkbox" name="theme"> <label>락/메탈</label>
 	 		<br>
-	 		<input type="checkbox" name="theme"> <label>창작뮤지컬</label>
+	 		<input type="checkbox" name="theme"> <label>랩/힙합</label>
 	 		<br>
-	 		<input type="checkbox" name="theme"> <label>넌버벌 퍼포먼스</label>
+	 		<input type="checkbox" name="theme"> <label>재즈/소울</label>
 	 		<br>
-	 		<input type="checkbox" name="theme"> <label>아동/가족</label>
+	 		<input type="checkbox" name="theme"> <label>포크/트로트</label>
 	 		<br>
-	 		
+	 		<input type="checkbox" name="theme"> <label>내한공연</label>
+	 		<br>
+	 		<input type="checkbox" name="theme"> <label>페스티벌</label>
+	 		<br>
+	 		<input type="checkbox" name="theme"> <label>팬클럽</label>
+	 		<br>
+	 		<input type="checkbox" name="theme"> <label>인디</label>
+	 		<br>
+	 		<input type="checkbox" name="theme"> <label>토크/강연</label>
 	 		
 	 </div>
 	 <br>
@@ -83,7 +91,7 @@
 	<div class="list_page">
 	<div class="list_top">
 	<ul>
-		<li><img src="/images/culture/musical.png"><a href="#"></a></li>
+		<li><img src="/images/culture/concert.png"><a href="#"></a></li>
 		<li class="region_name"> 서울 (전체)</li>
 		<li >&nbsp;&nbsp;[검색결과수]</li>
 		<li class="space"></li>
@@ -99,16 +107,16 @@
 		<hr>
 		<div class="culture_div">
 		
-		<a href='rest_completed.jsp'><img src="/images/culture/musical01.png"></a>
+		<a href='rest_completed.jsp'><img src="/images/culture/concert01.png"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 〈오페라의 유령〉 - 서울</h3>
+				<h3>2023 PALMTREEISLAND 2nd GALA CONCERT</h3>
 			</div>
 			
-			<p>샤롯데씨어터</p>
-			<p>2023.07.21~2023.11.17</p>
-			<p>150분 (인터미션 20분 포함)</p>
-			<p>초등학생이상 관람가능</p>
+			<p>세종문화회관 대극장</p>
+			<p>2023.09.22~2023.09.24</p>
+			<p>150분</p>
+			<p>8세이상 관람가능</p>
 		</div>
 		<div class="culture_cont2">
 			<br>
@@ -130,16 +138,16 @@
 	<hr>
 	<div class="culture_div">
 		
-		<a href='rest_completed.jsp'><img src="/images/culture/musical02.png"></a>
+		<a href='rest_completed.jsp'><img src="/images/culture/concert02.png"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3> 뮤지컬 〈레베카〉 10주년 기념공연 </h3>
+				<h3>〈미스터트롯2〉 전국투어 콘서트 - 앵콜</h3>
 			</div>
 			
-			<p>블루스퀘어 신한카드홀</p>
-			<p>2023.08.19~2023.11.19</p>
-			<p>175분 (인터미션 20분 포함)</p>
-			<p>8세 이상 관람가</p>
+			<p>경희대학교 평화의 전당</p>
+			<p>2023.10.07~2023.10.08</p>
+			<p>150분</p>
+			<p>미취학아동입장불가</p>
 		</div>
 		<div class="culture_cont2">
 			<br>
@@ -163,7 +171,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -193,7 +201,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -223,7 +231,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -253,7 +261,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -283,7 +291,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -313,7 +321,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -343,7 +351,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -373,7 +381,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -403,7 +411,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -433,7 +441,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -463,7 +471,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -493,7 +501,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -523,7 +531,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -553,7 +561,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -583,7 +591,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -613,7 +621,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>
@@ -643,7 +651,7 @@
 		<a href='rest_completed.jsp'><img src="/images/culture/C.PNG"></a>
 		<div class="culture_cont">
 			<div class="culture_Name">
-				<h3>뮤지컬 제목</h3>
+				<h3>콘서트 제목</h3>
 			</div>
 			
 			<p>장소</p>

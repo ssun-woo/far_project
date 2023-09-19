@@ -7,25 +7,25 @@
 <div class="culture_list">
 	
 	<div class="culture_list01">
-		<a href="all_list/consert">
+		<a href="/culture/list?cate=concert">
 			<img src="../images/culture/concert.png" alt="콘서트" width="70px" height="60px">
 			<p>콘서트</p>
 		</a>
 	</div>
 	<div class="culture_list02">
-		<a href="all_list/play">
+		<a href="/culture/list?cate=play">
 			<img src="../images/culture/play.png" alt="연극" width="70px" height="60px">
 			<p>연극</p>
 		</a>
 	</div>
 	<div class="culture_list03">
-		<a href="all_list/musical">
+		<a href="/culture/list?cate=musical">
 			<img src="../images/culture/musical.png" alt="뮤지컬" width="70px" height="60px">
 			<p>뮤지컬</p>
 		</a>
 	</div>
 	<div class="culture_list04">
-		<a href="all_list/exhibition">
+		<a href="/culture/list?cate=exhibition">
 			<img src="../images/culture/exhibition.png" alt="전시회" width="70px" height="60px">
 			<p>전시회</p>
 		</a>

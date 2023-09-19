@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="CEO">
+ 		
+ 	<insert id="store_in">
+ 		insert into store(store_num, cate, detail_cate, store_name, store_intro, store_addr1, store_addr2, reg_num, store_logo)
+ 		 values(#{store_num},#{cate},#{detail_cate},#{store_name},#{store_intro},#{store_addr1},#{store_addr2},#{reg_num},#{store_logo}) 
+ 	</insert>
+ 	
+ 	
+ 	<select id="get_cate" resultType="String">
+ 		select cate from store where store_num = #{store_num}
+ 	</select>
+ 	
+ 	<insert id="insert_menu">
+ 		insert into menu values(bno2_seq.nextval, #{store_num}, #{menu_name}, #{menu_explain}, #{menu_price}, #{menu_photo})
+ 	</insert>
+ 	
+ 	<select id="get_detail_cate" resultType="String">
+ 		select detail_cate from store where store_num = #{store_num}
+ 	</select>
+ 	
+ </mapper>
+ 
