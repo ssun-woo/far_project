@@ -22,6 +22,10 @@
  		select * from store where mem_id = #{id}
  	</select>
  	
- 	
+ 	<insert id="store_in">
+       insert into store(storeNum, cate, detailCate, storeName, storeIntro, storeAddr1, storeAddr2, regNum, storeLogo, memId)
+        values(#{storeNum},#{cate},#{detailCate},#{storeName},#{storeIntro},#{storeAddr1},#{storeAddr2},#{regNum},#{storeLogo}, #{memId}) 
+    </insert>
+    
  </mapper>
  

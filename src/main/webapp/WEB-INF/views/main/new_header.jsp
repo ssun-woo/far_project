@@ -75,7 +75,7 @@
 				
 				<div class="nav_bar">
 					<ul class="top_nav2">
-						<c:if test="${memId != null && memId != 'anonymousUser' && memClass == 'a' || memClass == 'c' || memClass == 'a'}">
+						<c:if test="${memId != null && memId != 'anonymousUser'}">
 							<li>${memId }님</li>
 							<li><a href="/logout">로그아웃</a></li>
 							
@@ -87,11 +87,11 @@
 
 						<li><a href="/my_page">마이페이지</a></li>
 						
-						<c:if test="${memClass == 'c' }">
+						<c:if test="${memClass == 'Role_c' }">
 						<li><a href="ceo/index">내 가게 관리</a></li>	
 						</c:if>
 						
-						<c:if test="${memClass == 'a' }">
+						<c:if test="${memClass == 'Role_a' }">
 						<li><a href="admin/index">페이지 관리</a></li>	
 						</c:if>
 						

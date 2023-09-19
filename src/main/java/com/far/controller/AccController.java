@@ -25,7 +25,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.far.Repository.StoreRepository;
 import com.far.dto.ResvDTO;
 import com.far.dto.StoreDTO;
-import com.far.model.Store;
 import com.far.service.AccResvService;
 import com.far.service.StoreService;
 
@@ -48,38 +47,41 @@ public class AccController {
 
 	// 세부 카테 클릭 시 출력되는 목록
 	@RequestMapping("/list")
-<<<<<<< HEAD
-	public ModelAndView acc_hotel(HttpServletRequest request, @PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC)Pageable pageable) {
-		String cate = request.getParameter("cate");
-		String detail_cate = request.getParameter("detail_cate");
 
-		List<StoreDTO> slist = accResvService.getCateList(detail_cate);
-		int totalCount = accResvService.getTotalCount(detail_cate);
-		ModelAndView mav = new ModelAndView();
+//	public ModelAndView acc_hotel(HttpServletRequest request, @PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC)Pageable pageable) {
+//		String cate = request.getParameter("cate");
+//		String detail_cate = request.getParameter("detail_cate");
+//
+//		List<StoreDTO> slist = accResvService.getCateList(detail_cate);
+//		int totalCount = accResvService.getTotalCount(detail_cate);
+//		ModelAndView mav = new ModelAndView();
+//
+//		mav.addObject("detail_cate", detail_cate);
+//		mav.addObject("totalCount", totalCount);
+//		Page<Store> acc_list = listUpService.storeList(pageable);
+//		System.out.println(acc_list);
+//		System.out.println(acc_list.getSize());
+//		mav.addObject("acc_list", acc_list);
+//		mav.addObject("cate", cate);
+//		mav.setViewName("acc/acc_list");
+//		mav.addObject("slist", slist);
+//		return mav;
 
-		mav.addObject("detail_cate", detail_cate);
-		mav.addObject("totalCount", totalCount);
-		Page<Store> acc_list = listUpService.storeList(pageable);
-		System.out.println(acc_list);
-		System.out.println(acc_list.getSize());
-		mav.addObject("acc_list", acc_list);
-		mav.addObject("cate", cate);
-		mav.setViewName("acc/acc_list");
-		mav.addObject("slist", slist);
-		return mav;
-=======
 	public ModelAndView acc_hotel(HttpServletRequest request, Model model, @RequestParam(defaultValue = "0") int page) {
-	    String cate = request.getParameter("cate");
+	    //String cate = request.getParameter("cate");
 	    
-	    Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.ASC, "storeName"));
-
+	    Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "storeNum"));
+	    System.out.println("pageable: " + pageable);
 	    ModelAndView mav = new ModelAndView();
-	    Page<Store> storePage = storeService.storeList(pageable);
+	    Page<StoreDTO> storePage = storeService.storeList(pageable);
+	    System.out.println("storePage = " + storePage.getContent());
 	    model.addAttribute("list", storePage);
-	    mav.addObject("cate", cate);
+	    System.out.println("storePage content size: " + storePage.getContent().size());
+	    System.out.println("id: " + storeService.findById(1));
+	    //mav.addObject("cate", cate);
 	    mav.setViewName("acc/acc_list");
 	    return mav;
->>>>>>> 80bd44ac2fb449782e4d89aa3977b429aa538ec5
+
 	}
 
 	// 상품 상세보기
@@ -94,16 +96,16 @@ public class AccController {
 		
 		StoreDTO s = accResvService.getInfo(store_num);
 
-		String region = s.getStore_addr1().substring(0, 2);
+		String region = s.getStoreAddr1().substring(0, 2);
 		String sebu_cate = null;
 
-		System.out.println(s.getDetail_cate());
+		System.out.println(s.getDetailCate());
 
-		if (s.getDetail_cate().equals("hotel")) {
+		if (s.getDetailCate().equals("hotel")) {
 			sebu_cate = "호텔";
-		} else if (s.getDetail_cate().equals("motel")) {
+		} else if (s.getDetailCate().equals("motel")) {
 			sebu_cate = "모텔";
-		} else if (s.getDetail_cate().equals("camping")) {
+		} else if (s.getDetailCate().equals("camping")) {
 			sebu_cate = "캠핑";
 		} else {
 			sebu_cate = "팬션";
