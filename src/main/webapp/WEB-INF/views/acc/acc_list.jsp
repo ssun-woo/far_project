@@ -111,20 +111,20 @@
 		
 		</li>
 		<li class="region_name">
-			<c:if test="${param.cate == 'motel'}">
+			<c:if test="${param.detail_cate == 'motel'}">
 				'모텔' 검색결과
 			</c:if>
-			<c:if test="${param.cate == 'hotel'}">
+			<c:if test="${param.detail_cate == 'hotel'}">
 				'호텔' 검색결과
 			</c:if>
-			<c:if test="${param.cate == 'pension'}">
+			<c:if test="${param.detail_cate == 'pension'}">
 				'펜션/풀빌라' 검색결과
 			</c:if>
-			<c:if test="${param.cate == 'camping'}">
+			<c:if test="${param.detail_cate == 'camping'}">
 				'캠핑/글램핑' 검색결과
 			</c:if>
 		</li>
-		<li >&nbsp;&nbsp;[검색결과수]</li>
+		<li >&nbsp;&nbsp;['${totalCount }'개의 검색 결과]</li>
 		<li class="space"></li>
 		<li class="sort">인기순</li>
 		<li class="separator">|</li>
@@ -136,17 +136,61 @@
 	<div class="list_main">
 	
 		<hr>
+<<<<<<< HEAD
+		<%-- 여기부분이 list 돌아가는 for문 --%>
+		<c:forEach var="store" items="${slist}">
+			<div class="list_div">
+			<a href='/acc/cont?detail_cate=${detail_cate}&store_num=${store.store_num}'>
+			<img src="/upload/store_logo${store.store_logo}"></a>
+			<%-- 여기 10의 값은 임의의 값 --%>
+			<div class="list_cont">
+				<div class="shop_Name">
+					<h3>${store.store_name }</h3>
+				</div>
+				
+				<p>등급미정</p>
+				<p>${store.store_addr1} ${store.store_addr2}</p>
+				<br>
+				<p>자가 무료주차 가능</p>
+			</div>
+			<div class="list_cont2">
+				<h2>75,000원</h2>
+				<p>★★★★☆</p>
+				<p>리뷰 196</p>
+				<div class="shop_JJim">
+					<button type="button" onclick="imgToggle()">
+					<img src="../images/acc/NoJJim.png" id="no">
+					<img src="../images/acc/YesJJim.png" id="yes">
+					</button>
+				</div>
+				
+			</div>
+			
+			
+			</div>
+			<hr>
+		</c:forEach>
+	
+	
+	
+	<p class="page_number"> 1 | 2 | 3 | 4 | 5 </p>
+	
+	</div>
+	
+	
+=======
+		<c:forEach var="store" items="${list.content }">
 		<div class="list_div">
 		
 		<a href='/acc/cont?cate=${cate}&store_num=10'><img src="../images/acc/motel1-2.jpg"></a>
 		<%-- 여기 10의 값은 임의의 값 --%>
 		<div class="list_cont">
 			<div class="shop_Name">
-				<h3>명동 밀리오레 호텔</h3>
+				<h3>${store.storeName }</h3>
 			</div>
 			
 			<p>등급미정</p>
-			<p>서울특별시 중구 퇴계로 115</p>
+			<p>${store.storeAddr }</p>
 			<br>
 			<p>자가 무료주차 가능</p>
 		</div>
@@ -160,47 +204,48 @@
 				<img src="../images/acc/YesJJim.png" id="yes">
 				</button>
 			</div>
-			
 		</div>
-		
-		
 		</div>
-	
-	
+		</c:forEach>
 	<hr>
-	<div class="list_div">
-		
-		<a href='acc_cont.jsp'><img src="../images/acc/motel1-3.jpg"></a>
-		<div class="list_cont">
-			<div class="shop_Name">
-				<h3>종로 호텔 앳 홈</h3>
-				
-			</div>
-			<p>등급미정</p>
-			<p>서울특별시 종로구 종로31길 40(연지동) </p>
-			<br>
-			<p>넷플릭스 디즈니+ 개인계정으로 사용가능합니다</p>
-		</div>
-		<div class="list_cont2">
-			<h2>60,000원</h2>
-			<p>★★★★☆</p>
-			<p>리뷰 1</p>
-			
-			<div class="shop_JJim">
-				<button type="button" onclick="imgToggle2()">
-				<img src="../images/acc/NoJJim.png" id="no2">
-				<img src="../images/acc/YesJJim.png" id="yes2">
-			</button>
-			</div>
-		</div>
-		
 	</div>
-	
-	<p class="page_number"> 1 | 2 | 3 | 4 | 5 </p>
-	
-	</div>
-	
-	
+	<div class="pagination">
+    <c:if test="${not empty list}">
+        <ul class="pagination-list">
+            <li><a href="?page=0">첫 페이지</a></li>
+            <li><a href="?page=${list.number - 1}">이전</a></li>
+            
+            <!-- JavaScript로 페이지 번호 그룹 생성 -->
+            <script>
+                var currentPage = ${list.number}; // 현재 페이지 번호
+                var pageSize = 5; // 한 번에 보여줄 페이지 인덱스 수
+
+                var startPage = Math.floor(currentPage / pageSize) * pageSize + 1;
+                var endPage = startPage + pageSize - 1;
+                var totalPages = ${list.totalPages};
+
+                if (endPage > totalPages) {
+                    endPage = totalPages;
+                }
+
+                for (var i = startPage; i <= endPage; i++) {
+                    document.write('<li><a href="?page=' + (i - 1) + '">' + i + '</a></li>');
+                }
+
+                if (currentPage < totalPages - 1) { // 현재 페이지가 마지막 페이지에서 두 번째 페이지보다 작을 경우에만 "다음" 표시
+                    document.write('<li><a href="?page=' + (currentPage + 1) + '">다음</a></li>');
+                }
+            </script>
+            
+            <li><a href="?page=${list.totalPages - 1}">마지막 페이지</a></li>
+        </ul>
+    </c:if>
+</div>
+
+
+
+
+>>>>>>> 80bd44ac2fb449782e4d89aa3977b429aa538ec5
 	</div>
 </div>
 	

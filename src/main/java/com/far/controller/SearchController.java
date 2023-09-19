@@ -18,35 +18,49 @@ public class SearchController {
 
 	@Autowired
 	private SearchService searchService;
-
+	
 	@GetMapping("")
 	public ModelAndView search(@RequestParam("keyword") String keyword) {
 		List<StoreDTO> stores = searchService.searchStore(keyword);
-		/* List<com.far.dto.MenuDTO> menus = searchService.searchMenu(keyword); */
-
-		ModelAndView mav = new ModelAndView("search/search_detail");
-		// src/main/webapp/WEB-INF/views/
+		ModelAndView mav = new ModelAndView();
 		mav.addObject("stores", stores);
-		/* mav.addObject("menus", menus); */
 		mav.addObject("keyword", keyword);
 		mav.setViewName("search/search_detail_main");
-
 		return mav;
 	}
 
+//숙소 카테로 이동
 	@GetMapping("/acc")
 	public ModelAndView acc_search(@RequestParam("keyword") String keyword) {
+		List<StoreDTO> stores = searchService.searchStore(keyword);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("search/search_detail_rest");
+		mav.addObject("stores", stores);
+		mav.setViewName("search/search_detail_acc");
 		mav.addObject("keyword", keyword);
 		return mav;
 	}
+
+//음식 카테로 이동
+	@GetMapping("/food")
+	public ModelAndView food_search(@RequestParam("keyword") String keyword) {
+		List<StoreDTO> stores = searchService.searchStore(keyword);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("stores", stores);
+		mav.setViewName("search/search_detail_food");
+		mav.addObject("keyword", keyword);
+		return mav;
+	}
+
+//예술/문화 카테로 이동 
+	@GetMapping("/culture")
+	public ModelAndView culture_search(@RequestParam("keyword") String keyword) {
+		List<StoreDTO> stores = searchService.searchStore(keyword);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("stores", stores);
+		mav.setViewName("search/search_detail_culture");
+		mav.addObject("keyword", keyword);
+		return mav;
+	}
+
+	
 }
-
-
-
-
-
-
-
-

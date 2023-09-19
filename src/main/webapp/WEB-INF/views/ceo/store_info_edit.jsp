@@ -9,7 +9,7 @@
 	<div class="infoRegisForm">
 		<h2>가게 소개글 · 주소 수정하기</h2>
 		<hr>
-		<form method="post" onsubmit="return info_regis_write_check();">
+		<form method="post" action="#" onsubmit="return info_regis_write_check();">
 			<div class="storeInfo">
 				<label>가게 소개글</label>
 				<textarea id="storeIntroEdit" name="storeIntroEdit" rows="3"

@@ -39,34 +39,21 @@ create table store(
     reg_date varchar2(50) default sysdate
 );
 
--- 메뉴 등록 테이블
+-- 숙소(방) 등록 테이블
 create table menu(
-    store_num int primary key,
-    menu01 varchar2(200) not null,
-    price01 varchar2(200) not null,
-    menu02 varchar2(200),
-    price02 varchar2(200),
-    menu03 varchar2(200),
-    price03 varchar2(200),
-    menu04 varchar2(200),
-    price04 varchar2(200),
-    menu05 varchar2(200),
-    price05 varchar2(200),
-    menu06 varchar2(200),
-    price06 varchar2(200),
-    menu07 varchar2(200),
-    price07 varchar2(200),
-    menu08 varchar2(200),
-    price08 varchar2(200),
-    menu09 varchar2(200),
-    price09 varchar2(200),
-    menu10 varchar2(200),
-    price10 varchar2(200),
-    rep_menu varchar2(200)      -- 대표메뉴
-    -- (메뉴 등록 시 체크박스(or 라디오타입) 누르면 (1개만 가능) 여기에 추가로 입력 및
-    -- 상세페이지 가장 상단에 노출
-    
+    menu_id int primary key,
+    store_num int not null,
+    menu_name varchar2(255) not null,
+    menu_explain varchar2(1000) not null,
+    price number(8) not null,
+    menu_photo varchar(255) not null,
+    foreign key (store_num) REFERENCES store (store_num)
 );
+
+drop table rooms;
+
+
+
 
 
 

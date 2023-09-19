@@ -90,7 +90,7 @@ public class ReviewDTO {
 //	}
 
 	public double getReview_rating() {
-		return review_rating;
+		return review_rating; // 별점 값
 	}
 
 	public void setReview_rating(double review_rating) {
@@ -113,6 +113,7 @@ public class ReviewDTO {
 		this.review_title = review_title;
 	}
 	
+
 	//create table review(
 //		    review_num int primary key,    --리뷰 글번호
 //		    mem_id varchar(50) not null,        -- 리뷰 단 사람 아이디
@@ -124,6 +125,15 @@ public class ReviewDTO {
 //		    review_date date default sysdate   -- 리뷰 날짜
 //		    
 //		); 
+	/*
+	 * public class RatingDTO { private int review_rating; // 별점 값
+	 * 
+	 * public int getRating() { return review_rating; }
+	 * 
+	 * public void setRating(int review_rating) { this.review_rating =
+	 * review_rating; } }
+	 */
+
 	
 	
 	

@@ -56,11 +56,6 @@ function store_regis_write_check() {
       return false;
    }
    
-   if($.trim($("#menuImage").val()) == "") {
-      alert("메뉴판 이미지를 첨부하세요");
-      $("#menuImage").val("").focus();
-      return false;
-   }
    
    return true;
 }
@@ -86,37 +81,59 @@ function info_regis_write_check() {
    }
 }
 
-
 function onchange_select(){
 	var typeSelect1 = document.getElementById("typeSelect1");
 	var typeSelect2 = document.getElementById("typeSelect2");
 	
-	// var selectedOption = typeSelect1.value;
-	
 	typeSelect2.innerHTML = '<option value = "none">업소를 선택해 주세요</option>';
+	
+	 // 한글과 영어 값의 매핑 객체 생성
+    var typeMapping = {
+        "업소를 선택해 주세요": "none",
+        "호텔": "hotel",
+        "모텔": "motel",
+        "펜션/풀빌라": "pension",
+        "글램핑/캠핑": "camping",
+        "한식": "korean",
+        "양식": "western",
+        "일식": "japanese",
+        "중식": "chinese",
+        "아시안": "asian",
+        "멕시칸": "mexican",
+        "콘서트": "concert",
+        "연극": "play",
+        "뮤지컬": "musical",
+        "전시회": "exhibition",
+        "헤어": "hair",
+        "네일": "nail",
+        "눈썹": "eyebrow",
+        "바디": "body"
+    };
 	
 	/* 세부 선택창 활성화 */
 	typeSelect2.disabled = false;
 	
-	if (typeSelect1.value == "A") {
+	if (typeSelect1.value == "acc") {
     	addOptionsToTypeSelect2(["호텔", "모텔", "펜션/풀빌라", "글램핑/캠핑"]);
-	} else if (typeSelect1.value == "B") {
+	} else if (typeSelect1.value == "resto") {
     	addOptionsToTypeSelect2(["한식", "양식", "일식", "중식", "아시안", "멕시칸"]);
-    } else if (typeSelect1.value == "C") {
+    } else if (typeSelect1.value == "culture") {
     	addOptionsToTypeSelect2(["콘서트", "연극", "뮤지컬", "전시회"]);
-    } else if (typeSelect1.value == "D") {
+    } else if (typeSelect1.value == "beauty") {
     	addOptionsToTypeSelect2(["헤어", "네일", "눈썹", "바디"]);
     }
     
 	function addOptionsToTypeSelect2(optionArray) {
-		optionArray.forEach(function(optionValue) {
-			var option = document.createElement("option");
-			option.value = optionValue;
-			option.textContent = optionValue;
-			typeSelect2.appendChild(option);
-		});
-	}
+    optionArray.forEach(function(selectedOption) {
+        var option = document.createElement("option");
+        var value = typeMapping[selectedOption]; // 선택한 옵션에 대응하는 영어 값을 가져옴
+        option.value = value; // 영어 값을 <option>의 value 속성에 설정
+        option.textContent = selectedOption; // 한글 텍스트를 <option>에 설정
+        typeSelect2.appendChild(option); // <select>에 <option> 추가
+    });
+}
 };
+
 
 
 function menu_regis_write_check() {

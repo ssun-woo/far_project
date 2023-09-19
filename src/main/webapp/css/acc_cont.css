@@ -3,7 +3,10 @@
 /*숙박 상세정보 전체*/
 .shop_cont{
 	width: 1000px;
+<<<<<<< HEAD
+=======
 	height: 100%;
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
 	text-align: center;
 	margin-left: -100px;
 	margin-bottom: 60px;
@@ -109,12 +112,29 @@
     user-select: none;
     -webkit-user-select: none;
 }
+<<<<<<< HEAD
+.shop_cont_div{
+	margin-top: 50px;
+=======
+<<<<<<< HEAD
 .shop_cont_div{
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
 
+=======
+
+.content-dis{
+>>>>>>> 4792fb07830ce6c4a92d3ebd850131f78983e395
+	margin-bottom: 50px;
+}
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
+>>>>>>> 4792fb07830ce6c4a92d3ebd850131f78983e395
 .shop_info_cont hr{
 	border: 1px solid #303030;
 	border-width: thin;
@@ -450,6 +470,7 @@
 
 .detail_review_table_div{
 	display: flex;
+<<<<<<< HEAD
 	margin-left: 100px;
 }
 
@@ -474,6 +495,24 @@
 .review_write{
 	margin-top: 30px;
 	margin-left: 200px;
+=======
+}
+
+.Review_cont li h3{
+	text-align: left;
+	margin-left: 320px;
+	margin-top: 60px;
+	margin-bottom: -30px;
+}
+
+.review_write{
+<<<<<<< HEAD
+	margin-top: 30px;
+	margin-left: 150px;
+=======
+	margin-left: 100px;
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
+>>>>>>> 4792fb07830ce6c4a92d3ebd850131f78983e395
 	margin-bottom: 50px;
 }
 .review_rating_form{
@@ -487,6 +526,7 @@
 .review_write td{
 	text-align: left;
 }
+<<<<<<< HEAD
 #review_title{
 	width: 700px;
 }
@@ -499,6 +539,16 @@
 .review_write textarea::placeholder{
 	padding: 5px;
 }
+=======
+<<<<<<< HEAD
+.review_write textarea{
+	width: 700px;
+	resize: none;
+}
+=======
+
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
+>>>>>>> 4792fb07830ce6c4a92d3ebd850131f78983e395
 
 
 .detail_review{
@@ -644,3 +694,49 @@
 #review_rating_edit input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
+
+
+.show .popup {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
+
+.list_button_div{
+	width: 1300px;
+	justify-content: center;
+	display: flex;
+}
+
+.list_button{
+	height: 100px;
+	width: 400px;
+	margin-left: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+}
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
+>>>>>>> 4792fb07830ce6c4a92d3ebd850131f78983e395

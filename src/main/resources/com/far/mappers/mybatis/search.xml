@@ -8,7 +8,7 @@
 
 	<resultMap type="com.far.dto.StoreDTO" id="storeDTOMap">
 		<result property="store_name" column="store_name" jdbcType="VARCHAR" />
-		<result property="store_addr" column="store_addr" jdbcType="VARCHAR" />
+		<result property="store_addr1" column="store_addr1" jdbcType="VARCHAR" />
 		<result property="cate" column="cate" jdbcType="VARCHAR" />
 	</resultMap>
 	
@@ -23,7 +23,7 @@
 		(
 		    (
 		        REPLACE(store_name, ' ', '') LIKE '%' || #{keyword} || '%' 
-		        OR REPLACE(store_addr, ' ', '') LIKE '%' || #{keyword} || '%'
+		        OR REPLACE(store_addr1, ' ', '') LIKE '%' || #{keyword} || '%'
 		        OR REPLACE(cate, ' ', '') LIKE '%' || #{keyword} || '%'
 		    )
 		)

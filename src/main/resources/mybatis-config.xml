@@ -10,11 +10,18 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.far.dto.StoreDTO" alias="Store" />
 		
 		<!-- <typeAlias type="com.far.dto.MenuDTO" alias="Menu" /> -->
+
 	
 		<typeAlias type="com.far.dto.ReviewDTO" alias="review"/>
  		<typeAlias type="com.far.dto.ResvDTO" alias="resv"/>
+
+		
+		<typeAlias type="com.far.dto.ResvDTO" alias="resv"/>
+
 		
 		<typeAlias type="com.far.dto.MemberDTO" alias="member"/>
+		
+		<typeAlias type="com.far.dto.StoreDTO" alias="store"/>
 		
 	</typeAliases>
 </configuration>

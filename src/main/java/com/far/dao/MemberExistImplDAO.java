@@ -12,8 +12,8 @@ public class MemberExistImplDAO implements MemberExistDAO {
 	private SqlSession sqlsession;
 	
 	@Override
-	public int isexist_mem_id(String mem_id) {
-		int member_id_exist = sqlsession.selectOne("mem_select_id", mem_id);
+	public int isexist_mem_id(String memId) {
+		int member_id_exist = sqlsession.selectOne("mem_select_id", memId);
 		return member_id_exist;
 	}
 	
