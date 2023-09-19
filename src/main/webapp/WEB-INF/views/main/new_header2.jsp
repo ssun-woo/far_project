@@ -36,13 +36,9 @@
 <link rel="stylesheet" type="text/css" href="/css/topten.css">
 <link rel="stylesheet" type="text/css" href="/css/rs_stopic.css">
 <link rel="stylesheet" type="text/css" href="/css/topten_culture.css">
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="/css/notice.css">
 <link rel="stylesheet" type="text/css" href="/css/acc_cont.css">
-=======
-
 <link rel="stylesheet" type="text/css" href="/css/starEx.css">
->>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
 <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -61,11 +57,7 @@
 	<!-- 이쪽은 가장 Main index를 제외한 Header -->
 	<div id="wrap">
 		<div class="top">
-<<<<<<< HEAD
-=======
 
-
->>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
 			<div class="middle_line">
 				<div class="logo">
 					<a href="/"><img src="/images/main/logo.jpg" alt="logo"></a>
@@ -83,13 +75,9 @@
 
 				<div class="search">
 					<div class="search_bar">
-<<<<<<< HEAD
-						<form onsubmit="performSearch(); return false;">	
-=======
 
 						<form onsubmit="performSearch(); return false;">	
 
->>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
 							<div class="search_input">
 								<input type="text" name="index_search" class="index_search" id="index_search">
 							</div>

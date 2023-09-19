@@ -22,6 +22,7 @@ import lombok.ToString;
 @ToString	
 public class StoreDTO {
 	private int store_num;
+	private String detailCate;
 	private String store_name;
 	private String store_intro;
 	private String store_addr1;

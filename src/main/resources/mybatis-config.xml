@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	
 		<typeAlias type="com.far.dto.StoreDTO" alias="Store" />
 		
-		<!-- <typeAlias type="com.far.dto.MenuDTO" alias="Menu" /> -->
+		<typeAlias type="com.far.dto.MenuDTO" alias="Menu" />
 		
 		<typeAlias type="com.far.dto.ResvDTO" alias="resv"/>
 		

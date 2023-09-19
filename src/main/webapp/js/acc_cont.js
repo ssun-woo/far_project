@@ -211,21 +211,21 @@ function submit_check(){
 	var content = document.getElementById("review_content");
 	
 	if(title.value==""){
-	alert("제목을 입력하세요.");
-	title.focus();
-	return false;
+		alert("제목을 입력하세요.");
+		title.focus();
+		return false;
 	}else if(id.value==""){
-	alert("아이디를 입력하세요.");
-	id.focus();
-	return false;
+		alert("아이디를 입력하세요.");
+		id.focus();
+		return false;
 	}else if(goods.value==""){
-	alert("상품명을 입력하세요.");
-	goods.focus();
-	return false;
+		alert("상품명을 입력하세요.");
+		goods.focus();
+		return false;
 	}else if(content.value==""){
-	alert("내용을 입력하세요.");
-	content.focus();
-	return false;
+		alert("내용을 입력하세요.");
+		content.focus();
+		return false;
 	}
 }
 }

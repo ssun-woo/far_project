@@ -22,6 +22,17 @@
  		select * from store where mem_id = #{id}
  	</select>
  	
+ 	<select id="get_menu_list" resultType="Menu">
+ 		select * from menu where store_num = #{s_num}
+ 	</select>
+ 	
+ 	<select id="get_store" resultType="store">
+ 		select * from store where store_num = #{s_num}
+ 	</select>
+ 	
+ 	<select id="get_menu" resultType="Menu">
+ 		select * from menu where menu_id = #{menu_id}
+ 	</select>
  	
  </mapper>
  

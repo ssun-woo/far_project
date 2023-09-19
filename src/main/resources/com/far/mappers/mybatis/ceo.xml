@@ -8,7 +8,7 @@
  		
  	<insert id="store_in">
  		insert into store(store_num, cate, detail_cate, store_name, store_intro, store_addr1, store_addr2, reg_num, store_logo)
- 		 values(#{store_num},#{cate},#{detail_cate},#{store_name},#{store_intro},#{store_addr1},#{store_addr2},#{reg_num},#{store_logo}) 
+ 		 values(bno2_seq.nextval,#{cate},#{detail_cate},#{store_name},#{store_intro},#{store_addr1},#{store_addr2},#{reg_num},#{store_logo}) 
  	</insert>
  	
  	
@@ -23,6 +23,15 @@
  	<select id="get_detail_cate" resultType="String">
  		select detail_cate from store where store_num = #{store_num}
  	</select>
+ 	
+ 	<delete id="del_menu">
+ 		delete from menu where menu_id = #{menu_id}
+ 	</delete>
+ 	
+ 	<update id="edit_menu">
+ 		update menu set menu_name = #{menu_name}, menu_price=#{menu_price}, menu_explain=#{menu_explain}, menu_photo=#{menu_photo}
+ 		 where menu_id = #{menu_id}
+ 	</update>
  	
  </mapper>
  

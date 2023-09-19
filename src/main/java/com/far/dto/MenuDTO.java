@@ -23,5 +23,6 @@ public class MenuDTO {
 	private String menu_explain;
 	private int menu_price;
 	private String menu_photo;
+	private String menu_photo2;
 	
 }
