@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,14 +32,29 @@ public class SearchController {
 
 //숙소 카테로 이동
 	@GetMapping("/acc")
-	public ModelAndView acc_search(@RequestParam("keyword") String keyword) {
-		List<StoreDTO> stores = searchService.searchStore(keyword);
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("stores", stores);
-		mav.setViewName("search/search_detail_acc");
-		mav.addObject("keyword", keyword);
-		return mav;
-	}
+    public String acc_search(
+        @RequestParam("keyword") String keyword,
+        @RequestParam(name = "orderby", required = false, defaultValue = "id") String orderby,
+        Model model
+    ) {
+        List<StoreDTO> stores;
+        
+        // 정렬 기준에 따라 데이터를 처리
+        if ("views".equals(orderby)) {
+            stores = searchService.sortByViews(keyword);
+        } else if ("likes".equals(orderby)) {
+            stores = searchService.sortByLikes(keyword);
+        } else {
+            stores = searchService.searchStore(keyword);
+        }
+        
+        model.addAttribute("stores", stores);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("orderby", orderby);
+        
+        return "search/search_detail_acc";
+    }
+	
 
 //음식 카테로 이동
 	@GetMapping("/food")

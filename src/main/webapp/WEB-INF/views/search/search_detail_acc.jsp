@@ -39,17 +39,18 @@
 		<div class="acc_all result-section" id="accommodationResults">
 			<div class="titleTab">
 				<div class="subWrap">
-					<ul class="n2 nav nav-tabs" id="accommodationTabs">
+					<ul class="nav nav-tabs" id="accommodationTabs">
 						<li class="nav-item"><a class="nav-link active"
-							th:href="@{/community/tab/{category_name}(category_name=${category_name}, orderby='id')}">최신순</a>
+							href="/search/acc?keyword=${keyword}&category_name=${category_name}&orderby=id">통합</a>
 						</li>
 						<li class="nav-item"><a class="nav-link"
-							th:href="@{/community/tab/{category_name}(category_name=${category_name}, orderby='views')}">조회순</a>
+							href="/search/acc?keyword=${keyword}&category_name=${category_name}&orderby=views">조회순</a>
 						</li>
 						<li class="nav-item"><a class="nav-link"
-							th:href="@{/community/tab/{category_name}(category_name=${category_name}, orderby='likes')}">추천순</a>
+							href="/search/acc?keyword=${keyword}&category_name=${category_name}&orderby=likes">추천순</a>
 						</li>
 					</ul>
+
 				</div>
 			</div>
 			<c:set var="accCount" value="0" />
@@ -62,6 +63,7 @@
 				</c:when>
 				<c:otherwise>
 					<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
+					<!-- store.cate가 'acc'인 경우만 표시 -->
 					<c:forEach var="store" items="${stores}" varStatus="loop">
 						<c:if test="${store.cate == 'acc' }">
 							<!--  메인 카테 -->
@@ -105,7 +107,8 @@
 												<div data-cell>
 													<p class="infoInfostar">
 														<!-- 가게 등급 -->
-														${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}   <!-- 오류는 뜨지만 아주 잘 작동함...! -->
+														${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+														<!-- 오류는 뜨지만 아주 잘 작동함...! -->
 														<strong>(${store.store_score})</strong>
 													</p>
 													<p class="info">
@@ -123,6 +126,7 @@
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
+
 		</div>
 
 	</div>

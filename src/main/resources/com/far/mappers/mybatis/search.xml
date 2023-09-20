@@ -23,7 +23,7 @@
 		(
 		    (
 		        REPLACE(store_name, ' ', '') LIKE '%' || #{keyword} || '%' 
-		        OR REPLACE(store_addr1, ' ', '') LIKE '%' || #{keyword} || '%'
+		        OR REPLACE(store_addr, ' ', '') LIKE '%' || #{keyword} || '%'
 		        OR REPLACE(cate, ' ', '') LIKE '%' || #{keyword} || '%'
 		    )
 		)
