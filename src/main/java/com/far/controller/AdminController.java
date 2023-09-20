@@ -19,4 +19,9 @@ public class AdminController {
 	public ModelAndView ceo_index() {
 		return new ModelAndView("admin/admin_index");
 	}
+	
+	@RequestMapping("/adminPermit")
+	public String adminPermit() {
+		return "admin/adminPermit";
+	}
 }

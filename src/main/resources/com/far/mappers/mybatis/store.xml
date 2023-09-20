@@ -27,5 +27,8 @@
         values(#{storeNum},#{cate},#{detailCate},#{storeName},#{storeIntro},#{storeAddr1},#{storeAddr2},#{regNum},#{storeLogo}, #{memId}) 
     </insert>
     
+    <select id="store_notPermit" resultType="List">
+    	select * from store where auth = 0
+    </select>
  </mapper>
  
