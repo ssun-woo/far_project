@@ -150,30 +150,70 @@ public class AccController {
 	 
 	 //리뷰 수정폼 이동
 	 @RequestMapping("/cont/edit")
-	 public ModelAndView update_review(HttpServletRequest request) {
+	 public ModelAndView edit_review(HttpServletRequest request) {
 		 int review_num = Integer.parseInt(request.getParameter("review_num"));
 		 String store_num = request.getParameter("store_num");
 		 String cate = request.getParameter("cate");
 		 
-		// reviewService.editReview(review_num);
+		//reviewService.editReview(review_num);
+		 ReviewDTO dto = reviewService.getUpdateReview(review_num);
+		 String memId = dto.getMemId();
+		 String review_date = dto.getReview_date();
+		 String review_cont = dto.getReview_cont();
+		 double review_rating = dto.getReview_rating();
 		 
 		 ModelAndView mav = new ModelAndView();
 		 mav.addObject("review_num", review_num);
+		 mav.addObject("review_cont", review_cont);
+		 mav.addObject("review_rating", review_rating);
+		 mav.addObject("memId", memId);
+		 mav.addObject("review_date", review_date);
 		 mav.addObject("store_num",store_num);
 		 mav.addObject("cate", cate);
 		 mav.setViewName("acc/acc_review_edit");
 		
-		 
+		 System.out.println(review_date);
 		 return mav;
-		 
 		 
 		 
 		// return new ModelAndView("redirect:/acc/cont?cate=" + cate + "&store_num="+ store_num);
 	 }
 	 
 	 //리뷰 수정
+	 @RequestMapping("/cont/update")
+	 public ModelAndView update_review(HttpServletRequest request, ReviewDTO dto){
+		 int review_num = Integer.parseInt(request.getParameter("review_num"));
+		 String store_num  = request.getParameter("store_num");
+		 String cate = request.getParameter("cate");
+		 
+		 System.out.println(cate);
+		 System.out.println(store_num);
+		 System.out.println(review_num);
+		 
+		 reviewService.editReview(dto);
+		 
+		 
+		 return new ModelAndView("redirect:/acc/cont/edit?cate=" + cate + "&store_num="+ store_num+"&review_num="+review_num);
+	 }
 	
-	
+//	 //리뷰 수정
+//	 @RequestMapping("/cont/update")
+//	 public ModelAndView update_review(HttpServletRequest request, ReviewDTO dto){
+//		 int review_num = Integer.parseInt(request.getParameter("review_num"));
+//		 String store_num  = request.getParameter("store_num");
+//		 String cate = request.getParameter("cate");
+//		 
+//		 System.out.println(cate);
+//		 System.out.println(store_num);
+//		 System.out.println(review_num);
+//		 
+//		 reviewService.editReview(dto);
+//		 
+//		 ModelAndView mav = new ModelAndView();
+//		 mav.setViewName("acc/acc_review_close");
+//		 return mav;
+//		
+//	 }
 	
 
 	// 숙소 결제페이지 이동

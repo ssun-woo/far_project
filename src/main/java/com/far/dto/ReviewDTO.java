@@ -13,7 +13,6 @@ public class ReviewDTO {
 
 	private int store_num;
 	
-	private String review_title;
 	
 	private double review_rating; //평점
 	
@@ -53,7 +52,7 @@ public class ReviewDTO {
 		return memId;
 	}
 
-	public void setMem_id(String memId) {
+	public void setMemId(String memId) {
 		this.memId = memId;
 	}
 
@@ -105,13 +104,6 @@ public class ReviewDTO {
 		this.store_num = store_num;
 	}
 
-	public String getReview_title() {
-		return review_title;
-	}
-
-	public void setReview_title(String review_title) {
-		this.review_title = review_title;
-	}
 	
 	//create table review(
 //		    review_num int primary key,    --리뷰 글번호

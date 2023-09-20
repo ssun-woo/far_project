@@ -35,7 +35,13 @@ $('input[type=radio][name=show]').on('click',function(){
 	}
 });
 
-
+function del_edit_check(){
+	if (!confirm("후기를 수정하시겠습니까?")) {
+        window.location.reload();
+    } else {
+    window.open("/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}","update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes");
+    }
+}
 function submit_check(){
 	let rf = document.getElementById("reviewForm");
 	
@@ -64,6 +70,8 @@ function submit_check(){
 	
 }
 
+ 
+
 function reviewDel(){
 	if(!confirm("후기를 삭제하시겠습니까?")) return;
 	
@@ -81,6 +89,8 @@ function reviewDel(){
         }
     });
 }
+
+
 
 
 var container = document.getElementById("map");

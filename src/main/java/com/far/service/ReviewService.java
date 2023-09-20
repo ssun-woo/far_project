@@ -15,9 +15,11 @@ public interface ReviewService {
 
 	public void delReview(int review_num);
 
-	public void editReview(int review_num);
+	public void editReview(ReviewDTO dto);
+//	public void editReview(int review_num);
 
-
+	/*댓글 한 개 정보*/
+	public ReviewDTO getUpdateReview(int review_num);
 
 
 

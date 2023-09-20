@@ -487,9 +487,7 @@
 .review_write td{
 	text-align: left;
 }
-#review_title{
-	width: 700px;
-}
+
 .review_write textarea{
 	width: 850px;
 	resize: none;
@@ -504,7 +502,9 @@
 .detail_review{
 	width: 500px;
 }
-
+.edit_review{
+	
+}
 
 .detail_review_tr{
 	width: 500px;
@@ -521,9 +521,16 @@
 }
 .review_buttons{
 	width: 200px;
-	float: left;
+	
 	margin-right: -500px;
 	margin-top: -10px;
+}
+.review_edit_del{
+	display: flex;
+	margin-left: 55px;
+}
+.edit_review_btn{
+	margin-right: 10px;
 }
 .review_recommend{
 	background-color: white;
