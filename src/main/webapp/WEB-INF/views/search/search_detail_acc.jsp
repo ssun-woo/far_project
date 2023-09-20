@@ -16,10 +16,10 @@
 </head>
 <body>
 	<jsp:include page="../main/new_header2.jsp" />
-	<!-- 탭 네비게이션을 상단으로 이동 -->
+	
 	<div class="tabArea">
 		<ul class="n1 nav nav-tabs" id="myTabs">
-			<li class="nav-item"><a class="nav-link " data-toggle="tab"
+			<li class="nav-item"><a class="nav-link " 
 				href="/search?keyword=${keyword}">통합검색</a></li>
 			<li class="nav-item"><a class="nav-link active"
 				href="/search/acc?keyword=${keyword}">숙소</a></li>
@@ -36,21 +36,17 @@
 
 
 		<h3 class="mainText">-숙소</h3>
-		<div class="acc_all result-section" id="accommodationResults">
+		<div class="acc_all result-section" id="acc">
 			<div class="titleTab">
 				<div class="subWrap">
-					<ul class="nav nav-tabs" id="accommodationTabs">
-						<li class="nav-item"><a class="nav-link active"
-							href="/search/acc?keyword=${keyword}&category_name=${category_name}&orderby=id">통합</a>
-						</li>
+					<ul class="n2 nav nav-tabs" id="accommodationTabs">
 						<li class="nav-item"><a class="nav-link"
-							href="/search/acc?keyword=${keyword}&category_name=${category_name}&orderby=views">조회순</a>
-						</li>
+							href="/search/acc?keyword=${keyword}&orderby=id">통합</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/search/acc?keyword=${keyword}&category_name=${category_name}&orderby=likes">추천순</a>
-						</li>
+							href="/search/acc?keyword=${keyword}&orderby=views">조회순</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/search/acc?keyword=${keyword}&orderby=likes">추천순</a></li>
 					</ul>
-
 				</div>
 			</div>
 			<c:set var="accCount" value="0" />

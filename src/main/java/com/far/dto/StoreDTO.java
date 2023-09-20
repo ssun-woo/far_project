@@ -68,13 +68,13 @@ public class StoreDTO {
 	public void setStore_detail_addr(String store_detail_addr) {
 		this.store_detail_addr = store_detail_addr;
 	}
-	private String reg_data;
+	private int reg_data;
 
-	public String getReg_data() {
+	public int getReg_data() {
 		return reg_data;
 	}
 
-	public void setReg_data(String reg_data) {
+	public void setReg_data(int reg_data) {
 		this.reg_data = reg_data;
 	}
 }

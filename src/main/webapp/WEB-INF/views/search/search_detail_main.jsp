@@ -24,7 +24,7 @@
 		<div class="tabArea">
 			<ul class="n1 nav nav-tabs" id="myTabs">
 				<li class="nav-item"><a class="nav-link active"
-					data-toggle="tab" href="/search?keyword=${keyword}">통합검색</a></li>
+					 href="/search?keyword=${keyword}">통합검색</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/search/acc?keyword=${keyword}">숙소</a></li>
 				<li class="nav-item"><a class="nav-link"
