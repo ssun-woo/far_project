@@ -289,11 +289,9 @@
 .personnelChild {
 	margin-bottom: 10px;
 }
-.personnelRoom {
-}
+
 .personnelAdult span,
-.personnelChild span,
-.personnelRoom span {
+.personnelChild span {
 	font-size: 16px;
 	font-weight: bold;
 	color: black;

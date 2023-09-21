@@ -126,7 +126,7 @@
 				pageContent.innerHTML = this.responseText;
 			}
 		};
-		xhttp.open("GET", "/ceo/store_menu_regis", true);
+		xhttp.open("GET", "/ceo/store_menu_regis_list", true);
 		xhttp.send();
 	}
 
@@ -138,7 +138,7 @@
 				pageContent.innerHTML = this.responseText;
 			}
 		};
-		xhttp.open("GET", "/ceo/store_info_edit", true);
+		xhttp.open("GET", "/ceo/store_info_edit_list", true);
 		xhttp.send();
 	}
 
@@ -150,7 +150,7 @@
 				pageContent.innerHTML = this.responseText;
 			}
 		};
-		xhttp.open("GET", "/ceo/store_menu_edit", true);
+		xhttp.open("GET", "/ceo/store_menu_edit_list", true);
 		xhttp.send();
 	}
 

@@ -9,7 +9,7 @@
 	<div class="menuRegisForm">
 		<h2>메뉴 등록하기</h2>
 		<hr>
-		<form action="post" onsubmit="return menu_regis_write_check();">
+		<form method="post" onsubmit="return menu_regis_write_check();">
 			<div class="menuRegis">
 				<label>메뉴 이름</label>
 				<div class="menuRegisPlus">

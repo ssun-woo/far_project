@@ -52,7 +52,6 @@ $(document).ready(function() {
     
 	var adultCount = 0;
 	var childCount = 0;
-	var roomCount = 0;
 	updateCounts();
 	
 	$('#decreaseAdult').click(function() {
@@ -79,23 +78,10 @@ $(document).ready(function() {
         updateCounts();
 	});
 
-	$('#decreaseRoom').click(function() {
-		if (roomCount > 0) {
-			roomCount--;
-			updateCounts();
-		}
-	});
-
-	$('#increaseRoom').click(function() {
-		roomCount++;
-        updateCounts();
-	});
-
 	function updateCounts() {
 		$('#adultCount').text(adultCount);
         $('#childCount').text(childCount);
-        $('#roomCount').text(roomCount);
-        $('.search2Personnel2 p').text('성인 ' + adultCount + ', 소아 ' + childCount + ', 객실 ' + roomCount);
+        $('.search2Personnel2 p').text('성인 ' + adultCount + ', 소아 ' + childCount);
  	}
  	
  	$(document).click(function(event) {
