@@ -192,7 +192,6 @@ public class AccController {
 		 
 		 reviewService.editReview(dto);
 		 
-		 
 		 return new ModelAndView("redirect:/acc/cont/edit?cate=" + cate + "&store_num="+ store_num+"&review_num="+review_num);
 	 }
 	

@@ -293,7 +293,6 @@
 						<tr>
 						<td><input type="submit" value="등록"
 								onclick="submit_check();" class="ReviewWriteBtn"></td>
-						<td class="text_length">글자수</td>
 						</tr>
 						
 					</table>
@@ -357,14 +356,7 @@
 									        var editedReviewContent = document.getElementById("review_cont").value;
 											
 										});
-										
-										function updateReviewContent(review_cont) {
-										    // 데이터를 부모 창에서 사용하거나 처리
-										    // 예: 부모 창의 특정 엘리먼트에 데이터를 삽입하거나 Ajax 요청을 보냄
-										    console.log("후기 내용: " + review_cont);
-										
-											window.close();
-										}
+					
 										</script>
 									</div>
 									

@@ -45,7 +45,9 @@
 	padding: 5px;
 }
 
-
+.review_edit_table h2{
+	margin-left: -100px;
+}
 .detail_review{
 	width: 500px;
 }
@@ -130,7 +132,7 @@
 	width: 500px;
 	margin-top: -20px;
 	margin-bottom: 10px;
-	margin-left: -10px;
+	margin-left: 50px;
 	
 }
 #review_rating fieldset{
@@ -175,16 +177,15 @@
 							
 								<td colspan="2"><div class="mb-3" id="review_rating" class="review_rating_edit"><fieldset>
 								<span>별점을 선택해주세요 </span>
-								<span> (현재 : ${review_rating})</span>
-		<input type="radio" name="review_rating" value="5" id="rate1">
+		<input type="radio" name="review_rating" value="5" id="rate1" <c:if test="${review_rating==5.0}">checked</c:if>>
 		<label for="rate1">★</label>
-		<input type="radio" name="review_rating" value="4" id="rate2">
+		<input type="radio" name="review_rating" value="4" id="rate2" <c:if test="${review_rating==4.0}">checked</c:if>>
 		<label for="rate2">★</label>
-		<input type="radio" name="review_rating" value="3" id="rate3">
+		<input type="radio" name="review_rating" value="3" id="rate3" <c:if test="${review_rating==3.0}">checked</c:if>>
 		<label for="rate3">★</label>
-		<input type="radio" name="review_rating" value="2" id="rate4">
+		<input type="radio" name="review_rating" value="2" id="rate4" <c:if test="${review_rating==2.0}">checked</c:if>>
 		<label for="rate4">★</label>
-		<input type="radio" name="review_rating" value="1" id="rate5">
+		<input type="radio" name="review_rating" value="1" id="rate5" <c:if test="${review_rating==1.0}">checked</c:if>>
 		<label for="rate5">★</label>
 	</fieldset>
 	
@@ -199,10 +200,10 @@
 									id="review_cont" name="review_cont" class="review_edit_cont">${review_cont}</textarea></th>
 						</tr>
 						<tr>
-						<td><a class="review_cancel_btn"><button type="reset" onclick="window.close(); opener.document.location.reload();">닫기</button></a>&nbsp;<a class="review_edit_btn"><button type="submit" class="edit_submit"  onclick="edit_check()">수정</button></a></td>
+						<td><a class="review_cancel_btn"><button type="reset" onclick="window.close(); opener.document.location.reload();">닫기</button></a>&nbsp;<a class="review_edit_btn"><button type="submit" id="edit_submit"  onclick="edit_check();">수정</button></a></td>
 						
 						
-						<td class="text_length">글자수</td>
+						
 						</tr>
 						
 					</table>
@@ -211,20 +212,47 @@
 				
 	<script>
 	
+	/*window.onload = function(event){
+        document.getElementById("edit_submit").onclick = function(){
+        	
+        	var memId = document.getElementById("memId").value;
+            var review_cont = document.getElementById("review_cont").value;
+            var review_num = document.getElementById("review_num").value;
+            var review_rating = document.getElementById("review_rating").value;
+            var review_date = document.getElementById("review_date").value;
+            window.opener.document.getElementById("memId").value = memId;
+            window.opener.document.getElementById("review_cont").value = review_cont;
+            window.opener.document.getElementById("review_num").value = review_num;
+            window.opener.document.getElementById("review_rating").value = review_rating;
+            window.opener.document.getElementById("review_date").value = review_date;
+            window.close();
+        	
+            
+        }
+    }*/
+	
 	function edit_check(){
 		let rf = document.getElementById("reviewEditForm");
 		
 		rf.addEventListener("submit",function(e){
+			
+			
 			if (!confirm("후기를 수정하시겠습니까?")) {
 				window.close();
 		    } else {
 				opener.document.location.reload();
 
 				alert("수정이 완료되었습니다.");
-				window.open("about:blank","_self");
-		    }
 				
+				
+		    }
 			
+			opener.document.location.reload();
+			window.open("http://localhost:7777").close();
+			opener.document.location.reload();
+			
+
+
 			
 		});
 		
@@ -232,7 +260,9 @@
 		
 	}
 	
-	
+	function edit_close(){
+		window.close();
+	}
 
 	/*$(document).ready(function() {
 	      $('.edit_submit').ajaxForm(function() {
