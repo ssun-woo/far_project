@@ -14,6 +14,12 @@
 	
 	
 }
+#yes_jjim:checked{
+	display: none;
+}
+#no_jjim:checked{
+	display: none;
+}
 
 .filter h4{
 	margin-left: 20px;

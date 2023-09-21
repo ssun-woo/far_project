@@ -15,6 +15,8 @@ function imgToggle(){
 	cnt1++;
 }
 
+
+
 var cnt2 = 1;
 function imgToggle2(){
 	var no = document.getElementById("no2");
