@@ -40,10 +40,29 @@ public class ReviewServiceImpl implements ReviewService {
 
 
 	@Override
-	public void editReview(int review_num) {
-		reviewDao.editReview(review_num);
+	public void editReview(ReviewDTO dto) {
+		reviewDao.editReview(dto);
 		
 	}
+
+
+
+	@Override
+	public ReviewDTO getUpdateReview(int review_num) {
+		return reviewDao.getUpdateReview(review_num);
+	}
+
+
+
+//	@Override
+//	public void editReview(int review_num) {
+//		reviewDao.editReview(review_num);
+//		
+//	}
+
+
+
+
 
 
 

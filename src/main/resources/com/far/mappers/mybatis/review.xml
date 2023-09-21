@@ -8,12 +8,11 @@
  	
  	<!-- 리뷰 등록 -->
  	<insert id="set_review">
- 		insert into review(review_num,memId,store_num,review_title, review_rating, review_cont, review_recommend,review_date)
+ 		insert into review(review_num,memId,store_num,review_rating, review_cont, review_recommend,review_date)
  		values(
  		NUM_SEQ.nextval,
  		'abc123',
  		10,
- 		'review_title',
  		#{review_rating},
  		#{review_cont},
  		1,
@@ -33,10 +32,12 @@
  	
  	<!-- 리뷰 수정 -->
  	<update id="edit_review">
- 		update review set review_cont = '#{review_cont}' where review_num=#{review_num};
+ 		update review set review_cont = #{review_cont}, review_rating= #{review_rating}, review_date = sysdate where review_num=#{review_num}
  	</update>
  	
- 	<!-- 리뷰 개수 -->
- 	
+ 	<!-- 리뷰 한 개 정보 -->
+ 	<select id="get_update_review" resultType="com.far.dto.ReviewDTO">
+ 		select * from review where review_num=#{review_num}
+ 	</select>
  	
  </mapper>

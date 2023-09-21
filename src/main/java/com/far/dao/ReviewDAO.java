@@ -13,8 +13,11 @@ public interface ReviewDAO {
 
 	void delReview(int review_num);
 
-	void editReview(int review_num);
+	void editReview(ReviewDTO dto);
 
+	public ReviewDTO getUpdateReview(int review_num);
+
+//	void editReview(int review_num);
 
 
 	

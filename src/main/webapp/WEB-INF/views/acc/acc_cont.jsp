@@ -625,14 +625,13 @@
 						<tr>
 						<td><input type="submit" value="등록"
 								onclick="submit_check();" class="ReviewWriteBtn"></td>
-						<td class="text_length">글자수</td>
 						</tr>
 						
 					</table>
 				</form>
 				</div>
 					<div class="review_form">
-						<h3>이용후기 (건수)</h3>
+						<h3>이용후기 (건수) </h3>
 						<div class="detail_review">
 							
 								<c:forEach var="review" items="${reviewList}">
@@ -644,8 +643,8 @@
 										<td style="text-align: left;">평점: ${review.review_rating}</td>
 									</tr>
 									<tr>
-										<c:if test="/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}">d</c:if>
-										<td style="text-align: left;">${review.review_cont}</td>
+						
+										<td colspan="3" style="text-align: left; width: 450px;">${review.review_cont}</td>
 									</tr>
 									</table>
 									
@@ -655,27 +654,55 @@
 									<img src="../images/main/review_recommend.png">
 									<p>0</p>
 									</button>
-									
+									<div class="review_edit_del">
+										
 										<form action="/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}" method="POST">
    											<input type="hidden" name="review_num" value="${review.review_num}">
-    										<button type="submit" onclick="return confirm('후기를 수정하시겠습니까?')">수정</button>
+    										<button type="submit" onclick="del_edit_check()" class="edit_review_btn">수정</button>
 										</form>
-										<form action="/acc/cont/delete?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}" method="POST">
+										<form action="/acc/cont/delete?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}" method="POST" >
    											<input type="hidden" name="review_num" value="${review.review_num}">
     										<button type="submit" onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
 										</form>
-
+									</div>
 										
+										
+										<script type="text/javascript">
+										$(document).on('click','.edit_review_btn',function(e){
+											e.preventDefault();
+											// 클릭한 수정 버튼에 가까운 form 요소 찾기
+									        var form = $(this).closest("form");
+
+									        // 해당 form 내부에서 input 요소 중 name이 'review_num'인 것의 값을 가져오기
+									        var review_num = form.find("input[name='review_num']").val();
+											
+									        window.name = "cont"
+									        
+									        window.open("/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
+									        // 수정 페이지의 URL 생성
+									       // var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
+											//let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
+											
+											popup = window.open(popUrl,"리뷰 수정",popOption);
+											
+									        var editedReviewContent = document.getElementById("review_cont").value;
+											
+										});
+					
+										</script>
 									</div>
 									
 									
 								</div>
 							
 									<hr>
+									
+									
 								</c:forEach>
 							
 
-
+								
+									
 							
 
 						</div>
