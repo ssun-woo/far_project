@@ -3,10 +3,7 @@
 /*숙박 상세정보 전체*/
 .shop_cont{
 	width: 1000px;
-<<<<<<< HEAD
-=======
 	height: 100%;
->>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
 	text-align: center;
 	margin-left: -100px;
 	margin-bottom: 60px;
@@ -112,20 +109,19 @@
     user-select: none;
     -webkit-user-select: none;
 }
-<<<<<<< HEAD
+
 .shop_cont_div{
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
 
-=======
 
 .content-dis{
 	margin-bottom: 50px;
 	margin-top: 50px
 }
->>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
+
 .shop_info_cont hr{
 	border: 1px solid #303030;
 	border-width: thin;

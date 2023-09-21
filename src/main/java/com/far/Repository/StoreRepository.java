@@ -5,9 +5,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.far.model.Store;
+import com.far.dto.StoreDTO;
 
 @Repository
-public interface StoreRepository extends JpaRepository<Store, String>{
-	Page<Store> findAllByOrderByStoreNameAsc(Pageable pageable);
+public interface StoreRepository extends JpaRepository<StoreDTO, Integer>{
+	
+	Page<StoreDTO> findAll(Pageable pageable);
+	
 }

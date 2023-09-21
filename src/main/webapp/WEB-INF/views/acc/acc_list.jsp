@@ -29,8 +29,6 @@
 		</div>
 			<script src="../js/price_range.js"></script>
 	</div>
-	 	
-	 	
 	 </div>
 	 
 	 <div class="price_input">
@@ -39,9 +37,6 @@
 	 		<input type="text" name="max_price" class="text_box" value="16000000">
 	 	</div> 
 	 <hr>
-	
-	
-	
 	 <div class="theme">
 	 	<h4>테마</h4>
 	 		<input type="checkbox" name="all3" onclick="allselect3(this.checked);">
@@ -86,11 +81,7 @@
 	 		<input type="checkbox"> 키즈라운지
 	 		<br>
 	 		
-	 		
 	 </div>
-	 
-
-	
 	</div>
 	<div class="list_page">
 	<div class="list_top">
@@ -134,63 +125,21 @@
 	</ul>
 	</div>
 	<div class="list_main">
-	
 		<hr>
-<<<<<<< HEAD
-		<%-- 여기부분이 list 돌아가는 for문 --%>
-		<c:forEach var="store" items="${slist}">
-			<div class="list_div">
-			<a href='/acc/cont?detail_cate=${detail_cate}&store_num=${store.store_num}'>
-			<img src="/upload/store_logo${store.store_logo}"></a>
-			<%-- 여기 10의 값은 임의의 값 --%>
-			<div class="list_cont">
-				<div class="shop_Name">
-					<h3>${store.store_name }</h3>
-				</div>
-				
-				<p>등급미정</p>
-				<p>${store.store_addr1} ${store.store_addr2}</p>
-				<br>
-				<p>자가 무료주차 가능</p>
-			</div>
-			<div class="list_cont2">
-				<h2>75,000원</h2>
-				<p>★★★★☆</p>
-				<p>리뷰 196</p>
-				<div class="shop_JJim">
-					<button type="button" onclick="imgToggle()">
-					<img src="../images/acc/NoJJim.png" id="no">
-					<img src="../images/acc/YesJJim.png" id="yes">
-					</button>
-				</div>
-				
-			</div>
-			
-			
-			</div>
-			<hr>
-		</c:forEach>
-	
-	
-	
-	<p class="page_number"> 1 | 2 | 3 | 4 | 5 </p>
-	
 	</div>
-	
-	
-=======
 		<c:forEach var="store" items="${list.content }">
+		
 		<div class="list_div">
 		
-		<a href='/acc/cont?cate=${cate}&store_num=10'><img src="../images/acc/motel1-2.jpg"></a>
-		<%-- 여기 10의 값은 임의의 값 --%>
+		<a href='/acc/cont?cate=${store.detailCate}&store_num=10'><img src="../images/acc/motel1-2.jpg"></a>
+		
 		<div class="list_cont">
 			<div class="shop_Name">
 				<h3>${store.storeName }</h3>
 			</div>
 			
 			<p>등급미정</p>
-			<p>${store.storeAddr }</p>
+			<p>${store.storeAddr1 } ${store.storeAddr2 }</p>
 			<br>
 			<p>자가 무료주차 가능</p>
 		</div>
@@ -206,16 +155,18 @@
 			</div>
 		</div>
 		</div>
-		</c:forEach>
+		</c:forEach> 
 	<hr>
 	</div>
-	<div class="pagination">
+	
+</div>
+<div class="pagination">
     <c:if test="${not empty list}">
-        <ul class="pagination-list">
-            <li><a href="?page=0">첫 페이지</a></li>
-            <li><a href="?page=${list.number - 1}">이전</a></li>
+        <div class="pagination-list">
+            <table border="1">
+            	<tr>
+            		<td><a href="?page=0">첫 페이지</a></td>
             
-            <!-- JavaScript로 페이지 번호 그룹 생성 -->
             <script>
                 var currentPage = ${list.number}; // 현재 페이지 번호
                 var pageSize = 5; // 한 번에 보여줄 페이지 인덱스 수
@@ -227,26 +178,28 @@
                 if (endPage > totalPages) {
                     endPage = totalPages;
                 }
-
+				
+                if (currentPage > 0) { // 현재 페이지가 1보다 큰 경우에만 "이전" 링크를 생성
+                    document.write('<td><a href="?page=' + (currentPage - 1) + '">이전</a></td>');
+                } else {
+                	document.write('');
+                }
+                
                 for (var i = startPage; i <= endPage; i++) {
-                    document.write('<li><a href="?page=' + (i - 1) + '">' + i + '</a></li>');
+                    document.write('<td><a href="?page=' + (i - 1) + '">' + i + '</a></td>');
                 }
-
+				
                 if (currentPage < totalPages - 1) { // 현재 페이지가 마지막 페이지에서 두 번째 페이지보다 작을 경우에만 "다음" 표시
-                    document.write('<li><a href="?page=' + (currentPage + 1) + '">다음</a></li>');
+                    document.write('<td><a href="?page=' + (currentPage + 1) + '">다음</a></td>');
                 }
+                console.log(currentPage);
             </script>
             
-            <li><a href="?page=${list.totalPages - 1}">마지막 페이지</a></li>
-        </ul>
+            <td><a href="?page=${list.totalPages - 1}">마지막 페이지</a></td>
+            </tr>
+            </table>
+        </div>
     </c:if>
-</div>
-
-
-
-
->>>>>>> 80bd44ac2fb449782e4d89aa3977b429aa538ec5
 	</div>
-</div>
 	
 <jsp:include page="../main/footer.jsp"/>

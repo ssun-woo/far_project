@@ -82,6 +82,7 @@
 
 						<form onsubmit="performSearch(); return false;">	
 
+
 							<div class="search_input">
 								<input type="text" name="index_search" class="index_search" id="index_search">
 							</div>
@@ -108,6 +109,7 @@
 						<c:if test="${memId != null && memId != 'anonymousUser'}">
 							<li>${memId }님</li>
 							<li><a href="/logout">로그아웃</a></li>
+							
 						</c:if>
 						<c:if test="${memId == null || memId == 'anonymousUser'}">
 							<li><a href="/loginForm">로그인</a></li>
@@ -115,6 +117,14 @@
 						</c:if>
 
 						<li><a href="/my_page">마이페이지</a></li>
+						
+						<c:if test="${memClass == 'Role_c' }">
+						<li><a href="ceo/index">내 가게 관리</a></li>	
+						</c:if>
+						
+						<c:if test="${memClass == 'Role_a' }">
+						<li><a href="admin/index">페이지 관리</a></li>	
+						</c:if>
 					</ul>
 				</div>
 

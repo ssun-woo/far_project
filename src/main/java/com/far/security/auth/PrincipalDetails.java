@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.far.model.Member;
@@ -19,17 +20,18 @@ public class PrincipalDetails implements UserDetails {
 	// 해당 Member의 권한을 리턴
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		Collection<GrantedAuthority> collect = new ArrayList<>(); 
-		collect.add(new GrantedAuthority() {
-			
-			@Override
-			public String getAuthority() {
-				return member.getMemClass();
-				
-			}
-		});
-		return collect;
+	    // 사용자의 권한을 저장할 컬렉션을 생성합니다.
+	    Collection<GrantedAuthority> authorities = new ArrayList<>();
+	    
+	    // 사용자의 역할 (예: "ROLE_ADMIN")을 "ROLE_" 접두사와 함께 저장합니다.
+	    String role = "ROLE_" + member.getMemClass();
+	    
+	    // SimpleGrantedAuthority 객체를 생성하여 권한 목록에 추가합니다.
+	    authorities.add(new SimpleGrantedAuthority(role));
+	    
+	    return authorities;
 	}
+
 
 	@Override
 	public String getPassword() {
