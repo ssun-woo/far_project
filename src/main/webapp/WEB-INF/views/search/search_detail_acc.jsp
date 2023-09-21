@@ -43,7 +43,7 @@
 						<li class="nav-item"><a class="nav-link"
 							href="/search/acc?keyword=${keyword}&orderby=id">통합</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/search/acc?keyword=${keyword}&orderby=views">조회순</a></li>
+							href="/search/acc?keyword=${keyword}&orderby=views">낮은 가격순</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="/search/acc?keyword=${keyword}&orderby=likes">추천순</a></li>
 					</ul>

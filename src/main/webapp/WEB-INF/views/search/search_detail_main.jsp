@@ -51,22 +51,7 @@
 
 					<h3 class="mainText">-숙소</h3>
 					<div class="acc_all result-section" id="accommodationResults">
-						<div class="titleTab">
-							<div class="subWrap">
-								<ul class="nav nav-tabs" id="accommodationTabs">
-									<li class="nav-item"><a class="nav-link active"
-										data-toggle="tab"
-										href="/search/acc?keyword=${keyword}&category_name=${category_name}&orderby=id">통합</a>
-									</li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab"
-										href="/search/acc?keyword=${keyword}&category_name=${category_name}&orderby=views">조회순</a>
-									</li>
-									<li class="nav-item"><a class="nav-link" data-toggle="tab"
-										href="/search/acc?keyword=${keyword}&category_name=${category_name}&orderby=likes">추천순</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+						
 						<c:set var="accCount" value="0" />
 						<c:choose>
 							<c:when test="${empty stores}">
@@ -152,18 +137,7 @@
 
 				<h3 class="mainText">-음식</h3>
 				<div class="food_all result-section" id="foodResults">
-					<div class="titleTab">
-						<div class="subWrap">
-							<ul class="n2 nav nav-tabs" id="accommodationTabs">
-								<li class="nav-item"><a class="nav-link active"
-									data-toggle="tab" href="#all_rest">통합</a></li>
-								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#look_rest">조회순</a></li>
-								<li class="nav-item"><a class="nav-link" data-toggle="tab"
-									href="#good_rest">추천순</a></li>
-							</ul>
-						</div>
-					</div>
+					
 					<c:set var="foodCount" value="0" />
 					<c:choose>
 						<c:when test="${empty stores}">
@@ -246,18 +220,7 @@
 
 			<h3 class="mainText">-예술/문화</h3>
 			<div class="culture_all result-section" id="cultureResults">
-				<div class="titleTab">
-					<div class="subWrap">
-						<ul class="n2 nav nav-tabs" id="accommodationTabs">
-							<li class="nav-item"><a class="nav-link active"
-								data-toggle="tab" href="#all_rest">통합</a></li>
-							<li class="nav-item"><a class="nav-link" data-toggle="tab"
-								href="#look_rest">조회순</a></li>
-							<li class="nav-item"><a class="nav-link" data-toggle="tab"
-								href="#good_rest">추천순</a></li>
-						</ul>
-					</div>
-				</div>
+			
 				<c:set var="cultureCount" value="0" />
 				<c:choose>
 					<c:when test="${empty stores}">
