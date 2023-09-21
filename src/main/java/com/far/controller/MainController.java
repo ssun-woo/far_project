@@ -1,42 +1,35 @@
 package com.far.controller;
 
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.naming.directory.SearchResult;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.session.SessionInformation;
 import org.springframework.security.core.session.SessionRegistry;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.far.model.Member;
 import com.far.security.auth.PrincipalDetailsService;
+import com.far.dao.FindMemClassDAO;
+import com.far.dto.StoreDTO;
+import com.far.service.CeoService;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Controller
 public class MainController {
-
+	@Autowired
+	private CeoService ceoService;
 	@Autowired
 	private SessionRegistry sessionRegistry;
 	
 	@Autowired
-	private PrincipalDetailsService principalDetailsService;
+	private FindMemClassDAO findMemClass;
 	
 	// index 페이지를 나타냄
 	@RequestMapping("/")
@@ -44,18 +37,47 @@ public class MainController {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String memId = authentication.getName();
+        String memClass = findMemClass.findMemClass(memId);
+        System.out.println("memClass = " + memClass);
         // 세션에 memId 저장
         //session.setAttribute("memId", memId);
-        
         ModelAndView mav = new ModelAndView("main/index");
         mav.addObject("memId", memId);
+        session.setAttribute("memClass", memClass);
         System.out.println(memId);
         return mav;
 		
 	}
-
-	 
 	
+	@RequestMapping("/data")
+	public String datain() {
+		for(int i=1; i<=60; i++) {
+	         StoreDTO s = new StoreDTO();
+	         s.setStoreNum(i);
+	         s.setStoreName("가게이름들어갈자리");
+	         s.setCate("카테");
+	         s.setDetailCate("세부카테");
+	         s.setStoreName("가게이름");
+	         s.setStoreIntro("가게 설명");
+	         s.setStoreAddr1("가게주소1");
+	         s.setStoreAddr2("가게주소2");
+	         s.setRegNum("사업자번호");
+	         s.setStoreLogo("가게사진");
+	         s.setMemId("사업자아이디");
+	         ceoService.insertStore(s);
+	      }
+		return "main/index";
+	}
+	 @RequestMapping("/access_denied")
+	 public String errorPage() {
+		 return "error/access-denied";
+	 }
+	 
+	 
+	 @RequestMapping("/main")
+	 public String errorToMain() {
+		 return "main/index";
+	 }
 
 	
 //	// security 예시(지우지말 것)

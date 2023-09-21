@@ -36,9 +36,19 @@
 <link rel="stylesheet" type="text/css" href="/css/topten.css">
 <link rel="stylesheet" type="text/css" href="/css/rs_stopic.css">
 <link rel="stylesheet" type="text/css" href="/css/topten_culture.css">
+
 <link rel="stylesheet" type="text/css" href="/css/notice.css">
 <link rel="stylesheet" type="text/css" href="/css/acc_cont.css">
 <link rel="stylesheet" type="text/css" href="/css/starEx.css">
+
+
+<link rel="stylesheet" type="text/css" href="/css/notice.css">
+<link rel="stylesheet" type="text/css" href="/css/acc_cont.css">
+
+
+<link rel="stylesheet" type="text/css" href="/css/starEx.css">
+
+
 <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -80,7 +90,9 @@
 						<form onsubmit="performSearch(); return false;">	
 
 
+
 						<!--<form onsubmit="performSearch(); return false;">	  -->
+
 
 							<div class="search_input">
 								<input type="text" name="index_search" class="index_search" id="index_search">
@@ -116,6 +128,7 @@
 						<c:if test="${memId != null && memId != 'anonymousUser'}">
 							<li>${memId }님</li>
 							<li><a href="/logout">로그아웃</a></li>
+							
 						</c:if>
 						<c:if test="${memId == null || memId == 'anonymousUser'}">
 							<li><a href="/loginForm">로그인</a></li>
@@ -124,6 +137,14 @@
 
 
 						<li><a href="/my_page">마이페이지</a></li>
+						
+						<c:if test="${memClass == 'Role_c' }">
+						<li><a href="ceo/index">내 가게 관리</a></li>	
+						</c:if>
+						
+						<c:if test="${memClass == 'Role_a' }">
+						<li><a href="admin/index">페이지 관리</a></li>	
+						</c:if>
 					</ul>
 				</div>
 

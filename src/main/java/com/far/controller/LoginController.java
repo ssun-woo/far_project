@@ -16,6 +16,9 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
+//	@Autowired
+//	private FindIdByEmailDAO findIdByEmail;
+	
 	@GetMapping("/loginForm")
 	public String loginForm() {
 		return "login/login";
@@ -27,4 +30,21 @@ public class LoginController {
 		
 		return "redirect:/loginForm";
 	}
+	
+//	@GetMapping("/findId")
+//	public String findId() {
+//		return "login/findId";
+//	}
+	
+//	@PostMapping("/findId")
+//	public String findIdalert(String memName, String memEmail, HttpServletResponse response, Model model) throws IOException {
+//		String memId = findIdByEmail.findIdByEmail(memName, memEmail);
+//		model.addAttribute("memId", memId);
+//		System.out.println("memId = " + memId);
+//		PrintWriter out = response.getWriter();
+//		out.println("<script>");
+//		out.println("alert(가입한 아이디는 ${memId}입니다.");
+//		out.println("</script>");
+//		return "login/login";
+//	}
 }

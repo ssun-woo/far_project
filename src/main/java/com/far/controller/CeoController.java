@@ -1,3 +1,4 @@
+
 package com.far.controller;
 
 import java.io.File;
@@ -230,17 +231,17 @@ public class CeoController {
 			String fileDBName = "/" + year + "-" + month + "-" + date + "/" + refileName;
 			logo_image.renameTo(new File(homedir + "/" + refileName));
 			
-			s.setStore_logo(fileDBName);
+			s.setStoreLogo(fileDBName);
 		}
 		
 		s.setCate(cate);
-		s.setDetail_cate(detail_cate);
-		s.setReg_num(reg_num);
-		s.setStore_addr1(store_addr1);
-		s.setStore_addr2(store_addr2);
-		s.setStore_intro(store_intro);
-		s.setStore_name(store_name);
-		s.setStore_num(1251); 	// 시퀀스 값이 들어갈거라 스퀀스 생성 후에는 삭제될 내용
+		s.setDetailCate(detail_cate);
+		s.setRegNum(reg_num);
+		s.setStoreAddr1(store_addr1);
+		s.setStoreAddr2(store_addr2);
+		s.setStoreIntro(store_intro);
+		s.setStoreName(store_name);
+		s.setStoreNum(1251); 	// 시퀀스 값이 들어갈거라 스퀀스 생성 후에는 삭제될 내용
 		
 		ceoService.insertStore(s);
 		
@@ -264,37 +265,4 @@ public class CeoController {
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
