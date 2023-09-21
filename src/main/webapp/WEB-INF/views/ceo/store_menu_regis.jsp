@@ -9,32 +9,34 @@
 	<div class="menuRegisForm">
 		<h2>메뉴 등록하기</h2>
 		<hr>
-		<form method="post" onsubmit="return menu_regis_write_check();">
+		<h4>store_num : ${param.store_num}</h4>
+		<form method="post" action="/ceo/store_menu_regis_ok" onsubmit="return menu_regis_write_check();" enctype="multipart/form-data">
+		<input type="hidden" name="store_num" value="${param.store_num}">
 			<div class="menuRegis">
 				<label>메뉴 이름</label>
 				<div class="menuRegisPlus">
-					<input type="text" id="newMenuRegis" name="newMenuRegis">
+					<input type="text" id="newMenuRegis" name="menu_name">
 				</div>
 			</div>
 			
 			<div class="menuRegis">
 				<label>메뉴 가격</label>
 				<div class="menuRegisPlus">
-					<input type="text" id="newPriceRegis" name="newPriceRegis">
+					<input type="text" id="newPriceRegis" name="menu_price">
 				</div>
 			</div>
 			
 			<div class="menuRegis">
 				<label>메뉴 소개</label>
 				<div class="menuRegisPlus">
-					<textarea id="newMenuInfoRegis" name="newMenuInfoRegis" rows="3"></textarea>
+					<textarea id="newMenuInfoRegis" name="menu_explain" rows="3"></textarea>
 				</div>
 			</div>
 			
 			<div class="menuRegis">
 				<label>메뉴 사진</label>
 				<div class="menuRegisPlus">
-					<input type="file" id="newMenuImageRegis" name="newMenuImageRegis">
+					<input type="file" id="newMenuImageRegis" name="menu_photo">
 				</div>
 			</div>
 			

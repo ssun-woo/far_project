@@ -19,7 +19,7 @@
 
 	<div class="tabArea">
 		<ul class="n1 nav nav-tabs" id="myTabs">
-			<li class="nav-item"><a class="nav-link" data-toggle="tab"
+			<li class="nav-item"><a class="nav-link" 
 				href="/search?keyword=${keyword}">통합검색</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="/search/acc?keyword=${keyword}">숙소</a></li>
@@ -37,13 +37,13 @@
 		<div class="culture_all result-section" id="cultureResults">
 			<div class="titleTab">
 				<div class="subWrap">
-					<ul class="n2 nav nav-tabs" id="cultureTabs">
-						<li class="nav-item"><a class="nav-link active"
-							data-toggle="tab" href="#all_culture">통합</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#row_culture">최신순</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#high_culture">추천순</a></li>
+					<ul class="n2 nav nav-tabs" id="accommodationTabs">
+						<li class="nav-item"><a class="nav-link"
+							href="/search/culture?keyword=${keyword}&orderby=id">통합</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/search/culture?keyword=${keyword}&orderby=views">낮은 가격순</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/search/culture?keyword=${keyword}&orderby=likes">추천순</a></li>
 					</ul>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 				<c:otherwise>
 					<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 					<c:forEach var="store" items="${stores}" varStatus="loop">
-						<c:if test="${store.cate == '예술/문화'}">
+						<c:if test="${store.cate == 'culture'}">
 							<!-- 최대 2개의 결과만 출력 -->
 							<div class="box_list">
 								<ul class="box_meun">
@@ -70,8 +70,8 @@
 											<div data-row>
 												<div data-cell>
 													<div class="infoIcon">
-														<i class="icon icondHot">${store.cate}</i> <i class="icon">
-															${store.store_addr} </i>
+														<i class="icon icondHot">${store.detail_cate}</i> <i
+															class="icon"> ${store.store_addr} </i>
 													</div>
 												</div>
 											</div>
@@ -92,8 +92,15 @@
 											</div>
 											<div data-row="bottom">
 												<div data-cell>
-													<p class="infoInfostar">등급</p>
-													<p class="info">상세주소</p>
+													<p class="infoInfostar">
+														<!-- 가게 등급 -->
+														${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}    <!-- 오류는 뜨지만 아주 잘 작동함...! -->
+														<strong>(${store.store_score})</strong>
+													</p>
+													<p class="info">
+														<!-- 가게 상세 주소 -->
+														${store.store_detail_addr}
+													</p>
 												</div>
 											</div>
 										</div>

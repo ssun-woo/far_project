@@ -24,7 +24,7 @@
 						<div class="joinid_img">
 							<img class="join_id" src="../images/login/login_id.png">
 						</div>
-						<input id="mem_id" class="joinid" type="text" name="mem_id" placeholder="아이디" oninput="idcheck()">
+						<input id="memId" class="joinid" type="text" name="memId" placeholder="아이디" oninput="idcheck()">
 						<br><span id="idcheck" class="error-message"></span><br>
 					</div>
 					
@@ -32,7 +32,7 @@
 						<div class="joinpwd_img">
 							<img class="join_pwd" src="../images/login/login_pwd.png">
 						</div>
-						<input id="mem_pwd" class="joinpwd" type="password" name="mem_pwd" placeholder="비밀번호">
+						<input id="memPwd" class="joinpwd" type="password" name="memPwd" placeholder="비밀번호">
 					</div>
 					<br><span id="pwdcheck" class="error-message"></span><br>
 					
@@ -40,7 +40,7 @@
 						<div class="joinpwd_img">
 							<img class="join_pwd" src="../images/login/login_pwd.png">
 						</div>
-						<input id="mem_pwdchk" class="joinpwd" type="password" name="mem_pwdchk" placeholder="비밀번호 확인" ><br>
+						<input id="memPwdchk" class="joinpwd" type="password" name="memPwdchk" placeholder="비밀번호 확인" ><br>
 					</div>
 					<br><span id="pwddoublecheck" class="error-message"></span><br>
 					
@@ -49,7 +49,7 @@
 						<div class="joinname_img">
 							<img class="join_name" src="../images/login/pen.png">
 						</div>
-						<input id="mem_name" class="joinname" type="text" name="mem_name" placeholder="이름">
+						<input id="memName" class="joinname" type="text" name="memName" placeholder="이름">
 					</div>
 					<br><span id="namecheck" class="error-message"></span><br>
 					
@@ -57,7 +57,7 @@
 						<div class="joinemail_img">
 							<img class="join_email" src="../images/login/email.png">
 						</div>
-						<input id="mem_email" class="joinemail" type="text" name="mem_email" placeholder="이메일">
+						<input id="memEmail" class="joinemail" type="text" name="memEmail" placeholder="이메일">
 					</div>
 					<br><span id="emailcheck" class="error-message"></span><br>
 					
@@ -65,7 +65,7 @@
 						<div class="jointel_img">
 							<img class="join_tel" src="../images/login/phone.png">
 						</div>
-						<input id="mem_tel" class="jointel" type="text" name="mem_tel" placeholder="전화번호">
+						<input id="memTel" class="jointel" type="text" name="memTel" placeholder="전화번호">
 					</div>
 					<br><span id="telcheck" class="error-message"></span><br>
 					

@@ -1,26 +1,28 @@
 package com.far.dto;
+/*-- 메뉴 등록 테이블
+create table menu(
+    menu_id int primary key,
+    store_num int not null,
+    menu_name varchar2(255) not null,
+    menu_explain varchar2(1000) not null,
+    price number(8) not null,
+    menu_photo varchar(255) not null,
+    foreign key (store_num) REFERENCES store (store_num)
+);*/
 
 import lombok.Getter;
 import lombok.Setter;
 
-//create table menu(
-//    menu_id 		int 			primary key,
-//    store_num 	int 			not null,
-//    menu_name 	varchar2(255) 	not null,
-//    menu_explain 	varchar2(1000) 	not null,
-//    price 		number(8) 	 	not null,
-//    menu_photo 	varchar(255) 	not null
-//);
 
 @Getter
 @Setter
 public class MenuDTO {
-
+	
 	private int menu_id;
 	private int store_num;
 	private String menu_name;
 	private String menu_explain;
-	private int price;
+	private int menu_price;
 	private String menu_photo;
 	
 	public int getMenu_id() {
@@ -48,10 +50,10 @@ public class MenuDTO {
 		this.menu_explain = menu_explain;
 	}
 	public int getPrice() {
-		return price;
+		return menu_price;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setPrice(int menu_price) {
+		this.menu_price = menu_price;
 	}
 	public String getMenu_photo() {
 		return menu_photo;

@@ -22,12 +22,13 @@
 				<p>가게관리</p>
 			</div>
 
-			<a href="/customer_service" class="ceo_list" id="center">
-				<div>
+			<div class="ceo_list" id="center">
+				<a href="/customer_service">
 					<img src="../images/ceo/center.png">
 					<p>고객센터</p>
-				</div>
-			</a>
+				</a>
+			</div>
+			
 			<!-- 
 			<div id="notice">
 				<p>공지</p>
@@ -42,8 +43,15 @@
 <jsp:include page="ceo_footer.jsp" />
 
 <script>
+	var store_num2 = "${store_num}";
+	console.log(store_num2);
 	window.onload = function() {
-		loadCeoPage3();
+		if(store_num2 == ""){
+			loadCeoPage3();
+		}else{
+			loadStorePage4(store_num2);
+		}
+		
 	};
 
 	function loadCeoPage1() {
@@ -76,7 +84,7 @@
 		xhttp.onreadystatechange = function() {
 			if (this.readyState === 4 && this.status === 200) {
 				pageContent.innerHTML = this.responseText;
-			}
+			};
 		};
 		xhttp.open("GET", "/ceo/store_main", true);
 		xhttp.send();
@@ -118,7 +126,22 @@
 		xhttp.send();
 	}
 	
-	function loadStorePage2() {
+	/* // 메뉴등록
+	function loadStorePage2(store_num, state) {
+	    var pageContent = document.getElementById('storeContentArea');
+	    var xhttp = new XMLHttpRequest();
+	    xhttp.onreadystatechange = function() {
+	        if (this.readyState === 4 && this.status === 200) {
+	            pageContent.innerHTML = this.responseText;
+	        }
+	    };
+	    // EL을 사용하여 parameterValue를 URL에 포함시킴
+	    xhttp.open("GET", "/ceo/store_menu_regis?store_num=" + parameterValue, true);
+    	xhttp.send();
+	} */
+	
+	// 메뉴 등록 전 가게 선택
+	function loadStorePage2(state){
 		var pageContent = document.getElementById('storeContentArea');
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -130,7 +153,7 @@
 		xhttp.send();
 	}
 
-	function loadStorePage3() {
+	/* function loadStorePage3() {
 		var pageContent = document.getElementById('storeContentArea');
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -141,7 +164,7 @@
 		xhttp.open("GET", "/ceo/store_info_edit_list", true);
 		xhttp.send();
 	}
-
+	
 	function loadStorePage4() {
 		var pageContent = document.getElementById('storeContentArea');
 		var xhttp = new XMLHttpRequest();
@@ -152,7 +175,7 @@
 		};
 		xhttp.open("GET", "/ceo/store_menu_edit_list", true);
 		xhttp.send();
-	}
+	} */
 
 	function loadReservationPage1() {
 		var pageContent = document.getElementById('reservationContentArea');

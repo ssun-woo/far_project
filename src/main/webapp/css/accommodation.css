@@ -3,7 +3,7 @@
 .acc_list {
 	height: 100px;
 	margin: 50px auto;
-	width: 80%;
+	width: 1300px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -65,3 +65,11 @@
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 	font-weight: bold;
 }
+
+.pagination-list {
+	text-align: center;
+}
+
+.pagination-list span {
+        margin: 0 5px; /* 각 링크 사이의 여백 설정 */
+    }

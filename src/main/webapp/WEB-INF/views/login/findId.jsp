@@ -13,10 +13,10 @@
             document.getElementById(screenId).style.display = "block";
         }
         
-         window.onload = function() {
-            showScreen('screen1'); // 기본 화면 설정
-        }; 
+        // 페이지 로드 시 초기 설정
+        showScreen('screen1'); // 기본 화면 설정
     </script>
+
     
     <jsp:include page="../main/new_header2.jsp"/>
 </head>
@@ -27,7 +27,8 @@
 	<div id="memclassTitle">
 	회원 유형
 	</div>
-	<select id="memclassSelect">
+	<form name="findIdByEmail" action="/findId" method="post">
+	<select id="memclassSelect" name="memclass">
 		<option>개인 회원</option>
 		<option>개인 사업자 회원</option>
 	</select>
@@ -39,7 +40,7 @@
 	</div>
 	
     <div id="findIdByEmail" class="screen">
-        <form name="findIdByEmail" action="">
+        
         	<div id="findIdByEmailNameTitle">이름</div>
         	<input id="findIdByEmailNameInput" type="text"><br>
         	

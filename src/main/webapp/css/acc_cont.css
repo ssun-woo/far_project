@@ -110,10 +110,31 @@
     -webkit-user-select: none;
 }
 
-.content-dis{
+.shop_cont_div{
+	margin-top: 50px;
+=======
+<<<<<<< HEAD
+.shop_cont_div{
+	margin-top: 50px;
 	margin-bottom: 50px;
-	margin-top: 50px
 }
+
+
+
+.content-dis{
+>>>>>>> 4792fb07830ce6c4a92d3ebd850131f78983e395
+	margin-bottom: 50px;
+}
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
+>>>>>>> 4792fb07830ce6c4a92d3ebd850131f78983e395
+=======
+
+>>>>>>> 45549848fa04020de286f474d0e3daac36dc05d9
 .shop_info_cont hr{
 	border: 1px solid #303030;
 	border-width: thin;
@@ -206,6 +227,7 @@
 }
 
 .acc_policy li{
+	width: 750px;
 	margin-top: 5px;
 	text-align: left;
 	margin-left: 440px;
@@ -229,6 +251,7 @@
 	border: 1px solid;
 }
 .acc_introduce li{
+	width: 750px;
 	margin-top: 5px;
 	text-align: left;
 	margin-left: 440px;
@@ -278,7 +301,7 @@
 	margin-left: 350px;
 	border: 1px solid;
 }
-.acc_map .map{
+.acc_map .kakao_map{
 	width: 850px;
 	height: 600px;
 	border: 1px solid;
@@ -429,20 +452,49 @@
 }
 
 /* 이용후기*/
+.review_form h3{
+	margin-left: -700px;
+}
 .Review_cont{
 	width: 900px;
-	margin-left: -280px;
+	margin-left: 50px;
 	margin-top: 40px;
+	border-radius: 10px;
 }
 
 .Review_cont hr{
 	width: 910px;
-	margin-left: 350px;
+	margin-left: 30px;
 	border: 1px solid;
 }
 
-.Review_cont li{
+.detail_review_table_div{
 	display: flex;
+	margin-left: 100px;
+}
+
+.detail_review_table{
+	width: 600px;
+	position: static;
+}
+#reviewForm{
+	margin-left: -150px;
+}
+.detail_review_table2{
+	width: 400px;
+	margin-right: 100px;
+}
+
+.detail_review hr{
+	width: 910px;
+	border: 1px solid gray;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.review_write{
+	margin-top: 30px;
+	margin-left: 200px;
+
 }
 
 .Review_cont li h3{
@@ -453,43 +505,55 @@
 }
 
 .review_write{
-	margin-left: 100px;
+	margin-top: 30px;
+	margin-left: 150px;
+
+	/*margin-left: 100px;*/
+
 	margin-bottom: 50px;
+}
+.review_rating_form{
+	margin-top: 50px;
+	
+}
+.review_write h3{
+	margin-left: -800px;
 }
 
 .review_write td{
 	text-align: left;
 }
 
+#review_title{
+	width: 700px;
+}
 
+
+.review_write textarea{
+	width: 850px;
+	resize: none;
+	border-radius: 5px;
+}
+
+.review_write textarea::placeholder{
+	padding: 5px;
+}
+
+.review_write textarea{
+	width: 700px;
+	resize: none;
+}
 
 .detail_review{
-	width: 1500px;
-	display: flex;
+	width: 500px;
 }
-.detail_review_ul{
-	margin-left: 350px;
-}
-
-.detail_review_ul2{
-	margin-left: 350px;
-	margin-top: 30px;
+.edit_review{
 	
 }
 
-.detail_review_ul2 li{
-	text-align: right;
-}
-.detail_review_ul2 label{
-	color: blue;
-}
-
-.detail_review p{
-	margin-top: -15px;
-}
-
-.detail_review h5{
-	margin-top: 20px;
+.detail_review_tr{
+	width: 500px;
+	margin-left: 200px;
 }
 
 .review_edit{
@@ -500,15 +564,28 @@
 	margin-top: 10px;
 	margin-left: 5px;
 }
+.review_buttons{
+	width: 200px;
+	
+	margin-right: -500px;
+	margin-top: -10px;
+}
+.review_edit_del{
+	display: flex;
+	margin-left: 55px;
+}
+.edit_review_btn{
+	margin-right: 10px;
+}
 .review_recommend{
-	margin-left: 1150px;
 	background-color: white;
 	border: 1px solid lightgray;
 	border-radius: 5px;
 	display: flex;
 	height: 30px;
-	margin-top: -20px;
-	margin-bottom: 15px;
+	margin-top: 10px;
+	margin-bottom: 15px; 
+	margin-left: 60px
 }
 .review_recommend IMG{
 	margin-top: 2px;
@@ -520,58 +597,125 @@
 	font-weight: lighter;
 	color: #a8a8a8;
 }
-#review_form hr{
+.detail_review_table hr{
 	width: 910px;
-	margin-left: 350px;
-	border: 1px solid lightgray;
+	border: 1px solid gray;
+	margin-top: 10px;
 }
+.detail_review_table td{
+	margin-top: 15px;
+}
+
 
 .review_page{
-	margin-left: 700px;
-}
- .background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  
-  /* 숨기기 */
-  z-index: -1;
-  opacity: 0;
+	margin-left: 100px;
+	
 }
 
-.show {
-  opacity: 1;
-  z-index: 1000;
-  transition: all .5s;
+.table_space{
+	marigin-left: 540px;
+}
+/*글자수*/
+.text_length{
+	
+}
+/*리뷰 등록 버튼*/
+.ReviewWriteBtn{
+	width: 70px;
+	height: 30px;
+	border-radius: 10px;
+	background-color: black;
+	color: white;
+	margin-top: 5px;
+}
+/*별점*/
+#review_rating{
+	width: 500px;
+	margin-top: -20px;
+	margin-bottom: 10px;
+	margin-left: -10px;
+	
+}
+#review_rating fieldset{
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+#review_rating fieldset legend{
+    text-align: left;
+}
+#review_rating input[type=radio]{
+    display: none;
+}
+#review_rating label{
+    font-size: 20pt;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#review_rating label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#review_rating label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#review_rating input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
 
-.window {
-  position: relative;
-  width: 100%;
-  height: 100%;
+
+/*별점*/
+#review_rating_edit{
+	width: 500px;
+	margin-top: -20px;
+	margin-bottom: 10px;
+	margin-left: -10px;
+	
+}
+#review_rating_edit fieldset{
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+#review_rating_edit fieldset legend{
+    text-align: left;
+}
+#review_rating_edit input[type=radio]{
+    display: none;
+}
+#review_rating_edit label{
+    font-size: 20pt;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#review_rating_edit label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#review_rating_edit label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#review_rating_edit input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
 
-.popup {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
-  
-  /* 임시 지정 */
-  width: 100px;
-  height: 100px;
-  
-  /* 초기에 약간 아래에 배치 */
-  transform: translate(-50%, -40%);
-}
 
 .show .popup {
   transform: translate(-50%, -50%);
   transition: all .5s;
 }
+
+.list_button_div{
+	width: 1300px;
+	justify-content: center;
+	display: flex;
+}
+
+.list_button{
+	height: 100px;
+	width: 400px;
+	margin-left: 250px;
+}
+
+
+
+
+

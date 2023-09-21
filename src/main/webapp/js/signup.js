@@ -1,45 +1,45 @@
 $(document).ready(function() {
   // 아이디 입력 필드에 포커스를 주었을 때에만 이벤트 핸들러를 연결
-  $("#mem_id").on("focus", function() {
+  $("#memId").on("focus", function() {
     $(this).on("input", function() {
       idcheck($(this).val()); // jQuery로 값을 가져와서 함수에 전달
     });
   });
 
   // 나머지 입력 필드의 이벤트 핸들러는 동일하게 유지
-  $("#mem_pwd").on("input", function() {
+  $("#memPwd").on("input", function() {
     pwdcheck($(this).val());
   });
 
-  $("#mem_pwdchk").on("input", function() {
-    pwddoublecheck($(this).val(), $("#mem_pwd").val());
+  $("#memPwdchk").on("input", function() {
+    pwddoublecheck($(this).val(), $("#memPwd").val());
   });
 
-  $("#mem_email").on("input", function() {
+  $("#memEmail").on("input", function() {
     emailcheck($(this).val());
   });
 
-  $("#mem_tel").on("input", function() {
+  $("#memTel").on("input", function() {
     telcheck($(this).val());
   });
 });
 
-function idcheck(mem_id) {
-  mem_id = String(mem_id).trim(); // 입력값을 문자열로 변환하고 양 끝의 공백을 제거합니다.
+function idcheck(memId) {
+  memId = String(memId).trim(); // 입력값을 문자열로 변환하고 양 끝의 공백을 제거합니다.
 
-  if (mem_id.length < 6) {
+  if (memId.length < 6) {
     $warnidtext = "<font color='red'><strong>아이디는 6자 이상이어야 합니다.</strong></font>"
     $('#idcheck').text('');
     $('#idcheck').show();
     $('#idcheck').append($warnidtext);
     return false;
-  } else if (mem_id.length > 16) {
+  } else if (memId.length > 16) {
     $warnidtext = "<font color='red'><strong>아이디는 16자 이하이어야 합니다.</strong></font>"
     $('#idcheck').text('');
     $('#idcheck').show();
     $('#idcheck').append($warnidtext);
     return false;
-  } else if (!validId(mem_id)) {
+  } else if (!validId(memId)) {
     $warnvalid = "<font color='red'><strong>아이디는 영소문자와 숫자만 가능합니다.</strong></font>"
     $('#idcheck').text('');
     $('#idcheck').show();
@@ -52,7 +52,7 @@ function idcheck(mem_id) {
       type: 'post',
       url: '/signup/check',
       data: {
-        'mem_id': mem_id
+        'memId': memId
       },
       datatype: 'text',
       async: false, // 동기적으로 AJAX 요청을 수행
@@ -62,7 +62,7 @@ function idcheck(mem_id) {
           $('#idcheck').text('');
           $('#idcheck').show();
           $('#idcheck').append($warnidtext);
-          $('#mem_id').focus();
+          $('#memId').focus();
         } else {
           $warnidtext = "<font color='blue'><strong>사용 가능한 아이디입니다.</strong></font>"
           $('#idcheck').text('');
@@ -83,21 +83,21 @@ function idcheck(mem_id) {
 }
 
 function submitForm() {
-  var mem_id = document.getElementById('mem_id').value;
-  var mem_pwd = document.getElementById('mem_pwd').value;
-  var mem_name = document.getElementById('mem_name').value;
-  var mem_email = document.getElementById('mem_email').value;
-  var mem_tel = document.getElementById('mem_tel').value;
+  var memId = document.getElementById('memId').value;
+  var memPwd = document.getElementById('memPwd').value;
+  var memName = document.getElementById('memName').value;
+  var memEmail = document.getElementById('memEmail').value;
+  var memTel = document.getElementById('memTel').value;
 
-  if (mem_id == "") {
+  if (memId == "") {
     alert('아이디를 입력하세요');
-    $('#mem_id').val('').focus();
+    $('#memId').val('').focus();
     return false;
   }
 
-  if (!idcheck(mem_id)) {
+  if (!idcheck(memId)) {
     alert('ID를 확인해주세요.');
-    $('#mem_id').val('').focus();
+    $('#memId').val('').focus();
     return false;
   }
 
@@ -109,20 +109,20 @@ function submitForm() {
 
 
 
-function pwdcheck(mem_pwd) { // 비밀번호 값을 매개변수로 받음
-  if (mem_pwd.length < 8) {
+function pwdcheck(memPwd) { // 비밀번호 값을 매개변수로 받음
+  if (memPwd.length < 8) {
     $warnpwdtext = "<font color='red'><strong>비밀번호는 8자 이상이어야합니다.</strong></font>"
     $('#pwdcheck').text('');
     $('#pwdcheck').show();
     $('#pwdcheck').append($warnpwdtext);
     return false;
-  } else if (mem_pwd.length > 16) {
+  } else if (memPwd.length > 16) {
     $warnpwdtext = "<font color='red'><strong>비밀번호는 16자 이하이어야합니다.</strong></font>"
     $('#pwdcheck').text('');
     $('#pwdcheck').show();
     $('#pwdcheck').append($warnpwdtext);
     return false;
-  } else if (!validpwd(mem_pwd)) {
+  } else if (!validpwd(memPwd)) {
     $warnvalpwd = "<font color='red'><strong>비밀번호 형식이 일치하지않습니다.</strong></font>"
     $('#pwdcheck').text('');
     $('#pwdcheck').show();
@@ -135,8 +135,8 @@ function pwdcheck(mem_pwd) { // 비밀번호 값을 매개변수로 받음
   }
 }
 
-function pwddoublecheck(mem_pwdchk, mem_pwd) { // 비밀번호와 비밀번호 확인 값을 매개변수로 받음
-  if (mem_pwd !== mem_pwdchk) {
+function pwddoublecheck(memPwdchk, memPwd) { // 비밀번호와 비밀번호 확인 값을 매개변수로 받음
+  if (memPwd !== memPwdchk) {
     $warnequalpwd = "<font color='red'><strong>비밀번호가 일치하지않습니다.</strong></font>"
     $('#pwddoublecheck').text('');
     $('#pwddoublecheck').show();
@@ -149,8 +149,8 @@ function pwddoublecheck(mem_pwdchk, mem_pwd) { // 비밀번호와 비밀번호 �
   }
 }
 
-function emailcheck(mem_email) { // 이메일 값을 매개변수로 받음
-  if (!validemail(mem_email)) {
+function emailcheck(memEmail) { // 이메일 값을 매개변수로 받음
+  if (!validemail(memEmail)) {
     $warnvalemail = "<font color='red'><strong>이메일 형식이 일치하지않습니다. ex)aaa@OOO.com</strong></font>"
     $('#emailcheck').text('');
     $('#emailcheck').show();
@@ -163,8 +163,8 @@ function emailcheck(mem_email) { // 이메일 값을 매개변수로 받음
   }
 }
 
-function telcheck(mem_tel) { // 전화번호 값을 매개변수로 받음
-  if (!validtel(mem_tel)) {
+function telcheck(memTel) { // 전화번호 값을 매개변수로 받음
+  if (!validtel(memTel)) {
     $warnvaltel = "<font color='red'><strong>숫자만 입력해주세요('-'제외)</strong></font>"
     $('#telcheck').text('');
     $('#telcheck').show();
@@ -179,60 +179,60 @@ function telcheck(mem_tel) { // 전화번호 값을 매개변수로 받음
 
 function submitForm() {
   
-  var mem_id = document.getElementById('mem_id').value;
-  var mem_pwd = document.getElementById('mem_pwd').value;
-  var mem_pwdchk = document.getElementById('mem_pwdchk').value;
-  var mem_name = document.getElementById('mem_name').value;
-  var mem_email = document.getElementById('mem_email').value;
-  var mem_tel = document.getElementById('mem_tel').value;
+  var memId = document.getElementById('memId').value;
+  var memPwd = document.getElementById('memPwd').value;
+  var memPwdchk = document.getElementById('memPwdchk').value;
+  var memName = document.getElementById('memName').value;
+  var memEmail = document.getElementById('memEmail').value;
+  var memTel = document.getElementById('memTel').value;
 
-  if (mem_id == "") {
+  if (memId == "") {
     alert('아이디를 입력하세요');
-    $('#mem_id').val('').focus();
+    $('#memId').val('').focus();
     return false;
-  } else if (!idcheck(mem_id)) {
+  } else if (!idcheck(memId)) {
     alert('ID를 확인해주세요.');
-    $('#mem_id').val('').focus();
+    $('#memId').val('').focus();
     return false;
   }
 
-  if (mem_pwd == "") {
+  if (memPwd == "") {
     alert('비밀번호를 입력하세요');
-    $('#mem_pwd').val('').focus();
+    $('#memPwd').val('').focus();
     return false;
-  } else if (!pwdcheck(mem_pwd)) {
+  } else if (!pwdcheck(memPwd)) {
     alert('비밀번호를 확인해주세요');
-    $('#mem_pwd').val('').focus();
+    $('#memPwd').val('').focus();
     return false;
-  } else if (!pwddoublecheck(mem_pwdchk, mem_pwd)) {
+  } else if (!pwddoublecheck(memPwdchk, memPwd)) {
     alert('비밀번호가 일치하지않습니다');
-    $('#mem_pwdchk').val('').focus();
+    $('#memPwdchk').val('').focus();
     return false;
   }
 
-  if (mem_name == "") {
+  if (memName == "") {
     alert('이름을 입력하세요');
-    $('#mem_name').val('').focus();
+    $('#memName').val('').focus();
     return false;
   }
 
-  if (mem_email == "") {
+  if (memEmail == "") {
     alert('이메일을 입력하세요');
-    $('#mem_email').val('').focus();
+    $('#memEmail').val('').focus();
     return false;
-  } else if (!emailcheck(mem_email)) {
+  } else if (!emailcheck(memEmail)) {
     alert('이메일을 확인해주세요');
-    $('#mem_email').val('').focus();
+    $('#memEmail').val('').focus();
     return false;
   }
 
-  if (mem_tel == "") {
+  if (memTel == "") {
     alert('전화번호를 입력하세요');
-    $('#mem_tel').val('').focus();
+    $('#memTel').val('').focus();
     return false;
-  } else if (!telcheck(mem_tel)) {
+  } else if (!telcheck(memTel)) {
     alert('전화번호 형식이 일치하지 않습니다.');
-    $('#mem_tel').val('').focus();
+    $('#memTel').val('').focus();
     return false;
   } 
 
@@ -240,22 +240,22 @@ function submitForm() {
   
 }
 
-function validId(mem_id) {
+function validId(memId) {
   var pattern = new RegExp(/^[a-z0-9]+$/);
-  return pattern.test(mem_id);
+  return pattern.test(memId);
 }
 
-function validpwd(mem_pwd) {
+function validpwd(memPwd) {
   var pattern = new RegExp(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/);
-  return pattern.test(mem_pwd);
+  return pattern.test(memPwd);
 }
 
-function validemail(mem_email) {
+function validemail(memEmail) {
   var pattern = new RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
-  return pattern.test(mem_email);
+  return pattern.test(memEmail);
 }
 
-function validtel(mem_tel) {
+function validtel(memTel) {
   var pattern = new RegExp(/^[0-9]+$/);
-  return pattern.test(mem_tel);
+  return pattern.test(memTel);
 }

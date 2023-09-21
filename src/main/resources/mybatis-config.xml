@@ -17,5 +17,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 		<typeAlias type="com.far.dto.CouponDTO" alias="coupon" />
 
+		<typeAlias type="com.far.dto.ReviewDTO" alias="review"/>
+		
 	</typeAliases>
 </configuration>
