@@ -11,5 +11,7 @@ import com.far.dto.StoreDTO;
 public interface StoreRepository extends JpaRepository<StoreDTO, Integer>{
 	
 	Page<StoreDTO> findAll(Pageable pageable);
+
+	Page<StoreDTO> findByDetailCate(Pageable pageable, String detailCate);
 	
 }

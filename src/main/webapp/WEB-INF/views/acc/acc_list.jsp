@@ -115,7 +115,7 @@
 				'캠핑/글램핑' 검색결과
 			</c:if>
 		</li>
-		<li >&nbsp;&nbsp;['${totalCount }'개의 검색 결과]</li>
+		<li >&nbsp;&nbsp;['${countStore }'개의 검색 결과]</li>
 		<li class="space"></li>
 		<li class="sort">인기순</li>
 		<li class="separator">|</li>
@@ -180,17 +180,17 @@
                 }
 				
                 if (currentPage > 0) { // 현재 페이지가 1보다 큰 경우에만 "이전" 링크를 생성
-                    document.write('<td><a href="?page=' + (currentPage - 1) + '">이전</a></td>');
+                    document.write('<td><a href="?detail_cate=${param.detail_cate}&page=' + (currentPage - 1) + '">이전</a></td>');
                 } else {
                 	document.write('');
                 }
                 
                 for (var i = startPage; i <= endPage; i++) {
-                    document.write('<td><a href="?page=' + (i - 1) + '">' + i + '</a></td>');
+                    document.write('<td><a href="?detail_cate=${param.detail_cate}&page=' + (i - 1) + '">' + i + '</a></td>');
                 }
 				
                 if (currentPage < totalPages - 1) { // 현재 페이지가 마지막 페이지에서 두 번째 페이지보다 작을 경우에만 "다음" 표시
-                    document.write('<td><a href="?page=' + (currentPage + 1) + '">다음</a></td>');
+                    document.write('<td><a href="?detail_cate=${param.detail_cate}&page=' + (currentPage + 1) + '">다음</a></td>');
                 }
                 console.log(currentPage);
             </script>

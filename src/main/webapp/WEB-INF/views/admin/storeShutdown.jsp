@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +8,8 @@
 </head>
 <body>
 <jsp:include page="admin_header.jsp"/>
-		
-		<section id="menu_cont">
-			<H3 id="cate_name">[입점 승인]</H3>
+	<section id="menu_cont">
+			<H3 id="cate_name">[페점 승인]</H3>
 			
 			<div id="cate_cont">
 				<table border="1" id="t1">
@@ -20,17 +18,15 @@
 						<th id="shop">가게명</th>
 						<th id="cate">업종</th>
 						<th id="name">신청자</th>
-						
+						<th id="check">승인여부</th>
 					</tr>
-					<c:forEach var="permitOk" items="${permitOkList }">
 					<tr>
-						<td>${permitOk.storeNum }</td>
-						<td>${permitOk.storeName }</td>
-						<td>${permitOk.cate }(${permitOk.detailCate })</td>
-						<td>${permitOk.memId }</td>
-						
+						<td>1</td>
+						<td>가게1</td>
+						<td>식당(한식)</td>
+						<td>신청자</td>
+						<td>접수 완료</td>
 					</tr>
-					</c:forEach>
 				</table>
 			</div>
 			

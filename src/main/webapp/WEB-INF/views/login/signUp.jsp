@@ -19,7 +19,11 @@
 		<div class="wrap">
 			<div class="join_form">
 				<form name="frmLogin" action="/signUp" method="post">
-				
+					<div class="selectClass">
+					<input type="radio" name="selectClass" value="normal" checked> 일반 회원
+					<input type="radio" name="selectClass" value="business"> 개인 사업자
+					
+					</div>
 					<div class="joinid_wrap">
 						<div class="joinid_img">
 							<img class="join_id" src="../images/login/login_id.png">

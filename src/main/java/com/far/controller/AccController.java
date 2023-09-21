@@ -47,38 +47,15 @@ public class AccController {
 
 	// 세부 카테 클릭 시 출력되는 목록
 	@RequestMapping("/list")
-
-//	public ModelAndView acc_hotel(HttpServletRequest request, @PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC)Pageable pageable) {
-//		String cate = request.getParameter("cate");
-//		String detail_cate = request.getParameter("detail_cate");
-//
-//		List<StoreDTO> slist = accResvService.getCateList(detail_cate);
-//		int totalCount = accResvService.getTotalCount(detail_cate);
-//		ModelAndView mav = new ModelAndView();
-//
-//		mav.addObject("detail_cate", detail_cate);
-//		mav.addObject("totalCount", totalCount);
-//		Page<Store> acc_list = listUpService.storeList(pageable);
-//		System.out.println(acc_list);
-//		System.out.println(acc_list.getSize());
-//		mav.addObject("acc_list", acc_list);
-//		mav.addObject("cate", cate);
-//		mav.setViewName("acc/acc_list");
-//		mav.addObject("slist", slist);
-//		return mav;
-
-	public ModelAndView acc_hotel(HttpServletRequest request, Model model, @RequestParam(defaultValue = "0") int page) {
-	    //String cate = request.getParameter("cate");
-	    
+	public ModelAndView acc_hotel(HttpServletRequest request, HttpSession session, Model model, @RequestParam(defaultValue = "0") int page) {
+	    String detailCate = request.getParameter("detail_cate");
+	    int countStore = storeService.countStore(detailCate);
 	    Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "storeNum"));
-	    System.out.println("pageable: " + pageable);
 	    ModelAndView mav = new ModelAndView();
-	    Page<StoreDTO> storePage = storeService.storeList(pageable);
-	    System.out.println("storePage = " + storePage.getContent());
-	    model.addAttribute("list", storePage);
-	    System.out.println("storePage content size: " + storePage.getContent().size());
-	    System.out.println("id: " + storeService.findById(1));
-	    //mav.addObject("cate", cate);
+	    Page<StoreDTO> storePage = storeService.storeList(pageable, detailCate);
+	    session.setAttribute("list", storePage);
+	    session.setAttribute("countStore", countStore);
+	    
 	    mav.setViewName("acc/acc_list");
 	    return mav;
 

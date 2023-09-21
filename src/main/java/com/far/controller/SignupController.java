@@ -1,5 +1,10 @@
 package com.far.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +46,7 @@ public class SignupController {
 	    }
 	
 	  @PostMapping("/signUp")
-	    public String signUp(@Valid MemberDTO m, BindingResult br) {
+	    public String signUp(@Valid MemberDTO m, BindingResult br, String selectClass, HttpServletRequest request) throws IOException {
 	        if (br.hasErrors()) {
 	            // 유효성 검사 오류가 있을 때 처리 (예: 오류 메시지를 모델에 추가)
 	            return "login/signUp";
@@ -49,8 +54,15 @@ public class SignupController {
 	        	String rawPassword = m.getMemPwd();
 	        	String encPassword = bCryptPasswordEncoder.encode(rawPassword);
 	        	m.setMemPwd(encPassword);
-	        	m.setMemClass("m");
+	        	if(selectClass.equals("normal")) {
+	        		m.setMemClass("Role_m");
+	        	} else if(selectClass.equals("business")) {
+	        		m.setMemClass("Role_c");
+	        	}
 	            signUpService.insertMember(m);
+	            
+	
+	           
 	            return "redirect:/loginForm";
 	        }
 	    }
