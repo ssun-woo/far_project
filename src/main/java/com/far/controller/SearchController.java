@@ -19,17 +19,6 @@ public class SearchController {
 	@Autowired
 	private SearchService searchService;
 
-	/*
-	 * @GetMapping("") public ModelAndView search(@RequestParam("keyword") String
-	 * keyword) { List<StoreDTO> stores = searchService.searchStore(keyword);
-	 * List<com.far.dto.MenuDTO> menus = searchService.searchMenu(keyword);
-	 * ModelAndView mav = new ModelAndView("search/search_detail"); //
-	 * src/main/webapp/WEB-INF/views/ mav.addObject("menus", menus);
-	 * mav.addObject("keyword", keyword);
-	 * mav.setViewName("search/search_detail_main");
-	 * 
-	 * return mav; }
-	 */
 	@GetMapping("")
 	public ModelAndView search(@RequestParam("keyword") String keyword) {
 		List<StoreDTO> stores = searchService.searchStore(keyword);
@@ -37,6 +26,7 @@ public class SearchController {
 		mav.addObject("stores", stores);
 		mav.addObject("keyword", keyword);
 		mav.setViewName("search/search_detail_main");
+
 		return mav;
 	}
 
@@ -70,3 +60,4 @@ public class SearchController {
 		return mav;
 	}
 }
+

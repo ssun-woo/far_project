@@ -19,13 +19,16 @@
 <script src="../js/rs_pic.js"></script>
 <script src="../js/topten.js"></script>
 <script src="../js/header3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
 
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<!--<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />-->
+<link rel="stylesheet" type="text/css" href="../css/header3_daterangepicker.css">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
 <link rel="stylesheet" type="text/css" href="../css/top.css">
 <link rel="stylesheet" type="text/css" href="../css/footer.css">
@@ -45,6 +48,7 @@
 <link rel="stylesheet" type="text/css" href="../css/ev.css">
 <link rel="stylesheet" type="text/css" href="../css/topten.css">	
 <link rel="stylesheet" type="text/css" href="../css/acc_cont.css">	
+	
 
 
 </head>
@@ -120,35 +124,123 @@
 					</div>
 				</div>
 			</div>
+			
+			
 			<div class="search2Date">
 				<div class="search2Date2">
 					<label>날짜</label>
 					<input type="text" id="date" name="date" value="" />
 					<script type="text/javascript">
-						$('input[name="date"]').daterangepicker({
-							"locale": {
-						        "format": "YYYY-MM-DD",
-						        "separator": " ~ ",
-						        "applyLabel": "확인",
-						        "cancelLabel": "취소",
-						        "fromLabel": "From",
-						        "toLabel": "To",
-						        "customRangeLabel": "Custom",
-						        "weekLabel": "W",
-						        "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
-						        "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-						    },
-						    "startDate": new Date(),
-						    "endDate": new Date(),
-						    "drops": "down"
+						// 기본 출력
+						$(document).ready(function() {
+						    var startDate = moment().startOf('day');
+						    var endDate = moment().startOf('day').add(1, 'day');
+						    var nights = 1;
+	
+						    // 요일 포맷 변경
+						    var startOfWeekday = startDate.format('ddd');
+						    var endOfWeekday = endDate.format('ddd');
+	
+						    // 요일 한글로 변환
+						    var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
+						    var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
+	
+						    // 이전 선택 날짜값 저장
+						    var previousValue = '';
+	
+						    // datepicker 설정
+						    $('input[name="date"]').daterangepicker({
+						        "locale": {
+						            "format": "MM-DD (ddd)",
+						            "separator": " ~ ",
+						            "applyLabel": "확인",
+						            "cancelLabel": "취소",
+						            "fromLabel": "From",
+						            "toLabel": "To",
+						            "customRangeLabel": "Custom",
+						            "weekLabel": "W",
+						            "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
+						            "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+						        },
+						        "startDate": startDate,
+						        "endDate": endDate,
+						        "minDate": moment().startOf('day'),
+						        "maxDate": moment().startOf('day').add(30, 'day'),
+						        "minYear": 2022,
+						        "maxYear": 2032,
+						        "drops": "down"
+						    });
+						    
+						    // 기본 텍스트 설정
+						    var defaultText = startDate.format('MM-DD (' + koreanStartOfWeekday + ')') + ' ~ ' + endDate.format('MM-DD (' + koreanEndOfWeekday + ')') + ' ' + nights + '박';
+	
+						    // 입력란에 기본 텍스트 설정 적용
+						    $('input[name="date"]').val(defaultText);
+	
+						    // 이벤트 핸들러
+						    $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {
+						        var startOfWeekday = picker.startDate.format('ddd');
+						        var endOfWeekday = picker.endDate.format('ddd');
+	
+						        // 요일 한글로 변환
+						        var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
+						        var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
+	
+						        // 요일 포맷 다시 설정
+						        var dateRangeText = picker.startDate.format('MM-DD (') + koreanStartOfWeekday + ') ~ ' + picker.endDate.format('MM-DD (') + koreanEndOfWeekday + ')';
+								
+							 	// 몇 박인지 계산
+						        var nights = picker.endDate.diff(picker.startDate, 'days');
+						        dateRangeText += ' ' + nights + '박';
+						    
+						        // input에 변경된 텍스트 설정
+						        $('input[name="date"]').val(dateRangeText);
+						        
+						        // 기본 날짜 저장
+						        previousValue = dateRangeText;
+						    });
+						    
+						    // 취소 버튼 클릭 시
+						    $('input[name="date"]').on('cancel.daterangepicker', function(ev, picker) {
+						        $(this).val(previousValue); // 이전 값을 입력란에 설정
+						    });
+						    // 달력 바깥 영역 클릭 시
+						    $('input[name="date"]').on('hide.daterangepicker', function(ev, picker) {
+						        $(this).val(previousValue); // 이전 값을 입력란에 설정
+						    });
+	
+						    // 영어 요일을 한글 요일로 변환
+						    function convertToKoreanDayOfWeek(englishDayOfWeek) {
+						        switch (englishDayOfWeek) {
+						            case 'Sun':
+						                return '일';
+						            case 'Mon':
+						                return '월';
+						            case 'Tue':
+						                return '화';
+						            case 'Wed':
+						                return '수';
+						            case 'Thu':
+						                return '목';
+						            case 'Fri':
+						                return '금';
+						            case 'Sat':
+						                return '토';
+						            default:
+						                return englishDayOfWeek;
+						        }
+						    }
 						});
 					</script>
 				</div>
 			</div>
+			
+			
+			
 			<div class="search2Personnel">
 				<div class="search2Personnel2">
-				    <label>인원, 객실</label>
-				    <p>성인 0, 소아 0, 객실 0</p>
+				    <label>인원</label>
+				    <p>성인 0, 소아 0</p>
 				  </div>
 				  
 				  <div class="personnel-controls">
@@ -164,12 +256,7 @@
 				    	<span id="childCount">0</span>
 				    	<button id="increaseChild">+</button>
 				    </div>
-				    <div class="personnelRoom">
-				    	<button id="decreaseRoom">-</button>
-				    	<span>객실</span>
-				    	<span id="roomCount">0</span>
-				    	<button id="increaseRoom">+</button>
-				    </div>
+				    
 				</div>
 			</div>
 			<div class="search2Button">

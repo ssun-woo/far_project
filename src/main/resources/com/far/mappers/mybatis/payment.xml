@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Payment">
+	
+	<select id="getCoupons" resultType="coupon">
+		SELECT * FROM coupon
+		INNER JOIN coupon_personal
+		ON coupon.coupon_name = coupon_personal.coupon_name
+		WHERE mem_id = #{mem_id}
+	</select>
+	
+	<select id="getMenu" resultType="Menu">
+		SELECT * FROM menu
+		WHERE menu_id = 1
+	</select>
+	
+	<select id="getStore" resultType="Store">
+		SELECT * FROM store WHERE store_num = #{store_num}
+	</select>
+	
+	<select id="get_couponIssue" parameterType="hashmap" resultType="coupon">
+		SELECT * FROM coupon c
+		INNER JOIN coupon_personal cp
+		ON c.coupon_name = cp.coupon_name
+		WHERE cp.coupon_name = #{coupon_name} AND mem_id = #{mem_id}
+	</select>
+	
+	<insert id="insert_coupon">
+		INSERT INTO coupon_personal(coupon_num, coupon_name, mem_id)
+		VALUES (#{coupon_num}, #{coupon_name}, #{mem_id})
+	</insert>
+	
+	<select id="getMember" resultType="member">
+		SELECT * FROM member
+		WHERE memId = #{mem_id}
+	</select>
+	
+</mapper>

@@ -24,6 +24,7 @@
 <link rel="stylesheet" type="text/css" href="/css/myPage.css">
 <link rel="stylesheet" type="text/css" href="/css/myPage_info.css">
 <link rel="stylesheet" type="text/css" href="/css/jjim.css">
+
 <link rel="stylesheet" type="text/css" href="/css/payment.css">
 <link rel="stylesheet" type="text/css" href="/css/rest_com.css">
 <link rel="stylesheet" type="text/css" href="/css/restaurant.css">
@@ -87,8 +88,7 @@
 				</div>
 				
 				<div class="nav_bar">
-					<ul class="top_nav2">
-						
+					<ul class="top_nav2">			
 							<li><a href="/login">로그인</a></li>
 							<li><a href="/signUp">회원가입</a></li>
 						<li><a href="/my_page">마이페이지</a></li>
@@ -125,42 +125,4 @@
 		
 		
 		<hr class="end_hr">
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			

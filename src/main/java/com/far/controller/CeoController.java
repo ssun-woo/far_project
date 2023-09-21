@@ -43,21 +43,21 @@ public class CeoController {
 	}
 	
 	// 가게 관리 - 메뉴 등록
-	@GetMapping("/store_menu_regis")
+	@GetMapping("/store_menu_regis_list")
 	public String loadStoreMenuRegis() {
-		return "ceo/store_menu_regis";
+		return "ceo/store_menu_regis_list";
 	}
 	
 	// 가게 관리 - 소개글 및 정보 수정
-	@GetMapping("/store_info_edit")
+	@GetMapping("/store_info_edit_list")
 	public String loadStoreInfoEdit() {
-		return "ceo/store_info_edit";
+		return "ceo/store_info_edit_list";
 	}
 	
 	// 가게 관리 - 메뉴 수정
-	@GetMapping("/store_menu_edit")
+	@GetMapping("/store_menu_edit_list")
 	public String loadStoreMenuEdit() {
-		return "ceo/store_menu_edit";
+		return "ceo/store_menu_edit_list";
 	}
 	
 	

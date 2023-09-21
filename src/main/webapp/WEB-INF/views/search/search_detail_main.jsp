@@ -348,12 +348,7 @@
 </script>
 	</script>
 
-
-
-
-
-
-
 	<!-- footer -->
 	<jsp:include page="../main/footer.jsp" />
+	
 </body>

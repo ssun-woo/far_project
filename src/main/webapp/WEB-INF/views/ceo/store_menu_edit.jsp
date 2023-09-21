@@ -9,7 +9,7 @@
 	<div class="menuEditForm">
 		<h2>메뉴 수정하기</h2>
 		<hr>
-		<form action="post" onsubmit="return menu_edit_write_check();">
+		<form method="post" onsubmit="return menu_edit_write_check();">
 			<div class="menuEdit">
 				<label>메뉴 선택</label>
 				<select id="menuSelect" name="menuSelect">

@@ -20,10 +20,6 @@
 <script src="/js/topten.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-
-
-
-
 <link rel="stylesheet" type="text/css" href="/css/main.css">
 <link rel="stylesheet" type="text/css" href="/css/top.css">
 <link rel="stylesheet" type="text/css" href="/css/footer.css">
