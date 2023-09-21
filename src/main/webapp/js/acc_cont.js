@@ -57,32 +57,20 @@ function submit_check(){
 	var rating = document.getElementById("review_rating");
 	
 	if($("input[name=review_rating]:radio:checked").length<1){
-	alert("별점을 선택하세요.");
-	e.preventDefault();
-	return false;
-
-	}else if(cont.value==""){
-
-	}else if(id.value==""){
-	alert("아이디를 입력하세요.");
-	id.focus();
-	return false;
-	}else if(goods.value==""){
-	alert("상품명을 입력하세요.");
-	goods.focus();
-	return false;
-	}else if(content.value==""){
-
-	alert("내용을 입력하세요.");
-	cont.focus();
-	e.preventDefault();
-	return false;
-	}else{
-	alert("리뷰 등록 완료");
-	return true;
-	}
-	});
-	
+   		alert("별점을 선택하세요.");
+   		e.preventDefault();
+   		return false;
+   }else if(cont.value==""){
+		alert("내용을 입력하세요.");
+		cont.focus();
+		e.preventDefault();
+		return false;
+   }else{
+		alert("리뷰 등록 완료");
+		return true;
+   }
+  });
+   
 }
 
 

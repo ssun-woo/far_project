@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../main/new_header2.jsp" />
 
 
@@ -12,8 +12,7 @@
 
 	<div class="shop_cont_top">
 		<div class="shop_photo">
-			<img src="/upload/store_logo${s.store_logo}" width="570px"
-				height="388">
+			<img src="/upload/store_logo${s.store_logo}" width="570px" height="388">
 		</div>
 		<div class="shop_info">
 			<ul class="info_cate">
@@ -29,7 +28,8 @@
 						<a onclick="">7998</a>의 상품평
 					</p></li>
 				<li><p>
-						${s.store_addr1} ${s.store_addr2 }<br> <a href="#">지도보기</a>
+						${s.store_addr1} ${s.store_addr2 }<br>
+						<a href="#">지도보기</a>
 					</p></li>
 				<li><p>
 						전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기">
@@ -204,16 +204,15 @@
 							<div class="room_info">
 								<div class="booking_button">
 									<h2>${m.menu_name}</h2>
-									<input type="button" value="예약" onclick="href='#'">
+									<input type="button" value="예약" onclick="#">
 								</div>
-
+	
 								<div class="room_detailinfo">
-									<h4 class="check_in_out">체크인 ${m.check_in} 체크아웃
-										${m.check_out}</h4>
+									<h4 class="check_in_out">체크인 ${m.check_in} 체크아웃 ${m.check_out}</h4>
 									<p>기준인원 ${m.standard_num}인 / 최대인원 ${m.max_num}인</p>
 									<p>영유아 포함 최대인원을 초과하여 입실이 불가합니다.</p>
 								</div>
-
+	
 							</div>
 						</div>
 					</c:forEach>
@@ -304,7 +303,8 @@
 						<li>취소수수료 규정은 예약일(결제일)과 관계없이 입실일 기준으로 산정됩니다.</li>
 						<li>취소수수료는 할인(쿠폰) 적용 전 객실 판매금액을 기준으로 책정됩니다.</li>
 					</ul>
-					<br> <br>
+					<br>
+					<br>
 					<ul>
 
 						<li><h4>기타 유의사항</h4></li>
@@ -386,144 +386,62 @@
 			<!-- 리뷰 -->
 			<div id="review_content" style="display: none;" class="shop_cont_div">
 				<div class="Review_cont">
-					<div class="review_rating_form">
-
-						<form action="#" method="post" id="reviewForm">
-							<table class="review_write">
-								<tr>
-									<th colspan="2"><h3>후기 작성</h3></th>
-								</tr>
-								<tr>
-
-									<td colspan="2"><div class="mb-3" id="review_rating">
-											<fieldset>
-												<span>별점을 선택해주세요</span> <input type="radio"
-													name="review_rating" value="5" id="rate1"> <label
-													for="rate1">★</label> <input type="radio"
-													name="review_rating" value="4" id="rate2"> <label
-													for="rate2">★</label> <input type="radio"
-													name="review_rating" value="3" id="rate3"> <label
-													for="rate3">★</label> <input type="radio"
-													name="review_rating" value="2" id="rate4"> <label
-													for="rate4">★</label> <input type="radio"
-													name="review_rating" value="1" id="rate5"> <label
-													for="rate5">★</label>
-											</fieldset>
-										</div></td>
-
-
-								</tr>
-
-								<tr>
-									<th colspan="2"><textarea rows="10" cols="30"
-											id="review_cont" name="review_cont" placeholder="후기를 입력해주세요"></textarea></th>
-
-								</tr>
-								<tr>
-									<td><input type="submit" value="등록"
-										onclick="submit_check();" class="ReviewWriteBtn"></td>
-								</tr>
-
-							</table>
-						</form>
-					</div>
 					<div class="review_form">
 						<h3>이용후기 (건수)</h3>
 						<div class="detail_review">
-
-							<c:forEach var="review" items="${reviewList}">
-								<div class="detail_review_table_div">
-									<table class="detail_review_table">
-										<tr>
-											<td rowspan="3" id="review_num">${review.review_num}&nbsp;&nbsp;&nbsp;</td>
-											<td style="text-align: left;">${review.memId}<label
-												style="color: gray;">| ${review.review_date}</label></td>
-											<td style="text-align: left;">평점:
-												${review.review_rating}</td>
-										</tr>
-										<tr>
-
-											<td colspan="3" style="text-align: left; width: 450px;">${review.review_cont}</td>
-										</tr>
-									</table>
+							<ul class="detail_review_ul">
+								<c:forEach var="review" items="${reviewList}">
+									<li>
+										<h4>${review.review_title}</h4>
+										<p>${review.review_cont}</p>
+										<p>평점: ${review.review_rating}</p>
+										<p>${review.mem_id}${review.review_date}</p>
+									</li>
+								</c:forEach>
+							</ul>
 
 
-									<div class="review_buttons">
-										<button class="review_recommend">
-											<img src="../images/main/review_recommend.png">
-											<p>0</p>
-										</button>
-										<div class="review_edit_del">
-
-											<form
-												action="/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}"
-												method="POST">
-												<input type="hidden" name="review_num"
-													value="${review.review_num}">
-												<button type="submit" onclick="del_edit_check()"
-													class="edit_review_btn">수정</button>
-											</form>
-											<form
-												action="/acc/cont/delete?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}"
-												method="POST">
-												<input type="hidden" name="review_num"
-													value="${review.review_num}">
-												<button type="submit"
-													onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
-											</form>
-										</div>
-
-
-										<script type="text/javascript">
-                              $(document).on('click','.edit_review_btn',function(e){
-                                 e.preventDefault();
-                                 // 클릭한 수정 버튼에 가까운 form 요소 찾기
-                                   var form = $(this).closest("form");
-
-                                   // 해당 form 내부에서 input 요소 중 name이 'review_num'인 것의 값을 가져오기
-                                   var review_num = form.find("input[name='review_num']").val();
-                                 
-                                   window.name = "cont"
-                                   
-                                   window.open("/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
-                                   // 수정 페이지의 URL 생성
-                                  // var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
-                                 //let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
-                                 
-                                 popup = window.open(popUrl,"리뷰 수정",popOption);
-                                 
-                                   var editedReviewContent = document.getElementById("review_cont").value;
-                                 
-                              });
-               
-                              </script>
-									</div>
-
-
-								</div>
-
-								<hr>
-
-
-							</c:forEach>
-
-
-
-
-
+							<input type="button" value="수정" class="review_edit"> <input
+								type="button" value="삭제" class="review_del">
 
 						</div>
-
-
+						<button class="review_recommend">
+							<img src="../images/main/review_recommend.png">
+							<p>0</p>
+						</button>
+						<hr>
 					</div>
 					<br>
 					<div class="review_page">1 | 2 | 3 | 4 | 5</div>
 				</div>
 
 
+				<form action="#">
+					<table class="review_write" method="post">
+						<tr>
+							<td><label for="review_title">제목&nbsp;&nbsp;</label> <input
+								type="text" id="review_title" name="review_title"></td>
+							<td><label for="mem_id"> 아이디 </label><input type="text"
+								id="mem_id" name="mem_id"></td>
+						</tr>
+						<tr>
+							<td>상품명 <input type="text" id="review_goods"></td>
+							<td>별점 ★★★★★</td>
+						</tr>
+						<tr>
+							<td>내용</td>
+						</tr>
+						<tr>
+							<td colspan="2"><textarea rows="10" cols="30"
+									id="review_content"></textarea></td>
+						</tr>
+						<tr>
+							<td><input type="submit" value="등록"
+								onclick="submit_check();" class="ReviewWriteBtn"></td>
+						</tr>
+					</table>
+				</form>
 			</div>
-
-
 
 
 			<script src="/js/acc_cont.js"></script>
@@ -539,11 +457,10 @@
 <!-- shop_cont -->
 
 <div class="list_button_div">
-	<button class="list_button"
-		onclick="location='/acc/list?detail_cate=${detail_cate}'">목록보기</button>
-</div>
-
-
+	<button class="list_button" onclick="location='/acc/list?detail_cate=${detail_cate}'">목록보기</button>
+	</div>
+	
+	
 <!-- <script>
 	var check_in = '${m.check_in}';
 	var check_in_h = check_in.slice(0, 2);
@@ -557,8 +474,8 @@
 	
 	h4Element.textContent = '체크인' +  check_in_h + ':' + check_in_m + '체크아웃' +  check_out_h + ':' + check_out_m;
 </script> -->
-
-
+	
+	
 <jsp:include page="../main/footer.jsp" />
 
 

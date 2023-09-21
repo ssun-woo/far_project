@@ -19,5 +19,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 		<typeAlias type="com.far.dto.ReviewDTO" alias="review"/>
 		
+		<typeAlias type="com.far.dto.StoreDTO" alias="store"/>
+		
 	</typeAliases>
 </configuration>

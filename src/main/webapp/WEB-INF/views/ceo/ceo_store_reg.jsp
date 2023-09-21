@@ -24,8 +24,8 @@ table {
 				<div class="storeStickyArea">
 					<div class="storeMain">
 						<ul>
-							<li class="storeRegistrationMain"
-								onclick="location='/ceo/store_regi'">업체 등록</li>
+							<li class="storeRegistrationMain" onclick="location='/ceo/store_regi'">업체
+								등록</li>
 							<li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴
 								등록 및 수정</li>
 							<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글
@@ -34,37 +34,88 @@ table {
 					</div>
 				</div>
 				<div id="storeContentArea">
-					<form>
-						<table border="1">
-							<tr style="text-align: center;">
-								<th colspan="4">가게 목록</th>
-							</tr>
-							<tr>
-								<th>no.</th>
-								<th>업소 분류</th>
-								<th>상세 분류</th>
-								<th>가게 이름</th>
-							</tr>
-							<c:if test="${!empty slist}">
-								<c:forEach var="s" items="${slist}" varStatus="loop">
-									<tr onclick="location='/ceo/store_menu_list?store_num=${s.store_num}'">
-										<td>${s.store_num}</td>
-										<td>${s.cate}</td>
-										<td>${s.detail_cate}</td>
-										<td>${s.store_name}</td>
-									</tr>
-								</c:forEach>
-							</c:if>
-							<c:if test="${empty slist}">
-								<tr style="text-align: center;">
-									<td colspan="4">등록된 가게가 없습니다.</td>
-								</tr>
-							</c:if>
-						</table>
-					</form>
+					<div class="storeRegistrationForm">
+						<h2>업체 등록하기</h2>
+						<hr>
+						<form method="post" action="store_regi_ok"
+							onsubmit="return store_regis_write_check();"
+							enctype="multipart/form-data">
+							<div class="storeRegistration">
+								<label>업소 선택</label> <select id="typeSelect1" name="cate"
+									onchange="onchange_select()">
+									<option value="none">선택하세요</option>
+									<option value="acc">숙소</option>
+									<option value="resto">식당</option>
+									<option value="culture">문화</option>
+									<option value="beauty">뷰티</option>
+								</select> <label>세부 선택</label> <select id="typeSelect2"
+									name="detail_cate" disabled="disabled">
+									<option value="none">업소를 먼저 선택해 주세요</option>
+								</select>
+							</div>
+
+							<div class="storeRegistration">
+								<label>업체 이름</label> <input type="text" id="storeName"
+									name="store_name" placeholder="가게 이름을 입력해주세요.">
+							</div>
+
+							<div class="storeRegistration">
+								<label>업체 소개글</label>
+								<textarea id="storeIntro" name="store_intro" rows="3"
+									placeholder="가게를 소개하는 글을 입력해주세요."></textarea>
+							</div>
+
+							<div class="storeRegistration">
+								<label>업체 주소</label>
+								<div class="storeAddressArea">
+									<div class="storeAddressF">
+										<input type="text" id="storeAddressFirst" name="store_addr1"
+											placeholder="주소 검색">
+										<!-- <button id="storeAddressSearchBtn">주소 검색</button> -->
+									</div>
+								</div>
+								<div class="storeAddressS">
+									<input type="text" id="storeAddressSecond" name="store_addr2"
+										placeholder="상세주소">
+								</div>
+
+								<!-- <input type="text" id="storeAddress" name="storeAddress"
+					placeholder="가게 주소를 입력해주세요."> -->
+							</div>
+
+							<div class="storeRegistration">
+								<label>사업자등록번호</label> <input type="text"
+									id="businessRegistrationNumber" name="reg_num"
+									placeholder="사업자등록번호를 입력해주세요.">
+							</div>
+
+							<!-- 
+			<div class="storeRegistration">
+				<label>사업자등록증 첨부 : </label>/
+				<input type="file" id="businessRegistrationImage" name="businessRegistrationImage">
+			</div>
+			 -->
+
+							<div class="storeRegistration">
+								<label>로고 이미지 첨부</label> <input type="file" id="logoImage"
+									name="logo_image">
+							</div>
+
+							<!-- <div class="storeRegistration">
+				<label>메뉴 이미지 첨부</label>
+				<input type="file" id="menuImage" name="menu_image">
+			</div> -->
+
+							<div class="storeRegistrationButton">
+								<button type="submit" class="storeRegistrationBtn">등록하기</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 
 <jsp:include page="ceo_footer.jsp" />
 
@@ -196,8 +247,8 @@ table {
 	    };
 	    // EL을 사용하여 parameterValue를 URL에 포함시킴
 	    xhttp.open("GET", "/ceo/store_menu_regis?store_num=" + parameterValue, true);
-    	xhttp.send();
-	} */
+    xhttp.send();
+} */
 	
 	// 메뉴 등록 전 가게 선택
 	function loadStorePage2(state){
@@ -208,7 +259,32 @@ table {
 				pageContent.innerHTML = this.responseText;
 			}
 		};
-		xhttp.open("GET", "/ceo/store_menu_regis_list", true);
+		xhttp.open("GET", "/ceo/store_list?state=" + state, true);
+		xhttp.send();
+	}
+	
+	function loadStorePage3(store_num){
+		var pageContent = document.getElementById('storeContentArea');
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState === 4 && this.status === 200) {
+				pageContent.innerHTML = this.responseText;
+			}
+		};
+		xhttp.open("GET", "/ceo/store_menu_regis?store_num=" + store_num , true);
+		xhttp.send();
+	}
+	
+	
+	function loadStorePage4(store_num){
+		var pageContent = document.getElementById('storeContentArea');
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState === 4 && this.status === 200) {
+				pageContent.innerHTML = this.responseText;
+			}
+		};
+		xhttp.open("GET", "/ceo/store_menu_list?store_num=" + store_num , true);
 		xhttp.send();
 	}
 	
@@ -258,7 +334,7 @@ table {
 				pageContent.innerHTML = this.responseText;
 			}
 		};
-		xhttp.open("GET", "/ceo/store_info_edit_list", true);
+		xhttp.open("GET", "/ceo/store_info_edit", true);
 		xhttp.send();
 	}
 	
@@ -270,7 +346,7 @@ table {
 				pageContent.innerHTML = this.responseText;
 			}
 		};
-		xhttp.open("GET", "/ceo/store_menu_edit_list", true);
+		xhttp.open("GET", "/ceo/store_menu_edit", true);
 		xhttp.send();
 	} */
 

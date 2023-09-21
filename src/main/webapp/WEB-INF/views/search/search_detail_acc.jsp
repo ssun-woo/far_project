@@ -131,7 +131,6 @@
 	<script>
      // 숙소 카테고리 결과 처리
     if (${empty stores || accCount == 0}) {
-        // 결과가 없을 때 "검색 결과에 대한 정보가 존재하지 않습니다" 메시지를 표시하고 "더보기" 버튼을 숨깁니다
         document.getElementById("accommodationResults").innerHTML = '<br><h4>&nbsp;&nbsp;"검색 결과에 대한 정보가 존재하지 않습니다"</h4><br>';
         document.getElementById("accommodationMore").style.display = "none";
     }
