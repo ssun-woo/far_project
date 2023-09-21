@@ -17,7 +17,7 @@
  	</select>
  	
  	<insert id="insert_menu">
- 		insert into menu values(bno2_seq.nextval, #{store_num}, #{menu_name}, #{menu_explain}, #{menu_price}, #{menu_photo})
+ 		insert into menu values(bno2_seq.nextval, #{store_num}, #{menu_name}, #{menu_explain}, #{menu_price}, #{menu_photo}, #{check_in}, #{check_out}, #{standard_num}, #{max_num})
  	</insert>
  	
  	<select id="get_detail_cate" resultType="String">
@@ -29,7 +29,8 @@
  	</delete>
  	
  	<update id="edit_menu">
- 		update menu set menu_name = #{menu_name}, menu_price=#{menu_price}, menu_explain=#{menu_explain}, menu_photo=#{menu_photo}
+ 		update menu set menu_name = #{menu_name}, menu_price=#{menu_price}, menu_explain=#{menu_explain}, menu_photo=#{menu_photo}, check_in=#{check_in}, check_out=#{check_out}, 
+ 		max_num = #{max_num}, standard_num = #{standard_num}
  		 where menu_id = #{menu_id}
  	</update>
  	

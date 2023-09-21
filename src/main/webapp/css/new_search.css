@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+
+.search2 {
+	border: 1px solid;
+	border-radius: 20px;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	width: 800px;
+	height: 150px;
+	position: relative;
+	margin-left: 380px;
+	margin-top: 50px;
+}
+
+.search2Date {
+	width: 475px;
+	margin-left: 40px;
+	border-right: 1px solid gray;
+	padding: 5px;
+}
+
+.search2Personnel {
+	width: 325px;
+	margin-left: 50px;
+	padding: 5px;
+}
+
+.search2Date2, .search2Personnel2 {
+	margin-top: 35px;
+}
+
+.search2Date label, .search2Personnel label {
+	color: #808080;
+	font-weight: bold;
+	margin-bottom: 20px;
+	display: block;
+}
+
+#date {
+	width: 350px;
+	padding: 5px;
+	color: black;
+	font-size: 22px;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+}
+
+.search2Personnel p {
+	color: black;
+	font-weight: bold;
+	font-size: 20px;
+	border: none;
+}
+
+.personnel-controls {
+	position: absolute;
+	width: 110px;
+	height: 60px;
+	top: 190px;
+	border: 1px solid;
+	padding: 25px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: none;
+	z-index: 9999;
+	background-color: white;
+}
+
+.personnelAdult {
+	margin-bottom: 10px;
+}
+
+.personnelChild {
+	margin-bottom: 10px;
+}
+
+.personnelAdult span, .personnelChild span {
+	font-size: 16px;
+	font-weight: bold;
+	color: black;
+}

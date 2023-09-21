@@ -24,5 +24,8 @@ public class MenuDTO {
 	private int menu_price;
 	private String menu_photo;
 	private String menu_photo2;
-	
+	private int standard_num;
+	private int max_num;
+	private String check_in;
+	private String check_out;
 }

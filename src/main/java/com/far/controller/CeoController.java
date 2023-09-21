@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -200,7 +201,14 @@ public class CeoController {
 		String menu_name = multi.getParameter("menu_name");
 		String menu_explain = multi.getParameter("menu_explain");
 		int menu_price = Integer.parseInt(multi.getParameter("menu_price"));
-
+		
+		int standard_num = Integer.parseInt(multi.getParameter("standard_num"));
+		int max_num = Integer.parseInt(multi.getParameter("max_num"));
+		
+		String check_in = multi.getParameter("check_in_hour") + multi.getParameter("check_in_min");
+		String check_out = multi.getParameter("check_out_hour") + multi.getParameter("check_out_min");
+		
+		
 		File upMenu = multi.getFile("menu_photo");
 
 		if (upMenu != null) {
@@ -230,10 +238,14 @@ public class CeoController {
 		m.setMenu_explain(menu_explain);
 		m.setMenu_price(menu_price);
 		m.setStore_num(store_num);
+		m.setCheck_in(check_in);
+		m.setCheck_out(check_out);
+		m.setMax_num(max_num);
+		m.setStandard_num(standard_num);
 
 		ceoService.insertMenu(m);
 
-		ModelAndView mav = new ModelAndView("/ceo/ceo_index");
+		ModelAndView mav = new ModelAndView("redirect:/ceo/store_menu_list");
 		mav.addObject("store_num", store_num);
 		return mav;
 	}
@@ -247,11 +259,14 @@ public class CeoController {
 		
 		String explain = m.getMenu_explain().replace("\n", "<br>");
 		
+		
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("ceo/store_menu_cont");
 		mav.addObject("m", m);
 		mav.addObject("s", s);
 		mav.addObject("explain", explain);
+		
 		return mav;
 	}
 
@@ -317,6 +332,13 @@ public class CeoController {
 		int isChecked = Integer.parseInt(multi.getParameter("isChecked"));
 		System.out.println(isChecked);
 		
+		int standard_num = Integer.parseInt(multi.getParameter("standard_num"));
+		int max_num = Integer.parseInt(multi.getParameter("max_num"));
+		
+		String check_in = multi.getParameter("check_in_hour") + multi.getParameter("check_in_min");
+		String check_out = multi.getParameter("check_out_hour") + multi.getParameter("check_out_min");
+		
+		
 		File menu_photo2 = multi.getFile("menu_photo2");
 		System.out.println(menu_photo2);
 		
@@ -357,6 +379,10 @@ public class CeoController {
 		m.setMenu_name(menu_name);
 		m.setMenu_explain(menu_explain);
 		m.setMenu_price(menu_price);
+		m.setStandard_num(standard_num);
+		m.setMax_num(max_num);
+		m.setCheck_in(check_in);
+		m.setCheck_out(check_out);
 		
 		ceoService.editMenu(m);
 		
