@@ -18,16 +18,18 @@ public class StoreDTO {
 	public void setStore_name(String store_name) {
 		this.store_name = store_name;
 	}
+	private String store_addr;  // 가게 주소
 
-	public String getStore_addr() { // 가게 주소
+	public String getStore_addr() { 
 		return store_addr;
 	}
 
 	public void setStore_addr(String store_addr) {
 		this.store_addr = store_addr;
 	}
+	private String cate;   // 메인 카테 예 - acc / food / culture
 
-	public String getCate() { // 메인 카테 예 - acc / food / culture
+	public String getCate() { 
 		return cate;
 	}
 
@@ -35,8 +37,6 @@ public class StoreDTO {
 		this.cate = cate;
 	}
 
-	private String store_addr;
-	private String cate;
 
 	private String detail_cate; // 세부 카페 예 - food 일경우 한식 일식 등
 

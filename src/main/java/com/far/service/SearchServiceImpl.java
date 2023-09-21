@@ -31,7 +31,7 @@ public class SearchServiceImpl implements SearchService {
 
 	@Override
 	public List<StoreDTO> sortByViews(String keyword) { 
-	    // 조회수를 기준으로 정렬하는 로직 구현 
+	    // 낮은 가격순을 기준으로 정렬하는 로직 구현 
 	    List<StoreDTO> stores = searchStore(keyword);
 	    
 	    stores.sort(Comparator.comparing(StoreDTO::getReg_data).reversed());
