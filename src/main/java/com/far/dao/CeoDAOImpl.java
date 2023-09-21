@@ -40,6 +40,31 @@ public class CeoDAOImpl implements CeoDAO {
 		return sqlSession.selectOne("get_detail_cate", store_num);
 	}
 
+	@Override
+	public List<MenuDTO> getMenuList(int s_num) {
+		return sqlSession.selectList("get_menu_list", s_num);
+	}
+
+	@Override
+	public StoreDTO getStore(int s_num) {
+		return sqlSession.selectOne("get_store", s_num);
+	}
+
+	@Override
+	public MenuDTO getMenu(int menu_id) {
+		return sqlSession.selectOne("get_menu", menu_id);
+	}
+
+	@Override
+	public void delMenu(int menu_id) {
+		sqlSession.delete("del_menu", menu_id);
+	}
+
+	@Override
+	public void editMenu(MenuDTO m) {
+		sqlSession.update("edit_menu", m);
+	}
+
 	
 	
 	

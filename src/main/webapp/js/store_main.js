@@ -162,6 +162,26 @@ function menu_regis_write_check() {
    }
 }
 
+function menu_regis_write_check2() {
+	if($.trim($("#newMenuRegis").val()) == "") {
+      alert("등록할 메뉴 이름을 입력하세요");
+      $("#newMenuRegis").val("").focus();
+      return false;
+   }
+   
+   if($.trim($("#newPriceRegis").val()) == "") {
+      alert("등록할 메뉴 가격을 입력하세요");
+      $("#newPriceRegis").val("").focus();
+      return false;
+   }
+   
+   if($.trim($("#newMenuInfoRegis").val()) == "") {
+      alert("등록할 메뉴 소개를 입력하세요");
+      $("#newMenuInfoRegis").val("").focus();
+      return false;
+   }
+}
+
 
 function menu_edit_write_check() {
 	var menuSelect = document.getElementById("menuSelect");

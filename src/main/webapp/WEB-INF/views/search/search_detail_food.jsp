@@ -18,7 +18,7 @@
 	<jsp:include page="../main/new_header2.jsp" />
 	<div class="tabArea">
 		<ul class="n1 nav nav-tabs" id="myTabs">
-			<li class="nav-item"><a class="nav-link " data-toggle="tab"
+			<li class="nav-item"><a class="nav-link " 
 				href="/search?keyword=${keyword}">통합검색</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="/search/acc?keyword=${keyword}">숙소</a></li>
@@ -29,20 +29,20 @@
 		</ul>
 	</div>
 	<div id="tab-content">
-
-		<!-------------- 숙소 ---------------->
+	
+		<!-------------- 음식 ---------------->
 
 		<h3 class="mainText">-음식</h3>
 		<div class="food_all result-section" id="foodResults">
 			<div class="titleTab">
 				<div class="subWrap">
 					<ul class="n2 nav nav-tabs" id="accommodationTabs">
-						<li class="nav-item"><a class="nav-link active"
-							data-toggle="tab" href="#all_rest">통합</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#look_rest">조회순</a></li>
-						<li class="nav-item"><a class="nav-link" data-toggle="tab"
-							href="#good_rest">추천순</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/search/food?keyword=${keyword}&orderby=id">통합</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/search/food?keyword=${keyword}&orderby=views">낮은 가격순</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="/search/food?keyword=${keyword}&orderby=likes">추천순</a></li>
 					</ul>
 				</div>
 			</div>
@@ -112,7 +112,7 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-
+	</div>
 		<script>			
 	// 음식 카테고리 결과 처리
     if (${empty stores || foodCount == 0}) {
@@ -127,6 +127,7 @@
     });
     </script>
 
-		<!-- footer -->
-		<jsp:include page="../main/footer.jsp" />
+	<!-- footer -->
+	<jsp:include page="../main/footer.jsp" />
+
 </body>

@@ -39,6 +39,31 @@ public class CeoServiceImpl implements CeoService {
 	public String getDetail_Cate(int store_num) {
 		return ceoDao.getDetail_cate(store_num);
 	}
+
+	@Override
+	public List<MenuDTO> getMenuList(int s_num) {
+		return ceoDao.getMenuList(s_num);
+	}
+
+	@Override
+	public StoreDTO getStore(int s_num) {
+		return ceoDao.getStore(s_num);
+	}
+
+	@Override
+	public MenuDTO getMenu(int menu_id) {
+		return ceoDao.getMenu(menu_id);
+	}
+
+	@Override
+	public void delMenu(int menu_id) {
+		ceoDao.delMenu(menu_id);
+	}
+
+	@Override
+	public void editMenu(MenuDTO m) {
+		ceoDao.editMenu(m);
+	}
 	
 	
 	

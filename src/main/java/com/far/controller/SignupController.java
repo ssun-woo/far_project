@@ -23,20 +23,19 @@ import com.far.service.SignUpService;
 
 @Controller
 public class SignupController {
-	
+
 	@Autowired
 	private SignUpService signUpService;
-	
+
 	@Autowired
 	private MemberExistService memexservice;
-	
+
 	@Autowired
 	private MemberRepository memberRepository;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
-	 
+
 	// 회원가입 페이지 이동
 	  @GetMapping("/signUp")
 	    public ModelAndView signUpForm() {
@@ -74,6 +73,10 @@ public class SignupController {
 		int cnt = memexservice.isexist_mem_id(memId);
 		
 		return cnt;
-		}
+
 		
+	}
+
+	
+
 }

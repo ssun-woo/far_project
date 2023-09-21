@@ -44,6 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/**/payment_info").authenticated()
 			.antMatchers("/ceo/**").access("hasRole('Role_a') or hasRole('Role_c')")	// 해당 url에는 ROLE_ADMIN, ROLE_MANAGER만 접근 가능
 			//.antMatchers("/admin/**").access("hasRole('Role_a')")	// 해당 url에는 ROLE_ADMIN만 접근 가능
+			.antMatchers("/manager/**").access("hasRole('ADMIN') or hasRole('MANAGER')")	// 해당 url에는 ROLE_ADMIN, ROLE_MANAGER만 접근 가능
+//			.antMatchers("/admin/**").access("hasRole('MANAGER')")	// 해당 url에는 ROLE_ADMIN만 접근 가능
 			.anyRequest().permitAll()	// 그 외의 요청은 모두 접근 가능
 			.and()
 			.formLogin()

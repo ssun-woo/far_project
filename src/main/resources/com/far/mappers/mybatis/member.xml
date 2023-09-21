@@ -26,8 +26,10 @@
  	<select id="memClass" resultType="String">
  		select memClass from member where memId = #{memId}
  	</select>
- 	<!-- <select id="findIdTel" parameterType="hasgmap" resultType="String">
+ 	
+ 	<!-- <select id="findIdTel" parameterType="hashmap" resultType="String">
  		select memId from member where memName = #{memName} and memTel = #{memTel}
  	</select> -->
+ 	
  </mapper>
  

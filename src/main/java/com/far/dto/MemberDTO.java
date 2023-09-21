@@ -8,22 +8,23 @@ import org.hibernate.validator.constraints.Length;
 import lombok.Getter;
 import lombok.Setter;
 
-//create table member(
-//	    memId varchar2(50) primary key,        -- 아이디
-//	    memPwd varchar2(50) not null,          -- 비밀번호
-//	    memEmail_id varchar2(60) not null,     -- 이메일 아이디
-//	    memEmail_domain varchar2(60) not null, -- 이메일 도메인
-//	    memTel varchar2(50) not null,          -- 전화번호
-//	    memClass varchar2(20) default 'm'     -- 회원등급(admin(a), CEO(c), member(m)
-//	);
-
+//CREATE TABLE member(
+//	memId 		varchar2(100)	primary key,	-- 아이디
+//	memPwd 		varchar2(100) 	not null,       -- 비밀번호
+//	memName 	varchar2(100) 	not null,		-- 이름
+//	memEmail	varchar2(100)	not null,	    -- 이메일 아이디
+//	memTel 		varchar2(100) 	not null,       -- 전화번호
+//	memClass	varchar2(20) 	default 'm',    -- 회원등급(admin(a), CEO(c), member(m)
+//	point 		number 			default 0       -- 포인트
+//);
 
 
 public class MemberDTO {
-	
+
 	@NotBlank
-	@Length(min=6, max=16, message="아이디는 6글자 이상 16글자 이하여야합니다.")
+	@Length(min = 6, max = 16, message = "아이디는 6글자 이상 16글자 이하여야합니다.")
 	@Pattern(regexp = "^[a-z0-9]+$", message = "아이디는 영소문자와 숫자만 가능합니다")
+
 	private String memId;
 	
 	@NotBlank
@@ -42,6 +43,8 @@ public class MemberDTO {
 	private String memTel;
 	
 	private String memClass;
+	
+	private int point;
 
 	public String getMemId() {
 		return memId;
@@ -91,4 +94,12 @@ public class MemberDTO {
 		this.memClass = memClass;
 	}
 	
+	public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
 }

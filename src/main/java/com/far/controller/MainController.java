@@ -1,9 +1,5 @@
 package com.far.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,8 +107,18 @@ public class MainController {
 //		return new ModelAndView("search/search_detail_main");
 //	}
 
+	@RequestMapping("/search")
+	public ModelAndView search() {
+		return new ModelAndView("search/search_detail_main");
+	}
 
-   
+// // 로그인 페이지 이동
+// @RequestMapping("/login")
+// public ModelAndView login() {
+//    ModelAndView mav = new ModelAndView("login/login");
+//    return mav;
+// }
+
 //   // 아이디 찾기
 //   @RequestMapping("/findId")
 //   public ModelAndView findId() {
