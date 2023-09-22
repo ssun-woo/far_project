@@ -7,8 +7,8 @@
 <mapper namespace="Search">
 
 	<resultMap type="com.far.dto.StoreDTO" id="storeDTOMap">
-		<result property="store_name" column="store_name" jdbcType="VARCHAR" />
-		<result property="store_addr1" column="store_addr1" jdbcType="VARCHAR" />
+		<result property="storeName" column="storeName" jdbcType="VARCHAR" />
+		<result property="storeAddr1" column="storeAddr1" jdbcType="VARCHAR" />
 		<result property="cate" column="cate" jdbcType="VARCHAR" />
 	</resultMap>
 	
@@ -22,8 +22,8 @@
 		WHERE
 		(
 		    (
-		        REPLACE(store_name, ' ', '') LIKE '%' || #{keyword} || '%' 
-		        OR REPLACE(store_addr, ' ', '') LIKE '%' || #{keyword} || '%'
+		        REPLACE(storeName, ' ', '') LIKE '%' || #{keyword} || '%' 
+		        OR REPLACE(storeAddr1, ' ', '') LIKE '%' || #{keyword} || '%'
 		        OR REPLACE(cate, ' ', '') LIKE '%' || #{keyword} || '%'
 		    )
 		)

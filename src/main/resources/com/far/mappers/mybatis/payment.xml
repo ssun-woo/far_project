@@ -13,12 +13,12 @@
 		WHERE mem_id = #{mem_id}
 	</select>
 	
-	<select id="getMenu" resultType="Menu">
+	<select id="getMenu" resultType="room">
 		SELECT * FROM menu
 		WHERE menu_id = 1
 	</select>
 	
-	<select id="getStore" resultType="Store">
+	<select id="getStore" resultType="store">
 		SELECT * FROM store WHERE store_num = #{store_num}
 	</select>
 	

@@ -69,16 +69,21 @@
 		<div class="list_top">
 			<ul>
 				<li><img src="../images/acc/motel.png"></li>
-				<li class="region_name"><c:if
-						test="${param.detail_cate == 'motel'}">
+				<li class="region_name">
+				<c:if test="${param.detail_cate == 'motel'}">
 				'모텔' 검색결과
-			</c:if> <c:if test="${param.detail_cate == 'hotel'}">
+				</c:if> 
+				<c:if test="${param.detail_cate == 'hotel'}">
 				'호텔' 검색결과
-			</c:if> <c:if test="${param.detail_cate == 'pension'}">
+			</c:if> 
+			<c:if test="${param.detail_cate == 'pension'}">
 				'펜션/풀빌라' 검색결과
-			</c:if> <c:if test="${param.detail_cate == 'camping'}">
+			</c:if> 
+			<c:if test="${param.detail_cate == 'camping'}">
 				'캠핑/글램핑' 검색결과
-
+			</c:if>
+			<c:if test="${param.detail_cate == null }">
+				'${param.keyword}' 검색결과
 			</c:if></li>
 				<li>&nbsp;&nbsp;['${countStore }'개의 검색 결과]</li>
 				<li class="space"></li>
@@ -97,7 +102,7 @@
 
 			<div class="list_div">
 
-				<a href='/acc/cont?cate=${store.detailCate}&store_num=10'><img
+				<a href='/acc/cont?cate=${store.detailCate}&store_num=${store.storeNum}'><img
 					src="../images/acc/motel1-2.jpg"></a>
 
 				<div class="list_cont">

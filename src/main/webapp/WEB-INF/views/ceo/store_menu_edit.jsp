@@ -51,7 +51,7 @@ table {
 								<label>이름</label>
 								<div class="menuRegisPlus">
 									<input type="text" id="newMenuRegis" name="menu_name"
-										value="${m.menu_name}">
+										value="${m.roomName}">
 								</div>
 							</div>
 
@@ -59,7 +59,7 @@ table {
 								<label>가격</label>
 								<div class="menuRegisPlus">
 									<input type="text" id="newPriceRegis" name="menu_price"
-										value="${m.menu_price}">
+										value="${m.roomPrice}">
 								</div>
 							</div>
 
@@ -118,12 +118,12 @@ table {
 								<label>기준인원</label>
 								<div class="menuRegisPlus">
 									<input type="number" id="standard_num" name="standard_num"
-										value="${m.standard_num }">
+										value="${m.standardNum }">
 								</div>
 								<label>최대인원</label>
 								<div class="menuRegisPlus">
 									<input type="number" id="max_num" name="max_num"
-										value="${m.max_num }">
+										value="${m.maxNum }">
 								</div>
 							</div>
 
@@ -131,7 +131,7 @@ table {
 								<label>이전 사진</label>
 								<div class="menuRegisPlus">
 									<img id="imagePreview" name="menu_photo2"
-										src="/upload/store_menu/${s.cate}${m.menu_photo}" alt="미리보기"
+										src="/upload/store_menu/${s.cate}${m.roomPhoto}" alt="미리보기"
 										style="max-width: 200px; max-height: 200px;">
 								</div>
 							</div>
@@ -216,7 +216,7 @@ table {
 		}
 	}
 
-	var check_in = '${m.check_in}';
+	var check_in = '${m.checkIn}';
 	var check_in_h = check_in.slice(0, 2);
 	var check_in_m = check_in.slice(2, 4);
 	var selectInHour = document.getElementsByName("check_in_hour")[0];
@@ -234,7 +234,7 @@ table {
 		}
 	}
 
-	var check_out = '${m.check_out}';
+	var check_out = '${m.checkOut}';
 	var check_out_h = check_out.slice(0, 2);
 	var check_out_m = check_out.slice(2, 4);
 	var outHour = document.getElementsByName("check_out_hour")[0];

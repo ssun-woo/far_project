@@ -31,9 +31,6 @@ public class SignupController {
 	private MemberExistService memexservice;
 
 	@Autowired
-	private MemberRepository memberRepository;
-
-	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	// 회원가입 페이지 이동

@@ -47,11 +47,11 @@ table {
 							</tr>
 							<c:if test="${!empty slist}">
 								<c:forEach var="s" items="${slist}" varStatus="loop">
-									<tr onclick="location='/ceo/store_menu_list?store_num=${s.store_num}'">
-										<td>${s.store_num}</td>
+									<tr onclick="location='/ceo/store_menu_list?store_num=${s.storeNum}'">
+										<td>${s.storeNum}</td>
 										<td>${s.cate}</td>
-										<td>${s.detail_cate}</td>
-										<td>${s.store_name}</td>
+										<td>${s.detailCate}</td>
+										<td>${s.storeName}</td>
 									</tr>
 								</c:forEach>
 							</c:if>
