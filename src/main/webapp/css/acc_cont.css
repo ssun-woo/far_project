@@ -1,7 +1,33 @@
 @charset "UTF-8";
+.shop_name{
+	display: flex;
+	margin-left: 350px;
+}
+.jjim_shop{
+	
+}
+.jjim_shop button{
+	 width : 45px;
+	 height: 35px;
+	margin-top: 20px;
+	margin-left: 5px;
+	background-color: white;
+	border: none;
+}
+
+.jjim_shop img{
+	width: 25px;
+	height: 25px;
+	margin-lrft: -20px;
+}
+.separator {
+   margin-right: 4px;
+   margin-left: 4px;
+}
+
 
 /*숙박 상세정보 전체*/
-.shop_cont{
+.shop_cont {
 	width: 1000px;
 	height: 100%;
 	text-align: center;
@@ -9,52 +35,46 @@
 	margin-bottom: 60px;
 }
 
-.shop_name hr{
-	width: 1050px;
-	text-align: center;
-	margin-left: 350px;
-	border: 1px solid;
-}
-
 
 /*숙박업체 사진 및 정보*/
-.shop_cont_top{
+.shop_cont_top {
 	display: flex;
 }
 
-.shop_photo{
+.shop_photo {
 	width: 100px;
 	height: 60px;
 	margin-left: 350px;
 	margin-top: 15px;
-	
 }
 
-.shop_info{
+.shop_info {
 	width: 100%;
 	display: flex;
 }
-.info_cate{
+
+.info_cate {
 	width: 200px;
 	margin-left: 450px;
 	list-style: none;
 }
-.info_cont{
+
+.info_cont {
 	width: 400px;
 	list-style: none;
-	
 }
 
-.info_cate li{
+.info_cate li {
 	text-align: left;
 	margin-bottom: 30px;
 }
 
-.info_cont li{
+.info_cont li {
 	text-align: left;
 	margin-bottom: 30px;
 }
-.shop_info_event img{
+
+.shop_info_event img {
 	width: 450px;
 	height: 100px;
 	background-color: blue;
@@ -64,78 +84,65 @@
 }
 
 /* 내용 */
-.shop_info_cont{
+.shop_info_cont {
 	width: 1050px;
 	height: 100%;
 	margin-top: 40px;
 	border: 1px solid black;
 	margin-left: 350px;
 }
+
 .shop_info_cont input[type=radio] {
 	display: none;
 }
-#service:checked ~ .tab label:nth-child(1),
-#information:checked ~ .tab label:nth-child(2),
-#cancellation:checked ~ .tab label:nth-child(3),
-#map:checked ~ .tab label:nth-child(4) ,
-#review:checked ~ .tab label:nth-child(5) {
+
+#service:checked ~ .tab label:nth-child(1), #information:checked ~ .tab label:nth-child(2),
+	#cancellation:checked ~ .tab label:nth-child(3), #map:checked ~ .tab label:nth-child(4),
+	#review:checked ~ .tab label:nth-child(5) {
 	background-color: black;
 	color: white;
-  box-shadow: none;
+	box-shadow: none;
 }
-.content > div {
+
+.content>div {
 	display: none;
 }
-#service:checked ~ .shop_content div:nth-child(1),
-#information:checked ~ .shop_content div:nth-child(2),
-#cancellation:checked ~ .shop_content div:nth-child(3),
-#map:checked ~ .shop_content div:nth-child(4) ,
-#review:checked ~ .shop_content div:nth-child(5) {
+
+#service:checked ~ .shop_content div:nth-child(1), #information:checked 
+	 ~ .shop_content div:nth-child(2), #cancellation:checked ~
+	.shop_content div:nth-child(3), #map:checked ~ .shop_content div:nth-child(4),
+	#review:checked ~ .shop_content div:nth-child(5) {
 	display: block;
 }
+
 .tab {
-  overflow: hidden;
+	overflow: hidden;
 }
+
 .tab label {
-    font-size: 18px;
-    cursor: pointer;
-    float: left;
-    width: 20%;
-    text-align: center;
-    padding: 15px 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-    user-select: none;
-    -webkit-user-select: none;
+	font-size: 18px;
+	cursor: pointer;
+	float: left;
+	width: 20%;
+	text-align: center;
+	padding: 15px 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+	user-select: none;
+	-webkit-user-select: none;
 }
 
-.shop_cont_div{
-	margin-top: 50px;
-=======
-<<<<<<< HEAD
-.shop_cont_div{
+.shop_cont_div {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
-
-
-.content-dis{
->>>>>>> 4792fb07830ce6c4a92d3ebd850131f78983e395
+.content-dis {
 	margin-bottom: 50px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-
-=======
->>>>>>> b3f4f9e6563e79f01b893418b86e453c36b9fee0
->>>>>>> 4792fb07830ce6c4a92d3ebd850131f78983e395
-=======
-
->>>>>>> 45549848fa04020de286f474d0e3daac36dc05d9
-.shop_info_cont hr{
+.shop_info_cont hr {
 	border: 1px solid #303030;
 	border-width: thin;
 	margin-top: -1px;
@@ -143,40 +150,41 @@
 }
 
 /*객실정보*/
-.acc_room_list{
+.acc_room_list {
 	width: 900px;
 	margin-left: -280px;
 }
 
-.acc_room_list h3{
+.acc_room_list h3 {
 	margin-left: -80px;
 }
 
-.acc_room_list hr{
+.acc_room_list hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
 }
+
 .room_list {
 	margin-left: 350px;
 	margin-top: 20px;
 	display: flex;
 	width: 100%;
 }
-.room_list img{
+
+.room_list img {
 	width: 300px;
-	height:230px;
-	
+	height: 230px;
 }
 
-
-.room_info{
+.room_info {
 	width: 600px;
 	height: 230px;
 	border: 1px solid lightgray;
 	margin-left: 10px;
 	display: flex;
 }
+
 .room_detailinfo {
 	width: 400px;
 	list-style: none;
@@ -184,7 +192,7 @@
 	margin-left: 60px;
 }
 
-.room_detailinfo p{
+.room_detailinfo p {
 	width: 280px;
 	margin-bottom: 20px;
 	color: gray;
@@ -192,41 +200,42 @@
 	font-size: 11pt;
 }
 
-.booking_button h2{
+.booking_button h2 {
 	margin-left: 20px;
 }
 
-.booking_button{
+.booking_button {
 	margin-top: 25px;
 	margin-left: 50px;
 }
-.booking_button input{
+
+.booking_button input {
 	width: 150px;
 	height: 50px;
 	font-size: 10pt;
 	margin-left: 20px;
 	border-radius: 10px;
 	margin-top: 15px;
-	
 }
 
-
 /* 호텔정책 */
-.acc_policy{
+.acc_policy {
 	width: 900px;
 	margin-left: -280px;
 }
-.acc_policy h3{
+
+.acc_policy h3 {
 	text-align: left;
 	margin-left: 360px;
 }
-.acc_policy hr{
+
+.acc_policy hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
 }
 
-.acc_policy li{
+.acc_policy li {
 	width: 750px;
 	margin-top: 5px;
 	text-align: left;
@@ -236,21 +245,24 @@
 }
 
 /*호텔소개*/
-.acc_introduce{
+.acc_introduce {
 	width: 900px;
 	margin-left: -280px;
 	margin-top: 40px;
 }
-.acc_introduce h3{
+
+.acc_introduce h3 {
 	text-align: left;
 	margin-left: 360px;
 }
-.acc_introduce hr{
+
+.acc_introduce hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
 }
-.acc_introduce li{
+
+.acc_introduce li {
 	width: 750px;
 	margin-top: 5px;
 	text-align: left;
@@ -258,27 +270,30 @@
 	list-style: none;
 	font-size: 12pt;
 }
-.acc_introduce label{
+
+.acc_introduce label {
 	background-color: pink;
-	
 }
 
 /*판매자 정보*/
-.seller_info{
+.seller_info {
 	width: 900px;
 	margin-left: -280px;
 	margin-top: 40px;
 }
-.seller_info h3{
+
+.seller_info h3 {
 	text-align: left;
 	margin-left: 360px;
 }
-.seller_info hr{
+
+.seller_info hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
 }
-.seller_info p{
+
+.seller_info p {
 	margin-top: 15px;
 	text-align: left;
 	margin-left: 480px;
@@ -286,22 +301,25 @@
 }
 
 /*지도 상세보기*/
-.acc_map{
+.acc_map {
 	width: 900px;
 	margin-left: -280px;
 	margin-top: 40px;
 }
-.acc_map h3{
+
+.acc_map h3 {
 	text-align: left;
 	margin-left: 360px;
 	margin-top: 60px;
 }
-.acc_map hr{
+
+.acc_map hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
 }
-.acc_map .kakao_map{
+
+.acc_map .kakao_map {
 	width: 850px;
 	height: 600px;
 	border: 1px solid;
@@ -310,58 +328,64 @@
 }
 
 /* 교통안내 */
-.guide{
+.guide {
 	width: 900px;
 	margin-left: -280px;
 	margin-top: 40px;
 }
-.guide h3{
+
+.guide h3 {
 	text-align: left;
 	margin-left: 360px;
 	margin-top: 60px;
 }
-.guide hr{
+
+.guide hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
 }
 
-.guide h4{
+.guide h4 {
 	margin-left: 380px;
 	text-align: left;
 }
 
 /*이용안내/취소규정*/
-.cancellation_policy{
+.cancellation_policy {
 	width: 900px;
 	margin-left: -280px;
 	margin-top: 40px;
 }
-.cancellation_policy h3{
+
+.cancellation_policy h3 {
 	text-align: left;
 	margin-left: 360px;
 	margin-top: 60px;
 }
-.cancellation_policy hr{
+
+.cancellation_policy hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
 }
-.common_policy{
+
+.common_policy {
 	background-color: #e0e0e0;
 	width: 900px;
 	height: 35px;
 	margin-left: 350px;
 	padding-top: 15px;
 }
-.common_policy p{
+
+.common_policy p {
 	font-size: 13pt;
 	font-weight: bold;
 	margin-left: -770px;
 	margin-top: -5px;
 }
 
-.cancellation_policy li{
+.cancellation_policy li {
 	width: 850px;
 	margin-top: 5px;
 	text-align: left;
@@ -369,28 +393,30 @@
 	list-style: none;
 	font-size: 12pt;
 }
-.cancellation_policy h4{
+
+.cancellation_policy h4 {
 	color: gray;
 }
 
-.refund_process{
+.refund_process {
 	width: 900px;
 	margin-left: -280px;
 	margin-top: 40px;
 }
 
-.refund_process h4{
+.refund_process h4 {
 	text-align: left;
 	margin-left: 360px;
 	margin-top: 80px;
 }
-.refund_process hr{
+
+.refund_process hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
 }
 
-.refund_process li{
+.refund_process li {
 	width: 850px;
 	margin-top: 5px;
 	text-align: left;
@@ -398,26 +424,30 @@
 	list-style: none;
 	font-size: 10pt;
 }
-.refund_process p{
+
+.refund_process p {
 	font-weight: bolder;
 }
-.receipt_issuing{
+
+.receipt_issuing {
 	width: 900px;
 	margin-left: -280px;
 	margin-top: 40px;
 }
-.receipt_issuing h4{
+
+.receipt_issuing h4 {
 	text-align: left;
 	margin-left: 360px;
 	margin-top: 80px;
 }
-.receipt_issuing hr{
+
+.receipt_issuing hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
 }
 
-.receipt_issuing li{
+.receipt_issuing li {
 	width: 850px;
 	margin-top: 5px;
 	text-align: left;
@@ -425,24 +455,26 @@
 	list-style: none;
 	font-size: 10pt;
 }
-.CS_numbder{
+
+.CS_numbder {
 	width: 900px;
 	margin-left: -280px;
 	margin-top: 40px;
 }
-.CS_numbder h4{
+
+.CS_numbder h4 {
 	text-align: left;
 	margin-left: 360px;
 	margin-top: 80px;
 }
-.CS_numbder hr{
+
+.CS_numbder hr {
 	width: 910px;
 	margin-left: 350px;
 	border: 1px solid;
-	
 }
 
-.CS_numbder li{
+.CS_numbder li {
 	width: 850px;
 	margin-top: 5px;
 	text-align: left;
@@ -452,175 +484,183 @@
 }
 
 /* 이용후기*/
-.review_form h3{
+.review_form h3 {
 	margin-left: -700px;
 }
-.Review_cont{
+
+.Review_cont {
 	width: 900px;
 	margin-left: 50px;
 	margin-top: 40px;
 	border-radius: 10px;
 }
 
-.Review_cont hr{
+.Review_cont hr {
 	width: 910px;
 	margin-left: 30px;
 	border: 1px solid;
 }
 
-.detail_review_table_div{
+.detail_review_table_div {
 	display: flex;
 	margin-left: 100px;
 }
 
-.detail_review_table{
+.detail_review_table {
 	width: 600px;
 	position: static;
 }
-#reviewForm{
+
+#reviewForm {
 	margin-left: -150px;
 }
-.detail_review_table2{
+
+.detail_review_table2 {
 	width: 400px;
 	margin-right: 100px;
 }
 
-.detail_review hr{
+.detail_review hr {
 	width: 910px;
 	border: 1px solid gray;
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
-.review_write{
+
+.review_write {
 	margin-top: 30px;
 	margin-left: 200px;
-
 }
 
-.Review_cont li h3{
+.Review_cont li h3 {
 	text-align: left;
 	margin-left: 320px;
 	margin-top: 60px;
 	margin-bottom: -30px;
 }
 
-.review_write{
+.review_write {
 	margin-top: 30px;
 	margin-left: 150px;
-
-	/*margin-left: 100px;*/
-
+	margin-left: 100px;
 	margin-bottom: 50px;
 }
-.review_rating_form{
+
+.review_rating_form {
 	margin-top: 50px;
-	
 }
-.review_write h3{
+
+.review_write h3 {
 	margin-left: -800px;
 }
 
-.review_write td{
+.review_write td {
 	text-align: left;
 }
 
-#review_title{
+#review_title {
 	width: 700px;
 }
 
-
-.review_write textarea{
+.review_write textarea {
 	width: 850px;
 	resize: none;
 	border-radius: 5px;
 }
 
-.review_write textarea::placeholder{
+.review_write textarea::placeholder {
 	padding: 5px;
 }
 
-.review_write textarea{
+.review_write textarea {
 	width: 700px;
 	resize: none;
 }
 
-.detail_review{
+.detail_review {
 	width: 500px;
 }
-.edit_review{
+
+.edit_review {
 	
 }
 
-.detail_review_tr{
+.detail_review_tr {
 	width: 500px;
 	margin-left: 200px;
 }
 
-.review_edit{
+.review_edit {
 	margin-top: 10px;
 	margin-right: 5px;
 }
-.review_del{
+
+.review_del {
 	margin-top: 10px;
 	margin-left: 5px;
 }
-.review_buttons{
+
+.review_buttons {
 	width: 200px;
-	
 	margin-right: -500px;
 	margin-top: -10px;
 }
-.review_edit_del{
+
+.review_edit_del {
 	display: flex;
 	margin-left: 55px;
 }
-.edit_review_btn{
+
+.edit_review_btn {
 	margin-right: 10px;
 }
-.review_recommend{
+
+.review_recommend {
 	background-color: white;
 	border: 1px solid lightgray;
 	border-radius: 5px;
 	display: flex;
 	height: 30px;
 	margin-top: 10px;
-	margin-bottom: 15px; 
+	margin-bottom: 15px;
 	margin-left: 60px
 }
-.review_recommend IMG{
+
+.review_recommend IMG {
 	margin-top: 2px;
 }
-.review_recommend p{
+
+.review_recommend p {
 	margin-left: 1px;
 	margin-top: 4px;
 	font-size: 13pt;
 	font-weight: lighter;
 	color: #a8a8a8;
 }
-.detail_review_table hr{
+
+.detail_review_table hr {
 	width: 910px;
 	border: 1px solid gray;
 	margin-top: 10px;
 }
-.detail_review_table td{
+
+.detail_review_table td {
 	margin-top: 15px;
 }
 
-
-.review_page{
+.review_page {
 	margin-left: 100px;
-	
 }
 
-.table_space{
+.table_space {
 	marigin-left: 540px;
 }
 /*글자수*/
-.text_length{
+.text_length {
 	
 }
 /*리뷰 등록 버튼*/
-.ReviewWriteBtn{
+.ReviewWriteBtn {
 	width: 70px;
 	height: 30px;
 	border-radius: 10px;
@@ -629,93 +669,98 @@
 	margin-top: 5px;
 }
 /*별점*/
-#review_rating{
+#review_rating {
 	width: 500px;
 	margin-top: -20px;
 	margin-bottom: 10px;
 	margin-left: -10px;
-	
-}
-#review_rating fieldset{
-    display: inline-block;
-    direction: rtl;
-    border:0;
-}
-#review_rating fieldset legend{
-    text-align: left;
-}
-#review_rating input[type=radio]{
-    display: none;
-}
-#review_rating label{
-    font-size: 20pt;
-    color: transparent;
-    text-shadow: 0 0 0 #f0f0f0;
-}
-#review_rating label:hover{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-#review_rating label:hover ~ label{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-#review_rating input[type=radio]:checked ~ label{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
 
+#review_rating fieldset {
+	display: inline-block;
+	direction: rtl;
+	border: 0;
+}
+
+#review_rating fieldset legend {
+	text-align: left;
+}
+
+#review_rating input[type=radio] {
+	display: none;
+}
+
+#review_rating label {
+	font-size: 20pt;
+	color: transparent;
+	text-shadow: 0 0 0 #f0f0f0;
+}
+
+#review_rating label:hover {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+#review_rating label:hover ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+#review_rating input[type=radio]:checked ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
 
 /*별점*/
-#review_rating_edit{
+#review_rating_edit {
 	width: 500px;
 	margin-top: -20px;
 	margin-bottom: 10px;
 	margin-left: -10px;
-	
-}
-#review_rating_edit fieldset{
-    display: inline-block;
-    direction: rtl;
-    border:0;
-}
-#review_rating_edit fieldset legend{
-    text-align: left;
-}
-#review_rating_edit input[type=radio]{
-    display: none;
-}
-#review_rating_edit label{
-    font-size: 20pt;
-    color: transparent;
-    text-shadow: 0 0 0 #f0f0f0;
-}
-#review_rating_edit label:hover{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-#review_rating_edit label:hover ~ label{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
-}
-#review_rating_edit input[type=radio]:checked ~ label{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
 
+#review_rating_edit fieldset {
+	display: inline-block;
+	direction: rtl;
+	border: 0;
+}
+
+#review_rating_edit fieldset legend {
+	text-align: left;
+}
+
+#review_rating_edit input[type=radio] {
+	display: none;
+}
+
+#review_rating_edit label {
+	font-size: 20pt;
+	color: transparent;
+	text-shadow: 0 0 0 #f0f0f0;
+}
+
+#review_rating_edit label:hover {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+#review_rating_edit label:hover ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+#review_rating_edit input[type=radio]:checked ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
 
 .show .popup {
-  transform: translate(-50%, -50%);
-  transition: all .5s;
+	transform: translate(-50%, -50%);
+	transition: all .5s;
 }
 
-.list_button_div{
+.list_button_div {
 	width: 1300px;
 	justify-content: center;
 	display: flex;
 }
 
-.list_button{
+.list_button {
 	height: 100px;
 	width: 400px;
 	margin-left: 250px;
 }
-
-
-
-
-

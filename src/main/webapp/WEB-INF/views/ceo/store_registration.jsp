@@ -3,7 +3,7 @@
 <!-- <jsp:include page="../main/header.jsp"/> -->
 
 <script src="../js/jquery.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/store_registration.css">
+
 
 	<div class="storeRegistrationForm">
 		<h2>업체 등록하기</h2>
@@ -83,7 +83,7 @@
 			</div>
 		</form>
 	</div>
-	<script src="../js/store_main.js"></script>
+	
 
 	
 <!-- <jsp:include page="../main/footer.jsp"/> -->

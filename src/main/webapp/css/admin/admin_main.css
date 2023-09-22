@@ -32,7 +32,7 @@
 
 
 #menu_cont{
-	margin-left: 20px;
+	margin-left: 300px;
 	
 }
 
@@ -63,7 +63,9 @@
 #cate_cont{
 	margin-left: 20px;
 }
-
+#cate_name {
+	margin-left: 20px;
+}
 #shop_info {
 	width: 800px;
 	height: 100%;

@@ -1,17 +1,4 @@
-function open_shop(){
-	$("#cate_name").html('[입점 승인]');
-	
-	
-	
-	var element = document.getElementById('cate_cont');
-	
-	element.innerHTML
-	='<table border="1"><tr><th id="no">번호</th><th id="shop">가게명</th>'+
-	'<th id="cate">업종</th><th id="name">신청자</th><th id="check">승인여부</th></tr>'
-	+'<tr><td>1</td><td><a href="#" calss="button" onClick="shop()">가게1</a></td>'+
-	'<td>요식업 (한식)</td><td>신청자</td><td>접수 완료</td></tr></table>';
-	
-}
+
 
 function close_shop(){
 	$("#cate_name").html('[폐점 승인]');

@@ -11,7 +11,7 @@
  	</select>
  	
  	<select id="detail_cate_count" resultType="int">
- 		select count(*) from store where detail_cate = #{detail_cate}
+ 		select count(*) from store where detailcate = #{detail_cate}
  	</select>
  	
  	<select id="store_info" resultType="store">
@@ -27,8 +27,30 @@
         values(#{storeNum},#{cate},#{detailCate},#{storeName},#{storeIntro},#{storeAddr1},#{storeAddr2},#{regNum},#{storeLogo}, #{memId}) 
     </insert>
     
-    <select id="store_notPermit" resultType="List">
-    	select * from store where auth = 0
+    <select id="storePermit" resultType="store">
+    	select * from store where auth = #{auth}
     </select>
+    
+    <update id="storeOK">
+    	update store set auth = 1 where storeNum = #{storeNum}
+    </update>
+  	
+  	<update id="storeDenied">
+    	update store set auth = 2 where storeNum = #{storeNum}
+    </update>
+
+    <select id="get_menu_list" resultType="Menu">
+ 		select * from menu where store_num = #{s_num}
+ 	</select>
+ 	
+ 	<select id="get_store" resultType="store">
+ 		select * from store where store_num = #{s_num}
+ 	</select>
+ 	
+ 	<select id="get_menu" resultType="Menu">
+ 		select * from menu where menu_id = #{menu_id}
+ 	</select>
+ 	
+
  </mapper>
  

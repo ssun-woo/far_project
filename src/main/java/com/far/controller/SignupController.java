@@ -1,5 +1,10 @@
 package com.far.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,36 +37,46 @@ public class SignupController {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	// 회원가입 페이지 이동
-	@GetMapping("/signUp")
-	public ModelAndView signUpForm() {
-		ModelAndView mav = new ModelAndView("login/signUp");
-		mav.addObject("member", new MemberDTO()); // 빈 MemberDTO 객체를 모델에 추가
-		return mav;
-	}
-
-	@PostMapping("/signUp")
-	public String signUp(@Valid MemberDTO m, BindingResult br) {
-		if (br.hasErrors()) {
-			// 유효성 검사 오류가 있을 때 처리 (예: 오류 메시지를 모델에 추가)
-			return "login/signUp";
-		} else {
-			String rawPassword = m.getMemPwd();
-			String encPassword = bCryptPasswordEncoder.encode(rawPassword);
-			m.setMemPwd(encPassword);
-			m.setMemClass("m");
-			signUpService.insertMember(m);
-			return "redirect:/login";
-		}
-	}
-
-	@PostMapping("/signup/check")
-	@ResponseBody
-	public int iddbchk(String mem_id) throws ClassNotFoundException {
-
-		int cnt = memexservice.isexist_mem_id(mem_id);
-		System.out.println(mem_id);
-
+	  @GetMapping("/signUp")
+	    public ModelAndView signUpForm() {
+	        ModelAndView mav = new ModelAndView("login/signUp");
+	        mav.addObject("member", new MemberDTO()); // 빈 MemberDTO 객체를 모델에 추가
+	        return mav;
+	    }
+	
+	  @PostMapping("/signUp")
+	    public String signUp(@Valid MemberDTO m, BindingResult br, String selectClass, HttpServletRequest request) throws IOException {
+	        if (br.hasErrors()) {
+	            // 유효성 검사 오류가 있을 때 처리 (예: 오류 메시지를 모델에 추가)
+	            return "login/signUp";
+	        } else {
+	        	String rawPassword = m.getMemPwd();
+	        	String encPassword = bCryptPasswordEncoder.encode(rawPassword);
+	        	m.setMemPwd(encPassword);
+	        	if(selectClass.equals("normal")) {
+	        		m.setMemClass("Role_m");
+	        	} else if(selectClass.equals("business")) {
+	        		m.setMemClass("Role_c");
+	        	}
+	            signUpService.insertMember(m);
+	            
+	
+	           
+	            return "redirect:/loginForm";
+	        }
+	    }
+	  
+	  @PostMapping("/signup/check")
+	  @ResponseBody
+	  public int iddbchk(String memId) throws ClassNotFoundException {
+			
+		int cnt = memexservice.isexist_mem_id(memId);
+		
 		return cnt;
+
+		
 	}
+
+	
 
 }

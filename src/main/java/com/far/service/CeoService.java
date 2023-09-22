@@ -17,6 +17,16 @@ public interface CeoService {
 
 	String getDetail_Cate(int store_num);
 
+	List<MenuDTO> getMenuList(int s_num);
+
+	StoreDTO getStore(int s_num);
+
+	MenuDTO getMenu(int menu_id);
+
+	void delMenu(int menu_id);
+
+	void editMenu(MenuDTO m);
+
 //	StoreDTO getCont(int store_num);
 
 }

@@ -45,6 +45,19 @@ function del_edit_check(){
     window.open("/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}","update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes");
     }
 }
+
+function jjim_check(){
+	if (!confirm("찜 목록에 저장하시겠습니까?")) {
+        window.location.reload();
+    }
+    
+}
+
+function jjim_del_check(){
+	if (!confirm("찜 목록에서 삭제하시겠습니까?")) {
+        window.location.reload();
+    }
+}
 function submit_check(){
 	let rf = document.getElementById("reviewForm");
 	
@@ -57,32 +70,20 @@ function submit_check(){
 	var rating = document.getElementById("review_rating");
 	
 	if($("input[name=review_rating]:radio:checked").length<1){
-	alert("별점을 선택하세요.");
-	e.preventDefault();
-	return false;
-
-	}else if(cont.value==""){
-
-	}else if(id.value==""){
-	alert("아이디를 입력하세요.");
-	id.focus();
-	return false;
-	}else if(goods.value==""){
-	alert("상품명을 입력하세요.");
-	goods.focus();
-	return false;
-	}else if(content.value==""){
-
-	alert("내용을 입력하세요.");
-	cont.focus();
-	e.preventDefault();
-	return false;
-	}else{
-	alert("리뷰 등록 완료");
-	return true;
-	}
-	});
-	
+   		alert("별점을 선택하세요.");
+   		e.preventDefault();
+   		return false;
+   }else if(cont.value==""){
+		alert("내용을 입력하세요.");
+		cont.focus();
+		e.preventDefault();
+		return false;
+   }else{
+		alert("리뷰 등록 완료");
+		return true;
+   }
+  });
+   
 }
 
 

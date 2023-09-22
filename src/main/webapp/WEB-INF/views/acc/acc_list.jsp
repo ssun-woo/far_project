@@ -3,23 +3,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../main/new_header4.jsp"/>
 
+
 <div class="shop_List">
 	<div class="filter">
 		<div class="filter_top">
 			<h3>필터</h3>
-			<button type="reset" Id="reset">
-				필터 초기화
-			</button>
-	 	</div>
-	 	<hr>
-	 
-	 	<div class="price_range">
-		 	<h4>가격대</h4>
-		 	<div class="middle">
-				<div class = "multi-range-slider">
+			<button type="reset" Id="reset">필터 초기화</button>
+		</div>
+		<hr>
+
+		<div class="price_range">
+			<h4>가격대</h4>
+			<div class="middle">
+				<div class="multi-range-slider">
 					<input type="range" id="input-left" min="0" max="100" value="25">
 					<input type="range" id="input-right" min="0" max="100" value="75">
-			
+
 					<div class="slider">
 						<div class="track"></div>
 						<div class="range"></div>
@@ -47,7 +46,6 @@
 	 		<input type="checkbox" name="theme"> <label>커플</label>
 	 		<br>
 	 		<input type="checkbox" name="theme"> <label>가족</label>
-	 		
 	 	</div>
 	 	<hr>
 	 
@@ -80,6 +78,7 @@
 	 		<input type="checkbox"> 키즈라운지
 	 		<br>
 	 	</div>
+
 	</div>
 	<div class="list_page">
 		<div class="list_top">
@@ -138,6 +137,7 @@
 			
 					<p>등급미정</p>
 					<p>${store.storeAddr1 } ${store.storeAddr2 }</p>
+
 					<br>
 					<p>자가 무료주차 가능</p>
 				</div>
@@ -147,8 +147,8 @@
 					<p>리뷰 196</p>
 					<div class="shop_JJim">
 						<button type="button" onclick="imgToggle()">
-						<img src="../images/acc/NoJJim.png" id="no">
-						<img src="../images/acc/YesJJim.png" id="yes">
+							<img src="../images/acc/NoJJim.png" id="no">
+							<img src="../images/acc/YesJJim.png" id="yes">
 						</button>
 					</div>
 				</div>
