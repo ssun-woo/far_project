@@ -43,25 +43,25 @@ table {
 						<form method="post" action="/ceo/store_menu_regis_ok"
 							onsubmit="return menu_regis_write_check();"
 							enctype="multipart/form-data">
-							<input type="hidden" name="store_num" value="${param.store_num}">
+							<input type="hidden" name="storeNum" value="${param.store_num}">
 							<div class="menuRegis">
 								<label>숙소 이름</label>
 								<div class="menuRegisPlus">
-									<input type="text" id="newMenuRegis" name="menu_name">
+									<input type="text" id="newMenuRegis" name="roomName">
 								</div>
 							</div>
 
 							<div class="menuRegis">
 								<label>가격</label>
 								<div class="menuRegisPlus">
-									<input type="text" id="newPriceRegis" name="menu_price">
+									<input type="text" id="newPriceRegis" name="roomPrice">
 								</div>
 							</div>
 
 							<div class="menuRegis">
 								<label>소개</label>
 								<div class="menuRegisPlus">
-									<textarea id="newMenuInfoRegis" name="menu_explain" rows="3"></textarea>
+									<textarea id="newMenuInfoRegis" name="roomExplain" rows="3"></textarea>
 								</div>
 							</div>
 							
@@ -116,11 +116,11 @@ table {
 							<div class="menuRegis">
 								<label>기준인원</label>
 								<div class="menuRegisPlus">
-									<input type="number" id="standard_num" name="standard_num">
+									<input type="number" id="standard_num" name="standardNum">
 								</div>
 								<label>최대인원</label>
 								<div class="menuRegisPlus">
-									<input type="number" id="max_num" name="max_num">
+									<input type="number" id="max_num" name="maxNum">
 								</div>
 							</div>
 
@@ -130,7 +130,7 @@ table {
 								 <img id="imagePreview"
 										src="#" alt="미리보기"
 										style="display: none; max-width: 200px; max-height: 200px;">
-									<input type="file" id="newMenuImageRegis" name="menu_photo"
+									<input type="file" id="newMenuImageRegis" name="roomPhoto"
 										onchange="previewImage(this);">
 								</div>
 							</div>

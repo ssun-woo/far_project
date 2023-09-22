@@ -49,19 +49,19 @@ table {
 									<option value="culture">문화</option>
 									<option value="beauty">뷰티</option>
 								</select> <label>세부 선택</label> <select id="typeSelect2"
-									name="detail_cate" disabled="disabled">
+									name="detailCate" disabled="disabled">
 									<option value="none">업소를 먼저 선택해 주세요</option>
 								</select>
 							</div>
 
 							<div class="storeRegistration">
 								<label>업체 이름</label> <input type="text" id="storeName"
-									name="store_name" placeholder="가게 이름을 입력해주세요.">
+									name="storeName" placeholder="가게 이름을 입력해주세요.">
 							</div>
 
 							<div class="storeRegistration">
 								<label>업체 소개글</label>
-								<textarea id="storeIntro" name="store_intro" rows="3"
+								<textarea id="storeIntro" name="storeIntro" rows="3"
 									placeholder="가게를 소개하는 글을 입력해주세요."></textarea>
 							</div>
 
@@ -72,13 +72,10 @@ table {
 									
 										<div class="storeAdrressB"><input type="text" id="storeAddressPostcode" placeholder="우편번호"><input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></div><br>
 										<input type="text" id="storeAddressFirst"  name="store_addr1" placeholder="주소"><br>
-										
-										<!-- <button id="storeAddressSearchBtn">주소 검색</button> -->
 									</div>
 								</div>
 								<div class="storeAddressS">
 									<input type="text" id="storeAddressSecond" name="store_addr2" placeholder="상세주소">
-									<input type="text" id="storeAddressextraAddress" placeholder="참고항목">
 								</div>
 
 								<!-- <input type="text" id="storeAddress" name="storeAddress"
@@ -87,7 +84,7 @@ table {
 
 							<div class="storeRegistration">
 								<label>사업자등록번호</label> <input type="text"
-									id="businessRegistrationNumber" name="reg_num"
+									id="businessRegistrationNumber" name="regNum"
 									placeholder="사업자등록번호를 입력해주세요.">
 							</div>
 
@@ -100,7 +97,7 @@ table {
 
 							<div class="storeRegistration">
 								<label>로고 이미지 첨부</label> <input type="file" id="logoImage"
-									name="logo_image">
+									name="logoImage">
 							</div>
 
 							<!-- <div class="storeRegistration">

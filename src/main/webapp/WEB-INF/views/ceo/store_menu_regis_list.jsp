@@ -16,12 +16,12 @@
 			<c:if test="${!empty slist}">
 				<c:forEach var="s" items="${slist}">
 					<tr>
-						<td>${s.store_num}</td>
+						<td>${s.storeNum}</td>
 						<td>${s.cate}</td>
-						<td>${s.detail_cate}</td>
+						<td>${s.detailCate}</td>
 						<td>
-							<a href="store_menu_regis.jsp?mem_id=${s.mem_id}">
-								${s.store_name}
+							<a href="store_menu_regis.jsp?mem_id=${s.memId}">
+								${s.storeName}
 							</a>
 						</td>
 					</tr>

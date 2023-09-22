@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.far.dao.PaymentDAO;
 import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
-import com.far.dto.MenuDTO;
+import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 
 @Service
@@ -24,7 +24,7 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	@Override
-	public MenuDTO getMenu(int i) {
+	public RoomDTO getMenu(int i) {
 		return paymentDao.getMenu(i);
 	}
 
