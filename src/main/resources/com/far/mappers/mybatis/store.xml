@@ -19,7 +19,7 @@
  	</select>
  	
  	<select id="get_stores" resultType="store">
- 		select * from store where mem_id = #{id}
+ 		select * from store where memId = #{id}
  	</select>
  	
  	<insert id="store_in">
