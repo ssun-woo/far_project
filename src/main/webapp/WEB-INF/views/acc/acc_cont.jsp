@@ -6,13 +6,32 @@
 
 <div class="shop_cont">
 	<div class="shop_name">
-		<h2>[${region} / ${sebu_cate}] ${s.store_name}</h2>
-		<hr>
+		<h2>[${region} / ${sebu_cate}] ${s.store_name}</h2> 
+			<label class="jjim_shop">
+				<c:if test="${JJim==0}">
+				<form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
+					<button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
+					<img src="../images/acc/NoJJim.png">
+				</button>
+				</form>
+				</c:if>
+				<c:if test="${JJim==1}">
+				<form action="/acc/cont/jjim_del?cate=${cate}&store_num=${store_num}" class="jjim_btn" method="POST">
+					<button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
+					<img src="../images/acc/YesJJim.png">
+				</button>
+				</form>
+				</c:if>
+				</label>
+				
 	</div>
-
+	<hr style="width: 1050px;
+	text-align: center;
+	margin-left: 350px;
+	border: 1px solid;">
 	<div class="shop_cont_top">
 		<div class="shop_photo">
-			<img src="/upload/store_logo${s.store_logo}" width="570px"
+			<img src="/upload/store_logo${s.storeLogo}" width="570px"
 				height="388">
 		</div>
 		<div class="shop_info">
@@ -24,12 +43,12 @@
 				<li><h3>&nbsp;</h3></li>
 			</ul>
 			<ul class="info_cont">
-				<li><p>${region}/${sebu_cate}</p></li>
+				<li><p>${region}/${sebuCate}</p></li>
 				<li><p>
 						<a onclick="">7998</a>의 상품평
 					</p></li>
 				<li><p>
-						${s.store_addr1} ${s.store_addr2 }<br> <a href="#">지도보기</a>
+						${s.storeAddr1} ${s.storeAddr2 }<br> <a href="#">지도보기</a>
 					</p></li>
 				<li><p>
 						전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기">
@@ -200,17 +219,17 @@
 					<hr>
 					<c:forEach var="m" items="${mList}">
 						<div class="room_list">
-							<img src="/upload/store_menu/${s.cate}${m.menu_photo}">
+							<img src="/upload/store_menu/${s.cate}${m.roomPhoto}">
 							<div class="room_info">
 								<div class="booking_button">
-									<h2>${m.menu_name}</h2>
+									<h2>${m.roomName}</h2>
 									<input type="button" value="예약" onclick="href='#'">
 								</div>
 
 								<div class="room_detailinfo">
-									<h4 class="check_in_out">체크인 ${m.check_in} 체크아웃
-										${m.check_out}</h4>
-									<p>기준인원 ${m.standard_num}인 / 최대인원 ${m.max_num}인</p>
+									<h4 class="check_in_out">체크인 ${m.checkIn} 체크아웃
+										${m.checkOut}</h4>
+									<p>기준인원 ${m.standardNum}인 / 최대인원 ${m.maxNum}인</p>
 									<p>영유아 포함 최대인원을 초과하여 입실이 불가합니다.</p>
 								</div>
 
@@ -427,6 +446,7 @@
 							</table>
 						</form>
 					</div>
+
 					<div class="review_form">
 						<h3>이용후기 (건수)</h3>
 						<div class="detail_review">

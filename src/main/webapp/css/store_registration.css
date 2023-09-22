@@ -63,6 +63,33 @@ hr {
 	display: flex;
 	flex-direction: column;
 }
+.storeAdrressB{
+	display: flex;
+}
+.storeAddressS{
+	display: flex;
+}
+#storeAddressextraAddress{
+	width: 200px;
+    padding: 8px;
+    border: 1px solid #000000;
+    display: block;
+    border-radius: 10px;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    margin-left: 15px;
+    margin-top: 7px;
+    height: 33px;
+}
+#storeAddressPostcode{
+	width: 200px;
+    padding: 8px;
+    border: 1px solid #000000;
+    display: block;
+    border-radius: 10px;
+    align-items: flex-start; /* 왼쪽 정렬 */
+    margin-left: 15px;
+    margin-right: 10px;
+}
 
 #storeAddressFirst {
 	width: 400px;

@@ -32,13 +32,11 @@ public class MainController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String memId = authentication.getName();
         String memClass = findMemClass.findMemClass(memId);
-        System.out.println("memClass = " + memClass);
         // 세션에 memId 저장
         //session.setAttribute("memId", memId);
         ModelAndView mav = new ModelAndView("main/index");
         mav.addObject("memId", memId);
         session.setAttribute("memClass", memClass);
-        System.out.println(memId);
         return mav;
 		
 	}

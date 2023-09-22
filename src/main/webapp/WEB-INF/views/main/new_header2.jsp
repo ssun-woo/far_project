@@ -135,17 +135,37 @@
 				</div>
 
 			</div>
-
-
 			<div class="end_line">
 				<ul>
-					<li><i></i> <span></span></li>
-					<li><i></i> <span></span></li>
-					<li><i></i> <span></span></li>
-					<li><i></i> <span></span></li>
+					<li>
+						<a>
+							<i></i>
+							<span></span>
+						</a>
+					</li>
+					<li>
+					<li>
+						<a>
+							<i></i>
+							<span></span>
+						</a>
+					</li>
+					<li>
+					<li>
+						<a>
+							<i></i>
+							<span></span>
+						</a>
+					</li>
+					<li>
+					<li>
+						<a>
+							<i></i>
+							<span></span>
+						</a>
+					</li>
 				</ul>
 			</div>
-
 		</div>
 		
 		<hr class="end_hr">

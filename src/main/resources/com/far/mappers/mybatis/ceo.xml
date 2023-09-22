@@ -7,31 +7,30 @@
  <mapper namespace="CEO">
  		
  	<insert id="store_in">
- 		insert into store(store_num, cate, detail_cate, store_name, store_intro, store_addr1, store_addr2, reg_num, store_logo)
- 		 values(bno2_seq.nextval,#{cate},#{detail_cate},#{store_name},#{store_intro},#{store_addr1},#{store_addr2},#{reg_num},#{store_logo}) 
+ 		insert into store(storeNum, cate, detailCate, storeName, storeIntro, storeAddr1, storeAddr2, regNum, storeLogo)
+ 		 values(bno2_seq.nextval,#{cate},#{detailCate},#{storeName},#{storeIntro},#{storeAddr1},#{storeAddr2},#{regNum},#{storeLogo}) 
  	</insert>
  	
- 	
  	<select id="get_cate" resultType="String">
- 		select cate from store where store_num = #{store_num}
+ 		select cate from store where storeNum = #{store_num}
  	</select>
  	
  	<insert id="insert_menu">
- 		insert into menu values(bno2_seq.nextval, #{store_num}, #{menu_name}, #{menu_explain}, #{menu_price}, #{menu_photo}, #{check_in}, #{check_out}, #{standard_num}, #{max_num})
+ 		insert into room values(bno2_seq.nextval, #{storeNum}, #{roomName}, #{roomExplain}, #{roomPrice}, #{roomPhoto}, #{standardNum}, #{maxNum}, #{checkIn}, #{checkOut})
  	</insert>
  	
  	<select id="get_detail_cate" resultType="String">
- 		select detail_cate from store where store_num = #{store_num}
+ 		select detailCate from store where storeNum = #{store_num}
  	</select>
  	
  	<delete id="del_menu">
- 		delete from menu where menu_id = #{menu_id}
+ 		delete from room where roomNum = #{menu_id}
  	</delete>
  	
  	<update id="edit_menu">
- 		update menu set menu_name = #{menu_name}, menu_price=#{menu_price}, menu_explain=#{menu_explain}, menu_photo=#{menu_photo}, check_in=#{check_in}, check_out=#{check_out}, 
- 		max_num = #{max_num}, standard_num = #{standard_num}
- 		 where menu_id = #{menu_id}
+ 		update room set roomName = #{roomName}, roomprice=#{roomPrice}, roomexplain=#{roomExplain}, roomphoto=#{roomPhoto}, checkIn=#{checkIn}, checkOut=#{checkOut}, 
+ 		maxnum = #{maxNum}, standardnum = #{standardNum}
+ 		 where roomNum = #{roomNum}
  	</update>
  	
  </mapper>

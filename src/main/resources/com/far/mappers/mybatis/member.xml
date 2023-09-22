@@ -27,9 +27,13 @@
  		select memClass from member where memId = #{memId}
  	</select>
  	
- 	<!-- <select id="findIdTel" parameterType="hashmap" resultType="String">
+ 	<select id="findIdEmail" resultType="String">
+ 		select memId from member where memName = #{memName} and memEmail = #{memEmail}
+ 	</select>
+ 	
+ 	<select id="findIdTel" parameterType="hashmap" resultType="String">
  		select memId from member where memName = #{memName} and memTel = #{memTel}
- 	</select> -->
+ 	</select>
  	
  </mapper>
  

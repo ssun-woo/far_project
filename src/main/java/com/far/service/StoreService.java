@@ -1,5 +1,7 @@
 package com.far.service;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,11 +14,13 @@ import com.far.dto.StoreDTO;
 
 @Service
 public class StoreService {
+	
 	@Autowired
 	private StoreRepository storeRepository;
 	
 	@Autowired
 	private StoreDAO storeDAO;
+
 	public Page<StoreDTO> storeList(Pageable pageable, String detailCate) {
 		return storeRepository.findByDetailCate(pageable, detailCate);
 	}
@@ -27,5 +31,9 @@ public class StoreService {
 	
 	public int countStore(String detailCate) {
 		return storeDAO.countStore(detailCate);
+	}
+
+	public int countStore2(Map<String, String> map) {
+		return storeDAO.countStore2(map);
 	}
 }

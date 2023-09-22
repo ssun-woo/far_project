@@ -41,15 +41,15 @@ table {
 						<table border="1">
 							<tr>
 								<th style="width: 10%" rowspan="3"><img
-									src="/upload/store_menu/${s.cate}${m.menu_photo}"></th>
+									src="/upload/store_menu/${s.cate}${m.roomPhoto}"></th>
 								<th style="width: 5%">이름</th>
-								<th style="width: 30%">${m.menu_name }</th>
+								<th style="width: 30%">${m.roomName }</th>
 
 							</tr>
 							<tr>
 								<th style="width: 5%">가격</th>
 								<th style="width: 30%"><fmt:formatNumber type="currency"
-										currencyCode="KRW" value="${m.menu_price}" /></th>
+										currencyCode="KRW" value="${m.roomPrice}" /></th>
 							</tr>
 							<tr>
 								<th style="width: 5%">설명</th>
@@ -57,8 +57,8 @@ table {
 							</tr>
 						</table>
 
-						<h2 onclick="location='/ceo/store_menu_list?store_num=${s.store_num}'">목록보기</h2>
-						<h2 onclick="location='/ceo/store_menu_edit?store_num=${s.store_num}&menu_id=${m.menu_id}'">메뉴수정</h2>
+						<h2 onclick="location='/ceo/store_menu_list?store_num=${s.storeNum}'">목록보기</h2>
+						<h2 onclick="location='/ceo/store_menu_edit?store_num=${s.storeNum}&menu_id=${m.roomNum}'">메뉴수정</h2>
 						<h2 onclick="menuDel();">메뉴삭제</h2>
 
 
@@ -74,7 +74,7 @@ table {
 function menuDel() {
     var isConfirmed = confirm("메뉴를 삭제하시겠습니까?");
     if (isConfirmed) {
-        window.location.href = '/ceo/store_menu_del?menu_id=${m.menu_id}&store_num=${s.store_num}';
+        window.location.href = '/ceo/store_menu_del?menu_id=${m.roomNum}&store_num=${s.storeNum}';
     }
 }
 </script>

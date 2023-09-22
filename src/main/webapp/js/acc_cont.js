@@ -45,6 +45,19 @@ function del_edit_check(){
     window.open("/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}","update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes");
     }
 }
+
+function jjim_check(){
+	if (!confirm("찜 목록에 저장하시겠습니까?")) {
+        window.location.reload();
+    }
+    
+}
+
+function jjim_del_check(){
+	if (!confirm("찜 목록에서 삭제하시겠습니까?")) {
+        window.location.reload();
+    }
+}
 function submit_check(){
 	let rf = document.getElementById("reviewForm");
 	
