@@ -540,7 +540,7 @@
 
 <div class="list_button_div">
 	<button class="list_button"
-		onclick="location='/acc/list?detail_cate=${detail_cate}'">목록보기</button>
+		onclick="location='/acc/list?detail_cate=${param.detail_cate}'">목록보기</button>
 </div>
 
 
