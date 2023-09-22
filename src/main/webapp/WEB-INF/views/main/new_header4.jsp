@@ -141,30 +141,27 @@
 			<div class="end_line">
 				<ul>
 					<li>
-						<a>
-							<i></i>
-							<span></span>
+						<a href="/acc/list?detail_cate=hotel">
+							<i><img src="/images/acc/hotel.png" alt="호텔"></i>
+							<span>호텔</span>
 						</a>
 					</li>
 					<li>
-					<li>
-						<a>
-							<i></i>
-							<span></span>
+						<a href="/acc/list?detail_cate=motel">
+							<i><img src="/images/acc/motel.png" alt="모텔"></i>
+							<span>모텔</span>
 						</a>
 					</li>
 					<li>
-					<li>
-						<a>
-							<i></i>
-							<span></span>
+						<a href="/acc/list?detail_cate=pension">
+							<i><img src="/images/acc/pool_house.png" alt="펜션/풀빌라"></i>
+							<span>펜션/풀빌라</span>
 						</a>
 					</li>
 					<li>
-					<li>
-						<a>
-							<i></i>
-							<span></span>
+						<a href="/acc/list?detail_cate=camping">
+							<i><img src="/images/acc/camping.png" alt="글램핑/캠핑"></i>
+							<span>글램핑/캠핑</span>
 						</a>
 					</li>
 				</ul>
