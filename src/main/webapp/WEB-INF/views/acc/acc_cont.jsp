@@ -256,6 +256,8 @@
 					</ul>
 				</div>
 			</div>
+			
+			
 
 			<!-- 지도 -->
 			<div id="map_content" style="display: none;" class="shop_cont_div" >
@@ -263,7 +265,20 @@
 					<h3>지도 상세 보기</h3>
 					<hr>
 					
-					<div id="map" class="kakao_map"></div>
+					<div id="map" style="width:500px;height:400px;">
+					
+					</div>
+					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a88d036132dec983608208b58361c621a88d036132dec983608208b58361c621"></script>
+					<script>
+					var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
+				    staticMapOption = { 
+				        center: new kakao.maps.LatLng(33.450701, 126.570667), // 이미지 지도의 중심좌표
+				        level: 3 // 이미지 지도의 확대 레벨
+				    };
+
+				// 이미지 지도를 표시할 div와 옵션으로 이미지 지도를 생성합니다
+				var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+	</script>
 					
 					
 	
