@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.far.dto.MenuDTO;
 import com.far.dto.JJimDTO;
 import com.far.dto.ResvDTO;
@@ -52,7 +53,7 @@ public class AccController {
 
 	// 숙소 상세 카테고리 페이지
 	@RequestMapping("/cate_list")
-	public ModelAndView acc_list() {
+	public ModelAndView acc_list(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("acc/acc_index");
 		return mav;
 	}

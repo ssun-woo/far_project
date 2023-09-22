@@ -111,8 +111,8 @@
 
 .end_line li {
    height: 40px;
-   width: 90px;
-   margin-right: 50px;
+   width: 150px;
+   margin-right: 10px;
    text-align: center;
    line-height: 30px;
 }
@@ -126,10 +126,12 @@
 
 .end_line span {
    display: block;
-   width: 32px;
+   width: 90px;
+   height: 35px;
    float: left;
    margin-top: 10px;
    margin-left: 5px;
+   text-align: left;
 }
 
 .end_line img {
@@ -181,7 +183,7 @@
 
 .end_hr {
    opacity: 0.5;
-   margin-top: -50px;
+   margin-top: -30px;
 }
 
 /* 지역, 날짜, 객실.인원 검색창 */
