@@ -42,7 +42,7 @@ public class AccController {
 
 	@Autowired
 	private StoreService storeService;
-	
+
 	@Autowired
 	private CeoService ceoService;
 
@@ -54,10 +54,8 @@ public class AccController {
 	}
 
 //	// 세부 카테 클릭 시 출력되는 목록
-//	@RequestMapping("/list")
+	
 //	public ModelAndView acc_hotel(HttpServletRequest request, @PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC)Pageable pageable) {
-
-
 
 //	public ModelAndView acc_hotel(HttpServletRequest request,
 //			@PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC) Pageable pageable) {
@@ -103,8 +101,9 @@ public class AccController {
 //		mav.setViewName("acc/acc_list");
 //		mav.addObject("slist", slist);
 //		return mav;
-	
+
 //	세부 카테 클릭 시 출력되는 목록 
+	@RequestMapping("/list")
 	public ModelAndView acc_hotel(HttpServletRequest request, Model model, @RequestParam(defaultValue = "0") int page) {
 		// String cate = request.getParameter("cate");
 
@@ -118,6 +117,8 @@ public class AccController {
 		System.out.println("id: " + storeService.findById(1));
 		// mav.addObject("cate", cate);
 		mav.setViewName("acc/acc_list");
+		
+		
 
 		return mav;
 	}
@@ -142,11 +143,11 @@ public class AccController {
 		StoreDTO s = accResvService.getInfo(store_num);
 
 		List<MenuDTO> mList = ceoService.getMenuList(store_num);
-		
-		for(MenuDTO m : mList) {
-			m.setCheck_in(m.getCheck_in().substring(0,2) + ":" + m.getCheck_in().substring(2,4));
-			m.setCheck_out(m.getCheck_out().substring(0,2) + ":" + m.getCheck_out().substring(2,4));
-			
+
+		for (MenuDTO m : mList) {
+			m.setCheck_in(m.getCheck_in().substring(0, 2) + ":" + m.getCheck_in().substring(2, 4));
+			m.setCheck_out(m.getCheck_out().substring(0, 2) + ":" + m.getCheck_out().substring(2, 4));
+
 		}
 
 		String region = s.getStoreAddr1().substring(0, 2);
@@ -178,35 +179,34 @@ public class AccController {
 
 //		
 
-	// 리뷰목록
-	@GetMapping("/cont")
-	public ModelAndView acc_reviewlist(HttpServletRequest request) {
-
-		int store_num = Integer.parseInt(request.getParameter("store_num"));
-		List<ReviewDTO> rlist = reviewService.getReview(store_num);
-		String cate = request.getParameter("cate");
-
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("acc/acc_cont");
-		mav.addObject("cate", cate);
-		mav.addObject("reviewList", rlist);
-		mav.addObject("store_num", store_num);
-		System.out.println("store_num : " + store_num);
-		System.out.println("cate : " + cate);
-		return mav;
-	}
-
-	// 리뷰등록
-	@PostMapping("/cont")
-	public String acc_reviewForm(HttpServletRequest request, ReviewDTO rdto) {
-
-		int store_num = Integer.parseInt(request.getParameter("store_num"));
-		reviewService.setReview(rdto);
-		String cate = request.getParameter("cate");
-
-		return "redirect:/acc/cont?cate=" + cate + "&store_num=" + store_num;
-	}
-
+//	// 리뷰목록
+//	@GetMapping("/cont")
+//	public ModelAndView acc_reviewlist(HttpServletRequest request) {
+//
+//		int store_num = Integer.parseInt(request.getParameter("store_num"));
+//		List<ReviewDTO> rlist = reviewService.getReview(store_num);
+//		String cate = request.getParameter("cate");
+//
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("acc/acc_cont");
+//		mav.addObject("cate", cate);
+//		mav.addObject("reviewList", rlist);
+//		mav.addObject("store_num", store_num);
+//		System.out.println("store_num : " + store_num);
+//		System.out.println("cate : " + cate);
+//		return mav;
+//	}
+//
+//	// 리뷰등록
+//	@PostMapping("/cont")
+//	public String acc_reviewForm(HttpServletRequest request, ReviewDTO rdto) {
+//
+//		int store_num = Integer.parseInt(request.getParameter("store_num"));
+//		reviewService.setReview(rdto);
+//		String cate = request.getParameter("cate");
+//
+//		return "redirect:/acc/cont?cate=" + cate + "&store_num=" + store_num;
+//	}
 
 	// 리뷰 삭제
 	@RequestMapping("/cont/delete")
@@ -269,9 +269,6 @@ public class AccController {
 		return new ModelAndView(
 				"redirect:/acc/cont/edit?cate=" + cate + "&store_num=" + store_num + "&review_num=" + review_num);
 	}
-
-
-
 
 	// 숙소 결제페이지 이동
 	@RequestMapping("/payment_info")
