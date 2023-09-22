@@ -14,12 +14,7 @@
 	
 	
 }
-#yes_jjim:checked{
-	display: none;
-}
-#no_jjim:checked{
-	display: none;
-}
+
 
 .filter h4{
 	margin-left: 20px;
@@ -286,37 +281,6 @@ input[type="range"]::-webkit-slider-thumb {
 	border: none;
 }
 
-.shop_JJim{
-	display: flex;
-}
-.shop_JJim button{
-	width: 40px;
-	height: 40px;
-	border: none;
-	background-color: transparent;
-}
-.shop_JJim img{
-	margin-top: 5px;
-	margin-left: 0px;
-	width: 23px;
-	height: 23px;
-	display: flex;
-}
-.separator {
-   margin-right: 4px;
-   margin-left: 4px;
-}
 
-#yes{
-	display: none;
-}
-
-#yes2{
-	display: none;
-}
-
-#yes3{
-	display: none;
-}
 
 

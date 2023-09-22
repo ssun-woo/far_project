@@ -1,4 +1,30 @@
 @charset "UTF-8";
+.shop_name{
+	display: flex;
+	margin-left: 350px;
+}
+.jjim_shop{
+	
+}
+.jjim_shop button{
+	 width : 45px;
+	 height: 35px;
+	margin-top: 20px;
+	margin-left: 5px;
+	background-color: white;
+	border: none;
+}
+
+.jjim_shop img{
+	width: 25px;
+	height: 25px;
+	margin-lrft: -20px;
+}
+.separator {
+   margin-right: 4px;
+   margin-left: 4px;
+}
+
 
 /*숙박 상세정보 전체*/
 .shop_cont{
@@ -9,12 +35,6 @@
 	margin-bottom: 60px;
 }
 
-.shop_name hr{
-	width: 1050px;
-	text-align: center;
-	margin-left: 350px;
-	border: 1px solid;
-}
 
 
 /*숙박업체 사진 및 정보*/

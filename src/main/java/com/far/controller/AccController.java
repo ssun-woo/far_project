@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.far.dto.JJimDTO;
 import com.far.dto.ResvDTO;
 import com.far.dto.ReviewDTO;
 import com.far.service.AccResvService;
+import com.far.service.JJimService;
 import com.far.service.ReviewService;
 
 @Controller
@@ -35,6 +37,9 @@ public class AccController {
 
 	@Autowired
 	private ReviewService reviewService;
+	
+	@Autowired
+	private JJimService jjimService;
 
 	// 숙소 상세 카테고리 페이지
 	@RequestMapping("/cate_list")
@@ -52,57 +57,67 @@ public class AccController {
 		mav.setViewName("acc/acc_list");
 		return mav;
 	}
-
-	// 상품 상세보기
-//	@RequestMapping("/cont")
-//	public ModelAndView acc_cont(HttpServletRequest request, ReviewDTO rdto) {
-//		
-//		reviewService.setReview(rdto);
-//		int store_num = Integer.parseInt(request.getParameter("store_num"));
-//		List<ReviewDTO> rlist = reviewService.getReview(store_num);
-//		String cate = request.getParameter("cate"); // 현재 cate 받아옴
-//		int page = Integer.parseInt(request.getParameter("page"));	// 페이지 책갈피 기능
+	
+	//찜 등록
+	@PostMapping("/cont/jjim")
+	public String jjim_btn(HttpServletRequest request) {
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		String jjim = request.getParameter("jjim");
+		JJimDTO jdto = new JJimDTO();
+		jdto.setMemId("abdg1");
+		jdto.setStore_num(store_num);
 		
-
-		 
+		jjimService.setJJim(jdto);
+				
 		
-//		ModelAndView mav = new ModelAndView();
-//		
-//		mav.addObject("cate", cate);
-////		mav.addObject("page", page);
-//		
-//		mav.setViewName("acc/acc_cont");
-//		mav.addObject("reviewList", rlist);
-//		mav.addObject("store_num", store_num);
-//		mav.addObject("dto",rdto);
-//		System.out.println("store_num : " + store_num);
-//
-//		System.out.println("cate : " + cate);
-////		System.out.println(page);
-//		System.out.println(rdto);
-//		
-//		
-//
-//		return mav;
-//		
-//	}
+		String cate = request.getParameter("cate");
+		
+		
+		System.out.println("jjim : " + jjim);
+        
+		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+	}
+	
+	//찜 삭제
+	@PostMapping("/cont/jjim_del")
+	public String jjim_del_btn(HttpServletRequest request) {
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		String cate = request.getParameter("cate");
+		
+		JJimDTO jdto = new JJimDTO();
+		jdto.setMemId("abdg1");
+		jdto.setStore_num(store_num);
+		
+		jjimService.delJJim(jdto);
+		
+		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+	}
 
 	//리뷰목록
 	@GetMapping("/cont")
 	public ModelAndView acc_reviewlist(HttpServletRequest request) {
 		
-		
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
 		List<ReviewDTO> rlist = reviewService.getReview(store_num);
 		String cate = request.getParameter("cate");
 		
+		JJimDTO jdto = new JJimDTO();
+		jdto.setMemId("abdg1");
+		jdto.setStore_num(store_num);
+		System.out.println("memId:"+jdto);
+		
+		int count = jjimService.getCount(jdto);
+		System.out.println("JJim_count: "+count);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("acc/acc_cont");
 		mav.addObject("cate", cate);
+		mav.addObject("JJim",count);
 		mav.addObject("reviewList", rlist);
 		mav.addObject("store_num", store_num);
-		System.out.println("store_num : " + store_num);
-		System.out.println("cate : " + cate);
+		
+//		System.out.println("ifjjim: "+ ifJJim);
+
 		return mav;
 	}
 	
@@ -112,22 +127,13 @@ public class AccController {
 		
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
 		reviewService.setReview(rdto);
-//		reviewService.delReview(rdto);
 		String cate = request.getParameter("cate");
 		
 		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
 	}
 	
 
-//	@PostMapping("/delete/{review_num}")
-//	public String deleteReview(@PathVariable("review_num") int review_num, HttpServletRequest request)throws Exception {
-//		
-//		int store_num = Integer.parseInt(request.getParameter("store_num"));
-//		reviewService.delReview(review_num);
-//		String cate = request.getParameter("cate");
-//		
-//		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
-//	}
+
 	
 	//리뷰 삭제
 	 @RequestMapping("/cont/delete")

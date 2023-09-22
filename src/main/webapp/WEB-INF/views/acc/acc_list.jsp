@@ -154,22 +154,7 @@
 			<h2>75,000원</h2>
 			<p>★★★★☆</p>
 			<p>리뷰 196</p>
-			<div class="shop_JJim">
-				<div class="jjim_btn">
-				<input type="radio" name="jjim_btn" value="no" id="no_jjim"<c:if test="${review_rating==5.0}">checked</c:if>>
-				<label for="no_jjim"><img src="../images/acc/NoJJim.png"></label>
-				</div>
-				
-				<div class="jjim_btn">
-					<input type="radio" name="jjim_btn" value="yes" id="yes_jjim" <c:if test="${review_rating==5.0}">checked</c:if>>
-					<label for="yes_jjim"><img src="../images/acc/YesJJim.png"></label>
-					
-					
-				
-				</div>
-				
-		
-			</div>
+			
 			
 		</div>
 		
@@ -196,12 +181,7 @@
 			<p>★★★★☆</p>
 			<p>리뷰 1</p>
 			
-			<div class="shop_JJim">
-				<button type="button" onclick="imgToggle2()">
-				<img src="../images/acc/NoJJim.png" id="no2">
-				<img src="../images/acc/YesJJim.png" id="yes2">
-			</button>
-			</div>
+			
 		</div>
 		
 	</div>
