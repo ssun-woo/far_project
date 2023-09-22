@@ -63,12 +63,10 @@ hr {
 	display: flex;
 	flex-direction: column;
 }
-.storeAdrressB{
+.storeAddressF{
 	display: flex;
 }
-.storeAddressS{
-	display: flex;
-}
+
 #storeAddressextraAddress{
 	width: 200px;
     padding: 8px;
@@ -99,6 +97,7 @@ hr {
     border-radius: 10px;
     align-items: flex-start; /* 왼쪽 정렬 */
     margin-left: 15px;
+    margin-right: 10px;
 }
 
 #storeAddressSecond {

@@ -70,15 +70,17 @@ table {
 								<div class="storeAddressArea">
 									<div class="storeAddressF">
 									
-										<div class="storeAdrressB"><input type="text" id="storeAddressPostcode" placeholder="우편번호"><input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></div><br>
-										<input type="text" id="storeAddressFirst"  name="store_addr1" placeholder="주소"><br>
+										<!-- <input type="text" id="storeAddressPostcode" placeholder="우편번호">  -->
+										<input type="text" id="storeAddressFirst"  name="store_addr1" placeholder="주소">
+										<input type="button" onclick="sample6_execDaumPostcode()" value="주소 검색"><br>
+										
 										
 										<!-- <button id="storeAddressSearchBtn">주소 검색</button> -->
 									</div>
 								</div>
 								<div class="storeAddressS">
 									<input type="text" id="storeAddressSecond" name="store_addr2" placeholder="상세주소">
-									<input type="text" id="storeAddressextraAddress" placeholder="참고항목">
+									<!--<input type="text" id="storeAddressextraAddress" placeholder="참고항목">  -->
 								</div>
 
 								<!-- <input type="text" id="storeAddress" name="storeAddress"
@@ -435,7 +437,7 @@ table {
                     addr = data.jibunAddress;
                 }
 
-                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+               /* // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
                 if(data.userSelectedType === 'R'){
                     // 법정동명이 있을 경우 추가한다. (법정리는 제외)
                     // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
@@ -455,10 +457,10 @@ table {
                 
                 } else {
                     document.getElementById("storeAddressextraAddress").value = '';
-                }
+                }*/
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('storeAddressPostcode').value = data.zonecode;
+                //document.getElementById('storeAddressPostcode').value = data.zonecode;
                 document.getElementById("storeAddressFirst").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById("storeAddressSecond").focus();
