@@ -78,9 +78,6 @@ table {
 										
 										<!-- <button id="storeAddressSearchBtn">주소 검색</button> -->
 										
-										<input type="text" id="storeAddressFirst"  name="store_addr1" placeholder="주소">
-										<input type="button" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br>
-
 									</div>
 								</div>
 								<div class="storeAddressS">
