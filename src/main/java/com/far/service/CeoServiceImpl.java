@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.far.dao.CeoDAO;
-import com.far.dto.MenuDTO;
+import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 
 @Service
@@ -31,7 +31,7 @@ public class CeoServiceImpl implements CeoService {
 	}
 
 	@Override
-	public void insertMenu(MenuDTO m) {
+	public void insertMenu(RoomDTO m) {
 		ceoDao.insertMenu(m);
 	}
 
@@ -41,7 +41,7 @@ public class CeoServiceImpl implements CeoService {
 	}
 
 	@Override
-	public List<MenuDTO> getMenuList(int s_num) {
+	public List<RoomDTO> getMenuList(int s_num) {
 		return ceoDao.getMenuList(s_num);
 	}
 
@@ -51,7 +51,7 @@ public class CeoServiceImpl implements CeoService {
 	}
 
 	@Override
-	public MenuDTO getMenu(int menu_id) {
+	public RoomDTO getMenu(int menu_id) {
 		return ceoDao.getMenu(menu_id);
 	}
 
@@ -61,7 +61,7 @@ public class CeoServiceImpl implements CeoService {
 	}
 
 	@Override
-	public void editMenu(MenuDTO m) {
+	public void editMenu(RoomDTO m) {
 		ceoDao.editMenu(m);
 	}
 	

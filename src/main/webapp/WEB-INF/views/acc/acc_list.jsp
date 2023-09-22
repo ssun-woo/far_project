@@ -111,7 +111,7 @@
 						'캠핑/글램핑' 검색결과
 					</c:if>
 				</li>
-				<li >&nbsp;&nbsp;['${totalCount }'개의 검색 결과]</li>
+				<li >&nbsp;&nbsp;['${countStore }'개의 검색 결과]</li>
 				<li class="space"></li>
 				<li class="sort">인기순</li>
 				<li class="separator">|</li>
@@ -127,9 +127,9 @@
 		<c:forEach var="store" items="${list.content }">
 		
 			<div class="list_div">
-		
-				<a href='/acc/cont?cate=${store.detailCate}&store_num=10'><img src="../images/acc/motel1-2.jpg"></a>
-		
+
+				<a href='/acc/cont?cate=${store.detailCate}&store_num=${store.storeNum}'><img
+					src="../images/acc/motel1-2.jpg"></a>
 				<div class="list_cont">
 					<div class="shop_Name">
 						<h3>${store.storeName }</h3>

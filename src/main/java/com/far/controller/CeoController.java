@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.far.dto.MenuDTO;
+import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 import com.far.service.CeoService;
 import com.oreilly.servlet.MultipartRequest;
@@ -29,6 +29,7 @@ public class CeoController {
 
 	@Autowired
 	private CeoService ceoService;
+	
 
 	// ceo 메인 페이지 이동
 	@RequestMapping("/index")
@@ -37,12 +38,9 @@ public class CeoController {
 		String id = authentication.getName();
 		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		System.out.println(id);
-		
 		List<StoreDTO> slist = ceoService.getStores(id);
-		
 		ModelAndView mav = new ModelAndView("ceo/ceo_index");
 		mav.addObject("slist", slist);
-		
 		return mav;
 	}
 
@@ -53,7 +51,6 @@ public class CeoController {
 		String id = authentication.getName();
 		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		System.out.println(id);
-
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("ceo/ceo_store_reg");
 		return mav;
@@ -71,17 +68,17 @@ public class CeoController {
 		multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8");
 
 		String cate = multi.getParameter("cate");
-		String detail_cate = multi.getParameter("detail_cate");
-		String store_name = multi.getParameter("store_name");
-		String store_intro = multi.getParameter("store_intro");
-		String store_addr1 = multi.getParameter("store_addr1");
-		String store_addr2 = multi.getParameter("store_addr2");
-		String reg_num = multi.getParameter("reg_num");
+		String detailCate = multi.getParameter("detailCate");
+		String storeName = multi.getParameter("storeName");
+		String storeIntro = multi.getParameter("storeIntro");
+		String storeAddr1 = multi.getParameter("storeAddr1");
+		String storeAddr2 = multi.getParameter("storeAddr2");
+		String regNum = multi.getParameter("regNum");
 
-		File logo_image = multi.getFile("logo_image");
+		File logoImage = multi.getFile("logoImage");
 
-		if (logo_image != null) {
-			String fileName = logo_image.getName();
+		if (logoImage != null) {
+			String fileName = logoImage.getName();
 			Calendar cal = Calendar.getInstance();
 			int year = cal.get(Calendar.YEAR);
 			int month = cal.get(Calendar.MONTH) + 1;
@@ -101,20 +98,19 @@ public class CeoController {
 			String fileExtendsion = fileName.substring(index + 1);
 			String refileName = cate + "logo" + year + month + date + random + "." + fileExtendsion;
 			String fileDBName = "/" + year + "-" + month + "-" + date + "/" + refileName;
-			logo_image.renameTo(new File(homedir + "/" + refileName));
+			logoImage.renameTo(new File(homedir + "/" + refileName));
 
 			s.setStoreLogo(fileDBName);
 		}
 
 		s.setMemId(id);
 		s.setCate(cate);
-		s.setDetailCate(detail_cate);
-		s.setRegNum(reg_num);
-		s.setStoreAddr1(store_addr1);
-		s.setStoreAddr2(store_addr2);
-		s.setStoreIntro(store_intro);
-		s.setStoreName(store_name);
-		//s.setStore_num(1251); // 시퀀스 값이 들어갈거라 스퀀스 생성 후에는 삭제될 내용
+		s.setDetailCate(detailCate);
+		s.setRegNum(regNum);
+		s.setStoreAddr1(storeAddr1);
+		s.setStoreAddr2(storeAddr2);
+		s.setStoreIntro(storeIntro);
+		s.setStoreName(storeName);
 
 		ceoService.insertStore(s);
 
@@ -166,7 +162,12 @@ public class CeoController {
 	public ModelAndView loadStoreMenuRegis(String store_num) {
 
 		int s_num = Integer.parseInt(store_num);
-		List<MenuDTO> mlist = ceoService.getMenuList(s_num);
+		List<RoomDTO> mlist = ceoService.getMenuList(s_num);
+		
+		for(RoomDTO r : mlist) {
+			System.out.println("방이름 : "  + r.getRoomName());
+			
+		}
 
 		StoreDTO s = ceoService.getStore(s_num);
 
@@ -188,28 +189,28 @@ public class CeoController {
 
 	// 가게 관리 - 메뉴 등록
 	@PostMapping("/store_menu_regis_ok")
-	public ModelAndView ceo_store_menu_regis_ok(MenuDTO m, HttpServletRequest request) throws Exception {
+	public ModelAndView ceo_store_menu_regis_ok(RoomDTO m, HttpServletRequest request) throws Exception {
 		MultipartRequest multi = null; // 이진파일을 가져올 참조변수
 
 		int fileSize = 5 * 1024 * 1024; // 이진파일 업로드 최대크기
 		String saveFolder = request.getRealPath("upload/store_menu/"); // 이진 파일 업로드 서버 경로
 		multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8");
 
-		int store_num = Integer.parseInt(multi.getParameter("store_num"));
+		int store_num = Integer.parseInt(multi.getParameter("storeNum"));
 		String cate = ceoService.getCate(store_num);
 		String detail_cate = ceoService.getDetail_Cate(store_num);
-		String menu_name = multi.getParameter("menu_name");
-		String menu_explain = multi.getParameter("menu_explain");
-		int menu_price = Integer.parseInt(multi.getParameter("menu_price"));
+		String menu_name = multi.getParameter("roomName");
+		String menu_explain = multi.getParameter("roomExplain");
+		int menu_price = Integer.parseInt(multi.getParameter("roomPrice"));
 		
-		int standard_num = Integer.parseInt(multi.getParameter("standard_num"));
-		int max_num = Integer.parseInt(multi.getParameter("max_num"));
+		int standard_num = Integer.parseInt(multi.getParameter("standardNum"));
+		int max_num = Integer.parseInt(multi.getParameter("maxNum"));
 		
 		String check_in = multi.getParameter("check_in_hour") + multi.getParameter("check_in_min");
 		String check_out = multi.getParameter("check_out_hour") + multi.getParameter("check_out_min");
 		
 		
-		File upMenu = multi.getFile("menu_photo");
+		File upMenu = multi.getFile("roomPhoto");
 
 		if (upMenu != null) {
 			String fileName = upMenu.getName();
@@ -229,19 +230,19 @@ public class CeoController {
 			String fileDBName = "/" + store_num + "/" + refileName;
 			upMenu.renameTo(new File(homedir + "/" + refileName));
 
-			m.setMenu_photo(fileDBName);
+			m.setRoomPhoto(fileDBName);
 		} else {
 			String fileDBName = "";
-			m.setMenu_photo(fileDBName);
+			m.setRoomPhoto(fileDBName);
 		}
-		m.setMenu_name(menu_name);
-		m.setMenu_explain(menu_explain);
-		m.setMenu_price(menu_price);
-		m.setStore_num(store_num);
-		m.setCheck_in(check_in);
-		m.setCheck_out(check_out);
-		m.setMax_num(max_num);
-		m.setStandard_num(standard_num);
+		m.setRoomName(menu_name);
+		m.setRoomExplain(menu_explain);
+		m.setRoomPrice(menu_price);
+		m.setStoreNum(store_num);
+		m.setCheckIn(check_in);
+		m.setCheckOut(check_out);
+		m.setMaxNum(max_num);
+		m.setStandardNum(standard_num);
 
 		ceoService.insertMenu(m);
 
@@ -254,10 +255,10 @@ public class CeoController {
 	@GetMapping("/store_menu_cont")
 	public ModelAndView store_menu_cont(int menu_id) {
 
-		MenuDTO m = ceoService.getMenu(menu_id);
-		StoreDTO s = ceoService.getStore(m.getStore_num());
+		RoomDTO m = ceoService.getMenu(menu_id);
+		StoreDTO s = ceoService.getStore(m.getStoreNum());
 		
-		String explain = m.getMenu_explain().replace("\n", "<br>");
+		String explain = m.getRoomExplain().replace("\n", "<br>");
 		
 		
 		
@@ -276,11 +277,11 @@ public class CeoController {
 //		System.out.println(menu_id);
 //		System.out.println(store_num);
 		StoreDTO s = ceoService.getStore(store_num);
-		MenuDTO m = ceoService.getMenu(menu_id);
+		RoomDTO m = ceoService.getMenu(menu_id);
 		String delFolder = request.getRealPath("upload/store_menu/" + s.getCate());
 
 		ceoService.delMenu(menu_id); // 메뉴삭제
-		File delFile = new File(delFolder + m.getMenu_photo());
+		File delFile = new File(delFolder + m.getRoomPhoto());
 		delFile.delete();
 
 		ModelAndView mav = new ModelAndView("redirect:/ceo/store_menu_list?store_num=" + store_num);
@@ -297,9 +298,9 @@ public class CeoController {
 	@GetMapping("/store_menu_edit")
 	public ModelAndView ceo_store_menu_edit(int menu_id, int store_num) {
 		
-		MenuDTO m = ceoService.getMenu(menu_id);
+		RoomDTO m = ceoService.getMenu(menu_id);
 		StoreDTO s = ceoService.getStore(store_num);
-		String explain = m.getMenu_explain().replace("<br>", "\n");
+		String explain = m.getRoomExplain().replace("<br>", "\n");
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("ceo/store_menu_edit");
@@ -310,7 +311,7 @@ public class CeoController {
 	}
 	
 	@PostMapping("/store_menu_edit_ok")
-	public ModelAndView ceo_store_menu_edit_ok(MenuDTO m, HttpServletRequest request) throws Exception {
+	public ModelAndView ceo_store_menu_edit_ok(RoomDTO m, HttpServletRequest request) throws Exception {
 		String saveFolder = request.getRealPath("upload/store_menu");	// 이진 파일 업로드 서버 경로
 		int fileSize = 5*1024*1024;	// 이진파일 업로드 최대크기
 		MultipartRequest multi = null; // 이진파일을 가져올 참조변수
@@ -338,15 +339,15 @@ public class CeoController {
 		System.out.println(menu_photo2);
 		
 		// 기존 객체를 구함
-		MenuDTO mdto = ceoService.getMenu(menu_id);
+		RoomDTO mdto = ceoService.getMenu(menu_id);
 		StoreDTO sdto = ceoService.getStore(store_num);
 		
 		if(menu_photo2 == null || isChecked == 1) { // 사진을 안올렸거나 기존과 동일을 체크한 경우
-			m.setMenu_photo(mdto.getMenu_photo());
+			m.setRoomPhoto(mdto.getRoomPhoto());
 		}else {
 			if(menu_photo2 != null) {
 				String fileName = menu_photo2.getName();
-				File delFile = new File(saveFolder + "/" + sdto.getCate() + "/" + mdto.getMenu_photo());
+				File delFile = new File(saveFolder + "/" + sdto.getCate() + "/" + mdto.getRoomPhoto());
 				System.out.println(delFile);
 				if(delFile.exists()) {
 					delFile.delete();
@@ -366,18 +367,18 @@ public class CeoController {
 				String refileName = sdto.getDetailCate() + random + "." + fileExtendsion;
 				String fileDBName = "/" + store_num + "/" + refileName;
 				menu_photo2.renameTo(new File(homedir + "/" + refileName));
-				m.setMenu_photo(fileDBName);
+				m.setRoomPhoto(fileDBName);
 			}
 		}
-		m.setMenu_id(menu_id);
-		m.setStore_num(store_num);
-		m.setMenu_name(menu_name);
-		m.setMenu_explain(menu_explain);
-		m.setMenu_price(menu_price);
-		m.setStandard_num(standard_num);
-		m.setMax_num(max_num);
-		m.setCheck_in(check_in);
-		m.setCheck_out(check_out);
+		m.setRoomNum(menu_id);
+		m.setStoreNum(store_num);
+		m.setRoomName(menu_name);
+		m.setRoomExplain(menu_explain);
+		m.setRoomPrice(menu_price);
+		m.setStandardNum(standard_num);
+		m.setMaxNum(max_num);
+		m.setCheckIn(check_in);
+		m.setCheckOut(check_out);
 		
 		ceoService.editMenu(m);
 		

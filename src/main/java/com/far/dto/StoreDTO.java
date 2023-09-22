@@ -62,7 +62,7 @@ public class StoreDTO {
 	@Column(name = "MEMID")
     private String memId;
 	
-	@Column(name = "LEGDATE")
+	@Column(name = "REGDATE")
 	private String regDate;
 	
 	@Column(name = "STORESCORE")
