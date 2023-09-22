@@ -6,10 +6,29 @@
 
 <div class="shop_cont">
 	<div class="shop_name">
-		<h2>[${region} / ${sebu_cate}] ${s.store_name}</h2>
-		<hr>
+		<h2>[${region} / ${sebu_cate}] ${s.store_name}</h2> 
+			<label class="jjim_shop">
+				<c:if test="${JJim==0}">
+				<form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
+					<button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
+					<img src="../images/acc/NoJJim.png">
+				</button>
+				</form>
+				</c:if>
+				<c:if test="${JJim==1}">
+				<form action="/acc/cont/jjim_del?cate=${cate}&store_num=${store_num}" class="jjim_btn" method="POST">
+					<button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
+					<img src="../images/acc/YesJJim.png">
+				</button>
+				</form>
+				</c:if>
+				</label>
+				
 	</div>
-
+	<hr style="width: 1050px;
+	text-align: center;
+	margin-left: 350px;
+	border: 1px solid;">
 	<div class="shop_cont_top">
 		<div class="shop_photo">
 			<img src="/upload/store_logo${s.store_logo}" width="570px"
@@ -427,6 +446,7 @@
 							</table>
 						</form>
 					</div>
+
 					<div class="review_form">
 						<h3>이용후기 (건수)</h3>
 						<div class="detail_review">

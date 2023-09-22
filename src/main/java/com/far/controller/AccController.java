@@ -20,13 +20,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.far.dto.MenuDTO;
+import com.far.dto.JJimDTO;
 import com.far.dto.ResvDTO;
 import com.far.dto.ReviewDTO;
 import com.far.dto.StoreDTO;
 import com.far.service.AccResvService;
 import com.far.service.CeoService;
+import com.far.service.JJimService;
 import com.far.service.ReviewService;
 import com.far.service.StoreService;
 
@@ -39,6 +40,9 @@ public class AccController {
 
 	@Autowired
 	private ReviewService reviewService;
+	
+	@Autowired
+	private JJimService jjimService;
 
 	@Autowired
 	private StoreService storeService;
@@ -67,55 +71,6 @@ public class AccController {
 	    mav.setViewName("acc/acc_list");
 	    return mav;
 }
-
-//	// 세부 카테 클릭 시 출력되는 목록
-	
-//	public ModelAndView acc_hotel(HttpServletRequest request, @PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC)Pageable pageable) {
-
-//	public ModelAndView acc_hotel(HttpServletRequest request,
-//			@PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC) Pageable pageable) {
-
-//		String cate = request.getParameter("cate");
-//		String detail_cate = request.getParameter("detail_cate");
-//
-//		List<StoreDTO> slist = accResvService.getCateList(detail_cate);
-//		int totalCount = accResvService.getTotalCount(detail_cate);
-//		ModelAndView mav = new ModelAndView();
-//
-//		mav.addObject("detail_cate", detail_cate);
-//		mav.addObject("totalCount", totalCount);
-
-//		Page<Store> acc_list = ListUpService.storeList(pageable);
-
-//		Page<Store> acc_list = listUpService.storeList(pageable);
-
-//		System.out.println(acc_list);
-//		System.out.println(acc_list.getSize());
-//		mav.addObject("acc_list", acc_list);
-//		mav.addObject("cate", cate);
-//		mav.setViewName("acc/acc_list");
-//		mav.addObject("slist", slist);
-//		return mav;
-//	}
-
-//	public ModelAndView acc_hotel(HttpServletRequest request, @PageableDefault(page = 0, size = 10, sort = "storeName", direction = Sort.Direction.DESC)Pageable pageable) {
-//		String cate = request.getParameter("cate");
-//		String detail_cate = request.getParameter("detail_cate");
-//
-//		List<StoreDTO> slist = accResvService.getCateList(detail_cate);
-//		int totalCount = accResvService.getTotalCount(detail_cate);
-//		ModelAndView mav = new ModelAndView();
-//
-//		mav.addObject("detail_cate", detail_cate);
-//		mav.addObject("totalCount", totalCount);
-//		Page<Store> acc_list = listUpService.storeList(pageable);
-//		System.out.println(acc_list);
-//		System.out.println(acc_list.getSize());
-//		mav.addObject("acc_list", acc_list);
-//		mav.addObject("cate", cate);
-//		mav.setViewName("acc/acc_list");
-//		mav.addObject("slist", slist);
-//		return mav;
 
 
 	// 상품 상세보기
@@ -254,6 +209,42 @@ public class AccController {
 		return new ModelAndView(
 				"redirect:/acc/cont/edit?cate=" + cate + "&store_num=" + store_num + "&review_num=" + review_num);
 	}
+	
+	//찜 등록
+		@PostMapping("/cont/jjim")
+		public String jjim_btn(HttpServletRequest request) {
+			int store_num = Integer.parseInt(request.getParameter("store_num"));
+			String jjim = request.getParameter("jjim");
+			JJimDTO jdto = new JJimDTO();
+			jdto.setMemId("abdg1");
+			jdto.setStore_num(store_num);
+			
+			jjimService.setJJim(jdto);
+					
+			
+			String cate = request.getParameter("cate");
+			
+			
+			System.out.println("jjim : " + jjim);
+	        
+			return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+		}
+		
+		//찜 삭제
+		@PostMapping("/cont/jjim_del")
+		public String jjim_del_btn(HttpServletRequest request) {
+			int store_num = Integer.parseInt(request.getParameter("store_num"));
+			String cate = request.getParameter("cate");
+			
+			JJimDTO jdto = new JJimDTO();
+			jdto.setMemId("abdg1");
+			jdto.setStore_num(store_num);
+			
+			jjimService.delJJim(jdto);
+			
+			return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+		}
+
 
 	// 숙소 결제페이지 이동
 	@RequestMapping("/payment_info")
