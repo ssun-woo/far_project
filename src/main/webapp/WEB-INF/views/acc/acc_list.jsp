@@ -79,18 +79,17 @@
 			</c:if> <c:if test="${param.detail_cate == 'camping'}">
 				'캠핑/글램핑' 검색결과
 
-			</c:if>
-		</li>
-		<li >&nbsp;&nbsp;['${countStore }'개의 검색 결과]</li>
-		<li class="space"></li>
-		<li class="sort">인기순</li>
-		<li class="separator">|</li>
-        <li class="sort">평점높은순</li>
-        <li class="separator">|</li>
-        <li class="sort">낮은요금순</li>
-	</ul>
-	</div>
-	<div class="list_main">
+			</c:if></li>
+				<li>&nbsp;&nbsp;['${countStore }'개의 검색 결과]</li>
+				<li class="space"></li>
+				<li class="sort">인기순</li>
+				<li class="separator">|</li>
+				<li class="sort">평점높은순</li>
+				<li class="separator">|</li>
+				<li class="sort">낮은요금순</li>
+			</ul>
+		</div>
+		<div class="list_main">
 
 			<hr>
 		</div>
@@ -128,32 +127,32 @@
 	</div>
 </div>
 <div class="pagination">
-	<c:if test="${not empty list}">
-		<div class="pagination-list">
-			<table border="1">
-				<tr>
-					<td><a href="?page=0">첫 페이지</a></td>
-				
-		
+   <c:if test="${not empty list}">
+      <div class="pagination-list">
+         <table border="1">
+            <tr>
+               <td><a href="?page=0">첫 페이지</a></td>
+            
+      
 
 <script>
-	var currentPage = ${list.number }; // 현재 페이지 번호
-	var pageSize = 5; // 한 번에 보여줄 페이지 인덱스 수
+   var currentPage = ${list.number }; // 현재 페이지 번호
+   var pageSize = 5; // 한 번에 보여줄 페이지 인덱스 수
 
                 if (endPage > totalPages) {
                     endPage = totalPages;
                 }
-				
+            
                 if (currentPage > 0) { // 현재 페이지가 1보다 큰 경우에만 "이전" 링크를 생성
                     document.write('<td><a href="?detail_cate=${param.detail_cate}&page=' + (currentPage - 1) + '">이전</a></td>');
                 } else {
-                	document.write('');
+                   document.write('');
                 }
                 
                 for (var i = startPage; i <= endPage; i++) {
                     document.write('<td><a href="?detail_cate=${param.detail_cate}&page=' + (i - 1) + '">' + i + '</a></td>');
                 }
-				
+            
                 if (currentPage < totalPages - 1) { // 현재 페이지가 마지막 페이지에서 두 번째 페이지보다 작을 경우에만 "다음" 표시
                     document.write('<td><a href="?detail_cate=${param.detail_cate}&page=' + (currentPage + 1) + '">다음</a></td>');
                 }
@@ -166,6 +165,6 @@
             </table>
         </div>
         </c:if>
-	</div>
-	
+   </div>
+   
 <jsp:include page="../main/footer.jsp"/>
