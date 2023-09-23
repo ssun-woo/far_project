@@ -18,11 +18,11 @@
 							<img src="../images/cute.png">
 						</div>
 					</th>
-					<td>가게 이름 : ${store.store_name}</td>
+					<td>가게 이름 : ${store.storeName}</td>
 				</tr>
 
 				<tr>
-					<td>가게 주소 : ${store.store_addr}</td>
+					<td>가게 주소 : ${store.storeAddr1}</td>
 				</tr>
 
 				<tr>
@@ -223,7 +223,7 @@
       
       		<script>
 	         	// 초기 상품 금액 설정
-	         	var originPrice = ${menu.price != null ? menu.price : 0};
+	         	var originPrice = ${menu.menu_price != null ? menu.menu_price : 0};
          
          		// 최대 할인 가능한 금액 초기화
          		var maxDiscountAmount = originPrice;
@@ -264,7 +264,7 @@
                			<td id="productPrice" style="text-align: right;">
                   			<span id="originPrice" style="color: black;">
                   				<script>
-                  					var menuPrice = ${menu.price != null ? menu.price : 0};
+                  					var menuPrice = ${menu.menu_price != null ? menu.menu_price : 0};
                   					var formattedPrice = numberWithCommas(menuPrice);
                   					document.write(formattedPrice);
                   				</script>원
@@ -290,7 +290,7 @@
 					  	<th id="totalAmount" style="text-align: right;">
 					  		<span id="totalPrice" style="color: black;">
 					  			<script>
-						  			var menuPrice = ${menu.price};
+						  			var menuPrice = ${menu.menu_price};
 						  			var formattedPrice = numberWithCommas(menuPrice);
 						  			document.write(formattedPrice);
 						  		</script>원

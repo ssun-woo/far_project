@@ -19,8 +19,8 @@ public class PaymentDAOImpl implements PaymentDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<CouponDTO> getCoupons(String mem_id) {
-		return sqlSession.selectList("getCoupons", mem_id);
+	public List<CouponDTO> getCoupons(String memId) {
+		return sqlSession.selectList("getCoupons", memId);
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class PaymentDAOImpl implements PaymentDAO {
 	}
 
 	@Override
-	public MemberDTO getMember(String mem_id) {
-		return sqlSession.selectOne("getMember", mem_id);
+	public MemberDTO getMember(String memId) {
+		return sqlSession.selectOne("getMember", memId);
 	}
 
 }

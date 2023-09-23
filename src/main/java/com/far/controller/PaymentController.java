@@ -32,11 +32,11 @@ public class PaymentController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		//String mem_id = (String)session.getAttribute("memId");
-		String mem_id = "qwer";
+		String memId = (String)session.getAttribute("memId");
+		//String memId = "qwer";
 		
 		// 쿠폰 선택 옵션에 쿠폰 목록 불러오기
-		List<CouponDTO> coupons = paymentService.getCoupons(mem_id);
+		List<CouponDTO> coupons = paymentService.getCoupons(memId);
 		
 		// 메뉴 정보
 		MenuDTO menu = paymentService.getMenu(1);
@@ -45,7 +45,7 @@ public class PaymentController {
 		StoreDTO store = paymentService.getStore(menu.getStore_num());
 		
 		// 포인트
-		MemberDTO member = paymentService.getMember(mem_id);
+		MemberDTO member = paymentService.getMember(memId);
 		
 		/*
 		 * for(CouponDTO c : coupons) { System.out.println("쿠폰이름 : " +

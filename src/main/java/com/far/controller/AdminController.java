@@ -2,6 +2,7 @@ package com.far.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
 import com.far.dto.StoreDTO;
 import com.far.service.AdminService;
@@ -71,4 +73,26 @@ public class AdminController {
 		model.addAttribute("permitOkList", permitOkList);
 		return "admin/storeList";
 	}
+	
+	
+//	// 쿠폰 등록 폼 이동
+//	@GetMapping("/coupon_registration")
+//	public ModelAndView admin_coupon_regis() {
+//		ModelAndView mav = new ModelAndView("admin/coupon_regis");
+//		return mav;
+//	}
+//	
+//	// 쿠폰 등록
+//	@PostMapping("/coupon_registration")
+//	public String coupon_registration_ok() {
+//		try {
+//			CouponDTO c_regis = new CouponDTO();
+//			adminService.insertAdCoupon(c_regis);
+//			
+//			return "쿠폰이 등록되었습니다.";
+//		} catch (Exception e) {
+//			return "쿠폰 등록에 실패하였습니다.";
+//		}
+//	}
+
 }

@@ -39,10 +39,10 @@ public class CouponDTO {
 	public void setCoupon_name(String coupon_name) {
 		this.coupon_name = coupon_name;
 	}
-	public double getCoupon_discount() {
+	public double getCoupon_discountrate() {
 		return coupon_discountrate;
 	}
-	public void setCoupon_discount(int coupon_discountrate) {
+	public void setCoupon_discountrate(double coupon_discountrate) {
 		this.coupon_discountrate = coupon_discountrate;
 	}
 	public String getCoupon_startDate() {
@@ -75,4 +75,5 @@ public class CouponDTO {
 	public void setCoupon_used(int coupon_used) {
 		this.coupon_used = coupon_used;
 	}
+	
 }

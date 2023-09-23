@@ -19,7 +19,7 @@
 	</select>
 	
 	<select id="getStore" resultType="Store">
-		SELECT * FROM store WHERE store_num = #{store_num}
+		SELECT * FROM store WHERE storeNum = #{store_num}
 	</select>
 	
 	<select id="get_couponIssue" parameterType="hashmap" resultType="coupon">
@@ -36,7 +36,7 @@
 	
 	<select id="getMember" resultType="member">
 		SELECT * FROM member
-		WHERE memId = #{mem_id}
+		WHERE memId = #{memId}
 	</select>
 	
 </mapper>

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.far.dao.AdminDAO;
-import com.far.dto.MemberDTO;
 import com.far.dto.StoreDTO;
 
 
@@ -39,4 +38,9 @@ public class AdminServiceImpl implements AdminService {
 		adminDAO.storeDeniedSelect(storeNum);
 		return null;
 	}
+
+//	@Override
+//	public void insertAdCoupon(CouponDTO c_regis) {
+//		adminDAO.insertAdCoupon(c_regis);
+//	}
 }

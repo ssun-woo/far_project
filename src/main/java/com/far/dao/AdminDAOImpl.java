@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.far.dto.MemberDTO;
 import com.far.dto.StoreDTO;
 
 @Repository
@@ -38,5 +37,10 @@ public class AdminDAOImpl implements AdminDAO {
 		sqlSession.selectList("storeDenied", storeNum);
 		return null;
 	}
+
+//	@Override
+//	public void insertAdCoupon(CouponDTO c_regis) {
+//		sqlSession.insert("insertAdCoupon", c_regis);
+//	}
 	
 }

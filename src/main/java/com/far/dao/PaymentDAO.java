@@ -20,6 +20,6 @@ public interface PaymentDAO {
 
 	void insertCoupon(CouponDTO newc);
 
-	MemberDTO getMember(String mem_id);
+	MemberDTO getMember(String memId);
 
 }

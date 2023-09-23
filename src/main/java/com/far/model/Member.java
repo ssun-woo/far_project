@@ -23,7 +23,8 @@ public class Member {
 	private String memTel;
 	@Column(name = "MEMCLASS")
 	private String memClass;
-	
+	@Column(name = "POINT")
+	private String point;
 	public String getMemId() {
 		return memId;
 	}

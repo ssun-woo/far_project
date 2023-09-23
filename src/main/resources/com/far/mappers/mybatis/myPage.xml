@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="MyPage">
+
+	<select id="getMyCoupon" resultType="coupon">
+		SELECT * FROM coupon
+		INNER JOIN coupon_personal
+		ON coupon.coupon_name = coupon_personal.coupon_name
+		WHERE mem_id = #{mem_id}
+	</select>
+
+</mapper>
