@@ -15,18 +15,18 @@
 				<tr>
 					<th rowspan="3" width="150px" height="150px">
 						<div>
-							<img src="../images/cute.png">
+							<img src="/upload/store_menu/${store.cate}${room.roomPhoto}">
 						</div>
 					</th>
 					<td>가게 이름 : ${store.storeName}</td>
 				</tr>
 
 				<tr>
-					<td>가게 주소 : ${store.storeAddr1}</td>
+					<td>가게 주소 : ${store.storeAddr1} ${store.storeAddr2}</td>
 				</tr>
 
 				<tr>
-					<td>상세 메뉴 : ${menu.menu_name}</td>
+					<td>상세 메뉴 : ${room.roomName}</td>
 				</tr>
 			</table>
 		</div>
@@ -49,14 +49,14 @@
 							   <option value="0">사용하실 쿠폰을 선택해주세요</option>
                      
 								<c:forEach items="${coupons}" var="coupon">
-									<option value="${coupon.coupon_num}" data-discount-rate="${coupon.coupon_discountrate}">
+									<option value="${coupon.couponNum}" data-discount-rate="${coupon.couponDiscountrate}">
 										<c:choose>
-											<c:when test="${coupon.coupon_discountrate > 1}">
-											    ${coupon.coupon_name} (${coupon.coupon_startDate}~${coupon.coupon_endDate})
+											<c:when test="${coupon.couponDiscountrate > 1}">
+											    ${coupon.couponName} (${coupon.couponStartDate}~${coupon.couponEndDate})
 											</c:when>
 											
 											<c:otherwise>
-											    ${coupon.coupon_name} (${coupon.coupon_startDate}~${coupon.coupon_endDate})
+											    ${coupon.couponName} (${coupon.couponStartDate}~${coupon.couponEndDate})
 											</c:otherwise>
 										</c:choose>
 									</option>
@@ -223,7 +223,7 @@
       
       		<script>
 	         	// 초기 상품 금액 설정
-	         	var originPrice = ${menu.menu_price != null ? menu.menu_price : 0};
+	         	var originPrice = ${room.roomPrice != null ? room.roomPrice : 0};
          
          		// 최대 할인 가능한 금액 초기화
          		var maxDiscountAmount = originPrice;
@@ -264,7 +264,7 @@
                			<td id="productPrice" style="text-align: right;">
                   			<span id="originPrice" style="color: black;">
                   				<script>
-                  					var menuPrice = ${menu.menu_price != null ? menu.menu_price : 0};
+                  					var menuPrice = ${room.roomPrice != null ? room.roomPrice : 0};
                   					var formattedPrice = numberWithCommas(menuPrice);
                   					document.write(formattedPrice);
                   				</script>원
@@ -290,7 +290,7 @@
 					  	<th id="totalAmount" style="text-align: right;">
 					  		<span id="totalPrice" style="color: black;">
 					  			<script>
-						  			var menuPrice = ${menu.menu_price};
+						  			var menuPrice = ${room.roomPrice};
 						  			var formattedPrice = numberWithCommas(menuPrice);
 						  			document.write(formattedPrice);
 						  		</script>원

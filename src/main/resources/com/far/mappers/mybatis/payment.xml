@@ -15,11 +15,11 @@
 	
 	<select id="getMenu" resultType="room">
 		SELECT * FROM room
-		WHERE roomNum = 1
+		WHERE roomNum = #{i}
 	</select>
 	
-	<select id="getStore" resultType="Store">
-		SELECT * FROM store WHERE storeNum = #{storeNum}
+	<select id="getStore" resultType="store">
+		SELECT * FROM store WHERE storeNum = #{store_num}
 	</select>
 	
 	<select id="get_couponIssue" parameterType="hashmap" resultType="coupon">

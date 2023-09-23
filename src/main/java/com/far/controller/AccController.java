@@ -74,6 +74,8 @@ public class AccController {
 	    	map.put("keyword", keyword);
 	    	countStore = storeService.countStore2(map);
 	    }
+	    
+	    System.out.println("detailCate : " + detailCate);
 	    Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "storeNum"));
 	    ModelAndView mav = new ModelAndView();
 	    Page<StoreDTO> storePage = storeService.storeList(pageable, detailCate);

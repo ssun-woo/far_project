@@ -29,8 +29,8 @@ public class PaymentDAOImpl implements PaymentDAO {
 	}
 
 	@Override
-	public StoreDTO getStore(int storeNum) {
-		return sqlSession.selectOne("getStore", storeNum);
+	public StoreDTO getStore(int store_num) {
+		return sqlSession.selectOne("getStore", store_num);
 	}
 
 	@Override
