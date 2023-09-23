@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,24 +31,24 @@ public class PaymentController {
 	
 	// 결제 페이지
 	@RequestMapping("")
-	public ModelAndView payment(HttpSession session) {
-		
+	public ModelAndView payment(HttpSession session, HttpServletRequest request) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String id = authentication.getName();
+		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		ModelAndView mav = new ModelAndView();
 		
-		//String mem_id = (String)session.getAttribute("memId");
-		String mem_id = "qwer";
-		
 		// 쿠폰 선택 옵션에 쿠폰 목록 불러오기
-		List<CouponDTO> coupons = paymentService.getCoupons(mem_id);
+		List<CouponDTO> coupons = paymentService.getCoupons(id);
 		
+		int roomNum = Integer.parseInt(request.getParameter("room_num"));
 		// 메뉴 정보
-		RoomDTO menu = paymentService.getMenu(1);
+		RoomDTO room = paymentService.getMenu(roomNum);
 		
 		// 가게 정보
-		StoreDTO store = paymentService.getStore(menu.getStoreNum());
+		StoreDTO store = paymentService.getStore(room.getStoreNum());
 		
 		// 포인트
-		MemberDTO member = paymentService.getMember(mem_id);
+		MemberDTO member = paymentService.getMember(id);
 		
 		/*
 		 * for(CouponDTO c : coupons) { System.out.println("쿠폰이름 : " +
@@ -60,7 +63,7 @@ public class PaymentController {
 		}
 		
 		mav.addObject("coupons", coupons);
-		mav.addObject("menu", menu);
+		mav.addObject("room", room);
 		mav.addObject("store", store);
 		mav.addObject("member", member);
 		

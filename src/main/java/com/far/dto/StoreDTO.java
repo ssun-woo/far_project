@@ -9,8 +9,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
-
 //create table store(
 //       store_num int primary key,
 //       cate varchar2(50) not null,
@@ -65,7 +63,10 @@ public class StoreDTO {
 	@Column(name = "REGDATE")
 	private String regDate;
 	
-	@Column(name = "STORESCORE")
+	@Column(name = "STORESCORE", columnDefinition = "INT DEFAULT 0")
 	private int storeScore;
+	
+	@Column(name = "AUTH", columnDefinition = "INT DEFAULT 0")
+	private int auth;
 
 }
