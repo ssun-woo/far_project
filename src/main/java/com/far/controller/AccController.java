@@ -61,11 +61,11 @@ public class AccController {
 	//찜 등록
 	@PostMapping("/cont/jjim")
 	public String jjim_btn(HttpServletRequest request) {
-		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 		String jjim = request.getParameter("jjim");
 		JJimDTO jdto = new JJimDTO();
 		jdto.setMemId("abdg1");
-		jdto.setStore_num(store_num);
+		jdto.setStoreNum(storeNum);
 		
 		jjimService.setJJim(jdto);
 				
@@ -75,46 +75,49 @@ public class AccController {
 		
 		System.out.println("jjim : " + jjim);
         
-		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+		return "redirect:/acc/cont?cate="+cate+"&storeNum="+storeNum;
 	}
 	
 	//찜 삭제
 	@PostMapping("/cont/jjim_del")
 	public String jjim_del_btn(HttpServletRequest request) {
-		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 		String cate = request.getParameter("cate");
 		
 		JJimDTO jdto = new JJimDTO();
 		jdto.setMemId("abdg1");
-		jdto.setStore_num(store_num);
+		jdto.setStoreNum(storeNum);
 		
 		jjimService.delJJim(jdto);
 		
-		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+		return "redirect:/acc/cont?cate="+cate+"&storeNum="+storeNum;
 	}
 
 	//리뷰목록
 	@GetMapping("/cont")
-	public ModelAndView acc_reviewlist(HttpServletRequest request) {
+	public ModelAndView acc_reviewlist(HttpServletRequest request, ReviewDTO rdto) {
 		
-		int store_num = Integer.parseInt(request.getParameter("store_num"));
-		List<ReviewDTO> rlist = reviewService.getReview(store_num);
+		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
+		List<ReviewDTO> rlist = reviewService.getReview(storeNum);
 		String cate = request.getParameter("cate");
 		
 		JJimDTO jdto = new JJimDTO();
 		jdto.setMemId("abdg1");
-		jdto.setStore_num(store_num);
+		jdto.setStore_num(storeNum);
 		System.out.println("memId:"+jdto);
 		
 		int count = jjimService.getCount(jdto);
 		System.out.println("JJim_count: "+count);
 		
+		int review_count = reviewService.getReivewCount(rdto);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("acc/acc_cont");
 		mav.addObject("cate", cate);
 		mav.addObject("JJim",count);
+		mav.addObject("review_count",review_count);
 		mav.addObject("reviewList", rlist);
-		mav.addObject("store_num", store_num);
+		mav.addObject("storeNum", storeNum);
 		
 //		System.out.println("ifjjim: "+ ifJJim);
 
@@ -125,11 +128,11 @@ public class AccController {
 	@PostMapping("/cont")
 	public String acc_reviewForm(HttpServletRequest request,ReviewDTO rdto) {
 		
-		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
 		reviewService.setReview(rdto);
 		String cate = request.getParameter("cate");
 		
-		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+		return "redirect:/acc/cont?cate="+cate+"&storeNum="+storeNum;
 	}
 	
 
@@ -139,46 +142,46 @@ public class AccController {
 	 @RequestMapping("/cont/delete")
 	 public ModelAndView delete_review(HttpServletRequest request) {
 		 
-		 int review_num = Integer.parseInt(request.getParameter("review_num"));
-		 String store_num  = request.getParameter("store_num");
+		 int reviewNum = Integer.parseInt(request.getParameter("reviewNum"));
+		 String storeNum  = request.getParameter("storeNum");
 		 String cate = request.getParameter("cate");
 		 
 		 System.out.println(cate);
-		 System.out.println(store_num);
+		 System.out.println(storeNum);
 //		 System.out.println(review_num);
 		 
-		 reviewService.delReview(review_num);
+		 reviewService.delReview(reviewNum);
 		 
 		 
 		 
-		 return new ModelAndView("redirect:/acc/cont?cate=" + cate + "&store_num="+ store_num);
+		 return new ModelAndView("redirect:/acc/cont?cate=" + cate + "&storeNum="+ storeNum);
 	 }
 	 
 	 //리뷰 수정폼 이동
 	 @RequestMapping("/cont/edit")
 	 public ModelAndView edit_review(HttpServletRequest request) {
-		 int review_num = Integer.parseInt(request.getParameter("review_num"));
-		 String store_num = request.getParameter("store_num");
+		 int reviewNum = Integer.parseInt(request.getParameter("reviewNum"));
+		 String store_num = request.getParameter("storeNum");
 		 String cate = request.getParameter("cate");
 		 
 		//reviewService.editReview(review_num);
-		 ReviewDTO dto = reviewService.getUpdateReview(review_num);
+		 ReviewDTO dto = reviewService.getUpdateReview(reviewNum);
 		 String memId = dto.getMemId();
-		 String review_date = dto.getReview_date();
-		 String review_cont = dto.getReview_cont();
-		 double review_rating = dto.getReview_rating();
+		 String reviewDate = dto.getReviewDate();
+		 String reviewCont = dto.getReviewCont();
+		 double reviewRating = dto.getReviewRating();
 		 
 		 ModelAndView mav = new ModelAndView();
-		 mav.addObject("review_num", review_num);
-		 mav.addObject("review_cont", review_cont);
-		 mav.addObject("review_rating", review_rating);
+		 mav.addObject("reviewNum", reviewNum);
+		 mav.addObject("reviewCont", reviewCont);
+		 mav.addObject("reviewRating", reviewRating);
 		 mav.addObject("memId", memId);
-		 mav.addObject("review_date", review_date);
-		 mav.addObject("store_num",store_num);
+		 mav.addObject("reviewDate", reviewDate);
+		 mav.addObject("storeNum",store_num);
 		 mav.addObject("cate", cate);
 		 mav.setViewName("acc/acc_review_edit");
 		
-		 System.out.println(review_date);
+		 System.out.println(reviewDate);
 		 return mav;
 		 
 		 
@@ -188,17 +191,17 @@ public class AccController {
 	 //리뷰 수정
 	 @RequestMapping("/cont/update")
 	 public ModelAndView update_review(HttpServletRequest request, ReviewDTO dto){
-		 int review_num = Integer.parseInt(request.getParameter("review_num"));
-		 String store_num  = request.getParameter("store_num");
+		 int reviewNum = Integer.parseInt(request.getParameter("reviewNum"));
+		 String storeNum  = request.getParameter("storeNum");
 		 String cate = request.getParameter("cate");
 		 
 		 System.out.println(cate);
-		 System.out.println(store_num);
-		 System.out.println(review_num);
+		 System.out.println(storeNum);
+		 System.out.println(reviewNum);
 		 
 		 reviewService.editReview(dto);
 		 
-		 return new ModelAndView("redirect:/acc/cont/edit?cate=" + cate + "&store_num="+ store_num+"&review_num="+review_num);
+		 return new ModelAndView("redirect:/acc/cont/edit?cate=" + cate + "&storeNum="+ storeNum+"&reviewNum="+reviewNum);
 	 }
 	
 //	 //리뷰 수정

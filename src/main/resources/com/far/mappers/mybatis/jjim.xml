@@ -7,17 +7,17 @@
 
 	<!-- 찜 등록 -->
  	<insert id="set_jjim">
- 		insert into jjim(store_num, memId) values (#{store_num},#{memId})
+ 		insert into jjim(storeNum, memId) values (#{storeNum},#{memId})
  	</insert>
  	
  	<!-- 찜 여부 -->
  	<select id="get_jjim" resultType="int">
- 		select count(*) from jjim where memid=#{memId} and store_num=#{store_num}
+ 		select count(*) from jjim where memid=#{memId} and storeNum=#{storeNum}
  	</select>
  	
  	<!-- 찜 삭제 -->
  	<delete id="del_jjim">
- 		delete jjim where memId=#{memId} and store_num=#{store_num}
+ 		delete jjim where memId=#{memId} and storeNum=#{storeNum}
  	</delete>
  	
 </mapper>

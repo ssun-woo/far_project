@@ -9,14 +9,14 @@
 		<h2>[서울/호텔] 서머셋 팰리스</h2> 
 			<label class="jjim_shop">
 				<c:if test="${JJim==0}">
-				<form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
+				<form action="/acc/cont/jjim?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" id="jjim" method="POST">
 					<button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
 					<img src="../images/acc/NoJJim.png">
 				</button>
 				</form>
 				</c:if>
 				<c:if test="${JJim==1}">
-				<form action="/acc/cont/jjim_del?cate=${cate}&store_num=${store_num}" class="jjim_btn" method="POST">
+				<form action="/acc/cont/jjim_del?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" method="POST">
 					<button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
 					<img src="../images/acc/YesJJim.png">
 				</button>
@@ -45,11 +45,11 @@
 			<ul class="info_cont">
 				<li><p>서울/등급미정/호텔</p></li>
 				<li><p>
-						<a href="#">7998</a>의 상품평
+						<a href="#target" onclick="review_count_page_btn()">${review_count}개</a>의 상품평
 					</p></li>
 				<li><p>
 						서울특별시 종로구 율곡로2길 7.<br>
-						<a href="#">지도보기</a>
+						<a href="#target" onclick="map_page_btn()">지도보기</a>
 					</p></li>
 				<li><p>서울특별시 종로구 율곡로 2길 7.</p></li>
 				<li><p>
@@ -66,11 +66,11 @@
 
 	<!-- 내용 -->
 	<div class="shop_info_cont">
-		<input type="radio" id="service" name="show" value="1" checked /> <input
-			type="radio" id="information" name="show" value="2" /> <input
-			type="radio" id="cancellation" name="show" value="3" /> <input
-			type="radio" id="map" name="show" value="4" /> <input type="radio"
-			id="review" name="show" value="5" />
+		<input type="radio" id="service" name="show" value="1" checked /> 
+		<input type="radio" id="information" name="show" value="2" /> 
+		<input type="radio" id="cancellation" name="show" value="3" /> 
+		<input type="radio" id="map" name="show" value="4" /> 
+		<input type="radio" id="review" name="show" value="5" />
 
 		<div class="tab">
 			<label for="service">상품</label> <label for="information">정보</label> <label
@@ -258,7 +258,7 @@
 			</div>
 			
 			
-
+			<a name="target"></a>
 			<!-- 지도 -->
 			<div id="map_content" style="display: none;" class="shop_cont_div" >
 				<div class="acc_map">
@@ -303,17 +303,17 @@
 					</tr>
 					<tr>
 							
-								<td colspan="2"><div class="mb-3" id="review_rating"><fieldset>
+								<td colspan="2"><div class="mb-3" id="reviewRating"><fieldset>
 								<span>별점을 선택해주세요</span>
-		<input type="radio" name="review_rating" value="5" id="rate1">
+		<input type="radio" name="reviewRating" value="5" id="rate1">
 		<label for="rate1">★</label>
-		<input type="radio" name="review_rating" value="4" id="rate2">
+		<input type="radio" name="reviewRating" value="4" id="rate2">
 		<label for="rate2">★</label>
-		<input type="radio" name="review_rating" value="3" id="rate3">
+		<input type="radio" name="reviewRating" value="3" id="rate3">
 		<label for="rate3">★</label>
-		<input type="radio" name="review_rating" value="2" id="rate4">
+		<input type="radio" name="reviewRating" value="2" id="rate4">
 		<label for="rate4">★</label>
-		<input type="radio" name="review_rating" value="1" id="rate5">
+		<input type="radio" name="reviewRating" value="1" id="rate5">
 		<label for="rate5">★</label>
 	</fieldset></div></td>
 	
@@ -322,7 +322,7 @@
 						
 						<tr>
 							<th colspan="2"><textarea rows="10" cols="30"
-									id="review_cont" name="review_cont" placeholder="후기를 입력해주세요"></textarea></th>
+									id="reviewCont" name="reviewCont" placeholder="후기를 입력해주세요"></textarea></th>
 									
 						</tr>
 						<tr>
@@ -341,13 +341,13 @@
 								<div class="detail_review_table_div">
 									<table class="detail_review_table">
 									<tr>
-										<td rowspan="3" id="review_num">${review.review_num}&nbsp;&nbsp;&nbsp;</td>
-										<td style="text-align: left;">${review.memId} <label style="color:gray;">| ${review.review_date}</label></td>
-										<td style="text-align: left;">평점: ${review.review_rating}</td>
+										<td rowspan="3" id="reviewNum">${review.reviewNum}&nbsp;&nbsp;&nbsp;</td>
+										<td style="text-align: left;">${review.memId} <label style="color:gray;">| ${review.reviewDate}</label></td>
+										<td style="text-align: left;">평점: ${review.reviewRating}</td>
 									</tr>
 									<tr>
 						
-										<td colspan="3" style="text-align: left; width: 450px;">${review.review_cont}</td>
+										<td colspan="3" style="text-align: left; width: 450px;">${review.reviewCont}</td>
 									</tr>
 									</table>
 									
@@ -359,12 +359,12 @@
 									</button>
 									<div class="review_edit_del">
 										
-										<form action="/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}" method="POST">
-   											<input type="hidden" name="review_num" value="${review.review_num}">
+										<form action="/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="POST">
+   											<input type="hidden" name="reviewNum" value="${review.reviewNum}">
     										<button type="submit" onclick="del_edit_check()" class="edit_review_btn">수정</button>
 										</form>
-										<form action="/acc/cont/delete?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}" method="POST" >
-   											<input type="hidden" name="review_num" value="${review.review_num}">
+										<form action="/acc/cont/delete?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="POST" >
+   											<input type="hidden" name="reviewNum" value="${review.reviewNum}">
     										<button type="submit" onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
 										</form>
 									</div>
@@ -377,18 +377,18 @@
 									        var form = $(this).closest("form");
 
 									        // 해당 form 내부에서 input 요소 중 name이 'review_num'인 것의 값을 가져오기
-									        var review_num = form.find("input[name='review_num']").val();
+									        var reviewNum = form.find("input[name='reviewNum']").val();
 											
 									        window.name = "cont"
 									        
-									        window.open("/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
+									        window.open("/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum="+reviewNum,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
 									        // 수정 페이지의 URL 생성
 									       // var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
 											//let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
 											
 											popup = window.open(popUrl,"리뷰 수정",popOption);
 											
-									        var editedReviewContent = document.getElementById("review_cont").value;
+									        var editedReviewContent = document.getElementById("reviewCont").value;
 											
 										});
 					
@@ -435,5 +435,66 @@
 <!-- shop_cont -->
 
 <jsp:include page="../main/footer.jsp" />
+
+<script>
+        // a 태그 클릭 시 라디오 버튼의 선택 상태 변경 및 컨텐츠 표시
+        function review_count_page_btn() {
+            // data-radio 속성을 통해 선택할 라디오 버튼의 값을 가져옵니다.
+
+            
+            // 선택한 라디오 버튼의 값을 변경합니다.
+            document.getElementById("review").checked = true;
+            
+            document.querySelectorAll('#service_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+            document.querySelectorAll('#information_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+            document.querySelectorAll('#cancellation_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+            document.querySelectorAll('#map_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+
+            const reviewContent = document.getElementById("review_content");
+            reviewContent.style.display = "block";
+        }
+        
+        function map_page_btn() {
+            // data-radio 속성을 통해 선택할 라디오 버튼의 값을 가져옵니다.
+
+            
+            // 선택한 라디오 버튼의 값을 변경합니다.
+            document.getElementById("map").checked = true;
+            
+            document.querySelectorAll('#service_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+            document.querySelectorAll('#information_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+            document.querySelectorAll('#cancellation_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+            document.querySelectorAll('#review_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+
+            const reviewContent = document.getElementById("map_content");
+            reviewContent.style.display = "block";
+        }
+    </script>
+	</body>
+	</html>
+
+</script>
 
 

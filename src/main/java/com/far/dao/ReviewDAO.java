@@ -7,15 +7,17 @@ import com.far.dto.ReviewDTO;
 
 public interface ReviewDAO {
 
-	List<ReviewDTO> getReview(int store_num);
+	List<ReviewDTO> getReview(int storeNum);
 
 	public void setReview(ReviewDTO dto);
 
-	void delReview(int review_num);
+	void delReview(int reviewNum);
 
 	void editReview(ReviewDTO dto);
 
-	public ReviewDTO getUpdateReview(int review_num);
+	public ReviewDTO getUpdateReview(int reviewNum);
+
+	int getReivewCount(ReviewDTO rdto);
 
 //	void editReview(int review_num);
 

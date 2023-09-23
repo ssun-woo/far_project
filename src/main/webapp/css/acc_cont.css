@@ -604,70 +604,70 @@
 	margin-top: 5px;
 }
 /*별점*/
-#review_rating{
+#reviewRating{
 	width: 500px;
 	margin-top: -20px;
 	margin-bottom: 10px;
 	margin-left: -10px;
 	
 }
-#review_rating fieldset{
+#reviewRating fieldset{
     display: inline-block;
     direction: rtl;
     border:0;
 }
-#review_rating fieldset legend{
+#reviewRating fieldset legend{
     text-align: left;
 }
-#review_rating input[type=radio]{
+#reviewRating input[type=radio]{
     display: none;
 }
-#review_rating label{
+#reviewRating label{
     font-size: 20pt;
     color: transparent;
     text-shadow: 0 0 0 #f0f0f0;
 }
-#review_rating label:hover{
+#reviewRating label:hover{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-#review_rating label:hover ~ label{
+#reviewRating label:hover ~ label{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-#review_rating input[type=radio]:checked ~ label{
+#reviewRating input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
 
 
 /*별점*/
-#review_rating_edit{
+#reviewRating_edit{
 	width: 500px;
 	margin-top: -20px;
 	margin-bottom: 10px;
 	margin-left: -10px;
 	
 }
-#review_rating_edit fieldset{
+#reviewRating_edit fieldset{
     display: inline-block;
     direction: rtl;
     border:0;
 }
-#review_rating_edit fieldset legend{
+#reviewRating_edit fieldset legend{
     text-align: left;
 }
-#review_rating_edit input[type=radio]{
+#reviewRating_edit input[type=radio]{
     display: none;
 }
-#review_rating_edit label{
+#reviewRating_edit label{
     font-size: 20pt;
     color: transparent;
     text-shadow: 0 0 0 #f0f0f0;
 }
-#review_rating_edit label:hover{
+#reviewRating_edit label:hover{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-#review_rating_edit label:hover ~ label{
+#reviewRating_edit label:hover ~ label{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-#review_rating_edit input[type=radio]:checked ~ label{
+#reviewRating_edit input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }

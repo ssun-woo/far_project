@@ -138,7 +138,7 @@
 		<hr>
 		<div class="list_div">
 		
-		<a href='/acc/cont?cate=${cate}&store_num=10'><img src="../images/acc/motel1-2.jpg"></a>
+		<a href='/acc/cont?cate=${cate}&storeNum=10'><img src="../images/acc/motel1-2.jpg"></a>
 		<%-- 여기 10의 값은 임의의 값 --%>
 		<div class="list_cont">
 			<div class="shop_Name">

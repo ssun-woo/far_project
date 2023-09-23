@@ -8,13 +8,13 @@
  	
  	<!-- 리뷰 등록 -->
  	<insert id="set_review">
- 		insert into review(review_num,memId,store_num,review_rating, review_cont, review_recommend,review_date)
+ 		insert into review(reviewNum,memId,storeNum,reviewRating, reviewCont, reviewRecommend,reviewDate)
  		values(
  		NUM_SEQ.nextval,
  		'abc123',
  		10,
- 		#{review_rating},
- 		#{review_cont},
+ 		#{reviewRating},
+ 		#{reviewCont},
  		1,
  		sysdate
  		)
@@ -22,22 +22,27 @@
  	
  	<!-- 리뷰 목록  -->
  	<select id = "get_review" resultType="com.far.dto.ReviewDTO">
- 		select * from review where store_num = 10 order by review_num desc
+ 		select * from review where storeNum = 10 order by reviewNum desc
  	</select>
  	
  	<!-- 리뷰삭제 -->
  	<delete id="del_review">
- 		delete from review where review_num=#{review_num}
+ 		delete from review where reviewNum=#{reviewNum}
  	</delete>
  	
  	<!-- 리뷰 수정 -->
  	<update id="edit_review">
- 		update review set review_cont = #{review_cont}, review_rating= #{review_rating}, review_date = sysdate where review_num=#{review_num}
+ 		update review set reviewCont = #{reviewCont}, reviewRating= #{reviewRating}, reviewDate = sysdate where reviewNum=#{reviewNum}
  	</update>
  	
  	<!-- 리뷰 한 개 정보 -->
  	<select id="get_update_review" resultType="com.far.dto.ReviewDTO">
- 		select * from review where review_num=#{review_num}
+ 		select * from review where reviewNum=#{reviewNum}
+ 	</select>
+ 	
+ 	<!-- 리뷰 개수 -->
+ 	<select id="review_count" resultType="int">
+ 		select count(*) from review where storeNum=#{storeNum}
  	</select>
  	
  </mapper>

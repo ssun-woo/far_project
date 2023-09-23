@@ -39,7 +39,7 @@ function del_edit_check(){
 	if (!confirm("후기를 수정하시겠습니까?")) {
         window.location.reload();
     } else {
-    window.open("/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}","update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes");
+    window.open("/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}","update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes");
     }
 }
 
@@ -60,13 +60,10 @@ function submit_check(){
 	
 	rf.addEventListener("submit",function(e){
 	
-	var title = document.getElementById("review_title");
-	var goods = document.getElementById("review_goods");
-	var cont = document.getElementById("review_cont");
-	var id = document.getElementById("mem_id");
-	var rating = document.getElementById("review_rating");
+	var cont = document.getElementById("reviewCont");
+	var rating = document.getElementById("reviewRating");
 	
-	if($("input[name=review_rating]:radio:checked").length<1){
+	if($("input[name=reviewRating]:radio:checked").length<1){
 	alert("별점을 선택하세요.");
 	e.preventDefault();
 	return false;
@@ -88,11 +85,11 @@ function submit_check(){
 function reviewDel(){
 	if(!confirm("후기를 삭제하시겠습니까?")) return;
 	
-	 var review_num = $("#review_num").val();
+	 var reviewNum = $("#reviewNum").val();
 	
 	$.ajax({
         type: "POST",
-        url: `/acc/cont/delete?store_num=${store_num}`, // 삭제 요청을 처리할 컨트롤러 엔드포인트 URL
+        url: `/acc/cont/delete?storeNum=${storeNum}`, // 삭제 요청을 처리할 컨트롤러 엔드포인트 URL
         success: function (data) {
             // 삭제가 성공적으로 완료되면 페이지를 다시 로드합니다.
             location.reload();
