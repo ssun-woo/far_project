@@ -2,11 +2,31 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../main/new_header2.jsp" />
+<head>
+   <!-- jQuery CDN -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+   <!-- Slick Slider CSS 및 JS CDN -->
+   <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+   <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+   <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+
+<style>
+
+
+      
+   }
+</style>
 
 
 <div class="shop_cont">
 	<div class="shop_name">
 		<h2>[서울/호텔] 서머셋 팰리스</h2> 
+			
 			<label class="jjim_shop">
 				<c:if test="${JJim==0}">
 				<form action="/acc/cont/jjim?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" id="jjim" method="POST">
@@ -32,15 +52,29 @@
 	border: 1px solid;">
 	<div class="shop_cont_top">
 		<div class="shop_photo">
-			<img src="../images/acc/hotel1-1-1.jpg">
+	 <div class="shop_photo_div">
+         <img src="../images/acc/room01.png" width="500px" height="340px">
+      </div>
+      <div class="shop_photo_div">
+         <img src="../images/acc/room01.png" width="500px" height="340px">
+      </div>
+      <div class="shop_photo_div">
+         <img src="../images/acc/room01.png" width="500px" height="340px">
+      </div>
+      <div class="shop_photo_div">
+         <img src="../images/acc/room01.png" width="500px" height="340px">
+      </div>
+      <div class="shop_photo_div"> 
+         <img src="../images/acc/room01.png" width="500px" height="340px">
+      </div>
+
 		</div>
 		<div class="shop_info">
 			<ul class="info_cate">
 				<li><h3>분류</h3></li>
 				<li><h3>상품평</h3></li>
 				<li><h3>주소</h3></li>
-				<li><h3>도로명주소</h3></li>
-				<li><h3>할인혜택</h3></li>
+				
 			</ul>
 			<ul class="info_cont">
 				<li><p>서울/등급미정/호텔</p></li>
@@ -51,34 +85,39 @@
 						서울특별시 종로구 율곡로2길 7.<br>
 						<a href="#target" onclick="map_page_btn()">지도보기</a>
 					</p></li>
-				<li><p>서울특별시 종로구 율곡로 2길 7.</p></li>
-				<li><p>
-						전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기">
-					</p></li>
+				
 			</ul>
 		</div>
 	</div>
 
 	<div class="shop_info_event">
-		<img src="../images/ev_images/cont_event01.png">
+		<!-- <img src="../images/ev_images/cont_event01.png"> -->
 	</div>
 
-
+	
+	
+				
+	
 	<!-- 내용 -->
 	<div class="shop_info_cont">
 		<input type="radio" id="service" name="show" value="1" checked /> 
 		<input type="radio" id="information" name="show" value="2" /> 
 		<input type="radio" id="cancellation" name="show" value="3" /> 
-		<input type="radio" id="map" name="show" value="4" /> 
+		<input type="radio" id="map_guide" name="show" value="4" /> 
 		<input type="radio" id="review" name="show" value="5" />
+		
+		<script>
+					
+		</script>
 
 		<div class="tab">
 			<label for="service">상품</label> <label for="information">정보</label> <label
-				for="cancellation">이용안내 / 취소규정</label> <label for="map">지도</label> <label
+				for="cancellation">이용안내 / 취소규정</label> <label for="map_guide">지도</label> <label
 				for="review">이용후기</label>
 		</div>
+		
 		<hr>
-
+		
 
 		<div id="shop_content">
 
@@ -264,21 +303,7 @@
 				<div class="acc_map">
 					<h3>지도 상세 보기</h3>
 					<hr>
-					
-					<div id="map" style="width:500px;height:400px;">
-					
-					</div>
-					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a88d036132dec983608208b58361c621a88d036132dec983608208b58361c621"></script>
-					<script>
-					var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
-				    staticMapOption = { 
-				        center: new kakao.maps.LatLng(33.450701, 126.570667), // 이미지 지도의 중심좌표
-				        level: 3 // 이미지 지도의 확대 레벨
-				    };
-
-				// 이미지 지도를 표시할 div와 옵션으로 이미지 지도를 생성합니다
-				var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
-	</script>
+					<div id="map"></div>
 					
 					
 	
@@ -470,7 +495,7 @@
 
             
             // 선택한 라디오 버튼의 값을 변경합니다.
-            document.getElementById("map").checked = true;
+            document.getElementById("map_guide").checked = true;
             
             document.querySelectorAll('#service_content').forEach(function(content) {
                 content.style.display = "none";
@@ -491,10 +516,53 @@
             const reviewContent = document.getElementById("map_content");
             reviewContent.style.display = "block";
         }
+        
+        
     </script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a88d036132dec983608208b58361c621a88d036132dec983608208b58361c621" async></script>
+					<script>
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+				    mapOption = { 
+				        center: new kakao.maps.LatLng(33.450699, 126.570667), // 지도의 중심좌표
+				        level: 3 // 지도의 확대 레벨
+				    };
+
+				var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+				// 마커가 표시될 위치입니다 
+				var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570665); 
+
+				// 마커를 생성합니다
+				var marker = new kakao.maps.Marker({
+				    position: markerPosition
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);
+				
+				map.setDraggable(false); 
+					
+	</script>
+	
+	<script>
+   $(document).ready(function () {
+      $('.shop_photo').slick({
+         infinite: true, // 무한 루프
+         slidesToShow: 1, // 한 번에 보여줄 슬라이드 개수
+         slidesToScroll: 1, // 스크롤 시 이동할 슬라이드 개수
+         autoplay: true, // 자동 재생
+         autoplaySpeed: 2000, // 자동 재생 속도 (밀리초)
+         arrows: false,               //이전 다음 버튼 표시 여부(true or false) ▶기본값 true
+         pauseOnFocus: true,         //마우스 클릭 시 슬라이드 멈춤 ▶기본값 true
+         pauseOnHover: true,         //마우스 호버 시 슬라이드 멈춤 ▶기본값 true
+         dots: true, // 네비게이션 바 사용
+         appendDots: $('.shop_photo'), // 네비게이션 바를 추가한 요소에 연결
+      });
+   });
+
+</script>
 	</body>
 	</html>
 
-</script>
 
 

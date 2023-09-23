@@ -28,7 +28,7 @@
 
 /*숙박 상세정보 전체*/
 .shop_cont{
-	width: 1000px;
+	width: 100%;
 	height: 100%;
 	text-align: center;
 	margin-left: -100px;
@@ -43,20 +43,23 @@
 }
 
 .shop_photo{
-	width: 100px;
-	height: 60px;
-	margin-left: 350px;
+	width: 500px;
+	height: 350px;
+	margin-left: 360px;
 	margin-top: 15px;
 	
 }
-
+.shop_photo_div{
+	width: 500px;
+	height: 350px;
+}
 .shop_info{
 	width: 100%;
 	display: flex;
 }
 .info_cate{
 	width: 200px;
-	margin-left: 450px;
+	margin-left: 10px;
 	list-style: none;
 }
 .info_cont{
@@ -74,14 +77,7 @@
 	text-align: left;
 	margin-bottom: 30px;
 }
-.shop_info_event img{
-	width: 450px;
-	height: 100px;
-	background-color: blue;
-	margin-left: 940px;
-	margin-top: -30px;
-	border-radius: 10px;
-}
+
 
 /* 내용 */
 .shop_info_cont{
@@ -286,6 +282,11 @@
 }
 
 /*지도 상세보기*/
+#map{
+	margin-left: 355px;
+	width: 900px;
+	height:400px;
+}
 .acc_map{
 	width: 900px;
 	margin-left: -280px;
