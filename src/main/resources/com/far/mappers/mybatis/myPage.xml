@@ -8,9 +8,9 @@
 
 	<select id="getMyCoupon" resultType="coupon">
 		SELECT * FROM coupon
-		INNER JOIN coupon_personal
-		ON coupon.coupon_name = coupon_personal.coupon_name
-		WHERE mem_id = #{mem_id}
+		INNER JOIN couponPersonal
+		ON coupon.couponName = couponPersonal.couponName
+		WHERE memId = #{memId}
 	</select>
 
 </mapper>

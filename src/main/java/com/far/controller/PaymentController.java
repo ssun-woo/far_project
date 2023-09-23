@@ -71,17 +71,17 @@ public class PaymentController {
 	// 쿠폰 발급
 	@RequestMapping("/couponIssue")
 	public @ResponseBody String couponIssue(HttpSession session,
-			@RequestParam("coupon_name") String coupon_name) {
+			@RequestParam("couponName") String couponName) {
 
-		System.out.println("coupon_name = " + coupon_name);
+		System.out.println("couponName = " + couponName);
 		
-		//String mem_id = (String)session.getAttribute("memId");
-		String mem_id = "qwer";
-		String c_name = coupon_name;
+		String memId = (String)session.getAttribute("memId");
+		//String mem_id = "qwer";
+		String cName = couponName;
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("mem_id", mem_id);
-		map.put("coupon_name", c_name);
+		map.put("mem_id", memId);
+		map.put("coupon_name", cName);
 		CouponDTO c = paymentService.getCouponIssue(map);
 		
 		
@@ -89,9 +89,9 @@ public class PaymentController {
 		
 		CouponDTO newc = new CouponDTO();
 		
-		newc.setCouponNum(4);
-		newc.setCouponName(coupon_name);
-		newc.setMemId(mem_id);
+		newc.setCouponNum(1);
+		newc.setCouponName(couponName);
+		newc.setMemId(memId);
 		
 		if(c == null) {
 			paymentService.insertCoupon(newc);

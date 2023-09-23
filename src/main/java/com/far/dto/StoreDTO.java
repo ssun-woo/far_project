@@ -67,5 +67,8 @@ public class StoreDTO {
 	
 	@Column(name = "STORESCORE")
 	private int storeScore;
+	
+	@Column(name = "AUTH")
+	private int auth;
 
 }
