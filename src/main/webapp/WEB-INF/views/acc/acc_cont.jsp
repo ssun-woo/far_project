@@ -15,12 +15,6 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 </head>
 
-<style>
-
-
-      
-   }
-</style>
 
 
 <div class="shop_cont">
@@ -106,9 +100,6 @@
 		<input type="radio" id="map_guide" name="show" value="4" /> 
 		<input type="radio" id="review" name="show" value="5" />
 		
-		<script>
-					
-		</script>
 
 		<div class="tab">
 			<label for="service">상품</label> <label for="information">정보</label> <label
@@ -540,7 +531,7 @@
 				// 마커가 지도 위에 표시되도록 설정합니다
 				marker.setMap(map);
 				
-				map.setDraggable(false); 
+				//map.setDraggable(false); 
 					
 	</script>
 	

@@ -93,7 +93,7 @@
 #service:checked ~ .tab label:nth-child(1),
 #information:checked ~ .tab label:nth-child(2),
 #cancellation:checked ~ .tab label:nth-child(3),
-#map:checked ~ .tab label:nth-child(4) ,
+#map_guide:checked ~ .tab label:nth-child(4) ,
 #review:checked ~ .tab label:nth-child(5) {
 	background-color: black;
 	color: white;
@@ -105,7 +105,7 @@
 #service:checked ~ .shop_content div:nth-child(1),
 #information:checked ~ .shop_content div:nth-child(2),
 #cancellation:checked ~ .shop_content div:nth-child(3),
-#map:checked ~ .shop_content div:nth-child(4) ,
+#map_guide:checked ~ .shop_content div:nth-child(4) ,
 #review:checked ~ .shop_content div:nth-child(5) {
 	display: block;
 }
@@ -302,13 +302,7 @@
 	margin-left: 350px;
 	border: 1px solid;
 }
-.acc_map .kakao_map{
-	width: 850px;
-	height: 600px;
-	border: 1px solid;
-	margin-left: 375px;
-	margin-top: 40px;
-}
+
 
 /* 교통안내 */
 .guide{
