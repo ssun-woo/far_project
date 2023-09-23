@@ -13,7 +13,7 @@
 		WHERE mem_id = #{mem_id}
 	</select>
 	
-	<select id="getMenu" resultType="Menu">
+	<select id="getMenu" resultType="room">
 		SELECT * FROM menu
 		WHERE menu_id = 1
 	</select>

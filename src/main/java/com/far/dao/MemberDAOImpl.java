@@ -1,5 +1,8 @@
 package com.far.dao;
 
+import java.util.HashMap;
+
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,4 +19,8 @@ public class MemberDAOImpl implements MemberDAO {
 	public void insertMember(MemberDTO m) {
 		sqlSession.insert("mem_in", m);
 	}
+
+	
+
+
 }

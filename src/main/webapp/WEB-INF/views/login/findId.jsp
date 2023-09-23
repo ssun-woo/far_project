@@ -4,63 +4,34 @@
 <html>
 <head>
     <title>FAR</title>
-    <script>
-        function showScreen(screenId) {
-            var screens = document.getElementsByClassName("screen");
-            for (var i = 0; i < screens.length; i++) {
-                screens[i].style.display = "none";
-            }
-            document.getElementById(screenId).style.display = "block";
-        }
-        
-        // 페이지 로드 시 초기 설정
-        showScreen('screen1'); // 기본 화면 설정
-    </script>
-
-    
+ 
     <jsp:include page="../main/new_header2.jsp"/>
 </head>
 <body>
 <div id="findIdwrap">
-	<h2 id="findIdTitle">아이디 찾기</h2>
-	
-	<div id="memclassTitle">
-	회원 유형
-	</div>
-	<form name="findIdByEmail" action="/findId" method="post">
-	<select id="memclassSelect" name="memclass">
-		<option>개인 회원</option>
-		<option>개인 사업자 회원</option>
-	</select>
-	
-	<br>
-	<div id="findSelect">
-    	<input type="radio" id="emailRadio" name="screen" value="screen1" checked="checked" onclick="showScreen('findIdByEmail')"> 이메일
-    	<input type="radio" id="telRadio" name="screen" value="screen2" onclick="showScreen('findIdByTel')"> 휴대폰 번호
-	</div>
-	
-    <div id="findIdByEmail" class="screen">
+    <h2 id="findIdTitle">아이디 찾기</h2>
+    
+    <div id="memclassTitle">
+        <h2>회원 유형</h2>
+    </div>
+    
+    <div> <!-- 이 부분을 추가하였습니다 -->
+        <form name="findIdByEmail" action="/findId" method="post">
         
-        	<div id="findIdByEmailNameTitle">이름</div>
-        	<input id="findIdByEmailNameInput" type="text"><br>
-        	
-        	<div id="findIdByEmailTitle">이메일<br></div>
-        	<input id="findIdByEmailInput" type="text"><br>
-        	
-        	<input id="findIdEmailSubmit" type="submit" value="확인">
-        </form>
+        <div id="findIdByEmail" class="screen">
+            
+                <div id="findIdByEmailNameTitle">이름</div>
+                <input id="findIdByEmailNameInput" type="text" name="memName"><br>
+                
+                <div id="findIdByEmail">이메일 또는 전화번호<br></div>
+                <input id="findIdByEmailInput" type="text" name="emailortel"><br>
+                
+                <input id="findIdEmailSubmit" type="submit" value="확인">
+            </form>
+        </div>
     </div>
+</div>
 
-    <div id="findIdByTel" class="screen" style="display: none;">
-        <form name="findIdByTel" action="">
-        	<div id="findIdByTelNameTitle">이름</div>
-        	<input id="findIdByTelNameInput" type="text"><br>
-        	<div id="findIdByTelTitle">휴대폰 번호</div><br>
-        	<input id="findIdByTelInput" type="text"><br>
-        	<input id="findIdByTelSubmit" type="submit" value="확인">
-        </form>
-    </div>
-    </div>
 </body>
 </html>
 

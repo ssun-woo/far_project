@@ -7,7 +7,7 @@
  <mapper namespace="STORE">
  	
  	<select id="get_detailCateList" resultType="store">
- 		select * from store where detail_cate = #{detail_cate}
+ 		select * from store where detailCate = #{detail_cate}
  	</select>
  	
  	<select id="detail_cate_count" resultType="int">
@@ -15,18 +15,13 @@
  	</select>
  	
  	<select id="store_info" resultType="store">
- 		select * from store where store_num = #{store_num}
+ 		select * from store where storeNum = #{store_num}
  	</select>
  	
  	<select id="get_stores" resultType="store">
  		select * from store where memId = #{id}
  	</select>
  	
- 	<insert id="store_in">
-       insert into store(storeNum, cate, detailCate, storeName, storeIntro, storeAddr1, storeAddr2, regNum, storeLogo, memId)
-        values(#{storeNum},#{cate},#{detailCate},#{storeName},#{storeIntro},#{storeAddr1},#{storeAddr2},#{regNum},#{storeLogo}, #{memId}) 
-    </insert>
-    
     <select id="storePermit" resultType="store">
     	select * from store where auth = #{auth}
     </select>
@@ -39,16 +34,16 @@
     	update store set auth = 2 where storeNum = #{storeNum}
     </update>
 
-    <select id="get_menu_list" resultType="Menu">
- 		select * from menu where store_num = #{s_num}
+    <select id="get_menu_list" resultType="room">
+ 		select * from room where storeNum = #{s_num}
  	</select>
  	
  	<select id="get_store" resultType="store">
- 		select * from store where store_num = #{s_num}
+ 		select * from store where storeNum = #{s_num}
  	</select>
  	
- 	<select id="get_menu" resultType="Menu">
- 		select * from menu where menu_id = #{menu_id}
+ 	<select id="get_menu" resultType="room">
+ 		select * from room where roomNum = #{menu_id}
  	</select>
  	
 

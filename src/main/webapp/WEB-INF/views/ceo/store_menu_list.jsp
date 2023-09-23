@@ -37,7 +37,7 @@ table {
 				</div>
 				<div id="storeContentArea">
 					<div class="menuRegisForm">
-						<h2>${s.store_name}</h2>
+						<h2>${s.storeName}</h2>
 						<table border="1">
 							<tr class="first-line">
 								<th colspan="5">메뉴목록</th>
@@ -51,13 +51,13 @@ table {
 							</tr>
 							<c:if test="${!empty mlist}">
 								<c:forEach var="m" items="${mlist}">
-									<tr onclick="location='/ceo/store_menu_cont?menu_id=${m.menu_id}'">
-										<td>${m.menu_id}</td>
+									<tr onclick="location='/ceo/store_menu_cont?menu_id=${m.roomNum}'">
+										<td>${m.roomNum}</td>
 										<td style="text-align: center;"><img
-											src="/upload/store_menu/${s.cate}${m.menu_photo}"></td>
-										<td>${m.menu_name}</td>
+											src="/upload/store_menu/${s.cate}${m.roomPhoto}"></td>
+										<td>${m.roomName}</td>
 										<td><fmt:formatNumber type="currency" currencyCode="KRW"
-												value="${m.menu_price}" /></td>
+												value="${m.roomPrice}" /></td>
 										<td>수정 | 삭제</td>
 									</tr>
 								</c:forEach>
@@ -71,7 +71,7 @@ table {
 
 
 						<h1>
-							<a onclick="location='/ceo/store_menu_regis?store_num=${s.store_num}'"> 메뉴등록 </a>
+							<a onclick="location='/ceo/store_menu_regis?store_num=${s.storeNum}'"> 메뉴등록 </a>
 						</h1>
 
 					</div>
