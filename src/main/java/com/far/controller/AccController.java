@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import com.far.dto.MenuDTO;
+import com.far.dto.RoomDTO;
 import com.far.dto.JJimDTO;
 import com.far.dto.ResvDTO;
 import com.far.dto.ReviewDTO;
@@ -82,11 +82,11 @@ public class AccController {
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
 		StoreDTO s = accResvService.getInfo(store_num);
 
-		List<MenuDTO> mList = ceoService.getMenuList(store_num);
+		List<RoomDTO> mList = ceoService.getMenuList(store_num);
 
-		for (MenuDTO m : mList) {
-			m.setCheck_in(m.getCheck_in().substring(0, 2) + ":" + m.getCheck_in().substring(2, 4));
-			m.setCheck_out(m.getCheck_out().substring(0, 2) + ":" + m.getCheck_out().substring(2, 4));
+		for (RoomDTO m : mList) {
+			m.setCheckIn(m.getCheckIn().substring(0, 2) + ":" + m.getCheckIn().substring(2, 4));
+			m.setCheckOut(m.getCheckOut().substring(0, 2) + ":" + m.getCheckOut().substring(2, 4));
 
 		}
 
@@ -217,7 +217,7 @@ public class AccController {
 			String jjim = request.getParameter("jjim");
 			JJimDTO jdto = new JJimDTO();
 			jdto.setMemId("abdg1");
-			jdto.setStore_num(store_num);
+			jdto.setStoreNum(store_num);
 			
 			jjimService.setJJim(jdto);
 					
@@ -238,7 +238,7 @@ public class AccController {
 			
 			JJimDTO jdto = new JJimDTO();
 			jdto.setMemId("abdg1");
-			jdto.setStore_num(store_num);
+			jdto.setStoreNum(store_num);
 			
 			jjimService.delJJim(jdto);
 			

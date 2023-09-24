@@ -23,6 +23,30 @@ public class ResvDTO {
 	private String start_day;
 	private String end_day;
 	private int people_num;
+	public void setResv_num(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setStore_num(int store_num2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setMemId(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setStart_day(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setEnd_day(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setPeople_num(int i) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

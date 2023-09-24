@@ -5,117 +5,92 @@
 <script src="../js/store_main.js"></script>
 
 <jsp:include page="ceo_header.jsp" />
-<style>
-table {
-	width: 100%;
-}
 
-.first-line {
-	text-align: center;
-}
-
-.menuRegisForm img {
-	width: 150px;
-	height: 150px;
-}
-</style>
-		<div id="contentArea">
-			<div class="storeMainWrap">
-				<div class="storeStickyArea">
-					<div class="storeMain">
-						<ul>
-							<li class="storeRegistrationMain" onclick="location='/ceo/store_regi'">업체
-								등록</li>
-							<li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴
-								등록 및 수정</li>
-							<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글
-								및 정보 수정</li>
-						</ul>
-					</div>
-				</div>
-				<div id="storeContentArea">
-					<div class="storeRegistrationForm">
-						<h2>업체 등록하기</h2>
-						<hr>
-						<form method="post" action="store_regi_ok"
-							onsubmit="return store_regis_write_check();"
-							enctype="multipart/form-data">
-							<div class="storeRegistration">
-								<label>업소 선택</label> <select id="typeSelect1" name="cate"
-									onchange="onchange_select()">
-									<option value="none">선택하세요</option>
-									<option value="acc">숙소</option>
-									<option value="resto">식당</option>
-									<option value="culture">문화</option>
-									<option value="beauty">뷰티</option>
-								</select> <label>세부 선택</label> <select id="typeSelect2"
-									name="detail_cate" disabled="disabled">
-									<option value="none">업소를 먼저 선택해 주세요</option>
-								</select>
-							</div>
-
-							<div class="storeRegistration">
-								<label>업체 이름</label> <input type="text" id="storeName"
-									name="store_name" placeholder="가게 이름을 입력해주세요.">
-							</div>
-
-							<div class="storeRegistration">
-								<label>업체 소개글</label>
-								<textarea id="storeIntro" name="store_intro" rows="3"
-									placeholder="가게를 소개하는 글을 입력해주세요."></textarea>
-							</div>
-
-							<div class="storeRegistration">
-								<label>업체 주소</label>
-								<div class="storeAddressArea">
-									<div class="storeAddressF">
-										<input type="text" id="storeAddressFirst" name="store_addr1"
-											placeholder="주소 검색">
-										<!-- <button id="storeAddressSearchBtn">주소 검색</button> -->
-									</div>
-								</div>
-								<div class="storeAddressS">
-									<input type="text" id="storeAddressSecond" name="store_addr2"
-										placeholder="상세주소">
-								</div>
-
-								<!-- <input type="text" id="storeAddress" name="storeAddress"
-					placeholder="가게 주소를 입력해주세요."> -->
-							</div>
-
-							<div class="storeRegistration">
-								<label>사업자등록번호</label> <input type="text"
-									id="businessRegistrationNumber" name="reg_num"
-									placeholder="사업자등록번호를 입력해주세요.">
-							</div>
-
-							<!-- 
-			<div class="storeRegistration">
-				<label>사업자등록증 첨부 : </label>/
-				<input type="file" id="businessRegistrationImage" name="businessRegistrationImage">
-			</div>
-			 -->
-
-							<div class="storeRegistration">
-								<label>로고 이미지 첨부</label> <input type="file" id="logoImage"
-									name="logo_image">
-							</div>
-
-							<!-- <div class="storeRegistration">
-				<label>메뉴 이미지 첨부</label>
-				<input type="file" id="menuImage" name="menu_image">
-			</div> -->
-
-							<div class="storeRegistrationButton">
-								<button type="submit" class="storeRegistrationBtn">등록하기</button>
-							</div>
-						</form>
-					</div>
-				</div>
+<div id="contentArea">
+	<div class="storeMainWrap">
+		<div class="storeStickyArea">
+			<div class="storeMain">
+				<ul>
+					<li class="storeRegistrationMain"
+						onclick="location='/ceo/store_regi'">업체 등록</li>
+					<li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴
+						등록 및 수정</li>
+					<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글
+						및 정보 수정</li>
+				</ul>
 			</div>
 		</div>
+
+
+		<div id="storeContentArea">
+			<div class="storeRegistrationForm">
+				<h2>업체 등록하기</h2>
+				<hr>
+				<form method="post" action="store_regi_ok"
+					onsubmit="return store_regis_write_check();"
+					enctype="multipart/form-data">
+					<div class="storeRegistration">
+						<label>업소 선택</label> <select id="typeSelect1" name="cate"
+							onchange="onchange_select()">
+							<option value="none">선택하세요</option>
+							<option value="acc">숙소</option>
+							<option value="resto">식당</option>
+							<option value="culture">문화</option>
+							<option value="beauty">뷰티</option>
+						</select> <label>세부 선택</label> <select id="typeSelect2" name="detailCate"
+							disabled="disabled">
+							<option value="none">업소를 먼저 선택해 주세요</option>
+						</select>
+					</div>
+
+					<div class="storeRegistration">
+						<label>업체 이름</label> <input type="text" id="storeName"
+							name="storeName" placeholder="가게 이름을 입력해주세요.">
+					</div>
+
+					<div class="storeRegistration">
+						<label>업체 소개글</label>
+						<textarea id="storeIntro" name="storeIntro" rows="3"
+							placeholder="가게를 소개하는 글을 입력해주세요."></textarea>
+					</div>
+
+					<div class="storeRegistration">
+						<label>업체 주소</label>
+						<div class="storeAddressArea">
+							<div class="storeAddressF">
+								<input type="text" id="storeAddressFirst" name="storeAddr1"
+									placeholder="주소 검색">
+								<!-- <button id="storeAddressSearchBtn">주소 검색</button> -->
+							</div>
+						</div>
+						<div class="storeAddressS">
+							<input type="text" id="storeAddressSecond" name="storeAddr2"
+								placeholder="상세주소">
+						</div>
+					</div>
+
+					<div class="storeRegistration">
+						<label>사업자등록번호</label> <input type="text"
+							id="businessRegistrationNumber" name="regNum"
+							placeholder="사업자등록번호를 입력해주세요.">
+					</div>
+
+					<div class="storeRegistration">
+						<label>로고 이미지 첨부</label> <input type="file" id="logoImage"
+							name="logoImage">
+					</div>
+
+					<div class="storeRegistrationButton">
+						<button type="submit" class="storeRegistrationBtn">등록하기</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
 	</div>
 </div>
+
+
 
 <jsp:include page="ceo_footer.jsp" />
 

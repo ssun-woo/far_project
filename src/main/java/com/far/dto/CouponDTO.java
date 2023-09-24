@@ -25,54 +25,54 @@ import lombok.Setter;
 @Setter
 public class CouponDTO {
 
-	private String coupon_name;
-	private double coupon_discountrate;
-	private String coupon_startDate;
-	private String coupon_endDate;
-	private int coupon_num;
-	private String mem_id;
-	private int coupon_used;
+	private String couponName;
+	private double couponDiscountrate;
+	private String couponStartDate;
+	private String couponEndDate;
+	private int couponNum;
+	private String memId;
+	private int couponUsed;
 	
-	public String getCoupon_name() {
-		return coupon_name;
+	public String getCouponName() {
+		return couponName;
 	}
-	public void setCoupon_name(String coupon_name) {
-		this.coupon_name = coupon_name;
+	public void setCoupon_name(String couponName) {
+		this.couponName = couponName;
 	}
-	public double getCoupon_discount() {
-		return coupon_discountrate;
+	public double getCouponDiscount() {
+		return couponDiscountrate;
 	}
-	public void setCoupon_discount(int coupon_discountrate) {
-		this.coupon_discountrate = coupon_discountrate;
+	public void setCoupon_discount(int couponDiscountrate) {
+		this.couponDiscountrate = couponDiscountrate;
 	}
-	public String getCoupon_startDate() {
-		return coupon_startDate;
+	public String getCouponStartDate() {
+		return couponStartDate;
 	}
-	public void setCoupon_startDate(String coupon_startDate) {
-		this.coupon_startDate = coupon_startDate;
+	public void setCoupon_startDate(String couponStartDate) {
+		this.couponStartDate = couponStartDate;
 	}
-	public String getCoupon_endDate() {
-		return coupon_endDate;
+	public String getCouponEndDate() {
+		return couponEndDate;
 	}
-	public void setCoupon_endDate(String coupon_endDate) {
-		this.coupon_endDate = coupon_endDate;
+	public void setCouponEndDate(String couponEndDate) {
+		this.couponEndDate = couponEndDate;
 	}
-	public int getCoupon_num() {
-		return coupon_num;
+	public int getCouponNum() {
+		return couponNum;
 	}
-	public void setCoupon_num(int coupon_num) {
-		this.coupon_num = coupon_num;
+	public void setCoupon_num(int couponNum) {
+		this.couponNum = couponNum;
 	}
-	public String getMem_id() {
-		return mem_id;
+	public String getMemId() {
+		return memId;
 	}
-	public void setMem_id(String mem_id) {
-		this.mem_id = mem_id;
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
-	public int getCoupon_used() {
-		return coupon_used;
+	public int getCouponUsed() {
+		return couponUsed;
 	}
-	public void setCoupon_used(int coupon_used) {
-		this.coupon_used = coupon_used;
+	public void setCouponUsed(int couponUsed) {
+		this.couponUsed = couponUsed;
 	}
 }

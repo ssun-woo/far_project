@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.far.dao.PaymentDAO;
 import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
-import com.far.dto.MenuDTO;
+import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 
 @Service
@@ -19,18 +19,18 @@ public class PaymentServiceImpl implements PaymentService {
 	private PaymentDAO paymentDao;
 
 	@Override
-	public List<CouponDTO> getCoupons(String mem_id) {
-		return paymentDao.getCoupons(mem_id);
+	public List<CouponDTO> getCoupons(String memId) {
+		return paymentDao.getCoupons(memId);
 	}
 
 	@Override
-	public MenuDTO getMenu(int i) {
+	public RoomDTO getMenu(int i) {
 		return paymentDao.getMenu(i);
 	}
 
 	@Override
-	public StoreDTO getStore(int store_num) {
-		return paymentDao.getStore(store_num);
+	public StoreDTO getStore(int storeNum) {
+		return paymentDao.getStore(storeNum);
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	@Override
-	public MemberDTO getMember(String mem_id) {
-		return paymentDao.getMember(mem_id);
+	public MemberDTO getMember(String memId) {
+		return paymentDao.getMember(memId);
 	}
 
 }

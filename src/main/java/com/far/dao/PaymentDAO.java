@@ -5,21 +5,21 @@ import java.util.Map;
 
 import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
-import com.far.dto.MenuDTO;
+import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 
 public interface PaymentDAO {
 
-	List<CouponDTO> getCoupons(String mem_id);
+	List<CouponDTO> getCoupons(String memId);
 
-	MenuDTO getMenu(int i);
+	RoomDTO getMenu(int i);
 
-	StoreDTO getStore(int store_num);
+	StoreDTO getStore(int storeNum);
 
 	CouponDTO getCouponIssue(Map<String, String> map);
 
 	void insertCoupon(CouponDTO newc);
 
-	MemberDTO getMember(String mem_id);
+	MemberDTO getMember(String memId);
 
 }

@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
-import com.far.dto.MenuDTO;
+import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 import com.far.service.PaymentService;
 
@@ -39,10 +39,10 @@ public class PaymentController {
 		List<CouponDTO> coupons = paymentService.getCoupons(mem_id);
 		
 		// 메뉴 정보
-		MenuDTO menu = paymentService.getMenu(1);
+		RoomDTO menu = paymentService.getMenu(1);
 		
 		// 가게 정보
-		StoreDTO store = paymentService.getStore(menu.getStore_num());
+		StoreDTO store = paymentService.getStore(menu.getStoreNum());
 		
 		// 포인트
 		MemberDTO member = paymentService.getMember(mem_id);
@@ -55,8 +55,8 @@ public class PaymentController {
 		
 		// 날짜 형식 변환
 		for(int i=0; i<coupons.size(); i++) {
-			coupons.get(i).setCoupon_startDate(coupons.get(i).getCoupon_startDate().substring(0, 10));
-			coupons.get(i).setCoupon_endDate(coupons.get(i).getCoupon_endDate().substring(0, 10));
+			coupons.get(i).setCoupon_startDate(coupons.get(i).getCouponStartDate().substring(0, 10));
+			coupons.get(i).setCouponEndDate(coupons.get(i).getCouponEndDate().substring(0, 10));
 		}
 		
 		mav.addObject("coupons", coupons);
@@ -76,11 +76,11 @@ public class PaymentController {
 		System.out.println("coupon_name = " + coupon_name);
 		
 		//String mem_id = (String)session.getAttribute("memId");
-		String mem_id = "qwer";
+		String memId = "qwer";
 		String c_name = coupon_name;
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("mem_id", mem_id);
+		map.put("mem_id", memId);
 		map.put("coupon_name", c_name);
 		CouponDTO c = paymentService.getCouponIssue(map);
 		
@@ -91,7 +91,7 @@ public class PaymentController {
 		
 		newc.setCoupon_num(4);
 		newc.setCoupon_name(coupon_name);
-		newc.setMem_id(mem_id);
+		newc.setMemId(memId);
 		
 		if(c == null) {
 			paymentService.insertCoupon(newc);

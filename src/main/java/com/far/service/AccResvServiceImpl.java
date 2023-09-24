@@ -21,18 +21,18 @@ public class AccResvServiceImpl implements AccResvService{
 	}
 
 	@Override
-	public List<StoreDTO> getCateList(String detail_cate) {
-		return accResvDao.getCateList(detail_cate);
+	public List<StoreDTO> getCateList(String detailCate) {
+		return accResvDao.getCateList(detailCate);
 	}
 
 	@Override
-	public int getTotalCount(String detail_cate) {
-		return accResvDao.getTotalCount(detail_cate);
+	public int getTotalCount(String detailCate) {
+		return accResvDao.getTotalCount(detailCate);
 	}
 
 	@Override
-	public StoreDTO getInfo(int store_num) {
-		return accResvDao.getInfo(store_num);
+	public StoreDTO getInfo(int storeNum) {
+		return accResvDao.getInfo(storeNum);
 	}
 
 }
