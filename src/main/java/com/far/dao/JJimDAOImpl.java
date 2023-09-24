@@ -14,18 +14,18 @@ public class JJimDAOImpl implements JJimDAO {
 	
 	@Override
 	public void setJJim(JJimDTO jdto) {
-		sqlSession.insert("set_jjim", jdto);
+		sqlSession.insert("setJjim", jdto);
 		
 	}
 
 	@Override
 	public int getCount(JJimDTO jdto) {
-		return sqlSession.selectOne("get_jjim", jdto);
+		return sqlSession.selectOne("getJjim", jdto);
 	}
 
 	@Override
 	public void delJJim(JJimDTO jdto) {
-		sqlSession.delete("del_jjim",jdto);
+		sqlSession.delete("delJjim",jdto);
 	}
 
 }

@@ -18,7 +18,7 @@ public class LoginDAOImpl implements LoginDAO {
 
 	@Override
 	public int isexist_mem(MemberDTO memberDTO) {
-		int member = sqlsession.selectOne("mem_select", memberDTO);
+		int member = sqlsession.selectOne("memSelect", memberDTO);
 		return member;
 	}
 	

@@ -32,47 +32,42 @@
 	</div>
 </div>
 <div class="main">
-	<section class="eventMs">
-		<div>
-			<a href="https://google.com"> <img
-				src="/images/ev_images/intev1.avif" alt="">
-			</a>
-		</div>
-		<div>
-			<a href="https://www.naver.com"> <img
-				src="/images/ev_images/intev2.avif" alt="">
-			</a>
-		</div>
-		<div>
-			<a href="https://www.yanolja.com"> <img
-				src="/images/ev_images/intev3.avif" alt="">
-			</a>
-		</div>
-		<div>
-			<a href="https://www.goodchoice.kr"> <img
-				src="/images/ev_images/intev4.avif" alt="">
-			</a>
-		</div>
-		<div>
-			<a href="https://www.airbnb.co.kr"> <img
-				src="/images/ev_images/intev5.avif" alt="">
-			</a>
-		</div>
-		<div>
-			<a href="https://www.airbnb.co.kr"> <img
-				src="/images/ev_images/intev6.avif" alt="">
-			</a>
-		</div>
-	</section>
+	<section class="evMain">
+				<div class="eventMsBox">
+					<ul class="eventMs">
+						<li><a href=""> <img src="/images/ev_images/intev1.avif"
+								alt="">
+						</a></li>
+						<li><a href=""> <img src="/images/ev_images/intev2.avif"
+								alt="">
+						</a></li>
+						<li><a href=""> <img src="/images/ev_images/intev3.avif"
+								alt="">
+						</a></li>
+						<li><a href=""> <img src="/images/ev_images/intev4.avif"
+								alt="">
+						</a></li>
+						<li><a href=""> <img src="/images/ev_images/intev5.avif"
+								alt="">
+						</a></li>
+						<li><a href=""> <img src="/images/ev_images/intev6.avif"
+								alt="">
+						</a></li>
+					</ul>
+				</div>
+			</section>
 
-	<script type="text/javascript">
-		$('.eventMs').slick({
-			slidesToShow : 2,
-			slidesToScroll : 1,
-			autoplay : true,
-			autoplaySpeed : 12000,
-		});
-	</script>
+
+
+			<script type="text/javascript">
+				$('.eventMs').slick({
+					slidesToShow : 2,
+					slidesToScroll : 1,
+					autoplay : true,
+					autoplaySpeed : 12000,
+
+				});
+			</script>
 
 </div>
 <jsp:include page="../main/footer.jsp"/>

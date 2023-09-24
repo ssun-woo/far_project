@@ -10,7 +10,7 @@ import com.far.dto.StoreDTO;
 
 public interface PaymentService {
 
-	List<CouponDTO> getCoupons(String mem_id);
+	List<CouponDTO> getCoupons(String memId);
 
 	RoomDTO getMenu(int i);
 
@@ -20,6 +20,6 @@ public interface PaymentService {
 
 	void insertCoupon(CouponDTO newc);
 
-	MemberDTO getMember(String mem_id);
+	MemberDTO getMember(String memId);
 
 }

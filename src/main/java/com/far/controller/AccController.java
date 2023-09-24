@@ -203,7 +203,7 @@ public class AccController {
 			String jjim = request.getParameter("jjim");
 			JJimDTO jdto = new JJimDTO();
 			jdto.setMemId("abdg1");
-			jdto.setStore_num(store_num);
+			jdto.setStoreNum(store_num);
 			
 			jjimService.setJJim(jdto);
 					
@@ -223,7 +223,7 @@ public class AccController {
 			
 			JJimDTO jdto = new JJimDTO();
 			jdto.setMemId("abdg1");
-			jdto.setStore_num(store_num);
+			jdto.setStoreNum(store_num);
 			
 			jjimService.delJJim(jdto);
 			
@@ -255,21 +255,21 @@ public class AccController {
 	}
 
 	// 숙소 결제 페이지
-	@RequestMapping("/payment_end")
-	public ModelAndView acc_payment_end(String cate, int store_num, HttpSession session) {
-		String id = (String) session.getAttribute("id");
-		id = "a";
-		ResvDTO resv = new ResvDTO();
-		resv.setResvNum(3); // 시퀀스가 들어갈 자리
-		resv.setStoreNum(store_num);
-		resv.setMemId(id);
-		resv.setStartDay("시작일, 시간입니다");
-		resv.setEndDay("마지막날, 시간입니다");
-		resv.setPeopleNum(2);
-		accResvService.resvStroe(resv);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("payment/payment_end");
-		return mav;
-	}
+//	@RequestMapping("/payment_end")
+//	public ModelAndView acc_payment_end(String cate, int store_num, HttpSession session) {
+//		String id = (String) session.getAttribute("id");
+//		id = "a";
+//		ResvDTO resv = new ResvDTO();
+//		resv.setResvNum(3); // 시퀀스가 들어갈 자리
+//		resv.setStoreNum(store_num);
+//		resv.setMemId(id);
+//		resv.setStartDay("시작일, 시간입니다");
+//		resv.setEndDay("마지막날, 시간입니다");
+//		resv.setPeopleNum(2);
+//		accResvService.resvStroe(resv);
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("payment/payment_end");
+//		return mav;
+//	}
 
 }
