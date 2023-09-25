@@ -30,6 +30,11 @@
  	<update id="resetPwd">
  		update member set memPwd = #{memPwd} where memId = #{memId}
  	</update>
+
+ 	<!-- AdminController 일반 회원 목록 -->
+ 	<select id="getMemList" resultType="member">
+ 		select * from member where memClass = #{memClass}
+ 	</select>
  	
  </mapper>
  

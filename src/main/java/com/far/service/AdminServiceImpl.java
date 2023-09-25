@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.far.dao.AdminDAO;
+import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
 import com.far.dto.StoreDTO;
-
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -28,15 +28,25 @@ public class AdminServiceImpl implements AdminService {
 		return 1;
 	}
 
-//	@Override
-//	public List<StoreDTO> storePermitSelect(String storeNum) {
-//		adminDAO.storePermitSelect(storeNum);
-//		return null;
-//	}
-
 	@Override
 	public List<StoreDTO> storeDeniedSelect(String storeNum) {
 		adminDAO.storeDeniedSelect(storeNum);
 		return null;
 	}
+
+	@Override
+	public List<MemberDTO> getMemList(String memClass) {
+		return adminDAO.getMemList(memClass);
+	}
+
+	@Override
+	public void insertAdCoupon(CouponDTO c) {
+		this.adminDAO.insertAdCoupon(c);
+	}
+
+	@Override
+	public List<CouponDTO> getCouponList() {
+		return adminDAO.getCouponList();
+	}
+
 }

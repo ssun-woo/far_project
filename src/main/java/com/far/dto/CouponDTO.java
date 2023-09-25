@@ -75,9 +75,5 @@ public class CouponDTO {
 	public void setCouponUsed(int couponUsed) {
 		this.couponUsed = couponUsed;
 	}
-	public void setCouponStartDate(String substring) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
