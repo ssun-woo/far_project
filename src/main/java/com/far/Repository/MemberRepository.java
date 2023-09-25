@@ -1,5 +1,10 @@
 package com.far.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.metamodel.EntityType;
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.far.model.Member;
 
@@ -9,4 +14,5 @@ public interface MemberRepository extends JpaRepository<Member, String> {
 	public Member findByMemNameAndMemTel(String memName, String memTel);
 	public Member findByMemIdAndMemNameAndMemEmail(String memId, String memName, String memEmail);
 	public Member findByMemIdAndMemNameAndMemTel(String memId, String memName, String memTel);
+	
 }

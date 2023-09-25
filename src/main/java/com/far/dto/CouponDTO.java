@@ -79,5 +79,14 @@ public class CouponDTO {
 		// TODO Auto-generated method stub
 		
 	}
+	public void setCouponNum(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setCouponName(String couponName2) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 
 }

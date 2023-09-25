@@ -78,29 +78,26 @@ public class PaymentController {
 	// 쿠폰 발급
 	@RequestMapping("/couponIssue")
 	public @ResponseBody String couponIssue(HttpSession session,
-			@RequestParam("coupon_name") String coupon_name) {
+			@RequestParam("coupon_name") String couponName) {
 
-		System.out.println("coupon_name = " + coupon_name);
-		
-		//String mem_id = (String)session.getAttribute("memId");
-		String memId = "qwer";
-		String c_name = coupon_name;
+		System.out.println("couponName = " + couponName);
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String id = authentication.getName();
+		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
+		String cName = couponName;
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("mem_id", memId);
-		map.put("coupon_name", c_name);
+		map.put("mem_id", id);
+		map.put("coupon_name", cName);
 		CouponDTO c = paymentService.getCouponIssue(map);
-		
 		
 		String msg = null;
 		
 		CouponDTO newc = new CouponDTO();
 		
-
-		newc.setCoupon_num(4);
-		newc.setCoupon_name(coupon_name);
-		newc.setMemId(memId);
-
+		newc.setCouponNum(1);
+		newc.setCouponName(couponName);
+		newc.setMemId(id);
 		
 		if(c == null) {
 			paymentService.insertCoupon(newc);
@@ -110,7 +107,6 @@ public class PaymentController {
 		}
 		return msg;
 	}
-	
 
 	// 결제 완료 페이지
 	@RequestMapping("/end")

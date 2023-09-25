@@ -1,4 +1,9 @@
 @charset "UTF-8";
+
+.myPageListwrap {
+	width: 1300px;
+}
+
 .myPageReservation {
 	display: inline-block;
 	width: 80%;
@@ -36,55 +41,71 @@
 }
 
 .myPageListwrap {
-	display:flex;	
+	display: flex;
 }
 
-.myPageList{
-	margin-top: -90px;
+.myPageList {
+	margin-left: 30px;
+	margin-top : -90px;
 	width: 200px;
+	margin-top: -90px;
 }
+
 .myPageList>ul {
-	margin-top: 100px;
+	width: 170px;
+	margin-top : 100px;
 	margin-right: 20px;
 	border: 1px solid black;
 	padding: 20px; /* 간격 벌리기 */
 	padding-left: 20px;
+	margin-top: 100px;
 }
+
 .myPageList>ul>li {
 	margin-left: 30px;
-	margin-bottom:30px;
+	margin-bottom: 30px;
 }
 
 .myPageListReservation {
-	margin-top: 30px;
-	text-decoration: none; 
-    transition: color 0.5s;
+	margin-top: 35px;
+	text-decoration: none;
+	transition: color 0.5s;
 }
 
 .myPageListReservation:hover {
-   top: -5px;
-   font-weight: bold;
+	top: -5px;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 .myPageJjim:hover {
-   top: -5px;
-   font-weight: bold;
+	top: -5px;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 .myPageInfo:hover {
-   top: -5px;
-   font-weight: bold;
+	top: -5px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.myPageCoupon:hover {
+	top: -5px;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 .myPagecs:hover {
-   top: -5px;
-   font-weight: bold;
+	top: -5px;
+	font-weight: bold;
+	cursor: pointer;
 }
 
-
 #pageContent {
-	margin-top: 15px;
-	width: 800px;
+	margin-left: 80px;
+	margin-top: 45px;
+	width: 1000px;
 }
 
 .myPageheader {
@@ -92,21 +113,21 @@
 }
 
 .myPageInclude_logo {
-	float:left;
+	float: left;
 }
 
 .myPage_select {
-	margin-left: 700px; 
+	margin-left: 700px;
 }
 
 .chk_list_img {
-	float:left;
+	float: left;
 }
 
 .chk_info {
-	float:right;
+	float: right;
 }
 
 .chk_cont {
-	float:right;
+	float: right;
 }

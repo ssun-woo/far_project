@@ -1,7 +1,9 @@
 @charset "UTF-8";
+
 #admin_main{
 	display: flex;
 }
+
 #menu{
 	height: 100%;
 	width: 20%;
@@ -17,12 +19,9 @@
 	margin-bottom: 10px;
 }
 
-
-
 #menu .button{
 	text-decoration: none;
 	color: gray;
-	
 }
 
 #menu .button:focus{
@@ -30,10 +29,8 @@
 	font-weight: bolder;
 }
 
-
 #menu_cont{
 	margin-left: 300px;
-	
 }
 
 #menu_cont table{
@@ -74,4 +71,97 @@
 
 #shop_info h4{
 	margin-left: 20px;
+}
+
+
+/* adminMemList.jsp */
+#adMemListSection {
+	margin-left: 300px;
+}
+
+#adMemListTitle {
+	margin-left: 20px;
+}
+
+#adMemListTable {
+	margin-left: 20px;
+}
+
+#adMemListTable td {
+	width: 130px;
+	text-align: center;
+}
+
+
+/* adminCouponRegis.jsp */
+#adCouponSection {
+	margin-left: 300px;
+}
+
+#adCouponTitle {
+	margin-left: 20px;
+}
+
+.adminCouponRegistrationForm {
+	margin-left: 20px;
+	width: 800px;
+	padding: 20px;
+	border: 1px solid;
+	border-radius: 15px;
+	margin-top: 25px;
+	font-family: Arial, sans-serif;
+}
+
+.CouponRegistration {
+	margin-bottom: 15px;
+}
+
+.CouponRegistration label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-left: 10px;
+}
+
+#couponName,
+#couponDiscountrate,
+#couponStartDate,
+#couponEndDate {
+	width: 750px;
+	padding: 8px;
+	border: 1px solid;
+	display: block;
+	border-radius: 10px;
+	margin-left: 15px;
+}
+
+.CouponRegistrationButton {
+	text-align: right;
+	margin-right: 5px;
+}
+
+.CouponRegistrationBtn {
+	padding: 8px 13px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	border-radius: 10px;
+}
+
+
+/* adminCouponList.jsp */
+#adCouponListSection {
+	margin-left: 300px;
+}
+
+#adCouponListTitle {
+	margin-left: 20px;
+}
+
+#adCouponListTable {
+	margin-left: 20px;
+}
+
+#adCouponListTable td {
+	text-align: center;
 }

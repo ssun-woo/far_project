@@ -49,7 +49,5 @@
        select * from room where roomNum = #{menuId}
     </select>
     
-
-
  </mapper>
  

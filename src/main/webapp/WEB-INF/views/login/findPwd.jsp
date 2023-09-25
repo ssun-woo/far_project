@@ -12,22 +12,20 @@
 <div id="findIdwrap">
     <h2 id="findIdTitle">아이디 찾기</h2>
     
-    <div id="memclassTitle">
-        <h2>회원 유형</h2>
-    </div>
-    
     <div> <!-- 이 부분을 추가하였습니다 -->
-        <form name="findIdByEmail" action="/findIdEmail" method="post">
+        <form name="findIdByEmail" action="/findPwd" method="post">
         
-        <div id="findIdByEmail" class="screen">
+        <div id="findPwddByEmail" class="screen">
+        		<div id="findPwdByEmailNameTitle">아이디</div>
+                <input id="findPwdByEmailNameInput" type="text" name="memId"><br>
             
-                <div id="findIdByEmailNameTitle">이름</div>
-                <input id="findIdByEmailNameInput" type="text" name="memName"><br>
+                <div id="findPwdByEmailNameTitle">이름</div>
+                <input id="findPwdByEmailNameInput" type="text" name="memName"><br>
                 
-                <div id="findIdByEmail">이메일 또는 전화번호<br></div>
-                <input id="findIdByEmailInput" type="text" name="emailortel"><br>
+                <div id="findPwdByEmail">이메일 또는 전화번호<br></div>
+                <input id="findPwdByEmailInput" type="text" name="emailortel"><br>
                 
-                <input id="findIdEmailSubmit" type="submit" value="확인">
+                <input id="findPwdEmailSubmit" type="submit" value="확인">
             </form>
         </div>
     </div>

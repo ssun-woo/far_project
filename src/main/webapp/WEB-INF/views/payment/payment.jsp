@@ -50,15 +50,7 @@
                      
 								<c:forEach items="${coupons}" var="coupon">
 									<option value="${coupon.couponNum}" data-discount-rate="${coupon.couponDiscountrate}">
-										<c:choose>
-											<c:when test="${coupon.couponDiscountrate > 1}">
-											    ${coupon.couponName} (${coupon.couponStartDate}~${coupon.couponEndDate})
-											</c:when>
-											
-											<c:otherwise>
-											    ${coupon.couponName} (${coupon.couponStartDate}~${coupon.couponEndDate})
-											</c:otherwise>
-										</c:choose>
+										${coupon.couponName} (${coupon.couponStartDate}~${coupon.couponEndDate})
 									</option>
 								</c:forEach>
 							</select>
@@ -72,8 +64,8 @@
 						$("#getCoupon").click(function() {
 							//var mem_id = "${mem_id}";
 							//var coupon_name = "${coupon_name}";
-							var mem_id = "qwer";
-							var coupon_name = "생일축하쿠폰(2023)";
+							var mem_id = "sunwoo";
+							var coupon_name = "20% 할인 쿠폰";
                   
 							// ajax 요청 보내기
 							$.ajax({
@@ -122,7 +114,7 @@
 					</tr>
 				
 					<tr>
-				   		<td width="125px" style="text-align: right;">사용</td>
+				   		<td width="125px" style="text-align: right;">사용할 포인트</td>
 						<td style="text-align: right;">
 				         	<input type="number" id="pointInput" onchange="updatePointDiscount()" placeholder="사용할 포인트 입력">
 				     	</td>
@@ -139,12 +131,11 @@
 				// 포인트 입력 값 가져오기
 				var pointInput = document.getElementById("pointInput");
 				var pointValue = parseFloat(pointInput.value);
+				var pointDiscount = document.getElementById("pointDiscount");
 				
-				// e, +, - 입력 불가하도록
+				// e, +, - 입력 불가하도록 처리
 		     	pointInput.onkeydown = function(e) {
-		     		if(!((e.keyCode > 95 && e.keyCode < 106)
-	   			      || (e.keyCode > 47 && e.keyCode < 58) 
-	   			      || e.keyCode == 8)) {
+		     		if(!((e.keyCode > 95 && e.keyCode < 106) || (e.keyCode > 47 && e.keyCode < 58) || e.keyCode == 8)) {
 	   			        return false;
 	   			    }
 		     	}
@@ -154,22 +145,23 @@
 				    pointValue = 0;
 				}
 			
-				var max_value;
-	         
+				var max_value = Math.min(${member.point}, ${room.roomPrice});	
+				
 				// 쿠폰 할인을 고려하여 max_value 설정
 				if (parseFloat(document.getElementById("couponDiscount").textContent) > 0) {
 				    // 쿠폰 할인이 적용된 경우
-				    max_value = Math.min(maxDiscountAmount, ${member.point});
+				    max_value = Math.min(maxDiscountAmount, max_value);
 				} else {
 				    // 쿠폰 할인이 적용되지 않은 경우
-				    max_value = Math.min(originPrice, ${member.point});
+				    max_value = Math.min(${room.roomPrice}, ${member.point});
 				}
 	
 				// 최대값 설정
 				pointInput.max = max_value;
 				
 				// 포인트 할인 금액 계산
-				var pointDiscount = Math.min(pointValue, maxDiscountAmount);
+				pointDiscount = Math.min(pointValue, maxDiscountAmount);
+				pointValue = pointDiscount;
 				
 				// 최종 결제 금액 계산 (상품금액 - 쿠폰 할인 - 포인트 할인)
 				var totalPrice = originPrice - parseFloat(document.getElementById("couponDiscount").textContent)*1000 - pointDiscount;
@@ -184,6 +176,7 @@
 	
 				// 포인트 할인 값을 업데이트, 콤마
 				document.getElementById("pointDiscount").textContent = numberWithCommas(pointDiscount) + "원";
+				pointDiscount.value = pointDiscount;
 				
 				// 최종 결제 금액을 업데이트, 콤마
 				document.getElementById("totalPrice").textContent = numberWithCommas(totalPrice) + "원";
@@ -208,8 +201,27 @@
 	   
 	     	// 포인트 전액 사용 버튼 클릭 시
 	   		document.getElementById("applyPoint").addEventListener("click", function () {
-	          	pointInput.value = memberPoint; // 포인트 입력 필드에 전체 포인트 값 할당
-	         	updatePointDiscount(); // 포인트 할인 및 결제 금액 업데이트
+	          	/* pointInput.value = memberPoint; // 포인트 입력 필드에 전체 포인트 값 할당
+	         	updatePointDiscount(); // 포인트 할인 및 결제 금액 업데이트 */
+	   			var couponDiscount = parseFloat(document.getElementById("couponDiscount").textContent.replace(/[^\d.]/g, '')); // 쿠폰 할인 금액 추출
+	   		    var remainingPoint = parseFloat("${member.point}"); // 보유 중인 포인트
+	   		    var productPrice = parseFloat("${room.roomPrice != null ? room.roomPrice : 0}"); // 상품 가격
+
+	   		    var adjustedPoint = 0; // pointInput에 설정할 값 초기화
+
+	   		    if (couponDiscount > 0) {
+	   		        // 쿠폰을 적용한 경우
+	   		        adjustedPoint = Math.min(remainingPoint, productPrice - couponDiscount);
+	   		    } else {
+	   		        // 쿠폰을 적용하지 않은 경우
+	   		        adjustedPoint = Math.min(remainingPoint, productPrice);
+	   		    }
+
+	   		    // pointInput 값 설정
+	   		    pointInput.value = adjustedPoint;
+
+	   		    // 포인트 할인 및 결제 금액 업데이트
+	   		    updatePointDiscount();
 	     	});
 	  
 	     	// 초기 실행
@@ -241,10 +253,10 @@
              		//console.log(selectedDiscountRate);
              
 
-             		if (selectedDiscountRate < 1) {
+             		if (selectedDiscountRate < 1 && selectedDiscountRate != 0) {
                 		couponDiscount = originPrice * selectedDiscountRate;
              		} else {
-                 		couponDiscount = selectedDiscountRate;
+             			couponDiscount = selectedDiscountRate;
              		}
          
              		// 쿠폰 할인 금액 업데이트, 콤마

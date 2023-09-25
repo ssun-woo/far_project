@@ -9,6 +9,7 @@
 			<li class="myPageListReservation" onclick="loadReservationPage()">예약 확인</li>
 			<li class="myPageJjim" onclick="loadReservationPage2()">찜 목록</li>
 			<li class="myPageInfo" onclick="loadReservationPage3()">내 정보 수정</li>
+			<li class="myPageCoupon" onclick="loadReservationPage4()">내 쿠폰 목록</li>
 			<li class="myPagecs"><a href="../customer_service/cs_main.jsp">고객센터</a></li>
 		</ul>
 	</div>

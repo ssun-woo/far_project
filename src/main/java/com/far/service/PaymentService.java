@@ -14,7 +14,7 @@ public interface PaymentService {
 
 	RoomDTO getMenu(int i);
 
-	StoreDTO getStore(int store_num);
+	StoreDTO getStore(int storeNum);
 
 	CouponDTO getCouponIssue(Map<String, String> map);
 

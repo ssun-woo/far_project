@@ -65,6 +65,7 @@ public class AccController {
 		String detailCate = request.getParameter("detail_cate");
 	    String cate = request.getParameter("cate");
 	    String keyword = request.getParameter("keyword");
+	    String memId = request.getParameter("memId");
 	    int countStore = -1;
 	    Map<String, String> map = new HashMap<>();
 	    if(keyword == null) {
@@ -81,6 +82,7 @@ public class AccController {
 	    Page<StoreDTO> storePage = storeService.storeList(pageable, detailCate);
 	    session.setAttribute("list", storePage);
 	    session.setAttribute("countStore", countStore);
+	    System.out.println("memId = " + memId);
 	    mav.setViewName("acc/acc_list");
 	    return mav;
 }
