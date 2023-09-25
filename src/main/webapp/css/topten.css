@@ -1,81 +1,97 @@
-    .topTenBox {
-       width: 100%;
-		position: relative;
-		align-items: center;
-        margin: 0 auto;
-        background-color: wheat;
-    }
-	.topTen{
-		width: 1400px;
-		position: relative;
-        overflow: hidden;
-        margin: 0 auto;
-		background-color: crimson;
-	}
+        .topTenBox {
+            width: 100%;
+            position: relative;
+            align-items: center;
+            margin: 0 auto;
 
-    .tpbox {
-        width: 380px;
-        height: 450px;
-        position: relative;
-        align-items: center;
-        overflow: hidden;
-        border-radius: 20px;
-        margin: 0 auto;
-     	background-color: rgb(0, 128, 255);   
+        }
+
+        .topTen {
+            width: 1400px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+
+        }
+
+        .topTen li .tpbox #tpbutton {
+            width: 120px;
+            height: 35px;
+
+            background-color: hsla(220, 100%, 49%, 0.922);
+            color: white;            
+            position: absolute;
+            top: 52.5%;
+            left: 0;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .tpbox {
+            width: 380px;
+            height: 450px;
+            position: relative;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 20px;
+            margin-left: 17px;
+            background-color: rgb(255, 255, 255);
+            border: 2px ridge rgba(239, 239, 239, 0.878);
+        }
+
+
+
+        .tpimg img {
+            width: 100%;
+            height: 255px;
+            object-fit: cover;
+            display: block;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        .topTen button {
+         position: absolute;
+            z-index: 50;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background: rgb(255, 255, 255);
+            border: none;
+            top: 50%;
+            transform: translateY(-50%);
+			}
+			
+        .topTen button:before {
+            font-family: 'xeicon';
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
         
-    }
 
-    
+        .topTen button.slick-prev {
+            left: 12px;
+            font-size: 0;
+            color: transparent;
+        }
 
-    .tpimg img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        display: block;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        
-    }
+        .topTen button.slick-prev:before {
+            content: "\e93b";
+        }
 
-    .topTen button {
-        position: absolute;
-        /*z-index: 10;*/
-        top: 50%;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.5);
-        border: none;
-        transform: translateY(-50%, -50%);
-    }
+        .topTen button.slick-next {
+            right: 12px;
+            font-size: 0;
+            color: transparent;
 
-    .topTen button:before {
-        font-family: 'xeicon';
-        color: #fff;
-        font-size: 18px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+        }
 
-    .topTen button.slick-prev {
-        left: 30px;
-        font-size: 0;
-        color: transparent;
-    }
-
-    .topTen button.slick-prev:before {
-        content: "\e93b";
-    }
-
-    .topTen button.slick-next {
-        right: 2px;
-        font-size: 0;
-        color: transparent;
-        
-    }
-
-    .topTen button.slick-next:before {
-        content: "\e93e";
-    }
+        .topTen button.slick-next:before {
+            content: "\e93e";
+        }

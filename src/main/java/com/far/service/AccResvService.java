@@ -9,10 +9,10 @@ public interface AccResvService {
 
 	void resvStroe(ResvDTO resv);
 
-	List<StoreDTO> getCateList(String detail_cate);
+	List<StoreDTO> getCateList(String detailCate);
 
-	int getTotalCount(String detail_cate);
+	int getTotalCount(String detailCate);
 
-	StoreDTO getInfo(int store_num);
+	StoreDTO getInfo(int storeNum);
 
 }

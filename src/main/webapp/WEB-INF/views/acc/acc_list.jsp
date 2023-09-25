@@ -127,8 +127,8 @@
 		
 			<div class="list_div">
 
-				<a href='/acc/cont?cate=${store.detailCate}&store_num=${store.storeNum}'><img
-					src="../images/acc/motel1-2.jpg"></a>
+				<a href='/acc/cont?detail_cate=${store.detailCate}&store_num=${store.storeNum}'><img
+					src="/upload/store_logo${store.storeLogo}"></a>
 				<div class="list_cont">
 					<div class="shop_Name">
 						<h3>${store.storeName }</h3>

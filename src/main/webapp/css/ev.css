@@ -1,86 +1,182 @@
-	.mainEv{
-		/*display: flex;*/
-		justify-content: center;
-		align-items: center;
-		position: absolute;
-		width: 100%;
-   		margin: 0 auto;
-   		background-color: rgb(0, 128, 255);
-	}
-	
-	.evMain{
-		padding-top: 30px;
-		padding-bottom: 10px;
-		background-color: rgb(255, 128, 128);
-	}
-	
-	
-	.evFont{
-		text-align: center;
-	}
-	
-	.eventMsBox{
-		background-color: rgb(0, 64, 0);
-	}
-	
-    .eventMs {
-		
-		width: 1370px;
-        height: 350px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 20px;
-        margin: 0 auto;
-      	background-color: coral;
-    }
+        .mainEv {
 
-    .eventMs img {
-        width: 615px;
-        height: 350px;
-        margin-right: 18x;
-        object-fit: cover;
-        display: block;
-        border-radius: 20px;
-    }
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            margin: 0 auto;
+        }
 
-    .eventMs button {
-        position: absolute;
-        z-index: 50;
-        width: 30px;
-        height: 30px;
-        border-radius: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        border: none;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+        .evMain {
+            padding-top: 30px;
+            padding-bottom: 10px;
+        }
 
-    .eventMs button:before {
-        font-family: 'xeicon';
-        color: #fff;
-        font-size: 25px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+        .eventMs {
+            display: flex;
+            justify-content: center;
+            width: 1380px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 0 auto;
+        }
 
-    .eventMs button.slick-prev {
-        left: -1px;
-        font-size: 0;
-        color: transparent;
-    }
+        .eventMs li:last-child {
+            margin-right: 0;
+        }
 
-    .eventMs button.slick-prev:before {
-        content: "\e93d";
-    }
+        .eventMs img {
+            width: 615px;
+            height: 380px;
+            margin-right: 10px;
+            margin-top: 15px;
+            margin-left: 8px;
+            display: block;
+            border-radius: 20px;
+        }
 
-    .eventMs button.slick-next {
-        right: 5px;
-        font-size: 0;
-        color: transparent;
-    }
+        .eventMs button {
+            position: absolute;
+            z-index: 50;
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
-    .eventMs button.slick-next:before {
-        content: "\e940";
-    }
+        .eventMs button:before {
+            font-family: 'xeicon';
+            color: #fff;
+            font-size: 25px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .eventMs button.slick-prev {
+            left: 5px;
+            font-size: 0;
+            color: transparent;
+        }
+
+        .eventMs button.slick-prev:before {
+            content: "\e93d";
+        }
+
+        .eventMs button.slick-next {
+            right: 5px;
+            font-size: 0;
+            color: transparent;
+        }
+
+        .eventMs button.slick-next:before {
+            content: "\e940";
+        }
+        
+                .evFont {
+            text-align: center;
+        }
+                .butev {
+            text-align: center;
+            /* 텍스트 가운데 정렬 */
+            margin-top: 20px;
+            /* 위 여백 추가 (원하는 값으로 조정 가능) */
+        }
+
+        .butev button {
+
+            padding: 20px 30px;
+            /* 내부 여백 설정 (원하는 값으로 조정 가능) */
+            margin: 0 10px;
+            /* 좌우 여백 설정 (원하는 값으로 조정 가능) */
+            border-radius: 40px;
+            /* 둥근 모서리 설정 */
+            cursor: pointer;
+            /* 커서 스타일을 포인터로 변경 */
+            border: 2px solid #efefef;
+            margin-bottom: 20px;
+        }
+
+
+
+        .butev button:hover {
+            background-color: rgb(251, 251, 251);
+            color: rgb(4, 4, 4);
+        }
+
+        .butev button:active,
+        .butev button:focus {
+            background-color: #b4a9a0;
+            /* 클릭 또는 포커스 시 배경색 변경 */
+            color: white;
+            /* 클릭 또는 포커스 시 글자색 변경 */
+        }
+
+        .exwrapbox {
+            width: 1380px;
+            height: 600px;
+            position: relative;
+            margin: 0 auto;
+            /* 수평 중앙 정렬 */
+        }
+
+        .exwrapbox ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            padding-top: 50px;
+        }
+
+        .exwrap {
+			
+            padding-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-left: 5px;
+            padding-right: 40px;
+
+        }
+
+        .eximg img {
+            width: 100%;
+           height: 550px;
+            border-radius: 40px;
+
+        }
+        
+        
+      .slick-dots {
+			position: absolute; /* 절대 위치로 설정 */ 
+		    bottom: 100px; /* 아래로 이동할 값을 조정하세요 */
+		    left: 10px; /* 왼쪽으로 이동할 값을 조정하세요 */
+		    width: 30px; /* 도트 크기를 10px 증가시킵니다 */
+		    height: 30px; /* 도트 크기를 10px 증가시킵니다 */
+		   
+		}
+
+		.slick-dots li button {
+		    
+		}
+        	
+
+        .extext {
+            position: absolute;
+            top: 20%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+            color: rgb(255, 255, 255);
+            font-size: 28px;
+            padding: 10px;
+            font-family: 'ypseo';
+
+            text-align: center;
+            /* 텍스트 배경 색상 추가 */
+        }
