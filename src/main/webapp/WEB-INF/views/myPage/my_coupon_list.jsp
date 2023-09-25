@@ -5,7 +5,7 @@
 
 <%-- <jsp:include page="../main/new_header2.jsp"/> --%>
 
-
+<!-- 뷰페이지 연결 X -->
 <form>
 	<table border="1" class="my_coupon_list">
 		<tr class="cp_list_center">
@@ -17,6 +17,7 @@
 			<th style="width: 200px;">쿠폰 발급일</th>
 			<th style="width: 200px;">쿠폰 만료일</th>
 		</tr>
+		
 		<c:if test="${!empty cplist}">
 			<c:forEach var="cp" items="${cplist}">
 				<tr>
@@ -26,6 +27,7 @@
 				</tr>
 			</c:forEach>
 		</c:if>
+		
 		<c:if test="${empty cplist}">
 			<tr class="cp_list_center">
 				<td colspan="3">보유 중인 쿠폰이 없습니다.</td>

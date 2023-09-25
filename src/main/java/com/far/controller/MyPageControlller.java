@@ -47,8 +47,8 @@ public class MyPageControlller {
 	@RequestMapping("/my_coupon_list")
 	public ModelAndView my_coupon_list(HttpSession session) {
 		
-//		String memId = (String)session.getAttribute(("memId");
-		String mem_id = "qwer";
+		String mem_id = (String)session.getAttribute("memId");
+		// String mem_id = "qwer";
 		
 		List<CouponDTO> cplist = myPageService.getMyCoupon(mem_id);
 		

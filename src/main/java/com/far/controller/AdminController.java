@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.far.dto.CouponDTO;
+import com.far.dto.MemberDTO;
 import com.far.dto.StoreDTO;
 import com.far.service.AdminService;
 
@@ -70,25 +72,34 @@ public class AdminController {
 		return "admin/storeList";
 	}
 	
+	// 일반 회원 목록
+	@RequestMapping("/adminMemList")
+	public String adminMemList(Model model) {
+		String memClass = "Role_m";
+		List<MemberDTO> memList = adminService.getMemList(memClass);
+		model.addAttribute("memList", memList);
+		return "admin/adminMemList";
+	}
 	
-//	// 쿠폰 등록 폼 이동
-//	@GetMapping("/coupon_registration")
-//	public ModelAndView admin_coupon_regis() {
-//		ModelAndView mav = new ModelAndView("admin/coupon_regis");
-//		return mav;
-//	}
-//	
-//	// 쿠폰 등록
-//	@PostMapping("/coupon_registration")
-//	public String coupon_registration_ok() {
-//		try {
-//			CouponDTO c_regis = new CouponDTO();
-//			adminService.insertAdCoupon(c_regis);
-//			
-//			return "쿠폰이 등록되었습니다.";
-//		} catch (Exception e) {
-//			return "쿠폰 등록에 실패하였습니다.";
-//		}
-//	}
+	// 쿠폰 등록 폼 이동
+	@GetMapping("/adminCouponRegis")
+	public String adminCouponRegis() {
+		return "admin/adminCouponRegis";
+	}
+	
+	// 쿠폰 등록, 등록되면 목록 페이지로
+	@PostMapping("/adminCouponRegisOk")
+	public ModelAndView adminCouponRegisOk(CouponDTO c) {	
+		this.adminService.insertAdCoupon(c);
+		return new ModelAndView("redirect:/admin/adminCouponList");
+	}
+	
+	// 쿠폰 리스트
+	@RequestMapping("/adminCouponList")
+	public String adminCouponList(Model model) {
+		List<CouponDTO> couponList = adminService.getCouponList();
+		model.addAttribute("couponList", couponList);
+		return "admin/adminCouponList";
+	}
 
 }
