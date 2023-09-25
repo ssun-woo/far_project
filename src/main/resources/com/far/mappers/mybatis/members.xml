@@ -27,16 +27,14 @@
  		select memClass from member where memId = #{memId}
  	</select>
  	
-<<<<<<< Updated upstream:src/main/resources/com/far/mappers/mybatis/members.xml
  	<update id="resetPwd">
  		update member set memPwd = #{memPwd} where memId = #{memId}
  	</update>
-=======
+
  	<!-- AdminController 일반 회원 목록 -->
  	<select id="getMemList" resultType="member">
  		select * from member where memClass = #{memClass}
  	</select>
->>>>>>> Stashed changes:src/main/resources/com/far/mappers/mybatis/member.xml
  	
  </mapper>
  
