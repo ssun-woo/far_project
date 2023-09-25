@@ -40,7 +40,7 @@ table {
 				</ul>
 			</div>
 		</div>
-		<div class="container mt-4">
+		<div >
 			<div id="storeContentArea">
 				<form>
 					<table class="table table-hover">

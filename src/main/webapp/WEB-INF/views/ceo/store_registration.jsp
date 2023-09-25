@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<!-- <jsp:include page="../main/header.jsp"/> -->
+<jsp:include page="../main/header.jsp"/>
 
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -81,4 +81,4 @@
 
 
 
-<!-- <jsp:include page="../main/footer.jsp"/> -->
+<jsp:include page="../main/footer.jsp"/>

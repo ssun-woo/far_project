@@ -86,11 +86,9 @@ table {
 
 
 						<h1>
-<<<<<<< HEAD
-							<a onclick="location='/ceo/store_menu_regis?store_num=${s.storeNum}'"> 메뉴등록 </a>
-=======
+
 							<a href="/ceo/store_menu_regis?store_num=${s.storeNum}" class="btn btn-secondary">메뉴등록</a>
->>>>>>> hoon
+
 						</h1>
 
 					</div>

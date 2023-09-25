@@ -41,8 +41,14 @@
 	font-weight: bold;
 	cursor: pointer;
 }
+/*.ceo_box {*/
+/*	height: 60px;*/
+/*	width: 60px;*/
+/*	text-align: center;*/
+/*}*/
 
 .ceo_list p {
+	margin-top: 5px;
 	color: black;
 	font-weight: bold;
 }

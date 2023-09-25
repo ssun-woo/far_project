@@ -6,29 +6,30 @@
 
 <div class="shop_cont">
 	<div class="shop_name">
-		<h2>[${region} / ${sebu_cate}] ${s.storeName}</h2> 
-			<label class="jjim_shop">
-				<c:if test="${JJim==0}">
-				<form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
-					<button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
-					<img src="../images/acc/NoJJim.png">
-				</button>
+		<h2>[${region} / ${sebu_cate}] ${s.storeName}</h2>
+		<label class="jjim_shop"> <c:if test="${JJim==0}">
+				<form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}"
+					class="jjim_btn" id="jjim" method="POST">
+					<button type="submit" name="jjim" id="no_jjim"
+						onclick="jjim_check()">
+						<img src="../images/acc/NoJJim.png">
+					</button>
 				</form>
-				</c:if>
-				<c:if test="${JJim==1}">
-				<form action="/acc/cont/jjim_del?cate=${cate}&store_num=${store_num}" class="jjim_btn" method="POST">
-					<button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
-					<img src="../images/acc/YesJJim.png">
-				</button>
+			</c:if> <c:if test="${JJim==1}">
+				<form
+					action="/acc/cont/jjim_del?cate=${cate}&store_num=${store_num}"
+					class="jjim_btn" method="POST">
+					<button type="submit" name="jjim" id="yes_jjim"
+						onclick="jjim_del_check()">
+						<img src="../images/acc/YesJJim.png">
+					</button>
 				</form>
-				</c:if>
-				</label>
-				
+			</c:if>
+		</label>
+
 	</div>
-	<hr style="width: 1050px;
-	text-align: center;
-	margin-left: 350px;
-	border: 1px solid;">
+	<hr
+		style="width: 1050px; text-align: center; margin-left: 350px; border: 1px solid;">
 	<div class="shop_cont_top">
 		<div class="shop_photo">
 			<img src="/upload/store_logo${s.storeLogo}" width="570px"
@@ -88,107 +89,194 @@
 								<label>날짜</label> <input type="text" id="date" name="date"
 									value="" />
 								<script type="text/javascript">
-				// 기본 출력
-				$(document).ready(function() {
-				    var startDate = moment().startOf('day');
-				    var endDate = moment().startOf('day').add(1, 'day');
-				    var nights = 1;
+									// 기본 출력
+									$(document)
+											.ready(
+													function() {
+														var startDate = moment()
+																.startOf('day');
+														var endDate = moment()
+																.startOf('day')
+																.add(1, 'day');
+														var nights = 1;
 
-				    // 요일 포맷 변경
-				    var startOfWeekday = startDate.format('ddd');
-				    var endOfWeekday = endDate.format('ddd');
+														// 요일 포맷 변경
+														var startOfWeekday = startDate
+																.format('ddd');
+														var endOfWeekday = endDate
+																.format('ddd');
 
-				    // 요일 한글로 변환
-				    var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
-				    var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
+														// 요일 한글로 변환
+														var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
+														var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
 
-				    // 이전 선택 날짜값 저장
-				    var previousValue = '';
+														// 이전 선택 날짜값 저장
+														var previousValue = '';
 
-				    // datepicker 설정
-				    $('input[name="date"]').daterangepicker({
-				        "locale": {
-				            "format": "MM-DD (ddd)",
-				            "separator": " ~ ",
-				            "applyLabel": "확인",
-				            "cancelLabel": "취소",
-				            "fromLabel": "From",
-				            "toLabel": "To",
-				            "customRangeLabel": "Custom",
-				            "weekLabel": "W",
-				            "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
-				            "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-				        },
-				        "startDate": startDate,
-				        "endDate": endDate,
-				        "minDate": moment().startOf('day'),
-				        "maxDate": moment().startOf('day').add(30, 'day'),
-				        "minYear": 2022,
-				        "maxYear": 2032,
-				        "drops": "down"
-				    });
-				    
-				    // 기본 텍스트 설정
-				    var defaultText = startDate.format('MM-DD (' + koreanStartOfWeekday + ')') + ' ~ ' + endDate.format('MM-DD (' + koreanEndOfWeekday + ')') + ' ' + nights + '박';
+														// datepicker 설정
+														$('input[name="date"]')
+																.daterangepicker(
+																		{
+																			"locale" : {
+																				"format" : "MM-DD (ddd)",
+																				"separator" : " ~ ",
+																				"applyLabel" : "확인",
+																				"cancelLabel" : "취소",
+																				"fromLabel" : "From",
+																				"toLabel" : "To",
+																				"customRangeLabel" : "Custom",
+																				"weekLabel" : "W",
+																				"daysOfWeek" : [
+																						"일",
+																						"월",
+																						"화",
+																						"수",
+																						"목",
+																						"금",
+																						"토" ],
+																				"monthNames" : [
+																						"1월",
+																						"2월",
+																						"3월",
+																						"4월",
+																						"5월",
+																						"6월",
+																						"7월",
+																						"8월",
+																						"9월",
+																						"10월",
+																						"11월",
+																						"12월" ],
+																			},
+																			"startDate" : startDate,
+																			"endDate" : endDate,
+																			"minDate" : moment()
+																					.startOf(
+																							'day'),
+																			"maxDate" : moment()
+																					.startOf(
+																							'day')
+																					.add(
+																							30,
+																							'day'),
+																			"minYear" : 2022,
+																			"maxYear" : 2032,
+																			"drops" : "down"
+																		});
 
-				    // 입력란에 기본 텍스트 설정 적용
-				    $('input[name="date"]').val(defaultText);
+														// 기본 텍스트 설정
+														var defaultText = startDate
+																.format('MM-DD ('
+																		+ koreanStartOfWeekday
+																		+ ')')
+																+ ' ~ '
+																+ endDate
+																		.format('MM-DD ('
+																				+ koreanEndOfWeekday
+																				+ ')')
+																+ ' '
+																+ nights
+																+ '박';
 
-				    // 이벤트 핸들러
-				    $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {
-				        var startOfWeekday = picker.startDate.format('ddd');
-				        var endOfWeekday = picker.endDate.format('ddd');
+														// 입력란에 기본 텍스트 설정 적용
+														$('input[name="date"]')
+																.val(
+																		defaultText);
 
-				        // 요일 한글로 변환
-				        var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
-				        var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
+														// 이벤트 핸들러
+														$('input[name="date"]')
+																.on(
+																		'apply.daterangepicker',
+																		function(
+																				ev,
+																				picker) {
+																			var startOfWeekday = picker.startDate
+																					.format('ddd');
+																			var endOfWeekday = picker.endDate
+																					.format('ddd');
 
-				        // 요일 포맷 다시 설정
-				        var dateRangeText = picker.startDate.format('MM-DD (') + koreanStartOfWeekday + ') ~ ' + picker.endDate.format('MM-DD (') + koreanEndOfWeekday + ')';
-						
-					 	// 몇 박인지 계산
-				        var nights = picker.endDate.diff(picker.startDate, 'days');
-				        dateRangeText += ' ' + nights + '박';
-				    
-				        // input에 변경된 텍스트 설정
-				        $('input[name="date"]').val(dateRangeText);
-				        
-				        // 기본 날짜 저장
-				        previousValue = dateRangeText;
-				    });
-				    
-				    // 취소 버튼 클릭 시
-				    $('input[name="date"]').on('cancel.daterangepicker', function(ev, picker) {
-				        $(this).val(previousValue); // 이전 값을 입력란에 설정
-				    });
-				    // 달력 바깥 영역 클릭 시
-				    $('input[name="date"]').on('hide.daterangepicker', function(ev, picker) {
-				        $(this).val(previousValue); // 이전 값을 입력란에 설정
-				    });
+																			// 요일 한글로 변환
+																			var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
+																			var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
 
-				    // 영어 요일을 한글 요일로 변환
-				    function convertToKoreanDayOfWeek(englishDayOfWeek) {
-				        switch (englishDayOfWeek) {
-				            case 'Sun':
-				                return '일';
-				            case 'Mon':
-				                return '월';
-				            case 'Tue':
-				                return '화';
-				            case 'Wed':
-				                return '수';
-				            case 'Thu':
-				                return '목';
-				            case 'Fri':
-				                return '금';
-				            case 'Sat':
-				                return '토';
-				            default:
-				                return englishDayOfWeek;
-				        }
-				    }
-				});
-			</script>
+																			// 요일 포맷 다시 설정
+																			var dateRangeText = picker.startDate
+																					.format('MM-DD (')
+																					+ koreanStartOfWeekday
+																					+ ') ~ '
+																					+ picker.endDate
+																							.format('MM-DD (')
+																					+ koreanEndOfWeekday
+																					+ ')';
+
+																			// 몇 박인지 계산
+																			var nights = picker.endDate
+																					.diff(
+																							picker.startDate,
+																							'days');
+																			dateRangeText += ' '
+																					+ nights
+																					+ '박';
+
+																			// input에 변경된 텍스트 설정
+																			$(
+																					'input[name="date"]')
+																					.val(
+																							dateRangeText);
+
+																			// 기본 날짜 저장
+																			previousValue = dateRangeText;
+																		});
+
+														// 취소 버튼 클릭 시
+														$('input[name="date"]')
+																.on(
+																		'cancel.daterangepicker',
+																		function(
+																				ev,
+																				picker) {
+																			$(
+																					this)
+																					.val(
+																							previousValue); // 이전 값을 입력란에 설정
+																		});
+														// 달력 바깥 영역 클릭 시
+														$('input[name="date"]')
+																.on(
+																		'hide.daterangepicker',
+																		function(
+																				ev,
+																				picker) {
+																			$(
+																					this)
+																					.val(
+																							previousValue); // 이전 값을 입력란에 설정
+																		});
+
+														// 영어 요일을 한글 요일로 변환
+														function convertToKoreanDayOfWeek(
+																englishDayOfWeek) {
+															switch (englishDayOfWeek) {
+															case 'Sun':
+																return '일';
+															case 'Mon':
+																return '월';
+															case 'Tue':
+																return '화';
+															case 'Wed':
+																return '수';
+															case 'Thu':
+																return '목';
+															case 'Fri':
+																return '금';
+															case 'Sat':
+																return '토';
+															default:
+																return englishDayOfWeek;
+															}
+														}
+													});
+								</script>
 							</div>
 						</div>
 
@@ -223,7 +311,8 @@
 							<div class="room_info">
 								<div class="booking_button">
 									<h2>${m.roomName}</h2>
-									<input type="button" value="예약" onclick="location='/payment?room_num=${m.roomNum}'">
+									<input type="button" value="예약"
+										onclick="location='/payment?room_num=${m.roomNum}'">
 								</div>
 
 								<div class="room_detailinfo">
@@ -495,28 +584,48 @@
 
 
 										<script type="text/javascript">
-                              $(document).on('click','.edit_review_btn',function(e){
-                                 e.preventDefault();
-                                 // 클릭한 수정 버튼에 가까운 form 요소 찾기
-                                   var form = $(this).closest("form");
+											$(document)
+													.on(
+															'click',
+															'.edit_review_btn',
+															function(e) {
+																e
+																		.preventDefault();
+																// 클릭한 수정 버튼에 가까운 form 요소 찾기
+																var form = $(
+																		this)
+																		.closest(
+																				"form");
 
-                                   // 해당 form 내부에서 input 요소 중 name이 'review_num'인 것의 값을 가져오기
-                                   var review_num = form.find("input[name='review_num']").val();
-                                 
-                                   window.name = "cont"
-                                   
-                                   window.open("/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
-                                   // 수정 페이지의 URL 생성
-                                  // var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
-                                 //let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
-                                 
-                                 popup = window.open(popUrl,"리뷰 수정",popOption);
-                                 
-                                   var editedReviewContent = document.getElementById("review_cont").value;
-                                 
-                              });
-               
-                              </script>
+																// 해당 form 내부에서 input 요소 중 name이 'review_num'인 것의 값을 가져오기
+																var review_num = form
+																		.find(
+																				"input[name='review_num']")
+																		.val();
+
+																window.name = "cont"
+
+																window
+																		.open(
+																				"/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="
+																						+ review_num,
+																				"update",
+																				"width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
+																// 수정 페이지의 URL 생성
+																// var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
+																//let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
+
+																popup = window
+																		.open(
+																				popUrl,
+																				"리뷰 수정",
+																				popOption);
+
+																var editedReviewContent = document
+																		.getElementById("review_cont").value;
+
+															});
+										</script>
 									</div>
 
 
