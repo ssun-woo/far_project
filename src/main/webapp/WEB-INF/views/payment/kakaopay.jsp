@@ -21,7 +21,7 @@
                 buyer_email: 'han98ok@naver.com',
                 buyer_name: '김수빈',
                 buyer_tel: '01077777777'
-            }, function (rsp) { // callback
+            }, function (rsp) { // callback 
                 $.ajax({
                    type: 'POST',
                    url: '/verify/' + rsp.imp_uid
