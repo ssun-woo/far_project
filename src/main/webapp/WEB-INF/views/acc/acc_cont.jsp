@@ -6,7 +6,7 @@
 
 <div class="shop_cont">
 	<div class="shop_name">
-		<h2>[${region} / ${sebu_cate}] ${s.store_name}</h2> 
+		<h2>[${region} / ${sebu_cate}] ${s.storeName}</h2> 
 			<label class="jjim_shop">
 				<c:if test="${JJim==0}">
 				<form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
@@ -43,7 +43,7 @@
 				<li><h3>&nbsp;</h3></li>
 			</ul>
 			<ul class="info_cont">
-				<li><p>${region}/${sebuCate}</p></li>
+				<li><p>${region}/${sebu_cate}</p></li>
 				<li><p>
 						<a onclick="">7998</a>의 상품평
 					</p></li>
@@ -223,7 +223,7 @@
 							<div class="room_info">
 								<div class="booking_button">
 									<h2>${m.roomName}</h2>
-									<input type="button" value="예약" onclick="href='#'">
+									<input type="button" value="예약" onclick="location='/payment?room_num=${m.roomNum}'">
 								</div>
 
 								<div class="room_detailinfo">

@@ -19,7 +19,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public void insertMember(MemberDTO m) {
-		sqlSession.insert("mem_in", m);
+		sqlSession.insert("memIn", m);
 	}
 
 	@Override

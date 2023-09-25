@@ -7,6 +7,7 @@
 <title></title>
 <script src="../js/jquery.js"></script>
 <script src="../js/store_main.js"></script>
+
 <link rel="stylesheet" type="text/css" href="../css/ceo_top.css">
 <link rel="stylesheet" type="text/css" href="../css/ceo_main.css">
 <link rel="stylesheet" type="text/css" href="../css/ceo_footer.css">
@@ -16,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="../css/store_registration.css">
 <link rel="stylesheet" type="text/css" href="../css/store_menu_regis.css">
 <link rel="stylesheet" type="text/css" href="../css/store_registration.css">
+
 </head>
 <body>
 	<div id="wrap">

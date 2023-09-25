@@ -15,16 +15,16 @@ import lombok.ToString;
 @Setter
 @ToString
 public class JJimDTO {
-	private int store_num;
+	private int storeNum;
 	private String memId;
 	
 	
 
-	public int getStore_num() {
-		return store_num;
+	public int getStoreNum() {
+		return storeNum;
 	}
-	public void setStore_num(int store_num) {
-		this.store_num = store_num;
+	public void setStoreNum(int storeNum) {
+		this.storeNum = storeNum;
 	}
 	public String getMemId() {
 		return memId;

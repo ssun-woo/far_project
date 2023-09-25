@@ -14,7 +14,7 @@ public class StoreDAOImpl implements StoreDAO {
 	
 	@Override
 	public int countStore(String detailCate) {
-		int countStore = sqlSession.selectOne("detail_cate_count", detailCate);
+		int countStore = sqlSession.selectOne("detailCateCount", detailCate);
 		return countStore;
 	}
 

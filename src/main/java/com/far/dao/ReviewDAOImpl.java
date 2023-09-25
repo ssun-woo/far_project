@@ -15,23 +15,23 @@ public class ReviewDAOImpl implements ReviewDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<ReviewDTO> getReview(int store_num) {
-		return sqlSession.selectList("get_review", store_num);
+	public List<ReviewDTO> getReview(int storeNum) {
+		return sqlSession.selectList("get_review", storeNum);
 	}
 
 	@Override
 	public void setReview(ReviewDTO rdto) {
-		sqlSession.insert("set_review", rdto);
+		sqlSession.insert("setReview", rdto);
 	}
 
 	@Override
-	public void delReview(int review_num) {
-		sqlSession.delete("del_review", review_num);		
+	public void delReview(int reviewNum) {
+		sqlSession.delete("delReview", reviewNum);		
 	}
 
 	@Override
 	public void editReview(ReviewDTO dto) {
-		sqlSession.update("edit_review",dto);
+		sqlSession.update("editReview",dto);
 		
 	}
 
