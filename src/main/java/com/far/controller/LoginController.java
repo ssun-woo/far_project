@@ -5,16 +5,19 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.far.dao.MemberDAO;
 import com.far.model.Member;
 import com.far.service.FindIdService;
 import com.far.service.LoginService;
@@ -24,6 +27,12 @@ import com.far.service.MemberService;
 public class LoginController {
 	@Autowired
 	private LoginService loginService;
+	
+	@Autowired
+	private MemberDAO memberDAO;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
 	private FindIdService findIdService;
@@ -53,12 +62,38 @@ public class LoginController {
 	        // "@" 기호가 포함되어 있지 않으면 오류 메시지 반환 또는 다른 처리 수행
 	    	Member m = findIdService.findIdTel(memName, emailortel);
 	        model.addAttribute("m", m);
-	        System.out.println("memberId: " + m.getMemId());
 	        return "login/findIdresult";
 	    }
 	}
 	
+	@PostMapping("/findPwd")
+	public String findByMemIdAndMemNameAndMemEmail(String memId, String memName, String emailortel, Model model, HttpSession session) {
+	    // "@" 기호가 포함되어 있는지 확인
+	    if (emailortel.matches("(.*)@(.*)")) {
+	        // "@" 기호가 포함되어 있다면 아이디 찾기 로직 수행
+	        Member m = findIdService.findPwdEmail(memId, memName, emailortel);
+	        model.addAttribute("m", m);
+	        session.setAttribute("m", m);
+	        return "login/findPwdresult";
+	    } else {
+	        // "@" 기호가 포함되어 있지 않으면 오류 메시지 반환 또는 다른 처리 수행
+	    	Member m = findIdService.findPwdTel(memId, memName, emailortel);
+	    	model.addAttribute("m", m);
+	    	session.setAttribute("m", m);
+	        return "login/findPwdresult";
+	    }
+	}
 	
-
-	
+	@PostMapping("/resetPwd")
+	public String resetPwd(String memPwd, HttpServletRequest request, HttpSession session) {
+	    // 세션에서 값을 가져옴
+	    	Member m = (Member) session.getAttribute("m");
+	    	String encPassword = bCryptPasswordEncoder.encode(memPwd);
+	    	m.setMemPwd(encPassword);
+	    
+	        String memId = m.getMemId();
+	        memberDAO.updateMemPwd(encPassword, memId);
+	        return "main/index";
+	     
+	}
 }

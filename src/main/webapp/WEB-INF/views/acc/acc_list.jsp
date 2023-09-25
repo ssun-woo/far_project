@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../main/new_header4.jsp"/>
 
-
 <div class="shop_List">
 	<div class="filter">
 		<div class="filter_top">

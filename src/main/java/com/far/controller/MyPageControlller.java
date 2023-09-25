@@ -2,6 +2,7 @@ package com.far.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,10 +28,10 @@ public class MyPageControlller {
 		return mav;
 	}
 	
-//	@GetMapping("/chkResv")
-//	public ModelAndView chkresv() {
-//		ModelAndView mav = new ModelAndView("myPage/chkReservation");
-//		return mav;
-//	}
-
+	@PostMapping("/chkPwd")
+	public String chkPwd() {
+		
+		
+		return "/myPageInfo";
+	}
 }

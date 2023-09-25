@@ -23,5 +23,11 @@ public class FindIdService {
     public Member findPwdEmail(String memId, String memName, String memEmail) {
     	return memberRepository.findByMemIdAndMemNameAndMemEmail(memId, memName, memEmail);
     }
+    
+    public Member findPwdTel(String memId, String memName, String memTel) {
+    	return memberRepository.findByMemIdAndMemNameAndMemTel(memId, memName, memTel);
+    }
+    
+    
 }
 
