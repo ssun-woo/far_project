@@ -29,18 +29,18 @@ public class PaymentDAOImpl implements PaymentDAO {
 	}
 
 	@Override
-	public StoreDTO getStore(int store_num) {
-		return sqlSession.selectOne("getStore", store_num);
+	public StoreDTO getStore(int storeNum) {
+		return sqlSession.selectOne("getStore", storeNum);
 	}
 
 	@Override
 	public CouponDTO getCouponIssue(Map<String, String> map) {
-		return sqlSession.selectOne("get_couponIssue", map);
+		return sqlSession.selectOne("getCouponIssue", map);
 	}
 
 	@Override
 	public void insertCoupon(CouponDTO newc) {
-		sqlSession.insert("insert_coupon", newc);
+		sqlSession.insert("insertCoupon", newc);
 	}
 
 	@Override

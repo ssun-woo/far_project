@@ -12,14 +12,14 @@ hr {
 	margin-top: 10px;
 	margin-bottom: 15px;
 	border: none;
-	border-top: 1px solid #000000;
+	border-top: 1px solid rgb(192, 192, 192);
 }
 
 .menuRegisForm {
 	width: 900px;
 	margin: auto;
 	padding: 20px;
-	border: 1px solid #000000;
+	border: 1px solid rgb(192, 192, 192);
 	border-radius: 15px;
 	margin-top: -10px;
 	margin-left: 15px;
@@ -44,7 +44,7 @@ hr {
 .menuRegis textarea {
 	width: 850px;
 	padding: 8px;
-	border: 1px solid #000000;
+	border: 1px solid rgb(192, 192, 192);
 	resize: none;
 	display: block;
 	margin: 0 auto;
@@ -55,7 +55,7 @@ hr {
 .menuRegis input {
 	width: 850px;
 	padding: 8px;
-	border: 1px solid #000000;
+	border: 1px solid rgb(192, 192, 192);
 	display: block;
 	margin: 0 auto;
 	border-radius: 10px;

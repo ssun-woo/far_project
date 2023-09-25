@@ -10,9 +10,13 @@
 <body>
 <div id="idresult">
     <h3>아이디 결과:</h3>
-    
-        <p>회원 아이디: ${m.memId}</p>
-    
+    	<c:if test="${m != null}">
+        	<p>회원 아이디: ${m.memId}</p>
+    	</c:if>
+    	
+    	<c:if test="${m == null}">
+        	<p>회원 정보가 없습니다. 다시 확인해주세요</p>
+    	</c:if>
 </div>
 
 </body>

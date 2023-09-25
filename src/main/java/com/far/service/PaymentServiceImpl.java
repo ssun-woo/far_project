@@ -44,8 +44,8 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	@Override
-	public MemberDTO getMember(String mem_id) {
-		return paymentDao.getMember(mem_id);
+	public MemberDTO getMember(String memId) {
+		return paymentDao.getMember(memId);
 	}
 
 }

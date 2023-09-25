@@ -42,10 +42,12 @@ public class PaymentController {
 		
 		int roomNum = Integer.parseInt(request.getParameter("room_num"));
 		// 메뉴 정보
+
 		RoomDTO room = paymentService.getMenu(roomNum);
 		
 		// 가게 정보
 		StoreDTO store = paymentService.getStore(room.getStoreNum());
+
 		
 		// 포인트
 		MemberDTO member = paymentService.getMember(id);
@@ -58,7 +60,9 @@ public class PaymentController {
 		
 		// 날짜 형식 변환
 		for(int i=0; i<coupons.size(); i++) {
+
 			coupons.get(i).setCouponStartDate(coupons.get(i).getCouponStartDate().substring(0, 10));
+
 			coupons.get(i).setCouponEndDate(coupons.get(i).getCouponEndDate().substring(0, 10));
 		}
 		
@@ -87,7 +91,6 @@ public class PaymentController {
 		map.put("coupon_name", cName);
 		CouponDTO c = paymentService.getCouponIssue(map);
 		
-		
 		String msg = null;
 		
 		CouponDTO newc = new CouponDTO();
@@ -104,7 +107,6 @@ public class PaymentController {
 		}
 		return msg;
 	}
-	
 
 	// 결제 완료 페이지
 	@RequestMapping("/end")
