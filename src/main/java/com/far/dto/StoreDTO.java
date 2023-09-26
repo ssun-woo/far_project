@@ -1,5 +1,7 @@
 package com.far.dto;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,7 +26,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "store")
 public class StoreDTO {
@@ -38,6 +39,9 @@ public class StoreDTO {
 	
 	@Column(name = "DETAILCATE")
     private String detailCate; // 세부 카페 예 - food 일경우 한식 일식 등
+	
+	@Column(name = "MEMID")
+    private String memId;
 	
 	@Column(name = "STORENAME")
     private String storeName;
@@ -57,15 +61,12 @@ public class StoreDTO {
 	@Column(name = "STORELOGO")
     private String storeLogo;
 	
-	@Column(name = "MEMID")
-    private String memId;
+	@Column(name = "REGDATE", columnDefinition = "TIMESTAMP DEFAULT SYSDATE")
+	private Timestamp regDate;
 	
-	@Column(name = "REGDATE")
-	private String regDate;
-   
 	@Column(name = "STORESCORE", columnDefinition = "INT DEFAULT 0")
 	private int storeScore;
-   
+	
 	@Column(name = "AUTH", columnDefinition = "INT DEFAULT 0")
 	private int auth;
 
@@ -149,11 +150,11 @@ public class StoreDTO {
 		this.memId = memId;
 	}
 
-	public String getRegDate() {
+	public Timestamp getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(String regDate) {
+	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 	}
 
@@ -172,5 +173,5 @@ public class StoreDTO {
 	public void setAuth(int auth) {
 		this.auth = auth;
 	}
-
+	
 }

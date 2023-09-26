@@ -49,7 +49,5 @@ public class ResvDTO {
 		// TODO Auto-generated method stub
 		
 	}
-	
 
-	
 }

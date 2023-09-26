@@ -71,8 +71,7 @@ table {
 										<td style="text-align: center;"><img
 											src="/upload/store_menu/${s.cate}${m.roomPhoto}"></td>
 										<td>${m.roomName}</td>
-										<td><fmt:formatNumber type="currency" currencyCode="KRW"
-												value="${m.roomPrice}" /></td>
+										<td><fmt:formatNumber type="currency" currencyCode="KRW" value="${m.roomPrice}" /></td>
 										<td>수정 | 삭제</td>
 									</tr>
 								</c:forEach>
