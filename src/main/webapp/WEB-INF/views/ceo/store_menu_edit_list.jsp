@@ -35,27 +35,4 @@
 		</table>
 	</form>
 	
-	<style>
-	    table {
-	        border-collapse: collapse;
-	        width: 800px;
-	    }
 	
-	    th, td {
-	        padding: 8px;
-	        text-align: left;
-	    }
-	
-	    th {
-	        background-color: #f2f2f2;
-	    }
-	
-	    a {
-	        text-decoration: none;
-	        color: blue;
-	    }
-	
-	    a:hover {
-	        text-decoration: underline;
-	    }
-	</style>

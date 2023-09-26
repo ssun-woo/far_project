@@ -5,32 +5,21 @@
 <script src="../js/store_main.js"></script>
 
 <jsp:include page="ceo_header.jsp" />
-<style>
-table {
-	width: 100%;
-}
 
-.first-line {
-	text-align: center;
-}
-
-.menuRegisForm img {
-	width: 150px;
-	height: 150px;
-}
-</style>
 <div id="ceo_main">
 	<div id="ceo_middle">
 		<div id="contentArea">
 			<div class="storeMainWrap">
 				<div class="storeStickyArea">
 					<div class="storeMain">
-						<ul>
-							<li class="storeRegistrationMain"
-								onclick="location='/ceo/store_regi'">업체 등록</li>
-							<li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴
-								등록 및 수정</li>
-							<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글
+						<ul class="list-group list-group-flush">
+							<li class="storeRegistrationMain list-group-item"
+								onclick="location='/ceo/store_regi'"><strong>업체 등록</strong></li>
+							<li class="storeMenuRegis list-group-item"
+								onclick="location='/ceo/store_list'"><strong>메뉴</strong> 등록
+								및 수정</li>
+							<li class="storeInfoEdit list-group-item"
+								onclick="loadStorePage2('info_edit')"><strong>소개글</strong>
 								및 정보 수정</li>
 						</ul>
 					</div>
@@ -57,8 +46,10 @@ table {
 							</tr>
 						</table>
 
-						<h2 onclick="location='/ceo/store_menu_list?store_num=${s.storeNum}'">목록보기</h2>
-						<h2 onclick="location='/ceo/store_menu_edit?store_num=${s.storeNum}&menu_id=${m.roomNum}'">메뉴수정</h2>
+						<h2
+							onclick="location='/ceo/store_menu_list?store_num=${s.storeNum}'">목록보기</h2>
+						<h2
+							onclick="location='/ceo/store_menu_edit?store_num=${s.storeNum}&menu_id=${m.roomNum}'">메뉴수정</h2>
 						<h2 onclick="menuDel();">메뉴삭제</h2>
 
 
@@ -71,12 +62,12 @@ table {
 </div>
 
 <script>
-function menuDel() {
-    var isConfirmed = confirm("메뉴를 삭제하시겠습니까?");
-    if (isConfirmed) {
-        window.location.href = '/ceo/store_menu_del?menu_id=${m.roomNum}&store_num=${s.storeNum}';
-    }
-}
+	function menuDel() {
+		var isConfirmed = confirm("메뉴를 삭제하시겠습니까?");
+		if (isConfirmed) {
+			window.location.href = '/ceo/store_menu_del?menu_id=${m.roomNum}&store_num=${s.storeNum}';
+		}
+	}
 </script>
 
 <jsp:include page="ceo_footer.jsp" />

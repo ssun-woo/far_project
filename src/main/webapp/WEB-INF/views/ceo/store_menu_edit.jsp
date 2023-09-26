@@ -25,12 +25,14 @@ table {
 			<div class="storeMainWrap">
 				<div class="storeStickyArea">
 					<div class="storeMain">
-						<ul>
-							<li class="storeRegistrationMain"
-								onclick="location='/ceo/store_regi'">업체 등록</li>
-							<li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴
-								등록 및 수정</li>
-							<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글
+						<ul class="list-group">
+							<li class="storeRegistrationMain list-group-item"
+								onclick="location='/ceo/store_regi'"><strong>업체 등록</strong></li>
+							<li class="storeMenuRegis list-group-item"
+								onclick="location='/ceo/store_list'"><strong>메뉴</strong> 등록
+								및 수정</li>
+							<li class="storeInfoEdit list-group-item"
+								onclick="loadStorePage2('info_edit')"><strong>소개글</strong>
 								및 정보 수정</li>
 						</ul>
 					</div>

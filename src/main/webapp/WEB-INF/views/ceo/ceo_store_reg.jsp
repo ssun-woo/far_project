@@ -1,7 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../js/store_main.js"></script>
 
 <jsp:include page="ceo_header.jsp" />
@@ -12,12 +18,12 @@
 	<div class="storeMainWrap">
 		<div class="storeStickyArea">
 			<div class="storeMain">
-				<ul>
-					<li class="storeRegistrationMain"
-						onclick="location='/ceo/store_regi'">업체 등록</li>
-					<li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴
+				<ul class="list-group list-group-flush">
+					<li class="storeRegistrationMain list-group-item"
+						onclick="location='/ceo/store_regi'"><strong>업체 등록</strong></li>
+					<li class="storeMenuRegis list-group-item" onclick="location='/ceo/store_list'"><strong>메뉴</strong>
 						등록 및 수정</li>
-					<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글
+					<li class="storeInfoEdit list-group-item" onclick="loadStorePage2('info_edit')"><strong>소개글</strong>
 						및 정보 수정</li>
 				</ul>
 
@@ -94,7 +100,9 @@
 </div>
 
 
-
+<br>
+<br>
+<br>
 <jsp:include page="ceo_footer.jsp" />
 
 <!-- <script>
