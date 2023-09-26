@@ -1,30 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> sunwoo
 <jsp:include page="../main/new_header2.jsp" />
 
 
 <div class="shop_cont">
 	<div class="shop_name">
-		<h2>[${region} / ${sebu_cate}] ${s.storeName}</h2> 
-		<label class="jjim_shop">
-			<c:if test="${JJim==0}">
-				<form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
-					<button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
+		<h2>[${region} / ${sebu_cate}] ${s.storeName}</h2>
+		<label class="jjim_shop"> <c:if test="${JJim==0}">
+				<form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}"
+					class="jjim_btn" id="jjim" method="POST">
+					<button type="submit" name="jjim" id="no_jjim"
+						onclick="jjim_check()">
 						<img src="../images/acc/NoJJim.png">
 					</button>
 				</form>
-			</c:if>
-			<c:if test="${JJim==1}">
-				<form action="/acc/cont/jjim_del?cate=${cate}&store_num=${store_num}" class="jjim_btn" method="POST">
-					<button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
+			</c:if> <c:if test="${JJim==1}">
+				<form
+					action="/acc/cont/jjim_del?cate=${cate}&store_num=${store_num}"
+					class="jjim_btn" method="POST">
+					<button type="submit" name="jjim" id="yes_jjim"
+						onclick="jjim_del_check()">
 						<img src="../images/acc/YesJJim.png">
 					</button>
 				</form>
 			</c:if>
 		</label>
 	</div>
-	<hr style="width: 1050px; text-align: center; margin-left: 350px; border: 1px solid;">
+	<hr
+		style="width: 1050px; text-align: center; margin-left: 350px; border: 1px solid;">
 	<div class="shop_cont_top">
 		<div class="shop_photo">
 			<img src="/upload/store_logo${s.storeLogo}" width="570px" height="388">
@@ -39,9 +47,15 @@
 			</ul>
 			<ul class="info_cont">
 				<li><p>${region}/${sebu_cate}</p></li>
-				<li><p><a onclick="">7998</a>의 상품평</p></li>
-				<li><p>${s.storeAddr1} ${s.storeAddr2} <br> <a href="#">지도보기</a></p></li>
-				<li><p>전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기"></p></li>
+				<li><p>
+						<a onclick="">7998</a>의 상품평
+					</p></li>
+				<li><p>
+						${s.storeAddr1}<br> <a href="#">지도보기</a>
+					</p></li>
+				<li><p>
+						전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기">
+					</p></li>
 			</ul>
 		</div>
 	</div>
@@ -74,124 +88,128 @@
 					<div class="search2">
 						<div class="search2Date">
 							<div class="search2Date2">
-								<label>날짜</label>
+								<label>날짜</label> 
 								<input type="text" id="date" name="date" value="" />
-								
-								<script type="text/javascript">
-									// 기본 출력
-									$(document).ready(function() {
-									    var startDate = moment().startOf('day');
-									    var endDate = moment().startOf('day').add(1, 'day');
-									    var nights = 1;
+				<script type="text/javascript">
+				// 기본 출력
+				$(document).ready(function() {
+				    var startDate = moment().startOf('day');
+				    var endDate = moment().startOf('day').add(1, 'day');
+				    var nights = 1;
+				    
+				    // 요일 포맷 변경
+				    var startOfWeekday = startDate.format('ddd');
+				    var endOfWeekday = endDate.format('ddd');
+
+				    // 요일 한글로 변환
+				    var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
+				    var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
+
+				    // 이전 선택 날짜값 저장
+				    var previousValue = '';
+
+				    // datepicker 설정
+				    $('input[name="date"]').daterangepicker({
+				        "locale": {
+				            "format": "MM-DD (ddd)",
+				            "separator": " ~ ",
+				            "applyLabel": "확인",
+				            "cancelLabel": "취소",
+				            "fromLabel": "From",
+				            "toLabel": "To",
+				            "customRangeLabel": "Custom",
+				            "weekLabel": "W",
+				            "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
+				            "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+				        },
+				        "startDate": startDate,
+				        "endDate": endDate,
+				        "minDate": moment().startOf('day'),
+				        "maxDate": moment().startOf('day').add(30, 'day'),
+				        "minYear": 2022,
+				        "maxYear": 2032,
+				        "drops": "down"
+				    });
+				    
+				    // 기본 텍스트 설정
+				    var defaultText = startDate.format('MM-DD (' + koreanStartOfWeekday + ')') + ' ~ ' + endDate.format('MM-DD (' + koreanEndOfWeekday + ')') + ' ' + nights + '박';
 					
-									    // 요일 포맷 변경
-									    var startOfWeekday = startDate.format('ddd');
-									    var endOfWeekday = endDate.format('ddd');
-					
-									    // 요일 한글로 변환
-									    var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
-									    var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
-					
-									    // 이전 선택 날짜값 저장
-									    var previousValue = '';
-					
-									    // datepicker 설정
-									    $('input[name="date"]').daterangepicker({
-									        "locale": {
-									            "format": "MM-DD (ddd)",
-									            "separator": " ~ ",
-									            "applyLabel": "확인",
-									            "cancelLabel": "취소",
-									            "fromLabel": "From",
-									            "toLabel": "To",
-									            "customRangeLabel": "Custom",
-									            "weekLabel": "W",
-									            "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
-									            "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-									        },
-									        "startDate": startDate,
-									        "endDate": endDate,
-									        "minDate": moment().startOf('day'),
-									        "maxDate": moment().startOf('day').add(30, 'day'),
-									        "minYear": 2022,
-									        "maxYear": 2032,
-									        "drops": "down"
-									    });
-									    
-									    // 기본 텍스트 설정
-									    var defaultText = startDate.format('MM-DD (' + koreanStartOfWeekday + ')') + ' ~ ' + endDate.format('MM-DD (' + koreanEndOfWeekday + ')') + ' ' + nights + '박';
-					
-									    // 입력란에 기본 텍스트 설정 적용
-									    $('input[name="date"]').val(defaultText);
-					
-									    // 이벤트 핸들러
-									    $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {
-									        var startOfWeekday = picker.startDate.format('ddd');
-									        var endOfWeekday = picker.endDate.format('ddd');
-					
-									        // 요일 한글로 변환
-									        var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
-									        var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
-					
-									        // 요일 포맷 다시 설정
-									        var dateRangeText = picker.startDate.format('MM-DD (') + koreanStartOfWeekday + ') ~ ' + picker.endDate.format('MM-DD (') + koreanEndOfWeekday + ')';
-											
-										 	// 몇 박인지 계산
-									        var nights = picker.endDate.diff(picker.startDate, 'days');
-									        dateRangeText += ' ' + nights + '박';
-									    
-									        // input에 변경된 텍스트 설정
-									        $('input[name="date"]').val(dateRangeText);
-									        
-									        // 기본 날짜 저장
-									        previousValue = dateRangeText;
-									    });
-									    
-									    // 취소 버튼 클릭 시
-									    $('input[name="date"]').on('cancel.daterangepicker', function(ev, picker) {
-									        $(this).val(previousValue); // 이전 값을 입력란에 설정
-									    });
-									    // 달력 바깥 영역 클릭 시
-									    $('input[name="date"]').on('hide.daterangepicker', function(ev, picker) {
-									        $(this).val(previousValue); // 이전 값을 입력란에 설정
-									    });
-					
-									    // 영어 요일을 한글 요일로 변환
-									    function convertToKoreanDayOfWeek(englishDayOfWeek) {
-									        switch (englishDayOfWeek) {
-									            case 'Sun':
-									                return '일';
-									            case 'Mon':
-									                return '월';
-									            case 'Tue':
-									                return '화';
-									            case 'Wed':
-									                return '수';
-									            case 'Thu':
-									                return '목';
-									            case 'Fri':
-									                return '금';
-									            case 'Sat':
-									                return '토';
-									            default:
-									                return englishDayOfWeek;
-									        }
-									    }
-									});
-								</script>
+				    // 입력란에 기본 텍스트 설정 적용
+				    $('input[name="date"]').val(defaultText);
+				    
+
+				    // 이벤트 핸들러
+				    $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {
+				        var startOfWeekday = picker.startDate.format('ddd');
+				        var endOfWeekday = picker.endDate.format('ddd');
+
+				        // 요일 한글로 변환
+				        var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
+				        var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
+
+				        // 요일 포맷 다시 설정
+				        var dateRangeText = picker.startDate.format('MM-DD (') + koreanStartOfWeekday + ') ~ ' + picker.endDate.format('MM-DD (') + koreanEndOfWeekday + ')';
+						
+					 	// 몇 박인지 계산
+				        var nights = picker.endDate.diff(picker.startDate, 'days');
+				        dateRangeText += ' ' + nights + '박';
+				    
+				        // input에 변경된 텍스트 설정
+				        $('input[name="date"]').val(dateRangeText);
+				        $('input[name="date2"]').val(dateRangeText);
+				        
+				        // 기본 날짜 저장
+				        previousValue = dateRangeText;
+				    });
+				    
+				    // 취소 버튼 클릭 시
+				    $('input[name="date"]').on('cancel.daterangepicker', function(ev, picker) {
+				        $(this).val(previousValue); // 이전 값을 입력란에 설정
+				    });
+				    // 달력 바깥 영역 클릭 시
+				    $('input[name="date"]').on('hide.daterangepicker', function(ev, picker) {
+				        $(this).val(previousValue); // 이전 값을 입력란에 설정
+				    });
+
+				    // 영어 요일을 한글 요일로 변환
+				    function convertToKoreanDayOfWeek(englishDayOfWeek) {
+				        switch (englishDayOfWeek) {
+				            case 'Sun':
+				                return '일';
+				            case 'Mon':
+				                return '월';
+				            case 'Tue':
+				                return '화';
+				            case 'Wed':
+				                return '수';
+				            case 'Thu':
+				                return '목';
+				            case 'Fri':
+				                return '금';
+				            case 'Sat':
+				                return '토';
+				            default:
+				                return englishDayOfWeek;
+				        }
+				    }
+				});
+				
+				
+
+			</script>
 							</div>
 						</div>
 
 						<div class="search2Personnel">
 							<div class="search2Personnel2">
 								<label>인원</label>
-								<p>성인 0, 소아 0</p>
+								<p>성인0, 소아 0</p>
 							</div>
 
 							<div class="personnel-controls">
 								<div class="personnelAdult">
 									<button id="decreaseAdult">-</button>
-									<span>성인</span> <span id="adultCount">0</span>
+									<span>성인</span> <span id="adultCount">2</span>
 									<button id="increaseAdult">+</button>
 								</div>
 								<div class="personnelChild">
@@ -199,18 +217,26 @@
 									<span>소아</span> <span id="childCount">0</span>
 									<button id="increaseChild">+</button>
 								</div>
+							<input type="hidden" name="store_num" value="${param.store_num}">
 							</div>
 						</div>
 					</div>
 					<h3>객실리스트</h3>
 					<hr>
+					<div id="roomListContainer">
 					<c:forEach var="m" items="${mList}">
 						<div class="room_list">
 							<img src="/upload/store_menu/${s.cate}${m.roomPhoto}">
 							<div class="room_info">
 								<div class="booking_button">
 									<h2>${m.roomName}</h2>
-									<input type="button" value="예약" onclick="location='/payment?room_num=${m.roomNum}'">
+									<form method="post" action="/payment">
+										<input type="submit" value="예약">
+										<input type="hidden" id="date2" name="date2" value="">
+										<input type="hidden" id="totalCount" name="totalCount" value="">
+										<input type="hidden" name="roomNum" value="${m.roomNum}">
+										<input type="hidden" name="storeNum" value="${s.storeNum}">
+									</form>
 								</div>
 
 								<div class="room_detailinfo">
@@ -220,7 +246,9 @@
 								</div>
 							</div>
 						</div>
-					</c:forEach>
+						</c:forEach>
+					</div>
+					</div>
 				</div>
 			</div>
 
@@ -475,7 +503,6 @@
 			</div>
 
 			<script src="/js/acc_cont.js"></script>
-
 		</div>
 	</div>
 </div>
@@ -486,19 +513,106 @@
 </div>
 
 
-<!-- <script>
-	var check_in = '${m.check_in}';
-	var check_in_h = check_in.slice(0, 2);
-	var check_in_m = check_in.slice(2, 4);
+<script>
 	
-	var check_out = '${m.check_out}';
-	var check_out_h = check_out.slice(0, 2);
-	var check_out_m = check_out.slice(2, 4);
 	
-	var h4Element = document.querySelector('.check_in_out');
 	
-	h4Element.textContent = '체크인' +  check_in_h + ':' + check_in_m + '체크아웃' +  check_out_h + ':' + check_out_m;
-</script> -->
+    $(document).ready(function() {
+    	
+    	console.log($('#date').val());
+    	
+    	loadPayPage3();
+    	
+        $('#date').on('change', function() {
+        	loadPayPage3();
+        });
+        
+        $('.personnel-controls').hide();
+    	
+    	$('.search2Personnel2 p').click(function() {
+        	$('.personnel-controls').toggle();
+        });
+        
+    	var adultCount = 2;
+    	var childCount = 0;
+    	updateCounts();
+    	
+    	$('#decreaseAdult').click(function() {
+        	if (adultCount > 0) {
+    			adultCount--;
+    			updateCounts();
+    			loadPayPage3();
+            }
+    	});
+
+    	$('#increaseAdult').click(function() {
+    		adultCount++;
+            updateCounts();
+            loadPayPage3();
+    	});
+
+    	$('#decreaseChild').click(function() {
+    		if (childCount > 0) {
+    			childCount--;
+    			updateCounts();
+    			loadPayPage3();
+    		}
+    	});
+
+    	$('#increaseChild').click(function() {
+            childCount++;
+            updateCounts();
+            loadPayPage3();
+    	});
+
+    	function updateCounts() {
+    		$('#adultCount').text(adultCount);
+            $('#childCount').text(childCount);
+            $('.search2Personnel2 p').text('성인 ' + adultCount + ', 소아 ' + childCount);
+     	}
+     	
+     	$(document).click(function(event) {
+            if (!$('.search2Personnel2 p').is(event.target) && !$('.personnel-controls').is(event.target) && $('.personnel-controls').has(event.target).length === 0) {
+                $('.personnel-controls').hide();
+            }
+        });
+    });
+
+    function loadPayPage3() {
+        var pageContent = document.getElementById('roomListContainer');
+        var dateValue = $('#date').val();
+        var adult = parseInt($('#adultCount').text());
+        var child = parseInt($('#childCount').text());
+        var totalCount = adult + child;
+        var store_num = ${param.store_num};
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                pageContent.innerHTML = this.responseText;
+            }
+        };
+        // 서버로 요청을 보낼 때 date 값을 포함하여 GET 요청 보내기
+        xhttp.open("GET", "/acc/reload_menu?date=" + dateValue + "&totalCount=" + totalCount + "&store_num=" + store_num, true);
+        xhttp.send();
+    }
+    
+	
+    function changeValues(roomNum) {
+        var dateValue = $('#date').val();
+        var adult = parseInt($('#adultCount').text());
+        var child = parseInt($('#childCount').text());
+        var totalCount = adult + child;
+        
+        document.getElementById("roomNum").value = roomNum;
+        document.getElementById("date2").value = dateValue;
+        document.getElementById("totalCount").value = totalCount;
+        
+        document.forms[1].submit();
+    }
+
+
+</script>
 
 
 <jsp:include page="../main/footer.jsp" />

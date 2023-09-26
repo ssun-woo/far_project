@@ -1,12 +1,12 @@
 package com.far.controller;
 
-import java.io.PrintWriter;
+import java.text.ParseException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +16,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.far.dto.JJimDTO;
-import com.far.dto.ResvDTO;
 import com.far.dto.ReviewDTO;
 import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
@@ -102,18 +102,11 @@ public class AccController {
 		for (RoomDTO m : mList) {
 			m.setCheckIn(m.getCheckIn().substring(0, 2) + ":" + m.getCheckIn().substring(2, 4));
 			m.setCheckOut(m.getCheckOut().substring(0, 2) + ":" + m.getCheckOut().substring(2, 4));
-
 		}
-
 //		System.out.println(s.getStoreAddr1());
 		String region = s.getStoreAddr1().substring(0, 2);
-		
-		
-		
 		String sebu_cate = null;
-
 //		System.out.println(s.getDetail_cate());
-
 		if (s.getDetailCate().equals("hotel")) {
 			sebu_cate = "호텔";
 		} else if (s.getDetailCate().equals("motel")) {
@@ -200,79 +193,104 @@ public class AccController {
 	}
 	
 	//찜 등록
-		@PostMapping("/cont/jjim")
-		public String jjim_btn(HttpServletRequest request) {
-			int store_num = Integer.parseInt(request.getParameter("store_num"));
-			String jjim = request.getParameter("jjim");
-			JJimDTO jdto = new JJimDTO();
-			jdto.setMemId("abdg1");
-			jdto.setStoreNum(store_num);
-			
-			jjimService.setJJim(jdto);
-					
-			
-			String cate = request.getParameter("cate");
-			
-			
-			System.out.println("jjim : " + jjim);
-	        
-			return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
-		}
-		//찜 삭제
-		@PostMapping("/cont/jjim_del")
-		public String jjim_del_btn(HttpServletRequest request) {
-			int store_num = Integer.parseInt(request.getParameter("store_num"));
-			String cate = request.getParameter("cate");
-			
-			JJimDTO jdto = new JJimDTO();
-			jdto.setMemId("abdg1");
-			jdto.setStoreNum(store_num);
-			
-			jjimService.delJJim(jdto);
-			
-			return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
-		}
-
-
-	// 숙소 결제페이지 이동
-	@RequestMapping("/payment_info")
-	public ModelAndView acc_payment_info(String cate, int store_num, HttpSession session, HttpServletResponse response,
-			String target) throws Exception {
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		store_num = 10;
-		if (session.getAttribute("memId") == null) {
-			out.println("<script>");
-			out.println("alert('로그인이 필요한 기능입니다');");
-			out.println("location = '/login?target=/acc/payment_info?cate=" + cate + "&store_num=" + store_num + "'");
-			out.println("</script>");
-		} else {
-			ModelAndView mav = new ModelAndView();
-			mav.setViewName("payment/payment");
-			mav.addObject("cate", cate);
-			mav.addObject("store_num", 10);
-
-			return mav;
-		}
-		return null;
+	@PostMapping("/cont/jjim")
+	public String jjim_btn(HttpServletRequest request) {
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		String jjim = request.getParameter("jjim");
+		JJimDTO jdto = new JJimDTO();
+		jdto.setMemId("abdg1");
+		jdto.setStoreNum(store_num);
+		
+		jjimService.setJJim(jdto);
+				
+		
+		String cate = request.getParameter("cate");
+		
+		
+		System.out.println("jjim : " + jjim);
+        
+		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
+	}
+	//찜 삭제
+	@PostMapping("/cont/jjim_del")
+	public String jjim_del_btn(HttpServletRequest request) {
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		String cate = request.getParameter("cate");
+		
+		JJimDTO jdto = new JJimDTO();
+		jdto.setMemId("abdg1");
+		jdto.setStoreNum(store_num);
+		
+		jjimService.delJJim(jdto);
+		
+		return "redirect:/acc/cont?cate="+cate+"&store_num="+store_num;
 	}
 
-	// 숙소 결제 페이지
-//	@RequestMapping("/payment_end")
-//	public ModelAndView acc_payment_end(String cate, int store_num, HttpSession session) {
-//		String id = (String) session.getAttribute("id");
-//		id = "a";
-//		ResvDTO resv = new ResvDTO();
-//		resv.setResvNum(3); // 시퀀스가 들어갈 자리
-//		resv.setStoreNum(store_num);
-//		resv.setMemId(id);
-//		resv.setStartDay("시작일, 시간입니다");
-//		resv.setEndDay("마지막날, 시간입니다");
-//		resv.setPeopleNum(2);
-//		accResvService.resvStroe(resv);
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("payment/payment_end");
-//		return mav;
-//	}
+		
+	
+	private String extractDate(String input) {
+		String[] parts = input.split(" ");
+		for (String part : parts) {
+			if (part.matches("\\d{2}-\\d{2}")) {
+				return part;
+			}
+		}
+		return null; // 날짜를 찾지 못한 경우
+	}
+	
+	@RequestMapping("/reload_menu")
+	public ModelAndView acc_reload_menu(HttpServletRequest request) {
+		
+		String date = request.getParameter("date");
+		int totalCount = Integer.parseInt(request.getParameter("totalCount"));
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		String date1 = extractDate(date);
+		String date2 = extractDate(date.substring(date.indexOf("~") + 1));
+		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		String sdate = year + "-" + date1;
+		
+		if(Integer.parseInt(date1.substring(0,2)) > Integer.parseInt(date2.substring(0,2))) {
+			year += 1;
+		}
+		String edate = year + "-" + date2;
+		
+//		System.out.println("store_num : " + store_num);
+//		System.out.println("시작일: " + sdate);
+//		System.out.println("끝일 : " + edate);
+//		System.out.println("총인원 : " + totalCount);
+		StoreDTO s = accResvService.getInfo(store_num);
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("startDay", sdate);
+		map.put("endDay", edate);
+		map.put("totalPeople", totalCount);
+		map.put("storeNum", store_num);
+		
+		List<RoomDTO> rlist = accResvService.getPossibleRoom(map);
+		
+		for(RoomDTO r : rlist) {
+			String in_hour = r.getCheckIn().substring(0, 2);
+			String in_min = r.getCheckIn().substring(2, 4);
+			r.setCheckIn(in_hour + " : " + in_min);
+			
+			String out_hour = r.getCheckOut().substring(0, 2);
+			String out_min = r.getCheckOut().substring(2, 4);
+			r.setCheckOut(out_hour + " : " + out_min);
+		}
+		
+//		System.out.println("size : " + rlist.size());
+//		System.out.println("totalCount : " + totalCount);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("acc/acc_reload_menu");
+		mav.addObject("rlist", rlist);
+		mav.addObject("s", s);
+		
+		
+		return mav;
+	}
+	
+	
 
 }

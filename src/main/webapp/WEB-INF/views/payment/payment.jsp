@@ -18,7 +18,7 @@
 		<div class="info">
 			<table> 
 				<tr>
-					<th rowspan="3" width="150px" height="150px">
+					<th rowspan="4" width="150px" height="150px">
 						<div>
 							<img src="/upload/store_menu/${store.cate}${room.roomPhoto}">
 						</div>
@@ -32,6 +32,9 @@
 
 				<tr>
 					<td>상세 메뉴 : ${room.roomName}</td>
+				</tr>
+				<tr>
+					<td>예약 기간 : ${sdate} ~ ${edate} (${nights}박 ${nights+1}일)</td>
 				</tr>
 			</table>
 		</div>
@@ -281,7 +284,7 @@
                			<td id="productPrice" style="text-align: right;">
                   			<span id="originPrice" style="color: black;">
                   				<script>
-                  					var menuPrice = ${room.roomPrice != null ? room.roomPrice : 0};
+                  					var menuPrice = ${room.roomPrice}*${nights};
                   					var formattedPrice = numberWithCommas(menuPrice);
                   					document.write(formattedPrice);
                   				</script>원
@@ -307,7 +310,7 @@
 					  	<th id="totalAmount" style="text-align: right;">
 					  		<span id="totalPrice" style="color: black;">
 					  			<script>
-						  			var menuPrice = ${room.roomPrice};
+						  			var menuPrice = ${room.roomPrice}*${nights};
 						  			var formattedPrice = numberWithCommas(menuPrice);
 						  			document.write(formattedPrice);
 						  		</script>원

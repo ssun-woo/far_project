@@ -1,12 +1,14 @@
 package com.far.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.far.dto.ResvDTO;
+import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 
 @Repository
@@ -34,5 +36,16 @@ public class AccResvDAOImpl implements AccResvDAO {
 	public StoreDTO getInfo(int store_num) {
 		return sqlSession.selectOne("store_info", store_num);
 	}
+
+	@Override
+	public List<RoomDTO> getPossibleRoom(Map<String, Object> map) {
+		return sqlSession.selectList("get_possible_list", map);
+	}
+
+	@Override
+	public int testCode(String date) {
+		return sqlSession.selectOne("test", date);
+	}
+
 	
 }
