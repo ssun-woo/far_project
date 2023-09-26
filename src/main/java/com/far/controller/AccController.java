@@ -63,6 +63,7 @@ public class AccController {
 	public ModelAndView acc_hotel(HttpServletRequest request, HttpSession session, Model model, @RequestParam(defaultValue = "0") int page) {
 	    // 버튼을 눌러서 엄어올때는 여기에 값
 		String detailCate = request.getParameter("detail_cate");
+		
 	    String cate = request.getParameter("cate");
 	    String keyword = request.getParameter("keyword");
 	    String memId = request.getParameter("memId");

@@ -7,11 +7,11 @@
  <mapper namespace="STORE">
 
     
-    <select id="get_detailCateList" resultType="store">
+    <select id="get_detail_cate_list" resultType="store">
        select * from store where detailCate = #{detailCate}
     </select>
     
-    <select id="detail_cate_count" resultType="int">
+    <select id="detailCateCount" resultType="int">
        select count(*) from store where detailCate = #{detailCate}
     </select>
     

@@ -4,6 +4,11 @@
 
 <jsp:include page="../main/new_header2.jsp" />
 
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+
 <div class="payment">
 	<div class="title">
 		<h3>예약정보</h3>
@@ -325,7 +330,39 @@
 	</div>
 
 	<div class="pay_payment">
-		<input type="button" value="결제하기" class="payment_button" onclick="location='payment/end';"> 
+		<!-- <input type="button" value="결제하기" class="payment_button" onclick="location='payment/end';">  -->
+<script>
+	var IMP = window.IMP;
+	IMP.init("imp17372284"); 
+	
+	
+	
+	function requestPay() {
+	    IMP.request_pay({
+	        pg: 'kakaopay',
+	        pay_method: "card",
+	        merchant_uid: 'merchant_' + new Date().getTime(),   // 주문번호
+	        name: "${room.roomName}",
+	        amount: "${room.roomPrice}",                         // 숫자 타입
+	        buyer_email: "${member.memEmail}",
+	        buyer_name: "${member.memId}",
+	        buyer_tel: "${member.memTel}"
+	    }, function (rsp) { // callback 
+	        $.ajax({
+	           type: 'POST',
+	           url: '/payment/paymentEnd'
+	        }).done(function(data) {
+	                alert("결제 성공");
+	                document.location.href="/payment/paymentEnd";
+	                console.log("${memId}")
+	        }); 
+	    });
+	}
+	
+	
+</script>
+		
+		<button onclick="requestPay()">결제하기</button>
 		<input type="button" value="취소" class="cancle_button">
 	</div>
 </div>

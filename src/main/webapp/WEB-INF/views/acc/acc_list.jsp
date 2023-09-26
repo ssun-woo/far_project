@@ -163,7 +163,7 @@
       <div class="pagination-list">
          <table border="1">
             <tr>
-               <td><a href="?page=0">첫 페이지</a></td>
+               <td><a href="?detail_cate=${param.detail_cate }&Spage=0">첫 페이지</a></td>
             
       
 
@@ -191,7 +191,7 @@
                 console.log(currentPage);
 </script>
             
-            <td><a href="?page=${list.totalPages - 1}">마지막 페이지</a></td>
+            <td><a href="?detail_cate=${param.detail_cate }&page=${list.totalPages - 1}">마지막 페이지</a></td>
             </tr>
             
             </table>

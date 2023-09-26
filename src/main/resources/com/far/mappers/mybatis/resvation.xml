@@ -7,7 +7,7 @@
  <mapper namespace="Resv">
  	
  	<insert id="resv_acc">
- 		insert into reservation values(#{resvNum}, #{storeNum}, #{memId}, #{startDay}, #{endDay}, #{peopleNum})
+ 		insert into reservation values(#{resvNum}, #{storeNum}, #{roomNum}, #{memId}, #{peopleNum}, #{startDay}, #{endDay})
  	</insert>
  	
  </mapper>
