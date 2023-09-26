@@ -1,8 +1,5 @@
 package com.far.controller;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,13 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.far.dao.MemberDAO;
 import com.far.model.Member;
 import com.far.service.FindIdService;
 import com.far.service.LoginService;
-import com.far.service.MemberService;
 
 @Controller
 public class LoginController {

@@ -276,7 +276,8 @@
                			<td id="productPrice" style="text-align: right;">
                   			<span id="originPrice" style="color: black;">
                   				<script>
-                  					var menuPrice = ${room.roomPrice != null ? room.roomPrice : 0};
+                  					//var menuPrice = ${room.roomPrice != null ? room.roomPrice : 0};
+                  					var menuPrice = ${room.roomPrice};
                   					var formattedPrice = numberWithCommas(menuPrice);
                   					document.write(formattedPrice);
                   				</script>원

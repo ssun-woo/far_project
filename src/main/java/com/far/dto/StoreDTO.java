@@ -60,6 +60,14 @@ public class StoreDTO {
 	@Column(name = "MEMID")
     private String memId;
 	
+	@Column(name = "REGDATE")
+	private String regDate;
+   
+	@Column(name = "STORESCORE", columnDefinition = "INT DEFAULT 0")
+	private int storeScore;
+   
+	@Column(name = "AUTH", columnDefinition = "INT DEFAULT 0")
+	private int auth;
 
 	public int getStoreNum() {
 		return storeNum;
@@ -157,14 +165,12 @@ public class StoreDTO {
 		this.storeScore = storeScore;
 	}
 
-	@Column(name = "LEGDATE")
+	public int getAuth() {
+		return auth;
+	}
 
-	private String regDate;
-	
-	@Column(name = "STORESCORE", columnDefinition = "INT DEFAULT 0")
-	private int storeScore;
-	
-	@Column(name = "AUTH", columnDefinition = "INT DEFAULT 0")
-	private int auth;
+	public void setAuth(int auth) {
+		this.auth = auth;
+	}
 
 }
