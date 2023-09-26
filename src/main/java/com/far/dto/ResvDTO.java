@@ -24,5 +24,6 @@ public class ResvDTO {
 	private String startDay;
 	private String endDay;
 	private int peopleNum;
+	private String regDate;
 	
 }

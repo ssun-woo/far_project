@@ -15,7 +15,7 @@
 	
 	<select id="getMenu" resultType="room">
 		SELECT * FROM room
-		WHERE roomNum = #{i}
+		WHERE roomNum = #{roomNum}
 	</select>
 	
 	<select id="getStore" resultType="store">

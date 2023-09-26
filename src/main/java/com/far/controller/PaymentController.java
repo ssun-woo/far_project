@@ -1,8 +1,11 @@
 package com.far.controller;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -35,26 +38,49 @@ public class PaymentController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
 		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
-		ModelAndView mav = new ModelAndView();
 		
+		String date = request.getParameter("date2");
+        Pattern pattern = Pattern.compile("(\\d+)박");
+        Matcher matcher = pattern.matcher(date);
+        
+        int nights = 0;
+        
+        if (matcher.find()) {
+            String matchedText = matcher.group(1); // 첫 번째 그룹(괄호 안의 내용)의 값
+            nights = Integer.parseInt(matchedText);
+        }
+        
+		
+		String date1 = extractDate(date);
+		String date2 = extractDate(date.substring(date.indexOf("~") + 1));
+		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		String sdate = year + "-" + date1;
+		
+		
+		
+		if(Integer.parseInt(date1.substring(0,2)) > Integer.parseInt(date2.substring(0,2))) {
+			year += 1;
+		}
+		String edate = year + "-" + date2;
+		
+		int totalCount = Integer.parseInt(request.getParameter("totalCount"));
+//		System.out.println("totalCount : " + totalCount);
+		
+		ModelAndView mav = new ModelAndView();
 		// 쿠폰 선택 옵션에 쿠폰 목록 불러오기
 		List<CouponDTO> coupons = paymentService.getCoupons(id);
 		
-		int roomNum = Integer.parseInt(request.getParameter("room_num"));
+		
+		int roomNum = Integer.parseInt(request.getParameter("roomNum"));
+		System.out.println("방번호 : " + roomNum);
+		
 		// 메뉴 정보
 		RoomDTO room = paymentService.getMenu(roomNum);
-		
-		// 가게 정보
 		StoreDTO store = paymentService.getStore(room.getStoreNum());
-		
+
 		// 포인트
 		MemberDTO member = paymentService.getMember(id);
-		
-		/*
-		 * for(CouponDTO c : coupons) { System.out.println("쿠폰이름 : " +
-		 * c.getCoupon_name()); System.out.println("쿠폰 할인율 : " +
-		 * c.getCoupon_discount()); }
-		 */
 		
 		// 날짜 형식 변환
 		for(int i=0; i<coupons.size(); i++) {
@@ -66,6 +92,9 @@ public class PaymentController {
 		mav.addObject("room", room);
 		mav.addObject("store", store);
 		mav.addObject("member", member);
+		mav.addObject("sdate", sdate);
+		mav.addObject("edate", edate);
+		mav.addObject("nights", nights);
 		
 		mav.setViewName("payment/payment");
 		return mav;
@@ -112,5 +141,16 @@ public class PaymentController {
 		ModelAndView mav = new ModelAndView("payment/payment_end");
 		return mav;
 	}
+	
+	private String extractDate(String input) {
+		String[] parts = input.split(" ");
+		for (String part : parts) {
+			if (part.matches("\\d{2}-\\d{2}")) {
+				return part;
+			}
+		}
+		return null; // 날짜를 찾지 못한 경우
+	}
+	
 
 }

@@ -24,8 +24,8 @@ public class PaymentDAOImpl implements PaymentDAO {
 	}
 
 	@Override
-	public RoomDTO getMenu(int i) {
-		return sqlSession.selectOne("getMenu", i);
+	public RoomDTO getMenu(int roomNum) {
+		return sqlSession.selectOne("getMenu", roomNum);
 	}
 
 	@Override

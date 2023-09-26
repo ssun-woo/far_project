@@ -24,8 +24,8 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	@Override
-	public RoomDTO getMenu(int i) {
-		return paymentDao.getMenu(i);
+	public RoomDTO getMenu(int roomNum) {
+		return paymentDao.getMenu(roomNum);
 	}
 
 	@Override
