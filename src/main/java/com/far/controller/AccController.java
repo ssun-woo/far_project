@@ -172,7 +172,7 @@ public class AccController {
 	@GetMapping("/cont")
 	public ModelAndView acc_reviewlist(HttpServletRequest request, ReviewDTO rdto) {
 		
-		int storeNum = Integer.parseInt(request.getParameter("storeNum"));
+		int storeNum = Integer.parseInt(request.getParameter("store_num"));
 		List<ReviewDTO> rlist = reviewService.getReview(storeNum);
 		String cate = request.getParameter("cate");
 		
