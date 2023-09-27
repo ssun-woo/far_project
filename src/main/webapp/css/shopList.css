@@ -1,4 +1,13 @@
 @charset "UTF-8";
+
+.main_shop {
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .shop_List{
 	width: 1300px;
 	display: flex;
@@ -7,6 +16,7 @@
 	display: flex;
 	margin-top: 30px;
 	margin-left: 50px;
+	
 }
 .filter{
 	

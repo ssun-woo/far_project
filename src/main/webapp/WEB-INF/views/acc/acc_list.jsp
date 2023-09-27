@@ -7,7 +7,7 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-
+<div class="main_shop">
 <div class="shop_List">
 	<div class="filter">
 		<div class="filter_top">
@@ -297,8 +297,8 @@
 		</div>
 	</div>
 </div>
-
-
+<jsp:include page="../main/footer.jsp" />
+</div>
 
 <script>
 	var currentPage = $
@@ -330,4 +330,3 @@
 	console.log(currentPage);
 </script>
 
-<jsp:include page="../main/footer.jsp" />

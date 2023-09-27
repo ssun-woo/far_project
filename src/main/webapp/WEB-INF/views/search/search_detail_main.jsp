@@ -26,7 +26,7 @@
 				<li class="nav-item"><a class="nav-link active"
 					 href="/search?keyword=${keyword}">통합검색</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/search/acc?keyword=${keyword}">숙소</a></li>
+					href="acc/list?detail_cate=hotel">숙소</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/search/food?keyword=${keyword}">음식</a></li>
 				<li class="nav-item"><a class="nav-link"
