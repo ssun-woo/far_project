@@ -77,9 +77,9 @@
 														<div data-row>
 															<div data-cell>
 																<div class="infoIcon">
-																	<i class="icon icondHot">${store.detail_cate}</i>
+																	<i class="icon icondHot">${store.detailCate}</i>
 																	<!-- 디테일 카테 예- 호텔 모텔등  -->
-																	<i class="icon"> ${store.store_addr} </i>
+																	<i class="icon"> ${store.storeAddr1} </i>
 																	<!-- 가게 주소 -->
 																</div>
 															</div>
@@ -87,7 +87,7 @@
 														<div data-row>
 															<div data-cell>
 																<a href="">
-																	<h5 class="infoTitle">${store.store_name}</h5> <!--  가게 이름 -->
+																	<h5 class="infoTitle">${store.storeName}</h5> <!--  가게 이름 -->
 																</a>
 																<p class="infoSubTitle">이벤트</p>
 																<!--  이벤트  -->
@@ -105,13 +105,13 @@
 															<div data-cell>
 																<p class="infoInfostar">
 																	<!-- 가게 등급 -->
-																	${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+																	${'<span>⭐</span>'.repeat(Math.floor(store.storeScore))}
 																	<!-- 오류는 뜨지만 아주 잘 작동함...! -->
-																	<strong>(${store.store_score})</strong>
+																	<strong>(${store.storeScore})</strong>
 																</p>
 																<p class="info">
 																	<!-- 가게 상세 주소 -->
-																	${store.store_detail_addr}
+																	${store.storeAddr2}
 																</p>
 															</div>
 														</div>
@@ -161,9 +161,9 @@
 													<div data-row>
 														<div data-cell>
 															<div class="infoIcon">
-																<i class="icon icondHot">${store.detail_cate}</i>
+																<i class="icon icondHot">${store.detailCate}</i>
 																<!-- 디테일 카테 예 - 일식 중식등 -->
-																<i class="icon"> ${store.store_addr} </i>
+																<i class="icon"> ${store.storeAddr1} </i>
 																<!--  가게 주소 -->
 															</div>
 														</div>
@@ -171,7 +171,7 @@
 													<div data-row>
 														<div data-cell>
 															<a href="">
-																<h5 class="infoTitle">${store.store_name}</h5> <!--  가게 이름 -->
+																<h5 class="infoTitle">${store.storeName}</h5> <!--  가게 이름 -->
 															</a>
 															<p class="infoSubTitle">이벤트</p>
 															<!--  이벤트 -->
@@ -189,13 +189,13 @@
 														<div data-cell>
 															<p class="infoInfostar">
 																<!-- 가게 등급 -->
-																${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+																${'<span>⭐</span>'.repeat(Math.floor(store.storeScore))}
 																<!-- 오류는 뜨지만 아주 잘 작동함...! -->
-																<strong>(${store.store_score})</strong>
+																<strong>(${store.storeScore})</strong>
 															</p>
 															<p class="info">
 																<!-- 가게 상세 주소 -->
-																${store.store_detail_addr}
+																${store.storeAddr2}
 															</p>
 														</div>
 													</div>
@@ -244,9 +244,9 @@
 												<div data-row>
 													<div data-cell>
 														<div class="infoIcon">
-															<i class="icon icondHot">${store.detail_cate}</i>
+															<i class="icon icondHot">${store.detailCate}</i>
 															<!-- 디테일 카테 예- 공연 전시회 등 -->
-															<i class="icon"> ${store.store_addr} </i>
+															<i class="icon"> ${store.storeAddr1} </i>
 															<!-- 주소 -->
 														</div>
 													</div>
@@ -254,7 +254,7 @@
 												<div data-row>
 													<div data-cell>
 														<a href="">
-															<h5 class="infoTitle">${store.store_name}</h5>
+															<h5 class="infoTitle">${store.storeName}</h5>
 														</a>
 														<p class="infoSubTitle">이벤트</p>
 													</div>
@@ -271,13 +271,13 @@
 													<div data-cell>
 														<p class="infoInfostar">
 															<!-- 가게 등급 -->
-															${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+															${'<span>⭐</span>'.repeat(Math.floor(store.storeScore))}
 															<!-- 오류는 뜨지만 아주 잘 작동함...! -->
-															<strong>(${store.store_score})</strong>
+															<strong>(${store.storeScore})</strong>
 														</p>
 														<p class="info">
 															<!-- 가게 상세 주소 -->
-															${store.store_detail_addr}
+															${store.storeAddr2}
 														</p>
 													</div>
 												</div>

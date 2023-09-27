@@ -30,10 +30,10 @@
 		</div>
 		<div id="storeContentArea">
 			<form>
-				<table class="table table-hover">
+				<table class="table">
 					<thead>
 						<tr style="text-align: center;">
-							<th colspan="4">상점 목록</th>
+							<th colspan="4">스토어 목록</th>
 							<!-- "Shop List" (상점 목록으로 변경) -->
 						</tr>
 						<tr>
@@ -70,9 +70,10 @@
 			</form>
 		</div>
 	</div>
+	<jsp:include page="ceo_footer.jsp" />
 </div>
 
-<jsp:include page="ceo_footer.jsp" />
+
 
 <!-- <script>
 	var store_num = "${store_num}";

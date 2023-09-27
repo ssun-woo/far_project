@@ -1,23 +1,30 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../js/store_main.js"></script>
+
 
 <jsp:include page="ceo_header.jsp" />
 <style>
-table {
-	width: 100%;
-}
+ table { 
+width: 100%; 
+ } *
 
-.first-line {
-	text-align: center;
-}
+.first-line { 
+text-align: center; 
+} 
 
-.menuRegisForm img {
-	width: 150px;
-	height: 150px;
-}
+.menuRegisForm img { 
+width: 150px; 
+height: 150px;
+}  
 </style>
 <div id="ceo_main">
 	<div id="ceo_middle">
@@ -25,7 +32,7 @@ table {
 			<div class="storeMainWrap">
 				<div class="storeStickyArea">
 					<div class="storeMain">
-						<ul class="list-group">
+						<ul class="list-group list-group-flush">
 							<li class="storeRegistrationMain list-group-item"
 								onclick="location='/ceo/store_regi'"><strong>업체 등록</strong></li>
 							<li class="storeMenuRegis list-group-item"
@@ -161,7 +168,9 @@ table {
 			</div>
 		</div>
 	</div>
+	<jsp:include page="ceo_footer.jsp" />
 </div>
+
 <script>
 	var isChecked = document.getElementById('isChecked');
 	isChecked.value = 0;
@@ -255,4 +264,4 @@ table {
 	}
 </script>
 
-<jsp:include page="ceo_footer.jsp" />
+

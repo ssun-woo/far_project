@@ -136,6 +136,7 @@
 			</div>
 		</div>
 	</div>
+	<jsp:include page="ceo_footer.jsp" />
 </div>
 
 <script>
@@ -154,7 +155,4 @@
 	};
 </script>
 
-<br>
-<br>
-<br>
-<jsp:include page="ceo_footer.jsp" />
+

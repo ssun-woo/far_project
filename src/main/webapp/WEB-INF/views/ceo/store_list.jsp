@@ -33,7 +33,7 @@
 					<table class="table table-hover">
 					<thead>
 						<tr style="text-align: center;">
-							<th colspan="4">상점 목록</th>
+							<th colspan="4">스토어 목록</th>
 							<!-- "Shop List" (상점 목록으로 변경) -->
 						</tr>
 						<tr>
@@ -54,7 +54,7 @@
 									<tr
 										onclick="location='/ceo/store_menu_list?store_num=${s.storeNum}'">
 
-										<td>${s.storeNum}</td>
+										<td style="color: blue;">${s.storeNum}</td>
 										<td>${s.cate}</td>
 										<td>${s.detailCate}</td>
 										<td>${s.storeName}</td>
@@ -63,7 +63,7 @@
 							</c:if>
 							<c:if test="${empty slist}">
 								<tr class="text-center">
-									<td colspan="4">There are no registered stores.</td>
+									<td colspan="4">동록된 정보가 존재하지 않습니다.</td>
 								</tr>
 							</c:if>
 						</tbody>

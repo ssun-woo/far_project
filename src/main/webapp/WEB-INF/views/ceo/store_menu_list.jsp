@@ -31,18 +31,14 @@
 		</div>
 		<div class="container mt-4">
 			<div id="storeContentArea">
-				<form>
+				
 
 					<section class="menuRegisForm">
-						<h2>${s.storeName}</h2>
-
+						<h2><strong>${s.storeName}</strong></h2>
+							<br>
 						<table class="table table-hover">
 
-
-								<tr class="first-line">
-									<th colspan="5">메뉴목록</th>
-
-								</tr>
+							 <thead>
 								<tr>
 									<th style="width: 5%">no.</th>
 									<th style="width: 25%">사진</th>
@@ -50,7 +46,7 @@
 									<th style="width: 10%">가격</th>
 									<th style="width: 10%">관리</th>
 								</tr>
-							<thead>
+							</thead>
 								<c:if test="${!empty mlist}">
 									<c:forEach var="m" items="${mlist}">
 										<tr
@@ -81,7 +77,7 @@
 						</h1>
 
 					</section>
-				</form>
+				
 			</div>
 		</div>
 	</div>

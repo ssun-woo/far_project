@@ -16,7 +16,7 @@
 			<c:if test="${!empty slist}">
 				<c:forEach var="s" items="${slist}">
 					<tr>
-						<td>${s.store_num}</td>
+						<td style="color: blue;">${s.store_num}</td>
 						<td>${s.cate}</td>
 						<td>${s.detail_cate}</td>
 						<td>

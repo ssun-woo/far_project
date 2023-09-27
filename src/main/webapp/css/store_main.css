@@ -39,6 +39,7 @@
 
 #storeContentArea {
 	width: 950px;
+	height: 100%;
 	margin-left: 15px;
 /*	margin-top: 10px;*/
 }
@@ -57,4 +58,13 @@ table {
 .menuRegisForm img {
 	width: 150px;
 	height: 150px;
+}
+.menuRegisForm {
+	height: 100%;
+	width: 950px;
+}
+
+.contentArea{
+	height: 1100px;
+	width: 950px;
 }
