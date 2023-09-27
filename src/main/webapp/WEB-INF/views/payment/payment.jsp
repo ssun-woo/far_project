@@ -8,7 +8,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
-<script>console.log("${totalCount}");</script>	
+<!-- <script>console.log("${totalCount}");</script> -->
 <div class="payment">
 	<div class="title">
 		<h3>예약정보</h3>
@@ -81,14 +81,14 @@
 								success: function(date) {
 							      	// 서버로부터 받은 응답을 처리
 							      	console.log(date);
-							      	console.log(coupon_name);
-							      	console.log("aaa");
+							      	//console.log(coupon_name);
+							      	//console.log("aaa");
 							      	if (date === "쿠폰이 발급되었습니다.") {
 							      	   alert("쿠폰이 발급되었습니다.");
-							      	   console.log("bbb");
+							      	   //console.log("bbb");
 							      	} else if (date === "이미 쿠폰을 보유하고 있습니다.") {
 							      	   alert("이미 쿠폰을 보유하고 있습니다.");
-							      	   console.log("ccc");
+							      	   //console.log("ccc");
 							      	}
 							   	}/* ,
 							   	error: function (error) {
@@ -217,7 +217,7 @@
 	   		    var remainingPoint = parseFloat("${member.point}"); // 보유 중인 포인트
 	   		    var productPrice = parseFloat("${room.roomPrice != null ? room.roomPrice : 0}"); // 상품 가격
 	   		    var productPrice2 = productPrice*${nights};
-				console.log(productPrice2);
+				//console.log(productPrice2);
 	   		    var adjustedPoint = 0; // pointInput에 설정할 값 초기화
 
 	   		    if (couponDiscount > 0) {

@@ -2,8 +2,6 @@ package com.far.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.far.dto.ReviewDTO;
 
 public interface ReviewService {

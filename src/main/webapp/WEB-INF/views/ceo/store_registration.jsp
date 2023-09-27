@@ -2,16 +2,11 @@
 
 <!-- <jsp:include page="../main/header.jsp"/> -->
 
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-<<<<<<< Updated upstream
 <div class="container storeRegistrationForm">
 	<h2>업체 등록하기</h2>
 	<hr>
@@ -28,39 +23,6 @@
 				<option value="beauty">뷰티</option>
 			</select>
 		</div>
-=======
-	<div class="storeRegistrationForm">
-		<h2>업체 등록하기</h2>
-		<hr>
-		<form method="post" action="store_registration_ok" onsubmit="return store_regis_write_check();">
-			<div class="storeRegistration">
-				<label>업소 선택</label>
-				<select id="typeSelect1" name="cate" onchange="onchange_select()">
-					<option value="none">선택하세요</option>
-					<option value="acc">숙소</option>
-					<option value="resto">식당</option>
-					<option value="culture">문화</option>
-					<option value="beauty">뷰티</option>
-				</select>
-				
-				<label>세부 선택</label>
-				<select id="typeSelect2" name="detail_cate" disabled="disabled">
-					<option value="none">업소를 먼저 선택해 주세요</option>
-				</select>
-			</div>
-			
-			<div class="storeRegistration">
-				<label>업체 이름</label>
-				<input type="text" id="storeName" name="store_name"
-					placeholder="가게 이름을 입력해주세요.">
-			</div>
-			
-			<div class="storeRegistration">
-				<label>업체 소개글</label>
-				<textarea id="storeIntro" name="store_intro" rows="3"
-					placeholder="가게를 소개하는 글을 입력해주세요."></textarea>
-			</div>
->>>>>>> Stashed changes
 
 		<div class="form-group storeRegistration">
 			<label for="typeSelect2">세부 선택</label> <select class="form-control"
@@ -112,7 +74,6 @@
 		</div>
 	</form>
 </div>
-
 
 
 <!-- <jsp:include page="../main/footer.jsp"/> -->

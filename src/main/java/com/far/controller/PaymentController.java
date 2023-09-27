@@ -8,7 +8,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -36,7 +35,7 @@ public class PaymentController {
 	
 	// 결제 페이지
 	@RequestMapping("")
-	public ModelAndView payment(HttpSession session, HttpServletRequest request) {
+	public ModelAndView payment(HttpServletRequest request) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
 		
@@ -107,27 +106,26 @@ public class PaymentController {
 	
 	// 쿠폰 발급
 	@RequestMapping("/couponIssue")
-	public @ResponseBody String couponIssue(HttpSession session,
-			@RequestParam("coupon_name") String couponName) {
+	public @ResponseBody String couponIssue(@RequestParam("coupon_name") String couponName) {
 
 		System.out.println("couponName = " + couponName);
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String id = authentication.getName();
+		String memId = authentication.getName();
 		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
-		String cName = couponName;
+		//String cName = couponName;
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("mem_id", id);
-		map.put("coupon_name", cName);
+		map.put("mem_id", memId);
+		map.put("coupon_name", couponName);
 		CouponDTO c = paymentService.getCouponIssue(map);
 		
 		String msg = null;
 		
 		CouponDTO newc = new CouponDTO();
 		
-		newc.setCouponNum(1);
+		
 		newc.setCouponName(couponName);
-		newc.setMemId(id);
+		newc.setMemId(memId);
 		
 		if(c == null) {
 			paymentService.insertCoupon(newc);

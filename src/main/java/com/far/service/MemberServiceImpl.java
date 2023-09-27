@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.far.dao.MemberDAO;
 import com.far.dto.MemberDTO;
-import com.far.model.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService{

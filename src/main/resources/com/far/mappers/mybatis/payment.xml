@@ -23,16 +23,16 @@
 
 	</select>
 	
-	<select id="get_couponIssue" parameterType="hashmap" resultType="coupon">
+	<select id="getCouponIssue" parameterType="hashmap" resultType="coupon">
 		SELECT * FROM coupon c
 		INNER JOIN couponPersonal cp
 		ON c.couponName = cp.couponName
 		WHERE cp.couponName = #{coupon_name} AND memId = #{mem_id}
 	</select>
 	
-	<insert id="insert_coupon">
-		INSERT INTO couponPersonal(couponNum, couponName, memId)
-		VALUES (#{couponNum}, #{couponName}, #{memId})
+	<insert id="insertCoupon">
+		INSERT INTO couponPersonal(couponName, memId)
+		VALUES (#{couponName}, #{memId})
 	</insert>
 	
 	<select id="getMember" resultType="member">
