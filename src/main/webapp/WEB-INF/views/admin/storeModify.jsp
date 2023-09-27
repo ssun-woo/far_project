@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+
 <jsp:include page="admin_header.jsp" />
 	<main class="admin_main">
 		<div class="container-fluid">

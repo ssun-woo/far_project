@@ -37,10 +37,11 @@
 						<h2>${s.storeName}</h2>
 
 						<table class="table table-hover">
-							<thead>
+
 
 								<tr class="first-line">
 									<th colspan="5">메뉴목록</th>
+
 								</tr>
 								<tr>
 									<th style="width: 5%">no.</th>

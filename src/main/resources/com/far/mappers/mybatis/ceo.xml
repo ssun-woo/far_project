@@ -8,8 +8,8 @@
 
        
     <insert id="store_in">
-       insert into store(storeNum, cate, detailCate, storeName, storeIntro, storeAddr1, storeAddr2, regNum, storeLogo)
-        values(bno2_seq.nextval,#{cate},#{detailCate},#{storeName},#{storeIntro},#{storeAddr1},#{storeAddr2},#{regNum},#{storeLogo}) 
+       insert into store(storeNum, cate, detailCate, storeName, storeIntro, storeAddr1, storeAddr2, regNum, storeLogo, memId)
+        values(bno2_seq.nextval,#{cate},#{detailCate},#{storeName},#{storeIntro},#{storeAddr1},#{storeAddr2},#{regNum},#{storeLogo},#{memId}) 
     </insert>
     
     <select id="get_cate" resultType="String">
