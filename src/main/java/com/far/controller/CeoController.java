@@ -36,7 +36,7 @@ public class CeoController {
 	public ModelAndView ceo_index() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
+		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		System.out.println(id);
 		List<StoreDTO> slist = ceoService.getStores(id);
 		ModelAndView mav = new ModelAndView("ceo/ceo_index");
@@ -60,7 +60,7 @@ public class CeoController {
 	public ModelAndView ceo_store_regi_ok(StoreDTO s, HttpServletRequest request) throws Exception {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
+		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		String saveFolder = request.getRealPath("upload/store_logo"); // 이진 파일 업로드 서버 경로
 		int fileSize = 5 * 1024 * 1024; // 이진파일 업로드 최대크기
 		MultipartRequest multi = null; // 이진파일을 가져올 참조변수
@@ -147,7 +147,7 @@ public class CeoController {
 	public ModelAndView store_choice(HttpSession session) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
+		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		List<StoreDTO> sList = ceoService.getStores(id);
 		ModelAndView mav = new ModelAndView();
 		System.out.println(sList.size());
