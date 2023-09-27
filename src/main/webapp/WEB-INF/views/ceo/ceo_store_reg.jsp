@@ -13,74 +13,64 @@
 		<div class="storeStickyArea">
 			<div class="storeMain">
 				<ul>
-					<li class="storeRegistrationMain"
-						onclick="location='/ceo/store_regi'">업체 등록</li>
-					<li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴
-						등록 및 수정</li>
-					<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글
-						및 정보 수정</li>
+					<li class="storeRegistrationMain" onclick="location='/ceo/store_regi'">업체 등록</li>
+					<li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴 등록 및 수정</li>
+					<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글 및 정보 수정</li>
 				</ul>
-
 			</div>
 		</div>
-
 
 		<div id="storeContentArea">
 			<div class="storeRegistrationForm">
 				<h2>업체 등록하기</h2>
 				<hr>
-				<form method="post" action="store_regi_ok"
-					onsubmit="return store_regis_write_check();"
-					enctype="multipart/form-data">
+				<form method="post" action="store_regi_ok" onsubmit="return store_regis_write_check();" enctype="multipart/form-data">
 					<div class="storeRegistration">
-						<label>업소 선택</label> <select id="typeSelect1" name="cate"
-							onchange="onchange_select()">
+						<label>업소 선택</label>
+						<select id="typeSelect1" name="cate" onchange="onchange_select()">
 							<option value="none">선택하세요</option>
 							<option value="acc">숙소</option>
 							<option value="resto">식당</option>
 							<option value="culture">문화</option>
 							<option value="beauty">뷰티</option>
-						</select> <label>세부 선택</label> <select id="typeSelect2" name="detailCate"
-							disabled="disabled">
+						</select>
+						<label>세부 선택</label>
+						<select id="typeSelect2" name="detailCate" disabled="disabled">
 							<option value="none">업소를 먼저 선택해 주세요</option>
 						</select>
 					</div>
 
 					<div class="storeRegistration">
-						<label>업체 이름</label> <input type="text" id="storeName"
-							name="storeName" placeholder="가게 이름을 입력해주세요.">
+						<label>업체 이름</label>
+						<input type="text" id="storeName" name="storeName" placeholder="가게 이름을 입력해주세요.">
 					</div>
 
 					<div class="storeRegistration">
 						<label>업체 소개글</label>
-						<textarea id="storeIntro" name="storeIntro" rows="3"
-							placeholder="가게를 소개하는 글을 입력해주세요."></textarea>
+						<textarea id="storeIntro" name="storeIntro" rows="3" placeholder="가게를 소개하는 글을 입력해주세요."></textarea>
 					</div>
 
 					<div class="storeRegistration">
 						<label>업체 주소</label>
 						<div class="storeAddressArea">
 							<div class="storeAddressF">
-								<input type="text" id="storeAddressFirst" name="storeAddr1"
-									placeholder="주소 검색">
+								<input type="text" id="storeAddressFirst" name="storeAddr1" placeholder="주소 검색">
+								<input type="button" onclick="sample6_execDaumPostcode()" value="주소 검색"><br>
 								<!-- <button id="storeAddressSearchBtn">주소 검색</button> -->
 							</div>
 						</div>
 						<div class="storeAddressS">
-							<input type="text" id="storeAddressSecond" name="storeAddr2"
-								placeholder="상세주소">
+							<input type="text" id="storeAddressSecond" name="storeAddr2" placeholder="상세주소">
 						</div>
 					</div>
 
 					<div class="storeRegistration">
 						<label>사업자등록번호</label> <input type="text"
-							id="businessRegistrationNumber" name="regNum"
-							placeholder="사업자등록번호를 입력해주세요.">
+							id="businessRegistrationNumber" name="regNum" placeholder="사업자등록번호를 입력해주세요.">
 					</div>
 
 					<div class="storeRegistration">
-						<label>로고 이미지 첨부</label> <input type="file" id="logoImage"
-							name="logoImage">
+						<label>로고 이미지 첨부</label> <input type="file" id="logoImage" name="logoImage">
 					</div>
 
 					<div class="storeRegistrationButton">
@@ -411,10 +401,6 @@
                     addr = data.jibunAddress;
                 }
 
-                
-
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-               
                 document.getElementById("storeAddressFirst").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById("storeAddressSecond").focus();

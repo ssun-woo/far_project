@@ -49,7 +49,7 @@ public class CeoController {
 	public ModelAndView ceo_store_regi() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
+		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		System.out.println(id);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("ceo/ceo_store_reg");

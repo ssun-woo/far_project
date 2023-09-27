@@ -2,6 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="../main/new_header2.jsp" />
+<head>
+   <!-- jQuery CDN -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+   <!-- Slick Slider CSS 및 JS CDN -->
+   <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+   <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+   <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+
 
 
 <div class="shop_cont">
@@ -634,3 +647,107 @@
 
 
 <jsp:include page="../main/footer.jsp" />
+
+
+<script>
+	// a 태그 클릭 시 라디오 버튼의 선택 상태 변경 및 컨텐츠 표시
+	function review_count_page_btn() {
+		// data-radio 속성을 통해 선택할 라디오 버튼의 값을 가져옵니다.
+	
+	    
+	    // 선택한 라디오 버튼의 값을 변경합니다.
+	    document.getElementById("review").checked = true;
+	    
+	    document.querySelectorAll('#service_content').forEach(function(content) {
+	        content.style.display = "none";
+	    });
+	    document.querySelectorAll('#information_content').forEach(function(content) {
+	        content.style.display = "none";
+	    });
+	
+	    document.querySelectorAll('#cancellation_content').forEach(function(content) {
+	        content.style.display = "none";
+	    });
+	
+	    document.querySelectorAll('#map_content').forEach(function(content) {
+	        content.style.display = "none";
+	    });
+	
+	
+	    const reviewContent = document.getElementById("review_content");
+	    reviewContent.style.display = "block";
+	}
+        
+	function map_page_btn() {
+	    // data-radio 속성을 통해 선택할 라디오 버튼의 값을 가져옵니다.
+	
+	    
+	    // 선택한 라디오 버튼의 값을 변경합니다.
+	    document.getElementById("map_guide").checked = true;
+	    
+	    document.querySelectorAll('#service_content').forEach(function(content) {
+	        content.style.display = "none";
+	    });
+	    document.querySelectorAll('#information_content').forEach(function(content) {
+	        content.style.display = "none";
+	    });
+	
+	    document.querySelectorAll('#cancellation_content').forEach(function(content) {
+	        content.style.display = "none";
+	    });
+	
+	    document.querySelectorAll('#review_content').forEach(function(content) {
+	        content.style.display = "none";
+	    });
+	
+	
+	    const reviewContent = document.getElementById("map_content");
+	    reviewContent.style.display = "block";
+	}    
+</script>
+    
+   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a88d036132dec983608208b58361c621a88d036132dec983608208b58361c621" async></script>
+<script>
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	   	mapOption = { 
+	       	center: new kakao.maps.LatLng(37.5750793, 126.981199), // 지도의 중심좌표
+	       	level: 3 // 지도의 확대 레벨
+	   	};
+
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+	// 마커가 표시될 위치입니다 
+	var markerPosition  = new kakao.maps.LatLng(37.5750793, 126.981199); 
+	
+	// 마커를 생성합니다
+	var marker = new kakao.maps.Marker({
+	    position: markerPosition
+	});
+	
+	// 마커가 지도 위에 표시되도록 설정합니다
+	marker.setMap(map);
+	
+	//map.setDraggable(false); 
+</script>
+
+<script>
+   	$(document).ready(function () {
+      	$('.shop_photo').slick({
+        		infinite: true, // 무한 루프
+        		slidesToShow: 1, // 한 번에 보여줄 슬라이드 개수
+        		slidesToScroll: 1, // 스크롤 시 이동할 슬라이드 개수
+        		autoplay: true, // 자동 재생
+        		autoplaySpeed: 2000, // 자동 재생 속도 (밀리초)
+        		arrows: false,               //이전 다음 버튼 표시 여부(true or false) ▶기본값 true
+        		pauseOnFocus: true,         //마우스 클릭 시 슬라이드 멈춤 ▶기본값 true
+        		pauseOnHover: true,         //마우스 호버 시 슬라이드 멈춤 ▶기본값 true
+        		dots: true, // 네비게이션 바 사용
+        		appendDots: $('.shop_photo'), // 네비게이션 바를 추가한 요소에 연결
+     		});
+  		});
+  
+	function count(){
+		alert("추천하시겠습니까?");
+	}
+</script>
+

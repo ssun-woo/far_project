@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="recommend">
+	<update id="recommend_check" parameterType="HashMap">
+    UPDATE Recommend
+    SET recommendCheck = recommendCheck + 1 
+    WHERE memId=#{memId} AND reviewNum=#{reviewNum} AND storeNum=#{storeNum}
+  </update>
+  
+  <update id="recommend_check_cancel" parameterType="HashMap">
+    UPDATE Recommend
+    SET recommendCheck = 0
+    WHERE memId=#{memId} AND reviewNum=#{reviewNum} AND storeNum = #{storeNum}
+  </update>
+</mapper>

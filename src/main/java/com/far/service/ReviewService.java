@@ -19,6 +19,11 @@ public interface ReviewService {
 	/*댓글 한 개 정보*/
 	public ReviewDTO getUpdateReview(int reviewNum);
 
+	public int getReivewCount(ReviewDTO rdto);
+
+	public void setRecommend(ReviewDTO rdto);
+
+
 
 
 	

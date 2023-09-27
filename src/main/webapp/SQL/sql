@@ -1,11 +1,4 @@
-select * from review;   
 
-
-SELECT * from review;  
-
-select * from review order by review_num desc;      
-
-commit;  
 
 create table review(
     review_num int primary key,    --리뷰 글번호
