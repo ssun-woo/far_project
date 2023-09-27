@@ -23,6 +23,8 @@ public class Member {
 	private String memTel;
 	@Column(name = "MEMCLASS")
 	private String memClass;
+	@Column(name = "point", columnDefinition = "int default 0")
+	private int point;
 	
 	public String getMemId() {
 		return memId;
@@ -59,6 +61,12 @@ public class Member {
 	}
 	public void setMemClass(String memClass) {
 		this.memClass = memClass;
+	}
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
 	}
 	
 	

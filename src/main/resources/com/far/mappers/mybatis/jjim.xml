@@ -12,7 +12,8 @@
  	
  	<!-- 찜 여부 -->
  	<select id="get_jjim" resultType="int">
- 		select count(*) from jjim where memid=#{memId} and storeNum=#{storeNum}
+
+ 		select count(*) from jjim where memId=#{memId} and storeNum=#{storeNum}
  	</select>
  	
  	<!-- 찜 삭제 -->

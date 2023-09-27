@@ -5,47 +5,48 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="STORE">
- 	
- 	<select id="get_detailCateList" resultType="store">
- 		select * from store where detailCate = #{detail_cate}
- 	</select>
- 	
- 	<select id="detail_cate_count" resultType="int">
- 		select count(*) from store where detailCate = #{detail_cate}
- 	</select>
- 	
- 	<select id="store_info" resultType="store">
- 		select * from store where storeNum = #{store_num}
- 	</select>
- 	
- 	<select id="get_stores" resultType="store">
- 		select * from store where memId = #{id}
- 	</select>
- 	
+
+    
+    <select id="get_detail_cate_list" resultType="store">
+       select * from store where detailCate = #{detailCate}
+    </select>
+    
+    <select id="detailCateCount" resultType="int">
+       select count(*) from store where detailCate = #{detailCate}
+    </select>
+    
+    <select id="store_info" resultType="store">
+       select * from store where storeNum = #{storeNum}
+    </select>
+    
+    <select id="get_stores" resultType="store">
+       select * from store where memId = #{id}
+    </select>
+    
+
     <select id="storePermit" resultType="store">
-    	select * from store where auth = #{auth}
+       select * from store where auth = #{auth}
     </select>
     
     <update id="storeOK">
-    	update store set auth = 1 where storeNum = #{storeNum}
+       update store set auth = 1 where storeNum = #{storeNum}
     </update>
-  	
-  	<update id="storeDenied">
-    	update store set auth = 2 where storeNum = #{storeNum}
+     
+     <update id="storeDenied">
+       update store set auth = 2 where storeNum = #{storeNum}
     </update>
 
     <select id="get_menu_list" resultType="room">
- 		select * from room where storeNum = #{s_num}
- 	</select>
- 	
- 	<select id="get_store" resultType="store">
- 		select * from store where storeNum = #{s_num}
- 	</select>
- 	
- 	<select id="get_menu" resultType="room">
- 		select * from room where roomNum = #{menu_id}
- 	</select>
- 	
-
+       select * from room where storeNum = #{s_num}
+    </select>
+    
+    <select id="get_store" resultType="store">
+       select * from store where storeNum = #{s_num}
+    </select>
+    
+    <select id="get_menu" resultType="room">
+       select * from room where roomNum = #{menuId}
+    </select>
+    
  </mapper>
  

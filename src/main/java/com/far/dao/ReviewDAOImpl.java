@@ -26,6 +26,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public void delReview(int reviewNum) {
+
 		sqlSession.delete("del_review", reviewNum);		
 	}
 

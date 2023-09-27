@@ -2,6 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="../js/store_main.js"></script>
 <script src="../js/store_main.js"></script>
 
 <jsp:include page="ceo_header.jsp" />
@@ -35,10 +43,16 @@ table {
 						</ul>
 					</div>
 				</div>
+				<div class="container mt-4">
 				<div id="storeContentArea">
+				<form>
+				
 					<div class="menuRegisForm">
 						<h2>${s.storeName}</h2>
-						<table border="1">
+
+						<table class="table table-hover">
+						<thead>
+
 							<tr class="first-line">
 								<th colspan="5">메뉴목록</th>
 							</tr>
@@ -49,6 +63,7 @@ table {
 								<th style="width: 10%">가격</th>
 								<th style="width: 10%">관리</th>
 							</tr>
+							<thead>
 							<c:if test="${!empty mlist}">
 								<c:forEach var="m" items="${mlist}">
 									<tr onclick="location='/ceo/store_menu_cont?menu_id=${m.roomNum}'">
@@ -56,8 +71,7 @@ table {
 										<td style="text-align: center;"><img
 											src="/upload/store_menu/${s.cate}${m.roomPhoto}"></td>
 										<td>${m.roomName}</td>
-										<td><fmt:formatNumber type="currency" currencyCode="KRW"
-												value="${m.roomPrice}" /></td>
+										<td><fmt:formatNumber type="currency" currencyCode="KRW" value="${m.roomPrice}" /></td>
 										<td>수정 | 삭제</td>
 									</tr>
 								</c:forEach>
@@ -71,9 +85,15 @@ table {
 
 
 						<h1>
+<<<<<<< HEAD
 							<a onclick="location='/ceo/store_menu_regis?store_num=${s.storeNum}'"> 메뉴등록 </a>
+=======
+							<a href="/ceo/store_menu_regis?store_num=${s.storeNum}" class="btn btn-secondary">메뉴등록</a>
+>>>>>>> hoon
 						</h1>
 
+					</div>
+					</form>
 					</div>
 				</div>
 			</div>

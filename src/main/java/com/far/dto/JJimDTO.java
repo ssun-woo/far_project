@@ -16,12 +16,11 @@ public class JJimDTO {
 	private int storeNum;
 	private String memId;
 	
-	
 
-	public int getStore_num() {
+	public int getStoreNum() {
 		return storeNum;
 	}
-	public void setStore_num(int storeNum) {
+	public void setStoreNum(int storeNum) {
 		this.storeNum = storeNum;
 	}
 	public String getMemId() {

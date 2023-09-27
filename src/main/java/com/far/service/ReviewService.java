@@ -25,8 +25,6 @@ public interface ReviewService {
 
 	public void setRecommend(ReviewDTO rdto);
 
-	
-
 
 
 

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
 import com.far.dto.StoreDTO;
 
@@ -27,16 +28,25 @@ public class AdminDAOImpl implements AdminDAO {
 		return 1;
 	}
 
-//	@Override
-//	public List<StoreDTO> storePermitSelect(String storeNum) {
-//		sqlSession.selectList("get_stores", storeNum);
-//		return null;
-//	}
-
 	@Override
 	public List<StoreDTO> storeDeniedSelect(String storeNum) {
 		sqlSession.selectList("storeDenied", storeNum);
 		return null;
 	}
-	
+
+	@Override
+	public List<MemberDTO> getMemList(String memClass) {
+		return sqlSession.selectList("getMemList", memClass);
+	}
+
+	@Override
+	public void insertAdCoupon(CouponDTO c) {
+		this.sqlSession.insert("insertAdCoupon", c);
+	}
+
+	@Override
+	public List<CouponDTO> getCouponList() {
+		return sqlSession.selectList("getCouponList");
+	}
+
 }

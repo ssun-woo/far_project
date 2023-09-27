@@ -8,35 +8,47 @@
 	
 	<select id="getCoupons" resultType="coupon">
 		SELECT * FROM coupon
-		INNER JOIN coupon_personal
-		ON coupon.coupon_name = coupon_personal.coupon_name
-		WHERE mem_id = #{mem_id}
+		INNER JOIN couponPersonal
+		ON coupon.couponName = couponPersonal.couponName
+		WHERE memId = #{memId}
 	</select>
 	
 	<select id="getMenu" resultType="room">
-		SELECT * FROM menu
-		WHERE menu_id = 1
+		SELECT * FROM room
+		WHERE roomNum = #{roomNum}
 	</select>
 	
 	<select id="getStore" resultType="store">
-		SELECT * FROM store WHERE store_num = #{store_num}
+		SELECT * FROM store WHERE storeNum = #{storeNum}
+
 	</select>
 	
 	<select id="get_couponIssue" parameterType="hashmap" resultType="coupon">
 		SELECT * FROM coupon c
-		INNER JOIN coupon_personal cp
-		ON c.coupon_name = cp.coupon_name
-		WHERE cp.coupon_name = #{coupon_name} AND mem_id = #{mem_id}
+		INNER JOIN couponPersonal cp
+		ON c.couponName = cp.couponName
+		WHERE cp.couponName = #{coupon_name} AND memId = #{mem_id}
 	</select>
 	
 	<insert id="insert_coupon">
-		INSERT INTO coupon_personal(coupon_num, coupon_name, mem_id)
-		VALUES (#{coupon_num}, #{coupon_name}, #{mem_id})
+		INSERT INTO couponPersonal(couponNum, couponName, memId)
+		VALUES (#{couponNum}, #{couponName}, #{memId})
 	</insert>
 	
 	<select id="getMember" resultType="member">
 		SELECT * FROM member
-		WHERE memId = #{mem_id}
+		WHERE memId = #{memId}
+	</select>
+	
+	<!-- admin 쿠폰 등록 -->
+	<insert id="insertAdCoupon">
+		INSERT INTO coupon(couponName, couponDiscountrate, couponStartDate, couponEndDate) 
+		VALUES(#{couponName}, #{couponDiscountrate}, #{couponStartDate}, #{couponEndDate})
+	</insert>
+	
+	<!-- admin 쿠폰 목록 -->
+	<select id="getCouponList" resultType="coupon">
+		select * from coupon
 	</select>
 	
 </mapper>

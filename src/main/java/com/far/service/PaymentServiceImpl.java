@@ -19,18 +19,18 @@ public class PaymentServiceImpl implements PaymentService {
 	private PaymentDAO paymentDao;
 
 	@Override
-	public List<CouponDTO> getCoupons(String mem_id) {
-		return paymentDao.getCoupons(mem_id);
+	public List<CouponDTO> getCoupons(String memId) {
+		return paymentDao.getCoupons(memId);
 	}
 
 	@Override
-	public RoomDTO getMenu(int i) {
-		return paymentDao.getMenu(i);
+	public RoomDTO getMenu(int roomNum) {
+		return paymentDao.getMenu(roomNum);
 	}
 
 	@Override
-	public StoreDTO getStore(int store_num) {
-		return paymentDao.getStore(store_num);
+	public StoreDTO getStore(int storeNum) {
+		return paymentDao.getStore(storeNum);
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	@Override
-	public MemberDTO getMember(String mem_id) {
-		return paymentDao.getMember(mem_id);
+	public MemberDTO getMember(String memId) {
+		return paymentDao.getMember(memId);
 	}
 
 }

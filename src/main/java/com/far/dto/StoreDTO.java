@@ -1,5 +1,7 @@
 package com.far.dto;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,8 +10,6 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-
 
 //create table store(
 //       store_num int primary key,
@@ -26,7 +26,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "store")
 public class StoreDTO {
@@ -40,6 +39,9 @@ public class StoreDTO {
 	
 	@Column(name = "DETAILCATE")
     private String detailCate; // 세부 카페 예 - food 일경우 한식 일식 등
+	
+	@Column(name = "MEMID")
+    private String memId;
 	
 	@Column(name = "STORENAME")
     private String storeName;
@@ -59,13 +61,117 @@ public class StoreDTO {
 	@Column(name = "STORELOGO")
     private String storeLogo;
 	
-	@Column(name = "MEMID")
-    private String memId;
+	@Column(name = "REGDATE", columnDefinition = "TIMESTAMP DEFAULT SYSDATE")
+	private Timestamp regDate;
 	
-	@Column(name = "REGDATE")
-	private String regDate;
-	
-	@Column(name = "STORESCORE")
+	@Column(name = "STORESCORE", columnDefinition = "INT DEFAULT 0")
 	private int storeScore;
+	
+	@Column(name = "AUTH", columnDefinition = "INT DEFAULT 0")
+	private int auth;
 
+	public int getStoreNum() {
+		return storeNum;
+	}
+
+	public void setStoreNum(int storeNum) {
+		this.storeNum = storeNum;
+	}
+
+	public String getCate() {
+		return cate;
+	}
+
+	public void setCate(String cate) {
+		this.cate = cate;
+	}
+
+	public String getDetailCate() {
+		return detailCate;
+	}
+
+	public void setDetailCate(String detailCate) {
+		this.detailCate = detailCate;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
+	public String getStoreIntro() {
+		return storeIntro;
+	}
+
+	public void setStoreIntro(String storeIntro) {
+		this.storeIntro = storeIntro;
+	}
+
+	public String getStoreAddr1() {
+		return storeAddr1;
+	}
+
+	public void setStoreAddr1(String storeAddr1) {
+		this.storeAddr1 = storeAddr1;
+	}
+
+	public String getStoreAddr2() {
+		return storeAddr2;
+	}
+
+	public void setStoreAddr2(String storeAddr2) {
+		this.storeAddr2 = storeAddr2;
+	}
+
+	public String getRegNum() {
+		return regNum;
+	}
+
+	public void setRegNum(String regNum) {
+		this.regNum = regNum;
+	}
+
+	public String getStoreLogo() {
+		return storeLogo;
+	}
+
+	public void setStoreLogo(String storeLogo) {
+		this.storeLogo = storeLogo;
+	}
+
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+
+	public Timestamp getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Timestamp regDate) {
+		this.regDate = regDate;
+	}
+
+	public int getStoreScore() {
+		return storeScore;
+	}
+
+	public void setStoreScore(int storeScore) {
+		this.storeScore = storeScore;
+	}
+
+	public int getAuth() {
+		return auth;
+	}
+
+	public void setAuth(int auth) {
+		this.auth = auth;
+	}
+	
 }

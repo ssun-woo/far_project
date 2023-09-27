@@ -11,19 +11,21 @@ public interface CeoService {
 
 	List<StoreDTO> getStores(String id);
 
-	String getCate(int store_num);
+	String getCate(int storeNum);
 
 	void insertMenu(RoomDTO m);
 
-	String getDetail_Cate(int store_num);
+	String getDetail_Cate(int storeNum);
 
 	List<RoomDTO> getMenuList(int s_num);
 
 	StoreDTO getStore(int s_num);
 
-	RoomDTO getMenu(int menu_id);
 
-	void delMenu(int menu_id);
+	RoomDTO getMenu(int menuId);
+
+
+	void delMenu(int menuId);
 
 	void editMenu(RoomDTO m);
 

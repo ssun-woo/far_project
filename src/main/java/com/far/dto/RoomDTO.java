@@ -18,104 +18,106 @@ create table menu(
 @Setter
 public class RoomDTO {
 
-	private int roomNum;
-	private int storeNum;
-	private String roomName;
-	private String roomExplain;
-	private int roomPrice;
-	private String roomPhoto;
-	private String roomPhoto2; // 실제 테이블에 들어갈 이름이 아닌 임시 저장소
-	private int standardNum;
-	private int maxNum;
-	private String checkIn;
-	private String checkOut;
 
-	public int getRoomNum() {
-		return roomNum;
-	}
+   private int roomNum;
+   private int storeNum;
+   private String roomName;
+   private String roomExplain;
+   private int roomPrice;
+   private String roomPhoto;
+   private String roomPhoto2; // 실제 테이블에 들어갈 이름이 아닌 임시 저장소
+   private int standardNum;
+   private int maxNum;
+   private String checkIn;
+   private String checkOut;
 
-	public void setRoomNum(int roomNum) {
-		this.roomNum = roomNum;
-	}
+   public int getRoomNum() {
+      return roomNum;
+   }
 
-	public int getStoreNum() {
-		return storeNum;
-	}
+   public void setRoomNum(int roomNum) {
+      this.roomNum = roomNum;
+   }
 
-	public void setStoreNum(int storeNum) {
-		this.storeNum = storeNum;
-	}
+   public int getStoreNum() {
+      return storeNum;
+   }
 
-	public String getRoomName() {
-		return roomName;
-	}
+   public void setStoreNum(int storeNum) {
+      this.storeNum = storeNum;
+   }
 
-	public void setRoomName(String roomName) {
-		this.roomName = roomName;
-	}
+   public String getRoomName() {
+      return roomName;
+   }
 
-	public String getRoomExplain() {
-		return roomExplain;
-	}
+   public void setRoomName(String roomName) {
+      this.roomName = roomName;
+   }
 
-	public void setRoomExplain(String roomExplain) {
-		this.roomExplain = roomExplain;
-	}
+   public String getRoomExplain() {
+      return roomExplain;
+   }
 
-	public int getRoomPrice() {
-		return roomPrice;
-	}
+   public void setRoomExplain(String roomExplain) {
+      this.roomExplain = roomExplain;
+   }
 
-	public void setRoomPrice(int roomPrice) {
-		this.roomPrice = roomPrice;
-	}
+   public int getRoomPrice() {
+      return roomPrice;
+   }
 
-	public String getRoomPhoto() {
-		return roomPhoto;
-	}
+   public void setRoomPrice(int roomPrice) {
+      this.roomPrice = roomPrice;
+   }
 
-	public void setRoomPhoto(String roomPhoto) {
-		this.roomPhoto = roomPhoto;
-	}
+   public String getRoomPhoto() {
+      return roomPhoto;
+   }
 
-	public String getRoomPhoto2() {
-		return roomPhoto2;
-	}
+   public void setRoomPhoto(String roomPhoto) {
+      this.roomPhoto = roomPhoto;
+   }
 
-	public void setRoomPhoto2(String roomPhoto2) {
-		this.roomPhoto2 = roomPhoto2;
-	}
+   public String getRoomPhoto2() {
+      return roomPhoto2;
+   }
 
-	public int getStandardNum() {
-		return standardNum;
-	}
+   public void setRoomPhoto2(String roomPhoto2) {
+      this.roomPhoto2 = roomPhoto2;
+   }
 
-	public void setStandardNum(int standardNum) {
-		this.standardNum = standardNum;
-	}
+   public int getStandardNum() {
+      return standardNum;
+   }
 
-	public int getMaxNum() {
-		return maxNum;
-	}
+   public void setStandardNum(int standardNum) {
+      this.standardNum = standardNum;
+   }
 
-	public void setMaxNum(int maxNum) {
-		this.maxNum = maxNum;
-	}
+   public int getMaxNum() {
+      return maxNum;
+   }
 
-	public String getCheckIn() {
-		return checkIn;
-	}
+   public void setMaxNum(int maxNum) {
+      this.maxNum = maxNum;
+   }
 
-	public void setCheckIn(String checkIn) {
-		this.checkIn = checkIn;
-	}
+   public String getCheckIn() {
+      return checkIn;
+   }
 
-	public String getCheckOut() {
-		return checkOut;
-	}
+   public void setCheckIn(String checkIn) {
+      this.checkIn = checkIn;
+   }
 
-	public void setCheckOut(String checkOut) {
-		this.checkOut = checkOut;
-	}
+   public String getCheckOut() {
+      return checkOut;
+   }
+
+   public void setCheckOut(String checkOut) {
+      this.checkOut = checkOut;
+   }
 
 }
+
