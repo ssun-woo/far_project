@@ -2,30 +2,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../js/store_main.js"></script>
 <script src="../js/store_main.js"></script>
 
 <jsp:include page="ceo_header.jsp" />
+
 <style>
-table {
-	width: 100%;
-}
-
-.first-line {
-	text-align: center;
-}
-
-.menuRegisForm img {
-	width: 150px;
-	height: 150px;
-}
+	table {
+		width: 100%;
+	}
+	
+	.first-line {
+		text-align: center;
+	}
+	
+	.menuRegisForm img {
+		width: 150px;
+		height: 150px;
+	}
 </style>
 
 
@@ -85,11 +82,7 @@ table {
 
 
 						<h1>
-<<<<<<< HEAD
-							<a onclick="location='/ceo/store_menu_regis?store_num=${s.storeNum}'"> 메뉴등록 </a>
-=======
-							<a href="/ceo/store_menu_regis?store_num=${s.storeNum}" class="btn btn-secondary">메뉴등록</a>
->>>>>>> hoon
+							<a onclick="location='/ceo/store_menu_regis?store_num=${s.storeNum}'" class="btn btn-secondary">메뉴등록</a>
 						</h1>
 
 					</div>
