@@ -2,28 +2,43 @@
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../main/new_header2.jsp" />
+<head>
+   <!-- jQuery CDN -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+   <!-- Slick Slider CSS 및 JS CDN -->
+   <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+   <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+   <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+
 
 
 <div class="shop_cont">
 	<div class="shop_name">
+
 		<h2>[${region} / ${sebu_cate}] ${s.store_name}</h2> 
+
 			<label class="jjim_shop">
 				<c:if test="${JJim==0}">
-				<form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
+				<form action="/acc/cont/jjim?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" id="jjim" method="POST">
 					<button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
 					<img src="../images/acc/NoJJim.png">
 				</button>
 				</form>
 				</c:if>
 				<c:if test="${JJim==1}">
-				<form action="/acc/cont/jjim_del?cate=${cate}&store_num=${store_num}" class="jjim_btn" method="POST">
+				<form action="/acc/cont/jjim_del?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" method="POST">
 					<button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
 					<img src="../images/acc/YesJJim.png">
 				</button>
 				</form>
 				</c:if>
 				</label>
-				
+
 	</div>
 	<hr style="width: 1050px;
 	text-align: center;
@@ -31,52 +46,59 @@
 	border: 1px solid;">
 	<div class="shop_cont_top">
 		<div class="shop_photo">
+
 			<img src="/upload/store_logo${s.storeLogo}" width="570px"
 				height="388">
+
 		</div>
 		<div class="shop_info">
 			<ul class="info_cate">
 				<li><h3>분류</h3></li>
 				<li><h3>상품평</h3></li>
 				<li><h3>주소</h3></li>
-				<li><h3>할인혜택</h3></li>
-				<li><h3>&nbsp;</h3></li>
+
 			</ul>
 			<ul class="info_cont">
 				<li><p>${region}/${sebuCate}</p></li>
 				<li><p>
-						<a onclick="">7998</a>의 상품평
+
+						<a href="#target" onclick="review_count_page_btn()">${review_count}개</a>의 상품평
 					</p></li>
 				<li><p>
-						${s.storeAddr1} ${s.storeAddr2 }<br> <a href="#">지도보기</a>
-					</p></li>
-				<li><p>
+						${s.storeAddr1} ${s.storeAddr2 }<br>
+						<a href="#target" onclick="map_page_btn()">지도보기</a>
 						전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기">
 					</p></li>
+				
 			</ul>
 		</div>
 	</div>
 
 	<div class="shop_info_event">
-		<img src="../images/ev_images/cont_event01.png">
+		<!-- <img src="../images/ev_images/cont_event01.png"> -->
 	</div>
 
-
+	
+	
+				
+	
 	<!-- 내용 -->
 	<div class="shop_info_cont">
-		<input type="radio" id="service" name="show" value="1" checked /> <input
-			type="radio" id="information" name="show" value="2" /> <input
-			type="radio" id="cancellation" name="show" value="3" /> <input
-			type="radio" id="map" name="show" value="4" /> <input type="radio"
-			id="review" name="show" value="5" />
+		<input type="radio" id="service" name="show" value="1" checked /> 
+		<input type="radio" id="information" name="show" value="2" /> 
+		<input type="radio" id="cancellation" name="show" value="3" /> 
+		<input type="radio" id="map_guide" name="show" value="4" /> 
+		<input type="radio" id="review" name="show" value="5" />
+		
 
 		<div class="tab">
 			<label for="service">상품</label> <label for="information">정보</label> <label
-				for="cancellation">이용안내 / 취소규정</label> <label for="map">지도</label> <label
+				for="cancellation">이용안내 / 취소규정</label> <label for="map_guide">지도</label> <label
 				for="review">이용후기</label>
 		</div>
+		
 		<hr>
-
+		
 
 		<div id="shop_content">
 
@@ -386,13 +408,17 @@
 					</ul>
 				</div>
 			</div>
-
+			
+			
+			<a name="target"></a>
 			<!-- 지도 -->
 			<div id="map_content" style="display: none;" class="shop_cont_div">
 				<div class="acc_map">
 					<h3>지도 상세 보기</h3>
 					<hr>
-					<div class="map"></div>
+
+					<div id="map"></div>
+					
 				</div>
 				<div class="guide">
 					<h3>교통안내</h3>
@@ -405,118 +431,118 @@
 			<!-- 리뷰 -->
 			<div id="review_content" style="display: none;" class="shop_cont_div">
 				<div class="Review_cont">
-					<div class="review_rating_form">
 
-						<form action="#" method="post" id="reviewForm">
-							<table class="review_write">
-								<tr>
-									<th colspan="2"><h3>후기 작성</h3></th>
-								</tr>
-								<tr>
-
-									<td colspan="2"><div class="mb-3" id="review_rating">
-											<fieldset>
-												<span>별점을 선택해주세요</span> <input type="radio"
-													name="review_rating" value="5" id="rate1"> <label
-													for="rate1">★</label> <input type="radio"
-													name="review_rating" value="4" id="rate2"> <label
-													for="rate2">★</label> <input type="radio"
-													name="review_rating" value="3" id="rate3"> <label
-													for="rate3">★</label> <input type="radio"
-													name="review_rating" value="2" id="rate4"> <label
-													for="rate4">★</label> <input type="radio"
-													name="review_rating" value="1" id="rate5"> <label
-													for="rate5">★</label>
-											</fieldset>
-										</div></td>
-
-
-								</tr>
-
-								<tr>
-									<th colspan="2"><textarea rows="10" cols="30"
-											id="review_cont" name="review_cont" placeholder="후기를 입력해주세요"></textarea></th>
-
-								</tr>
-								<tr>
-									<td><input type="submit" value="등록"
-										onclick="submit_check();" class="ReviewWriteBtn"></td>
-								</tr>
-
-							</table>
-						</form>
-					</div>
-
+				<div class="review_rating_form">
+				
+				
+				<form name = "review" action="#" method="post" id="reviewForm">
+					<table class="review_write">
+					<tr>
+						<th colspan="2"><h3>후기 작성</h3></th>
+					</tr>
+					<tr>
+							
+								<td colspan="2"><div class="mb-3" id="reviewRating"><fieldset>
+								<span>별점을 선택해주세요</span>
+		<input type="radio" name="reviewRating" value="5" id="rate1">
+		<label for="rate1">★</label>
+		<input type="radio" name="reviewRating" value="4" id="rate2">
+		<label for="rate2">★</label>
+		<input type="radio" name="reviewRating" value="3" id="rate3">
+		<label for="rate3">★</label>
+		<input type="radio" name="reviewRating" value="2" id="rate4">
+		<label for="rate4">★</label>
+		<input type="radio" name="reviewRating" value="1" id="rate5">
+		<label for="rate5">★</label>
+	</fieldset></div></td>
+	
+							
+						</tr>
+						
+						<tr>
+							<th colspan="2"><textarea rows="10" cols="30"
+									id="reviewCont" name="reviewCont" placeholder="후기를 입력해주세요"></textarea></th>
+									
+						</tr>
+						<tr>
+						<td><input type="submit" value="등록"
+								onclick="submit_check();" class="ReviewWriteBtn"></td>
+						</tr>
+						
+					</table>
+				</form>
+				
+				</div>
 					<div class="review_form">
-						<h3>이용후기 (건수)</h3>
+						<h3>이용후기 (${review_count }) </h3>
 						<div class="detail_review">
 
 							<c:forEach var="review" items="${reviewList}">
 								<div class="detail_review_table_div">
 									<table class="detail_review_table">
-										<tr>
-											<td rowspan="3" id="review_num">${review.review_num}&nbsp;&nbsp;&nbsp;</td>
-											<td style="text-align: left;">${review.memId}<label
-												style="color: gray;">| ${review.review_date}</label></td>
-											<td style="text-align: left;">평점:
-												${review.review_rating}</td>
-										</tr>
-										<tr>
 
-											<td colspan="3" style="text-align: left; width: 450px;">${review.review_cont}</td>
-										</tr>
+									<tr>
+									
+										<td rowspan="3" id="reviewNum">${review.reviewNum}&nbsp;&nbsp;&nbsp;</td>
+										<td style="text-align: left;">${review.memId} <label style="color:gray;">| ${review.reviewDate}</label></td>
+										<td style="text-align: left;">평점: ${review.reviewRating}</td>
+									</tr>
+									<tr>
+						
+										<td colspan="3" style="text-align: left; width: 450px;">${review.reviewCont}</td>
+									</tr>
 									</table>
 
 
 									<div class="review_buttons">
-										<button class="review_recommend">
-											<img src="../images/main/review_recommend.png">
-											<p>0</p>
-										</button>
-										<div class="review_edit_del">
 
-											<form
-												action="/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}"
-												method="POST">
-												<input type="hidden" name="review_num"
-													value="${review.review_num}">
-												<button type="submit" onclick="del_edit_check()"
-													class="edit_review_btn">수정</button>
-											</form>
-											<form
-												action="/acc/cont/delete?cate=${cate}&store_num=${store_num}&review_num=${review.review_num}"
-												method="POST">
-												<input type="hidden" name="review_num"
-													value="${review.review_num}">
-												<button type="submit"
-													onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
-											</form>
-										</div>
-
-
+									<form name = "review_recommend" action="/acc/cont/recommend?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="post" id="recommendBtn"  name="reviewRecommend" >
+										<button type="submit" id="reviewRecommend" onclick="count()" >
+										<img src="../images/main/review_recommend.png">
+										<p id="recommend_count">${review.reviewRecommend-1}</p>
+									</button>
+									
+										
+									
+									</form>
+									<c:if test="${memId == review.memId}">
+									<div class="review_edit_del">
+										
+										<form action="/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="POST">
+   											<input type="hidden" name="reviewNum" value="${review.reviewNum}">
+    										<button type="submit" onclick="del_edit_check()" class="edit_review_btn">수정</button>
+										</form>
+										<form action="/acc/cont/delete?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="POST" >
+   											<input type="hidden" name="reviewNum" value="${review.reviewNum}">
+    										<button type="submit" onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
+										</form>
+									</div>
+									</c:if>	
+										
 										<script type="text/javascript">
                               $(document).on('click','.edit_review_btn',function(e){
                                  e.preventDefault();
                                  // 클릭한 수정 버튼에 가까운 form 요소 찾기
                                    var form = $(this).closest("form");
 
-                                   // 해당 form 내부에서 input 요소 중 name이 'review_num'인 것의 값을 가져오기
-                                   var review_num = form.find("input[name='review_num']").val();
-                                 
-                                   window.name = "cont"
-                                   
-                                   window.open("/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
-                                   // 수정 페이지의 URL 생성
-                                  // var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
-                                 //let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
-                                 
-                                 popup = window.open(popUrl,"리뷰 수정",popOption);
-                                 
-                                   var editedReviewContent = document.getElementById("review_cont").value;
-                                 
-                              });
-               
-                              </script>
+
+									        // 해당 form 내부에서 input 요소 중 name이 'review_num'인 것의 값을 가져오기
+									        var reviewNum = form.find("input[name='reviewNum']").val();
+											
+									        window.name = "cont"
+									        
+									        window.open("/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum="+reviewNum,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
+									        // 수정 페이지의 URL 생성
+									       // var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
+											//let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
+											
+											popup = window.open(popUrl,"리뷰 수정",popOption);
+											
+									        var editedReviewContent = document.getElementById("reviewCont").value;
+											
+										});
+					
+										</script>
 									</div>
 
 
@@ -580,6 +606,113 @@
 
 
 <jsp:include page="../main/footer.jsp" />
+
+<script>
+        // a 태그 클릭 시 라디오 버튼의 선택 상태 변경 및 컨텐츠 표시
+        function review_count_page_btn() {
+            // data-radio 속성을 통해 선택할 라디오 버튼의 값을 가져옵니다.
+
+            
+            // 선택한 라디오 버튼의 값을 변경합니다.
+            document.getElementById("review").checked = true;
+            
+            document.querySelectorAll('#service_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+            document.querySelectorAll('#information_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+            document.querySelectorAll('#cancellation_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+            document.querySelectorAll('#map_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+
+            const reviewContent = document.getElementById("review_content");
+            reviewContent.style.display = "block";
+        }
+        
+        function map_page_btn() {
+            // data-radio 속성을 통해 선택할 라디오 버튼의 값을 가져옵니다.
+
+            
+            // 선택한 라디오 버튼의 값을 변경합니다.
+            document.getElementById("map_guide").checked = true;
+            
+            document.querySelectorAll('#service_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+            document.querySelectorAll('#information_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+            document.querySelectorAll('#cancellation_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+            document.querySelectorAll('#review_content').forEach(function(content) {
+                content.style.display = "none";
+            });
+
+
+            const reviewContent = document.getElementById("map_content");
+            reviewContent.style.display = "block";
+        }
+        
+        
+    </script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a88d036132dec983608208b58361c621a88d036132dec983608208b58361c621" async></script>
+					<script>
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+				    mapOption = { 
+				        center: new kakao.maps.LatLng(37.5750793, 126.981199), // 지도의 중심좌표
+				        level: 3 // 지도의 확대 레벨
+				    };
+
+				var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+				// 마커가 표시될 위치입니다 
+				var markerPosition  = new kakao.maps.LatLng(37.5750793, 126.981199); 
+
+				// 마커를 생성합니다
+				var marker = new kakao.maps.Marker({
+				    position: markerPosition
+				});
+
+				// 마커가 지도 위에 표시되도록 설정합니다
+				marker.setMap(map);
+				
+				//map.setDraggable(false); 
+					
+	</script>
+	
+	<script>
+   $(document).ready(function () {
+      $('.shop_photo').slick({
+         infinite: true, // 무한 루프
+         slidesToShow: 1, // 한 번에 보여줄 슬라이드 개수
+         slidesToScroll: 1, // 스크롤 시 이동할 슬라이드 개수
+         autoplay: true, // 자동 재생
+         autoplaySpeed: 2000, // 자동 재생 속도 (밀리초)
+         arrows: false,               //이전 다음 버튼 표시 여부(true or false) ▶기본값 true
+         pauseOnFocus: true,         //마우스 클릭 시 슬라이드 멈춤 ▶기본값 true
+         pauseOnHover: true,         //마우스 호버 시 슬라이드 멈춤 ▶기본값 true
+         dots: true, // 네비게이션 바 사용
+         appendDots: $('.shop_photo'), // 네비게이션 바를 추가한 요소에 연결
+      });
+   });
+   
+function count(){
+	alert("추천하시겠습니까?");
+}
+</script>
+	</body>
+	</html>
+
 
 
 

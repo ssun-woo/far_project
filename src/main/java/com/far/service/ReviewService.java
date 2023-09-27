@@ -11,15 +11,22 @@ public interface ReviewService {
 	/* 댓글 등록 */
 	public void setReview(ReviewDTO dto);
 
-	public List<ReviewDTO> getReview(int store_num);
+	public List<ReviewDTO> getReview(int storeNum);
 
-	public void delReview(int review_num);
+	public void delReview(int reviewNum);
 
 	public void editReview(ReviewDTO dto);
 //	public void editReview(int review_num);
 
 	/*댓글 한 개 정보*/
-	public ReviewDTO getUpdateReview(int review_num);
+	public ReviewDTO getUpdateReview(int reviewNum);
+
+	public int getReivewCount(ReviewDTO rdto);
+
+	public void setRecommend(ReviewDTO rdto);
+
+	
+
 
 
 

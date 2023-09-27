@@ -5,26 +5,24 @@ import lombok.Setter;
 import lombok.ToString;
 
 /*create table jjim(
-	jjim_num int primary key,
-	store_num int not null,
+	storeNum int not null,
 	memId varchar2(100) not null,
-	jjim varchar2(50) not null
 );*/
 
 @Getter
 @Setter
 @ToString
 public class JJimDTO {
-	private int store_num;
+	private int storeNum;
 	private String memId;
 	
 	
 
 	public int getStore_num() {
-		return store_num;
+		return storeNum;
 	}
-	public void setStore_num(int store_num) {
-		this.store_num = store_num;
+	public void setStore_num(int storeNum) {
+		this.storeNum = storeNum;
 	}
 	public String getMemId() {
 		return memId;
