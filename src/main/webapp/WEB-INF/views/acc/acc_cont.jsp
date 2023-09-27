@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <jsp:include page="../main/new_header2.jsp" />
 <head>
    <!-- jQuery CDN -->
@@ -18,101 +18,115 @@
 
 
 <div class="shop_cont">
-   <div class="shop_name">
-      <h2>[${region} / ${sebu_cate}] ${s.storeName}</h2>
-      <label class="jjim_shop"> <c:if test="${JJim==0}">
-            <form action="/acc/cont/jjim?cate=${cate}&store_num=${store_num}"
-               class="jjim_btn" id="jjim" method="POST">
-               <button type="submit" name="jjim" id="no_jjim"
-                  onclick="jjim_check()">
-                  <img src="../images/acc/NoJJim.png">
-               </button>
-            </form>
-         </c:if> <c:if test="${JJim==1}">
-            <form
-               action="/acc/cont/jjim_del?cate=${cate}&store_num=${store_num}"
-               class="jjim_btn" method="POST">
-               <button type="submit" name="jjim" id="yes_jjim"
-                  onclick="jjim_del_check()">
-                  <img src="../images/acc/YesJJim.png">
-               </button>
-            </form>
-         </c:if>
-      </label>
-   </div>
-   <hr
-      style="width: 1050px; text-align: center; margin-left: 350px; border: 1px solid;">
-   <div class="shop_cont_top">
-      <div class="shop_photo">
-         <img src="/upload/store_logo${s.storeLogo}" width="570px" height="388">
+	<div class="shop_name">
+
+		<h2>[${region} / ${sebu_cate}] ${s.store_name}</h2> 
+
+			<label class="jjim_shop">
+				<c:if test="${JJim==0}">
+				<form action="/acc/cont/jjim?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" id="jjim" method="POST">
+					<button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
+					<img src="../images/acc/NoJJim.png">
+				</button>
+				</form>
+				</c:if>
+				<c:if test="${JJim==1}">
+				<form action="/acc/cont/jjim_del?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" method="POST">
+					<button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
+					<img src="../images/acc/YesJJim.png">
+				</button>
+				</form>
+				</c:if>
+				</label>
+
+	</div>
+	<hr style="width: 1050px;
+	text-align: center;
+	margin-left: 350px;
+	border: 1px solid;">
+	<div class="shop_cont_top">
+		<div class="shop_photo">
+	 <div class="shop_photo_div">
+         <img src="../images/acc/room01.png" width="500px" height="340px">
       </div>
-      <div class="shop_info">
-         <ul class="info_cate">
-            <li><h3>분류</h3></li>
-            <li><h3>상품평</h3></li>
-            <li><h3>주소</h3></li>
-            <li><h3>할인혜택</h3></li>
-            <li><h3>&nbsp;</h3></li>
-         </ul>
-         <ul class="info_cont">
-            <li><p>${region}/${sebu_cate}</p></li>
-            <li><p>
-                  <a onclick="">7998</a>의 상품평
-               </p></li>
-            <li><p>
-                  ${s.storeAddr1}<br> <a href="#">지도보기</a>
-               </p></li>
-            <li><p>
-                  전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기">
-               </p></li>
-         </ul>
+      <div class="shop_photo_div">
+         <img src="../images/acc/room01.png" width="500px" height="340px">
       </div>
-   </div>
-
-
-
-   <!-- 내용 -->
-   <div class="shop_info_cont">
-      <input type="radio" id="service" name="show" value="1" checked />
-      <input type="radio" id="information" name="show" value="2" />
-      <input type="radio" id="cancellation" name="show" value="3" />
-      <input type="radio" id="map" name="show" value="4" />
-      <input type="radio" id="review" name="show" value="5" />
-
-      <div class="tab">
-         <label for="service">상품</label>
-         <label for="information">정보</label>
-         <label for="cancellation">이용안내 / 취소규정</label>
-         <label for="map">지도</label>
-         <label for="review">이용후기</label>
+      <div class="shop_photo_div">
+         <img src="../images/acc/room01.png" width="500px" height="340px">
       </div>
-      <hr>
+      <div class="shop_photo_div">
+         <img src="../images/acc/room01.png" width="500px" height="340px">
+      </div>
+      <div class="shop_photo_div"> 
+         <img src="../images/acc/room01.png" width="500px" height="340px">
+      </div>
 
-      <div id="shop_content">
-         <div id="service_content" class="shop_cont_div">
-            <div class="acc_room_list">
-               <div class="search2">
-                  <div class="search2Date">
-                     <div class="search2Date2">
-                        <label>날짜</label> 
-                        <input type="text" id="date" name="date" value="" />
-            <script type="text/javascript">
-            // 기본 출력
-            $(document).ready(function() {
-                var startDate = moment().startOf('day');
-                var endDate = moment().startOf('day').add(1, 'day');
-                var nights = 1;
-                
-                // 요일 포맷 변경
-                var startOfWeekday = startDate.format('ddd');
-                var endOfWeekday = endDate.format('ddd');
+		</div>
+		<div class="shop_info">
+			<ul class="info_cate">
+				<li><h3>분류</h3></li>
+				<li><h3>상품평</h3></li>
+				<li><h3>주소</h3></li>
 
-                // 요일 한글로 변환
-                var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
-                var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
+			</ul>
+			<ul class="info_cont">
+				<li><p>${region}/${sebuCate}</p></li>
+				<li><p>
 
-                // 이전 선택 날짜값 저장
-                var previousValue = '';
+						<a href="#target" onclick="review_count_page_btn()">${review_count}개</a>의 상품평
+					</p></li>
+				<li><p>
+						${s.storeAddr1} ${s.storeAddr2 }<br>
+						<a href="#target" onclick="map_page_btn()">지도보기</a>
+						전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기">
+					</p></li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="shop_info_event">
+		<!-- <img src="../images/ev_images/cont_event01.png"> -->
+	</div>
+
+	
+	
+				
+	
+	<!-- 내용 -->
+	<div class="shop_info_cont">
+		<input type="radio" id="service" name="show" value="1" checked /> 
+		<input type="radio" id="information" name="show" value="2" /> 
+		<input type="radio" id="cancellation" name="show" value="3" /> 
+		<input type="radio" id="map_guide" name="show" value="4" /> 
+		<input type="radio" id="review" name="show" value="5" />
+		
+
+		<div class="tab">
+			<label for="service">상품</label> <label for="information">정보</label> <label
+				for="cancellation">이용안내 / 취소규정</label> <label for="map_guide">지도</label> <label
+				for="review">이용후기</label>
+		</div>
+		
+		<hr>
+		
+
+		<div id="shop_content">
+
+			<div id="service_content" class="shop_cont_div">
+				<div class="acc_room_list">
+					<div class="search2">
+						<div class="search2Date">
+							<div class="search2Date2">
+								<label>날짜</label> <input type="text" id="date" name="date"
+									value="" />
+								<script type="text/javascript">
+				// 기본 출력
+				$(document).ready(function() {
+				    var startDate = moment().startOf('day');
+				    var endDate = moment().startOf('day').add(1, 'day');
+				    var nights = 1;
 
 				    // 요일 포맷 변경
 				    var startOfWeekday = startDate.format('ddd');
@@ -579,117 +593,28 @@
 
 	</div>
 
-         <script src="/js/acc_cont.js"></script>
-      </div>
-   </div>
 </div>
 <!-- shop_cont -->
 
 <div class="list_button_div">
-   <button class="list_button" onclick="location='/acc/list?detail_cate=${param.detail_cate}'">목록보기</button>
+	<button class="list_button"
+		onclick="location='/acc/list?detail_cate=${param.detail_cate}'">목록보기</button>
 </div>
 
 
-<script>
-   
-   
-   
-    $(document).ready(function() {
-       
-       console.log($('#date').val());
-       
-       loadPayPage3();
-       
-        $('#date').on('change', function() {
-           loadPayPage3();
-        });
-        
-        $('.personnel-controls').hide();
-       
-       $('.search2Personnel2 p').click(function() {
-           $('.personnel-controls').toggle();
-        });
-        
-       var adultCount = 2;
-       var childCount = 0;
-       updateCounts();
-       
-       $('#decreaseAdult').click(function() {
-           if (adultCount > 0) {
-             adultCount--;
-             updateCounts();
-             loadPayPage3();
-            }
-       });
-
-       $('#increaseAdult').click(function() {
-          adultCount++;
-            updateCounts();
-            loadPayPage3();
-       });
-
-       $('#decreaseChild').click(function() {
-          if (childCount > 0) {
-             childCount--;
-             updateCounts();
-             loadPayPage3();
-          }
-       });
-
-       $('#increaseChild').click(function() {
-            childCount++;
-            updateCounts();
-            loadPayPage3();
-       });
-
-       function updateCounts() {
-          $('#adultCount').text(adultCount);
-            $('#childCount').text(childCount);
-            $('.search2Personnel2 p').text('성인 ' + adultCount + ', 소아 ' + childCount);
-        }
-        
-        $(document).click(function(event) {
-            if (!$('.search2Personnel2 p').is(event.target) && !$('.personnel-controls').is(event.target) && $('.personnel-controls').has(event.target).length === 0) {
-                $('.personnel-controls').hide();
-            }
-        });
-    });
-
-    function loadPayPage3() {
-        var pageContent = document.getElementById('roomListContainer');
-        var dateValue = $('#date').val();
-        var adult = parseInt($('#adultCount').text());
-        var child = parseInt($('#childCount').text());
-        var totalCount = adult + child;
-        var store_num = ${param.store_num};
-        
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                pageContent.innerHTML = this.responseText;
-            }
-        };
-        // 서버로 요청을 보낼 때 date 값을 포함하여 GET 요청 보내기
-        xhttp.open("GET", "/acc/reload_menu?date=" + dateValue + "&totalCount=" + totalCount + "&store_num=" + store_num, true);
-        xhttp.send();
-    }
-    
-   
-    function changeValues(roomNum) {
-        var dateValue = $('#date').val();
-        var adult = parseInt($('#adultCount').text());
-        var child = parseInt($('#childCount').text());
-        var totalCount = adult + child;
-        
-        document.getElementById("roomNum").value = roomNum;
-        document.getElementById("date2").value = dateValue;
-        document.getElementById("totalCount").value = totalCount;
-        
-        document.forms[1].submit();
-    }
-
-
-</script>
+<!-- <script>
+	var check_in = '${m.check_in}';
+	var check_in_h = check_in.slice(0, 2);
+	var check_in_m = check_in.slice(2, 4);
+	
+	var check_out = '${m.check_out}';
+	var check_out_h = check_out.slice(0, 2);
+	var check_out_m = check_out.slice(2, 4);
+	
+	var h4Element = document.querySelector('.check_in_out');
+	
+	h4Element.textContent = '체크인' +  check_in_h + ':' + check_in_m + '체크아웃' +  check_out_h + ':' + check_out_m;
+</script> -->
 
 
 <jsp:include page="../main/footer.jsp" />
@@ -799,6 +724,7 @@ function count(){
 </script>
 	</body>
 	</html>
+
 
 
 
