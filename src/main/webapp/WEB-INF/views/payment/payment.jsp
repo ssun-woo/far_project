@@ -71,7 +71,7 @@
 					$(document).ready(function() {
 						$("#getCoupon").click(function() {
 							var mem_id = "${mem_id}";
-							var coupon_name = "${coupon_name}";
+							var coupon_name = "20% 할인 쿠폰";
                   
 							// ajax 요청 보내기
 							$.ajax({

@@ -113,7 +113,7 @@ public class PaymentController {
 		System.out.println("couponName = " + couponName);
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
+		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		String cName = couponName;
 		
 		Map<String, String> map = new HashMap<String, String>();
