@@ -547,7 +547,7 @@
 .edit_review_btn{
 	margin-right: 10px;
 }
-.review_recommend{
+#reviewRecommend{
 	background-color: white;
 	border: 1px solid lightgray;
 	border-radius: 5px;
@@ -557,10 +557,10 @@
 	margin-bottom: 15px; 
 	margin-left: 60px
 }
-.review_recommend IMG{
+#reviewRecommend IMG{
 	margin-top: 2px;
 }
-.review_recommend p{
+#reviewRecommend p{
 	margin-left: 1px;
 	margin-top: 4px;
 	font-size: 13pt;
@@ -584,6 +584,10 @@
 
 .table_space{
 	marigin-left: 540px;
+}
+#review_recommend:active{
+	border-color: black;
+	
 }
 /*글자수*/
 .text_length{

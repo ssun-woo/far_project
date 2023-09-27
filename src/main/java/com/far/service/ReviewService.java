@@ -23,6 +23,11 @@ public interface ReviewService {
 
 	public int getReivewCount(ReviewDTO rdto);
 
+	public void setRecommend(ReviewDTO rdto);
+
+	
+
+
 
 
 	

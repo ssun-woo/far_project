@@ -19,10 +19,9 @@ public interface ReviewDAO {
 
 	int getReivewCount(ReviewDTO rdto);
 
-//	void editReview(int review_num);
+	public void setRecommend(ReviewDTO rdto);
 
 
-	
 	
 
 }

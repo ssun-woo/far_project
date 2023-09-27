@@ -50,6 +50,7 @@ function jjim_check(){
     
 }
 
+
 function jjim_del_check(){
 	if (!confirm("찜 목록에서 삭제하시겠습니까?")) {
         window.location.reload();

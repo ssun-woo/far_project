@@ -20,7 +20,7 @@
 <div class="shop_cont">
 	<div class="shop_name">
 		<h2>[서울/호텔] 서머셋 팰리스</h2> 
-			
+
 			<label class="jjim_shop">
 				<c:if test="${JJim==0}">
 				<form action="/acc/cont/jjim?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" id="jjim" method="POST">
@@ -37,7 +37,8 @@
 				</form>
 				</c:if>
 				</label>
-				
+
+
 		
 	</div>
 	<hr style="width: 1050px;
@@ -312,6 +313,7 @@
 				<div class="Review_cont">
 				<div class="review_rating_form">
 				
+				
 				<form name = "review" action="#" method="post" id="reviewForm">
 					<table class="review_write">
 					<tr>
@@ -348,15 +350,17 @@
 						
 					</table>
 				</form>
+				
 				</div>
 					<div class="review_form">
-						<h3>이용후기 (건수) </h3>
+						<h3>이용후기 (${review_count }) </h3>
 						<div class="detail_review">
 							
 								<c:forEach var="review" items="${reviewList}">
 								<div class="detail_review_table_div">
 									<table class="detail_review_table">
 									<tr>
+									
 										<td rowspan="3" id="reviewNum">${review.reviewNum}&nbsp;&nbsp;&nbsp;</td>
 										<td style="text-align: left;">${review.memId} <label style="color:gray;">| ${review.reviewDate}</label></td>
 										<td style="text-align: left;">평점: ${review.reviewRating}</td>
@@ -369,10 +373,16 @@
 									
 																
 									<div class="review_buttons">
-									<button class="review_recommend">
-									<img src="../images/main/review_recommend.png">
-									<p>0</p>
+									<form name = "review_recommend" action="/acc/cont/recommend?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="post" id="recommendBtn"  name="reviewRecommend" >
+										<button type="submit" id="reviewRecommend" onclick="count()" >
+										<img src="../images/main/review_recommend.png">
+										<p id="recommend_count">${review.reviewRecommend-1}</p>
 									</button>
+									
+										
+									
+									</form>
+									<c:if test="${memId == review.memId}">
 									<div class="review_edit_del">
 										
 										<form action="/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="POST">
@@ -384,7 +394,7 @@
     										<button type="submit" onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
 										</form>
 									</div>
-										
+									</c:if>	
 										
 										<script type="text/javascript">
 										$(document).on('click','.edit_review_btn',function(e){
@@ -514,14 +524,14 @@
 					<script>
 					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 				    mapOption = { 
-				        center: new kakao.maps.LatLng(33.450699, 126.570667), // 지도의 중심좌표
+				        center: new kakao.maps.LatLng(37.5750793, 126.981199), // 지도의 중심좌표
 				        level: 3 // 지도의 확대 레벨
 				    };
 
 				var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 				// 마커가 표시될 위치입니다 
-				var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570665); 
+				var markerPosition  = new kakao.maps.LatLng(37.5750793, 126.981199); 
 
 				// 마커를 생성합니다
 				var marker = new kakao.maps.Marker({
@@ -550,7 +560,10 @@
          appendDots: $('.shop_photo'), // 네비게이션 바를 추가한 요소에 연결
       });
    });
-
+   
+function count(){
+	alert("추천하시겠습니까?");
+}
 </script>
 	</body>
 	</html>

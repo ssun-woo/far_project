@@ -45,4 +45,13 @@
  		select count(*) from review where storeNum=#{storeNum}
  	</select>
  	
+ 	<!-- 리뷰 추천 -->
+ 	<update id="recommend_up">
+ 		update review set reviewRecommend = reviewRecommend +1  where reviewNum=#{reviewNum} and storeNum=#{storeNum}
+ 	</update>
+ 	
+ 	<!-- 추천 여부 -->
+ 	<select id="recommend_check" resultType="int">
+ 		select count(*) from recommend where reviewNum = #{reviewNum} and memId = #{memId} and storeNum = #{storeNum}
+ 	</select>
  </mapper>

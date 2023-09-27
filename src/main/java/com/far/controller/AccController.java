@@ -1,6 +1,8 @@
 package com.far.controller;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +43,7 @@ public class AccController {
 	
 	@Autowired
 	private JJimService jjimService;
+	
 
 	// 숙소 상세 카테고리 페이지
 	@RequestMapping("/cate_list")
@@ -106,6 +110,7 @@ public class AccController {
 		jdto.setStore_num(storeNum);
 		System.out.println("memId:"+jdto);
 		
+		
 		int count = jjimService.getCount(jdto);
 		System.out.println("JJim_count: "+count);
 		
@@ -119,8 +124,6 @@ public class AccController {
 		mav.addObject("reviewList", rlist);
 		mav.addObject("storeNum", storeNum);
 		
-//		System.out.println("ifjjim: "+ ifJJim);
-
 		return mav;
 	}
 	
@@ -181,6 +184,7 @@ public class AccController {
 		 mav.addObject("cate", cate);
 		 mav.setViewName("acc/acc_review_edit");
 		
+		 
 		 System.out.println(reviewDate);
 		 return mav;
 		 
@@ -204,24 +208,33 @@ public class AccController {
 		 return new ModelAndView("redirect:/acc/cont/edit?cate=" + cate + "&storeNum="+ storeNum+"&reviewNum="+reviewNum);
 	 }
 	
-//	 //리뷰 수정
-//	 @RequestMapping("/cont/update")
-//	 public ModelAndView update_review(HttpServletRequest request, ReviewDTO dto){
-//		 int review_num = Integer.parseInt(request.getParameter("review_num"));
-//		 String store_num  = request.getParameter("store_num");
-//		 String cate = request.getParameter("cate");
-//		 
-//		 System.out.println(cate);
-//		 System.out.println(store_num);
-//		 System.out.println(review_num);
-//		 
-//		 reviewService.editReview(dto);
-//		 
-//		 ModelAndView mav = new ModelAndView();
-//		 mav.setViewName("acc/acc_review_close");
-//		 return mav;
-//		
-//	 }
+	//리뷰 추천
+		@RequestMapping("/cont/recommend")
+		public String recommend_btn(HttpServletRequest request, ReviewDTO rdto) {
+			int storeNum = Integer.parseInt(request.getParameter("storeNum"));
+			int reviewNum = Integer.parseInt(request.getParameter("reviewNum"));
+			
+			//int recommendCheck = Integer.parseInt(request.getParameter("recommendCheck"));
+			String cate = request.getParameter("cate");
+			
+			
+//			ReviewDTO rdto = new ReviewDTO();
+//			rdto.setReviewNum(reviewNum);
+			
+			//rdto.setStoreNum(10); 
+
+			System.out.println(rdto);
+			
+			reviewService.setRecommend(rdto);
+			
+	        
+			return "redirect:/acc/cont?cate="+cate+"&storeNum="+storeNum;
+
+			
+		}
+		
+
+		
 	
 
 	// 숙소 결제페이지 이동

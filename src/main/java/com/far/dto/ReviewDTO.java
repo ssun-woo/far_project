@@ -11,7 +11,7 @@ public class ReviewDTO {
 	
 	private String memId; //아이디
 
-	private int storeNum;
+	private int storeNum; //가게 번호
 	
 	
 	private double reviewRating; //평점
