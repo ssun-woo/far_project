@@ -70,10 +70,8 @@
 				<script>
 					$(document).ready(function() {
 						$("#getCoupon").click(function() {
-							//var mem_id = "${mem_id}";
-							//var coupon_name = "${coupon_name}";
-							var mem_id = "sunwoo";
-							var coupon_name = "20% 할인 쿠폰";
+							var mem_id = "${mem_id}";
+							var coupon_name = "${coupon_name}";
                   
 							// ajax 요청 보내기
 							$.ajax({
@@ -135,6 +133,8 @@
 		</div>
 
 		<script>
+			var totalPrice;
+		
 			function updatePointDiscount() {
 				// 포인트 입력 값 가져오기
 				var pointInput = document.getElementById("pointInput");
@@ -153,7 +153,7 @@
 				    pointValue = 0;
 				}
 			
-				var max_value = Math.min(${member.point}, ${room.roomPrice});	
+				var max_value = Math.min(${member.point}, ${room.roomPrice}*${nights});	
 				
 				// 쿠폰 할인을 고려하여 max_value 설정
 				if (parseFloat(document.getElementById("couponDiscount").textContent) > 0) {
@@ -161,7 +161,7 @@
 				    max_value = Math.min(maxDiscountAmount, max_value);
 				} else {
 				    // 쿠폰 할인이 적용되지 않은 경우
-				    max_value = Math.min(${room.roomPrice}, ${member.point});
+				    max_value = Math.min(${room.roomPrice}*${nights}, ${member.point});
 				}
 	
 				// 최대값 설정
@@ -172,8 +172,10 @@
 				pointValue = pointDiscount;
 				
 				// 최종 결제 금액 계산 (상품금액 - 쿠폰 할인 - 포인트 할인)
-				var totalPrice = originPrice - parseFloat(document.getElementById("couponDiscount").textContent)*1000 - pointDiscount;
-				console.log(parseFloat(document.getElementById("couponDiscount").textContent));
+				totalPrice = originPrice - parseFloat(document.getElementById("couponDiscount").textContent)*1000 - pointDiscount;
+				
+				
+				
 				
 				// 결제 금액이 음수인 경우 0으로 설정
 				if (totalPrice < 0) {
@@ -214,15 +216,16 @@
 	   			var couponDiscount = parseFloat(document.getElementById("couponDiscount").textContent.replace(/[^\d.]/g, '')); // 쿠폰 할인 금액 추출
 	   		    var remainingPoint = parseFloat("${member.point}"); // 보유 중인 포인트
 	   		    var productPrice = parseFloat("${room.roomPrice != null ? room.roomPrice : 0}"); // 상품 가격
-
+	   		    var productPrice2 = productPrice*${nights};
+				console.log(productPrice2);
 	   		    var adjustedPoint = 0; // pointInput에 설정할 값 초기화
 
 	   		    if (couponDiscount > 0) {
 	   		        // 쿠폰을 적용한 경우
-	   		        adjustedPoint = Math.min(remainingPoint, productPrice - couponDiscount);
+	   		        adjustedPoint = Math.min(remainingPoint, productPrice2 - couponDiscount);
 	   		    } else {
 	   		        // 쿠폰을 적용하지 않은 경우
-	   		        adjustedPoint = Math.min(remainingPoint, productPrice);
+	   		        adjustedPoint = Math.min(remainingPoint, productPrice2);
 	   		    }
 
 	   		    // pointInput 값 설정
@@ -242,14 +245,15 @@
       		</div>
       
       		<script>
+      		
 	         	// 초기 상품 금액 설정
-	         	var originPrice = ${room.roomPrice != null ? room.roomPrice : 0};
+	         	var originPrice = ${room.roomPrice}*${nights};
          
          		// 최대 할인 가능한 금액 초기화
          		var maxDiscountAmount = originPrice;
          
          		function handleCouponChange() {
-            		var selectedOption = document.getElementById("couponSelect");
+            	 	var selectedOption = document.getElementById("couponSelect");
              		var selectedIndex = selectedOption.selectedIndex;
              		var selectedDiscountRate = parseFloat(selectedOption.options[selectedIndex].getAttribute("data-discount-rate"));
              		var couponDiscountElement = document.getElementById("couponDiscount");
@@ -260,11 +264,16 @@
               	 	//console.log("원래가격" + originPrice);
              		//console.log(selectedDiscountRate);
              
-
+             		if (selectedIndex.value == 0) {
+             			couponDiscountElement = 0;
+             		}
+             		
              		if (selectedDiscountRate < 1 && selectedDiscountRate != 0) {
                 		couponDiscount = originPrice * selectedDiscountRate;
-             		} else {
+             		} else if (selectedDiscountRate > 1) {
              			couponDiscount = selectedDiscountRate;
+             		} else {
+             			couponDiscount = 0;
              		}
          
              		// 쿠폰 할인 금액 업데이트, 콤마
@@ -313,7 +322,8 @@
 						  			var menuPrice = ${room.roomPrice}*${nights};
 						  			var formattedPrice = numberWithCommas(menuPrice);
 						  			document.write(formattedPrice);
-						  		</script>원
+						  			
+						  		</script>
 					  		</span>
 					  	</th>
 					</tr>
@@ -334,37 +344,64 @@
 
 	<div class="pay_payment">
 		<!-- <input type="button" value="결제하기" class="payment_button" onclick="location='payment/end';">  -->
+
+
+
 <script>
 	var IMP = window.IMP;
-	IMP.init("imp17372284"); 
+	IMP.init("imp17372284");
 	
-	
-	
-	function requestPay() {
-	    IMP.request_pay({
-	        pg: 'kakaopay',
-	        pay_method: "card",
-	        merchant_uid: 'merchant_' + new Date().getTime(),   // 주문번호
-	        name: "${room.roomName}",
-	        amount: "${room.roomPrice}",                         // 숫자 타입
-	        buyer_email: "${member.memEmail}",
-	        buyer_name: "${member.memId}",
-	        buyer_tel: "${member.memTel}"
-	    }, function (rsp) { // callback 
-	        $.ajax({
-	           type: 'POST',
-	           url: '/payment/paymentEnd'
-	        }).done(function(data) {
-	                alert("결제 성공");
-	                document.location.href="/payment/paymentEnd";
-	                console.log("${memId}")
-	        }); 
-	    });
+	function calculateTotalAmount() {
+		var roomPrice = parseFloat("${room.roomPrice}");
+		var nights = parseInt("${nights}");
+		var couponDiscount = parseFloat(document.getElementById("couponDiscount").textContent.replace(/[^\d.]/g, '')); // 쿠폰 할인 금액 추출
+		var pointDiscount = parseFloat(document.getElementById("pointDiscount").textContent.replace(/[^\d.]/g, '')); // 포인트 할인 금액 추출
+		var totalAmount = roomPrice * nights - couponDiscount - pointDiscount;
+		return totalAmount;
 	}
 	
-	
-</script>
+	function requestPay() {
+		var totalAmount = calculateTotalAmount();
 		
+		IMP.request_pay({
+			pg: 'kakaopay',
+			pay_method: "card",
+			merchant_uid: 'merchant_' + new Date().getTime(),   // 주문번호
+			name: "${room.roomName}",
+			amount: totalAmount, // 유동적으로 계산된 총 결제 금액 사용
+			buyer_email: "${member.memEmail}",
+			buyer_name: "${member.memId}",
+			buyer_tel: "${member.memTel}"
+		}, function (rsp) { // callback 
+			$.ajax({
+				type: 'POST',
+				url: '/payment/paymentEnds',
+				data:{
+					resvNum : 'merchant_' + new Date().getTime(),
+					storeNum : "${store.storeNum}",
+					storeName: "${store.storeName}",
+					roomNum : "${room.roomNum}",
+					roomName: "${room.roomName}",
+					memId : "${member.memId}",
+					totalamount: totalAmount,
+					sdate: "${sdate}",
+					edate: "${edate}"
+					
+				}
+			}).done(function(data) {
+				if(totalAmount == totalAmount) {
+				alert("결제 성공");
+				document.location.href="/payment/paymentEnd";
+				} else {
+					alert("결제 실패");
+					document.location.href="/payment"
+				}
+			}); 
+		});
+	}
+</script>
+
+
 		<button onclick="requestPay()">결제하기</button>
 		<input type="button" value="취소" class="cancle_button">
 	</div>

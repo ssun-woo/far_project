@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../main/new_header2.jsp"/>
 
 <div class="payment_msg">
@@ -19,15 +19,15 @@
 				</th>
 			</tr>
 			<tr>
-				<td>예약기간(일)</td>
+				<td>예약기간(일): ${resvDTO.startDay } - ${resvDTO.endDay }</td>
 			</tr>
 			
 			<tr>
-				<td>가게 및 상품</td>
+				<td>가게 및 상품: ${resvDTO.storeName }, ${revDTO.roomName }</td>
 			</tr>
 			
 			<tr>
-				<td>결제 금액</td>
+				<td>결제 금액: ${resvDTO.totalamount }</td>
 			</tr>
 			
 			<tr style="height: 60px;">

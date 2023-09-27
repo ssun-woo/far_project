@@ -1,5 +1,9 @@
 package com.far.dto;
 
+
+
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,41 +17,74 @@ import lombok.Setter;
 //		roomNum
 //	);
 
-@Getter
-@Setter
+
 public class ResvDTO {
-
-	private int resvNum;
+	private String resvNum;
 	private int storeNum;
+	private String storeName;
 	private int roomNum;
+	private String roomName;
 	private String memId;
-
-	private String start_day;
-	private String end_day;
-	private int people_num;
-	public void setResv_num(int i) {
-		// TODO Auto-generated method stub
-		
+	private String totalamount;
+	private String startDay;
+	private String endDay;
+	public String getResvNum() {
+		return resvNum;
 	}
-	public void setStore_num(int store_num2) {
-		// TODO Auto-generated method stub
-		
+	public void setResvNum(String resvNum) {
+		this.resvNum = resvNum;
 	}
-	public void setMemId(String id) {
-		// TODO Auto-generated method stub
-		
+	public int getStoreNum() {
+		return storeNum;
 	}
-	public void setStart_day(String string) {
-		// TODO Auto-generated method stub
-		
+	public void setStoreNum(int storeNum) {
+		this.storeNum = storeNum;
 	}
-	public void setEnd_day(String string) {
-		// TODO Auto-generated method stub
-		
+	public String getStoreName() {
+		return storeName;
 	}
-	public void setPeople_num(int i) {
-		// TODO Auto-generated method stub
-		
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
 	}
-
+	public int getRoomNum() {
+		return roomNum;
+	}
+	public void setRoomNum(int roomNum) {
+		this.roomNum = roomNum;
+	}
+	public String getRoomName() {
+		return roomName;
+	}
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	public String getTotalamount() {
+		return totalamount;
+	}
+	public void setTotalamount(String totalamount) {
+		this.totalamount = totalamount;
+	}
+	public String getStartDay() {
+		return startDay;
+	}
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
+	}
+	public String getEndDay() {
+		return endDay;
+	}
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
+	}
+	
+	
+	
+	
+	
 }

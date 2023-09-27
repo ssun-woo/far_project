@@ -37,7 +37,6 @@
     </update>
 
     <select id="get_menu_list" resultType="room">
-
        select * from room where storeNum = #{s_num}
     </select>
     

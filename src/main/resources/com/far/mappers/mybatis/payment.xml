@@ -51,4 +51,8 @@
 		select * from coupon
 	</select>
 	
+	<insert id="reservation">
+		INSERT INTO RESERVATION(RESVNUM, STORENUM, STORENAME, ROOMNUM, ROOMNAME, MEMID, STARTDAY, ENDDAY)
+		VALUES(#{resvNum}, #{storeNum}, #{storeName}, #{roomNum}, #{roomName}, #{memId}, #{startDay}, #{endDay})
+	</insert>
 </mapper>

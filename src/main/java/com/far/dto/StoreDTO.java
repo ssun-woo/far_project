@@ -26,7 +26,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "store")
 public class StoreDTO {
@@ -70,7 +69,7 @@ public class StoreDTO {
 	
 	@Column(name = "AUTH", columnDefinition = "INT DEFAULT 0")
 	private int auth;
-	
+
 	public int getStoreNum() {
 		return storeNum;
 	}
@@ -167,7 +166,12 @@ public class StoreDTO {
 		this.storeScore = storeScore;
 	}
 
-	
-	
+	public int getAuth() {
+		return auth;
+	}
 
+	public void setAuth(int auth) {
+		this.auth = auth;
+	}
+	
 }
