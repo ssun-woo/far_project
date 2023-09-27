@@ -25,7 +25,7 @@ public class ResvDTO {
 	private int roomNum;
 	private String roomName;
 	private String memId;
-	private String totalamount;
+	private String amount;
 	private String startDay;
 	private String endDay;
 	public String getResvNum() {
@@ -64,11 +64,11 @@ public class ResvDTO {
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
-	public String getTotalamount() {
-		return totalamount;
+	public String getAmount() {
+		return amount;
 	}
-	public void setTotalamount(String totalamount) {
-		this.totalamount = totalamount;
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
 	public String getStartDay() {
 		return startDay;

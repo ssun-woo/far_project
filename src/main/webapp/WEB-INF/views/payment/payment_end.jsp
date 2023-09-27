@@ -23,11 +23,11 @@
 			</tr>
 			
 			<tr>
-				<td>가게 및 상품: ${resvDTO.storeName }, ${revDTO.roomName }</td>
+				<td>가게 및 상품: ${resvDTO.storeName }, ${resvDTO.roomName }</td>
 			</tr>
 			
 			<tr>
-				<td>결제 금액: ${resvDTO.totalamount }</td>
+				<td>결제 금액: ${resvDTO.amount }</td>
 			</tr>
 			
 			<tr style="height: 60px;">

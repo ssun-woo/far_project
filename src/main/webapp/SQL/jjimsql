@@ -1,0 +1,23 @@
+-- 가게 정보 테이블(그 가게에 대한 정보들)
+create table store(
+    store_num int primary key,
+    cate varchar2(50) not null,
+    detail_cate varchar2(50) not null,
+    store_pic01 varchar2(200) not null,
+    store_pic02 varchar2(200),
+    store_pic03 varchar2(200),
+    store_pic04 varchar2(200),
+    store_pic05 varchar2(200),
+    reg_date varchar2(50) default sysdate
+); 
+
+select * from store;
+
+drop table jjim;
+
+create table jjim(
+    memId varchar2(50) not null,
+    storeNum int not null
+);
+
+commit;

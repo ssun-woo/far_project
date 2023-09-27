@@ -30,38 +30,40 @@ public class CeoController {
    @Autowired
    private CeoService ceoService;
    
+	// ceo 메인 페이지 이동
+	@RequestMapping("/index")
+	public ModelAndView ceo_index() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String id = authentication.getName();
+		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
+		System.out.println(id);
+		List<StoreDTO> slist = ceoService.getStores(id);
+		ModelAndView mav = new ModelAndView("ceo/ceo_index");
+		mav.addObject("slist", slist);
+		return mav;
+	}
 
-   // ceo 메인 페이지 이동
-   @RequestMapping("/index")
-   public ModelAndView ceo_index() {
-      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-      String id = authentication.getName();
-      
-      System.out.println(id);
-      List<StoreDTO> slist = ceoService.getStores(id);
-      ModelAndView mav = new ModelAndView("ceo/ceo_index");
-      mav.addObject("slist", slist);
-      return mav;
-   }
+	// ceo 가게 등록 페이지 이동
+	@GetMapping("/store_regi")
+	public ModelAndView ceo_store_regi() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String id = authentication.getName();
+		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
+		System.out.println(id);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("ceo/ceo_store_reg");
+		return mav;
+	}
 
-   // ceo 가게 등록 페이지 이동
-   @GetMapping("/store_regi")
-   public ModelAndView ceo_store_regi() {
-      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-      String id = authentication.getName();
-      System.out.println(id);
-      ModelAndView mav = new ModelAndView();
-      mav.setViewName("ceo/ceo_store_reg");
-      return mav;
-   }
+	@PostMapping("/store_regi_ok")
+	public ModelAndView ceo_store_regi_ok(StoreDTO s, HttpServletRequest request) throws Exception {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String id = authentication.getName();
+		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
+		String saveFolder = request.getRealPath("upload/store_logo"); // 이진 파일 업로드 서버 경로
+		int fileSize = 5 * 1024 * 1024; // 이진파일 업로드 최대크기
+		MultipartRequest multi = null; // 이진파일을 가져올 참조변수
 
-   @PostMapping("/store_regi_ok")
-   public ModelAndView ceo_store_regi_ok(StoreDTO s, HttpServletRequest request) throws Exception {
-      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-      String id = authentication.getName();
-      String saveFolder = request.getRealPath("upload/store_logo"); // 이진 파일 업로드 서버 경로
-      int fileSize = 5 * 1024 * 1024; // 이진파일 업로드 최대크기
-      MultipartRequest multi = null; // 이진파일을 가져올 참조변수
 
       multi = new MultipartRequest(request, saveFolder, fileSize, "UTF-8");
 
@@ -140,6 +142,7 @@ public class CeoController {
       return "ceo/store_registration";
    }
 
+
    // 가게 관리 - 가게 선택
    @GetMapping("/store_list")
    public ModelAndView store_choice(HttpSession session) {
@@ -153,6 +156,7 @@ public class CeoController {
       mav.addObject("slist", sList);
       return mav;
    }
+
 
    
    // 가게 관리 - 메뉴 관리 페이지 호출

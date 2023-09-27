@@ -8,7 +8,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
-
+<script>console.log("${totalCount}");</script>	
 <div class="payment">
 	<div class="title">
 		<h3>예약정보</h3>
@@ -383,7 +383,7 @@
 					roomNum : "${room.roomNum}",
 					roomName: "${room.roomName}",
 					memId : "${member.memId}",
-					totalamount: totalAmount,
+					amount: totalAmount,
 					sdate: "${sdate}",
 					edate: "${edate}"
 					

@@ -54,22 +54,22 @@ public class ReviewServiceImpl implements ReviewService {
 
 
 
-//	@Override
-//	public void editReview(int review_num) {
-//		reviewDao.editReview(review_num);
-//		
-//	}
+	@Override
+	public int getReivewCount(ReviewDTO rdto) {
+		return reviewDao.getReivewCount(rdto);
+	}
 
 
 
+	@Override
+	public void setRecommend(ReviewDTO rdto) {
+		reviewDao.setRecommend(rdto);
+		
+	}
 
 
 
-
-
-
-
-
+	
 
 
 
