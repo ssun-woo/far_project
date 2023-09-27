@@ -42,7 +42,6 @@
 	   
 	<div class="title">
 		<h3>할인 및 포인트</h3>
-		<button id="getCoupon">20% 할인 쿠폰 발급</button>
 	</div>
 
 	<div class="pay_dcInfo">
@@ -66,38 +65,6 @@
 						</td>
 					</tr>
 				</table>
-      
-				<script>
-					$(document).ready(function() {
-						$("#getCoupon").click(function() {
-							var mem_id = "${mem_id}";
-							var coupon_name = "20% 할인 쿠폰";
-                  
-							// ajax 요청 보내기
-							$.ajax({
-								type: "POST",
-								url: "/payment/couponIssue",
-								data: {"coupon_name" : coupon_name},
-								success: function(date) {
-							      	// 서버로부터 받은 응답을 처리
-							      	console.log(date);
-							      	//console.log(coupon_name);
-							      	//console.log("aaa");
-							      	if (date === "쿠폰이 발급되었습니다.") {
-							      	   alert("쿠폰이 발급되었습니다.");
-							      	   //console.log("bbb");
-							      	} else if (date === "이미 쿠폰을 보유하고 있습니다.") {
-							      	   alert("이미 쿠폰을 보유하고 있습니다.");
-							      	   //console.log("ccc");
-							      	}
-							   	}/* ,
-							   	error: function (error) {
-							   	   console.error(error);
-							   	} */
-							});
-						});
-					});
-				</script>
 				
 				<script>
 					// 세 자리마다 콤마 추가
