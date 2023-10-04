@@ -72,7 +72,7 @@
 			</div>
 		</div>
 		<section class="menu_cont">
-			<H3 >회원 목록</H3>
+			<H3 class="adTitle" >회원 목록</H3>
 
 			<div class="cate_cont">
 				<table class="table table-hover">

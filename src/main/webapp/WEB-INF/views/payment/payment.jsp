@@ -375,10 +375,27 @@
 		}, function (rsp) { // callback 
 			$.ajax({
 				type: 'POST',
-				url: '/payment/paymentEnds'
+				url: '/payment/paymentEnds',
+				data:{
+					resvNum : 'merchant_' + new Date().getTime(),
+					storeNum : "${store.storeNum}",
+					storeName: "${store.storeName}",
+					roomNum : "${room.roomNum}",
+					roomName: "${room.roomName}",
+					memId : "${member.memId}",
+					amount: totalAmount,
+					sdate: "${sdate}",
+					edate: "${edate}"
+					
+				}
 			}).done(function(data) {
+				if(totalAmount == totalAmount) {
 				alert("결제 성공");
 				document.location.href="/payment/paymentEnd";
+				} else {
+					alert("결제 실패");
+					document.location.href="/payment"
+				}
 			}); 
 		});
 	}

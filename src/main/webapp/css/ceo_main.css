@@ -8,7 +8,7 @@
 
 #ceo_middle {
 	align-items: center;
-	/*height: 120px;*/
+	height: 120px;
 	width: 1300px;
 	margin-top: 20px;
 	height: 100%;
@@ -24,7 +24,7 @@
 	margin-right: 20px;
 	display: flex;
 	justify-content: center;
-	display: flex;
+	
 }
 
 .ceo_list {

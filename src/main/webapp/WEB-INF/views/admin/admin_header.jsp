@@ -27,8 +27,8 @@
 <div class="admin_header">
 	<div class="top">
 		<div class="logo">
-			<img src="/images/main/logo.png" class="logoImg">
-			<h4>✍️관리자 페이지</h4>
+			<a href="/"><img src="../images/main/logo.png" class="logoImg"></a>
+			<h3>관리자 페이지</h3>
 		</div>
 		<div class="page">
 			<h5>

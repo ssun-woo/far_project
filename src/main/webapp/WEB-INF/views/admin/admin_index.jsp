@@ -73,7 +73,7 @@
 			</div>
 			<div class="admin_index">
 
-				<h1>왼쪽의 메뉴를 선택해주세요.</h1>
+				<h1 class="adTitle">왼쪽의 메뉴를 선택해주세요.</h1>
 
 			</div>
 		</div>

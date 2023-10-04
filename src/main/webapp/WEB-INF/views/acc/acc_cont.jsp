@@ -604,7 +604,7 @@
         document.getElementById("date2").value = dateValue;
         document.getElementById("totalCount").value = totalCount;
         
-        document.forms[1].submit();
+        document.forms[2].submit();
     }
 
 

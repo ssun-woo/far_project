@@ -73,7 +73,7 @@
 			</div>
 		</div>
 		<section class="adCouponListSection">
-			<h3 class="adCouponListTitle">[쿠폰 목록]</h3>
+			<h4 class="adTitle">[쿠폰 목록]</h4>
 			<div class="adCouponListTable">
 				<table class="table table-hover">
 					<tr>

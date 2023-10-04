@@ -23,9 +23,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
+import com.far.dto.ResvDTO;
 import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 import com.far.service.PaymentService;
+import com.far.service.ReservationService;
 
 @Controller
 @RequestMapping("/payment")
@@ -33,6 +35,9 @@ public class PaymentController {
 
 	@Autowired
 	private PaymentService paymentService;
+	
+	@Autowired
+	   private ReservationService resvService;
 	
 	// 결제 페이지
 	@RequestMapping("")
@@ -146,14 +151,39 @@ public class PaymentController {
 	}
 	
 	@GetMapping("/paymentEnd")
-	public String gopaymentEnd() {
-		return "/payment/payment_end";
-	}
-	
-	@PostMapping("/paymentEnds")
-	public String paymentEnd() {
-		return "/payment/payment_end";
-	}
+	   public String gopaymentEnd(HttpSession session) {
+		  ResvDTO resvDTO = (ResvDTO) session.getAttribute("resvDTO");
+	      return "/payment/payment_end";
+	   }
+	   
+	   @PostMapping("/paymentEnds")
+	   public String paymentEnd(HttpSession session, @RequestParam("resvNum") String resvNum, 
+			   					@RequestParam("storeNum") String storeNum,
+			   					@RequestParam("storeName") String storeName,
+			   					@RequestParam("roomNum") String roomNum,
+			   					@RequestParam("roomName") String roomName,
+			   					@RequestParam("memId") String memId,
+			   					@RequestParam("amount") String amount,
+			   					@RequestParam("sdate") String startDay,
+			   					@RequestParam("edate") String endDay
+			   ) {
+		  ResvDTO resvDTO = new ResvDTO();
+		  int storeNum2 = Integer.parseInt(storeNum);
+		  int roomNum2 = Integer.parseInt(roomNum);
+		  
+		  resvDTO.setResvNum(resvNum);
+		  resvDTO.setStoreNum(storeNum2);
+		  resvDTO.setStoreName(storeName);
+		  resvDTO.setRoomNum(roomNum2);
+		  resvDTO.setRoomName(roomName);
+		  resvDTO.setMemId(memId);
+		  resvDTO.setAmount(amount);
+		  resvDTO.setStartDay(startDay);
+		  resvDTO.setEndDay(endDay);
+		  resvService.reservation(resvDTO);
+	      session.setAttribute("resvDTO", resvDTO);
+		  return "/payment/payment_end";
+	   }
 	
 	private String extractDate(String input) {
 		String[] parts = input.split(" ");

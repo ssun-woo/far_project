@@ -275,6 +275,7 @@
 				</div>
 
 			</div>
+
 		</div>
 
 		<div class="pagination">
@@ -295,6 +296,7 @@
 				</div>
 			</c:if>
 		</div>
+
 	</div>
 </div>
 

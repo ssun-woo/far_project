@@ -72,7 +72,7 @@
 			</div>
 		</div>
 		<div class="adMemListSection">
-			<h3>일반 회원 목록</h3>
+			<h4 class="adTitle">일반 회원 목록</h4>
 			<div class="adMemListTable">
 				<table class="table table-hover">
 					<thead>

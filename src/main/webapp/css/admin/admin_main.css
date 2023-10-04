@@ -7,18 +7,17 @@
 	display: flex;
 }
 .logo{
-	height: 150px;
-	width: 450px;
-	display: flex;
-	margin-top: 30px;
-	
-}
-.logo img{
 	height: 100%;
-	width: 170px;
+	
+	display: flex;
 	
 }
-.logo h4{
+.logo image{
+	height: 150px;
+	width: 120px;
+}
+
+.logo h3{
 	margin-top: 35px;
 	margin-left: 15px;
 }
@@ -77,6 +76,7 @@
 	height: 1250px;
 	width: calc(100% - 20%);
     float: left;
+     padding-left: 30px;
 }
 
 .menu_cont{
@@ -84,10 +84,47 @@
 	height: 1250px;
 	width: calc(100% - 20%);
     float: left;
+     padding-left: 30px;
 }
 
 .clearfix::after {
     content: "";
     display: table;
     clear: both;
+}
+.adCouponListTitle{
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.adCouponListTable{
+	width: 1000px;
+	height: 1250px;
+	width: calc(100% - 20%);
+    float: left;
+    padding-left: 30px;
+    
+}
+
+.adCouponSection {
+    width: 1000px;
+	height: 1250px;
+	width: calc(100% - 20%);
+    float: left;
+    padding-left: 30px;
+}
+
+.adTitle {
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+
+.adCouponSection  {
+	width: 1000px;
+	width: calc(100% - 20%);
+    float: left;
+    padding-left: 30px;
+   
 }
