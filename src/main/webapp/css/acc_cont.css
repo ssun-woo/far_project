@@ -1,57 +1,46 @@
 @charset "UTF-8";
+
+.accContMain{
+	width: 1300px;
+   margin: auto;
+}
+
+/*숙박 상세정보 전체*/
+.shop_cont{
+	width: 1300px;
+	height: 100%;
+	text-align: center;
+}
+/*상단 이름*/
 .shop_name{
 	display: flex;
-	margin-left: 350px;
-}
-.jjim_shop{
+	padding-left: 120px;
 	
 }
+
 .jjim_shop button{
-	 width : 45px;
-	 height: 35px;
-	margin-top: 20px;
-	margin-left: 5px;
 	background-color: white;
 	border: none;
 }
 
-.jjim_shop img{
-	width: 25px;
-	height: 25px;
-	margin-lrft: -20px;
-}
-.separator {
-   margin-right: 4px;
-   margin-left: 4px;
-}
-
-
-/*숙박 상세정보 전체*/
-.shop_cont{
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	margin-left: -100px;
-	margin-bottom: 60px;
-}
-
-
 /*숙박업체 사진 및 정보*/
 .shop_cont_top {
 	display: flex;
+	width: 1300px;
+	height: 350px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 120px;
 }
 
 
-.shop_photo{
-	width: 500px;
-	height: 350px;
-	margin-left: 360px;
-	margin-top: 15px;
-}
 
-.shop_photo_div{
+.shop_photo img{
 	width: 500px;
 	height: 350px;
+	margin: 0 auto;
+	border-radius: 5px;
+	
 }
 .shop_info{
 	width: 100%;
@@ -60,7 +49,7 @@
 
 .info_cate {
 	width: 200px;
-	margin-left: 10px;
+	
 	list-style: none;
 }
 
@@ -69,16 +58,14 @@
 	list-style: none;
 }
 
-.info_cate li {
-	text-align: left;
+/*이벤트*/
+.shop_info_event{
 	margin-bottom: 30px;
 }
 
-.info_cont li {
-	text-align: left;
-	margin-bottom: 30px;
+.shop_info_event img{
+	width: 850px;
 }
-
 
 
 /* 내용 */
@@ -87,7 +74,7 @@
 	height: 100%;
 	margin-top: 40px;
 	border: 1px solid black;
-	margin-left: 350px;
+	margin:0 auto;
 }
 
 .shop_info_cont input[type=radio] {
@@ -136,8 +123,10 @@
 }
 
 .shop_cont_div {
-	margin-top: 50px;
-	margin-bottom: 50px;
+	width: 1050px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	
 }
 
 .content-dis {
@@ -485,15 +474,16 @@
 }
 
 /* 이용후기*/
-.review_form h3 {
+
+
+#review_form h3 {
 	margin-left: -700px;
 }
 
 .Review_cont {
-	width: 900px;
-	margin-left: 50px;
-	margin-top: 40px;
-	border-radius: 10px;
+	width: 1050px;
+	margin: 0 auto;
+	
 }
 
 .Review_cont hr {
@@ -512,9 +502,7 @@
 	position: static;
 }
 
-#reviewForm {
-	margin-left: -150px;
-}
+
 
 .detail_review_table2 {
 	width: 400px;
@@ -582,9 +570,7 @@
 	width: 500px;
 }
 
-.edit_review {
-	
-}
+
 
 .detail_review_tr {
 	width: 500px;
@@ -615,6 +601,8 @@
 .edit_review_btn {
 	margin-right: 10px;
 }
+
+
 
 #reviewRecommend{
 	background-color: white;
@@ -659,10 +647,7 @@
 	border-color: black;
 	
 }
-/*글자수*/
-.text_length {
-	
-}
+
 /*리뷰 등록 버튼*/
 .ReviewWriteBtn {
 	width: 70px;
@@ -705,7 +690,7 @@
 }
 #reviewRating input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
->>>>>>> yunjoung
+
 }
 
 #review_rating fieldset {
@@ -780,14 +765,19 @@
 	transition: all .5s;
 }
 
+.review_write h3{
+	margin-left: 20px;
+}
+
 .list_button_div {
 	width: 1300px;
-	justify-content: center;
+	margin: 0 auto;
 	display: flex;
 }
 
 .list_button {
 	height: 100px;
 	width: 400px;
-	margin-left: 250px;
+	margin-left: 460px;
+	margin-top:60px;
 }

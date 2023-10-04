@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .storeMainWrap {
-	width: 1350px;
+	width: 1300px;
 	height: 750px;
 	display: flex;
 	flex-wrap: nowrap;
