@@ -36,4 +36,8 @@ public class StoreService {
 	public int countStore2(Map<String, String> map) {
 		return storeDAO.countStore2(map);
 	}
+
+	public int getLowerPrice(int storeNum) {
+		return storeDAO.getLowerPrice(storeNum);
+	}
 }

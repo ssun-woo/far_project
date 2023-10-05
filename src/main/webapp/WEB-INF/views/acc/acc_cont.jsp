@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> sunwoo
 <jsp:include page="../main/new_header2.jsp" />
 
 
@@ -509,7 +505,7 @@
 <!-- shop_cont -->
 
 <div class="list_button_div">
-	<button class="list_button" onclick="location='/acc/list?detail_cate=${param.detail_cate}'">목록보기</button>
+	<button class="list_button" onclick="location='/acc/list?detail_cate=${param.detail_cate}&page=${param.page}'">목록보기</button>
 </div>
 
 

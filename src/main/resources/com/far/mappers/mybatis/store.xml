@@ -49,5 +49,9 @@
        select * from room where roomNum = #{menuId}
     </select>
     
+    <select id="get_lowerPrice" resultType="int">
+    	SELECT MIN(roomPrice) FROM room WHERE storeNum = #{storeNum}
+    </select>
+    
  </mapper>
  

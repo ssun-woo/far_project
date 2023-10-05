@@ -61,7 +61,9 @@ public class AccController {
 	// 세부 카테 클릭 시 출력되는 목록
 	@RequestMapping("/list")
 	public ModelAndView acc_hotel(HttpServletRequest request, HttpSession session, Model model, @RequestParam(defaultValue = "0") int page) {
-	    // 버튼을 눌러서 엄어올때는 여기에 값
+	    
+		
+		// 버튼을 눌러서 엄어올때는 여기에 값
 		String detailCate = request.getParameter("detail_cate");
 		
 	    String cate = request.getParameter("cate");
@@ -81,16 +83,40 @@ public class AccController {
 	    Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "storeNum"));
 	    ModelAndView mav = new ModelAndView();
 	    Page<StoreDTO> storePage = storeService.storeList(pageable, detailCate);
+	    
+	    Map<Integer, Integer> lowPrice = new HashMap<>();
+	    Map<Integer, Integer> reviewCount = new HashMap<>();
+	    Map<Integer, Float> score = new HashMap<>(); 
+	    
+	    for(StoreDTO s : storePage) {
+	    	// System.out.println("어떤식으로 나옴 : " + s);
+	    	// System.out.println("이런것도됨? " + s.getStoreNum());
+	    	
+	    	int lowerPrice = storeService.getLowerPrice(s.getStoreNum());
+	    	lowPrice.put(s.getStoreNum(), lowerPrice);
+	    	
+//	    	int reviewCount2 = storeService.getReviewCount(s.getStoreNum());
+//	    	reviewCount.put(s.getStoreNum(), reviewCount2);
+//	    	
+//	    	Float starScore = storeService.getStarScore(s.getStoreNum());
+//	    	score.put(s.getStoreNum(), starScore);
+	    	
+	    	
+	    }
+	   
+	    
 	    session.setAttribute("list", storePage);
 	    session.setAttribute("countStore", countStore);
 	    System.out.println("memId = " + memId);
 	    mav.setViewName("acc/acc_list");
+	    mav.addObject("page", page);
+	    mav.addObject("lowPrice", lowPrice);
 	    return mav;
 }
 
 	// 상품 상세보기
 	@RequestMapping("/cont")
-	public ModelAndView acc_cont(HttpServletRequest request) {
+	public ModelAndView acc_cont(HttpServletRequest request, int page) {
 		String detail_cate = request.getParameter("detail_cate"); // 현재 cate 받아옴
 		String cate = request.getParameter("cate"); // 현재 cate 받아옴
 		// int page = Integer.parseInt(request.getParameter("page")); // 페이지 책갈피 기능
@@ -125,6 +151,7 @@ public class AccController {
 		mav.addObject("sebu_cate", sebu_cate);
 		mav.setViewName("acc/acc_cont");
 		mav.addObject("mList", mList);
+		mav.addObject("page", page);
 
 		return mav;
 	}
