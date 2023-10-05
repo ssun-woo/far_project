@@ -46,7 +46,6 @@ public class PaymentController {
 		String date = request.getParameter("date2");
         Pattern pattern = Pattern.compile("(\\d+)박");
         Matcher matcher = pattern.matcher(date);
-        System.out.println("date 1 : " + date);
         int nights = 0;
         
         if (matcher.find()) {
@@ -69,7 +68,6 @@ public class PaymentController {
 		String edate = year + "-" + date2;
 		
 		int totalCount = Integer.parseInt(request.getParameter("totalCount"));
-		//System.out.println("totalCount : " + totalCount);
 		
 		
 		ModelAndView mav = new ModelAndView();
@@ -78,7 +76,6 @@ public class PaymentController {
 		
 		
 		int roomNum = Integer.parseInt(request.getParameter("roomNum"));
-		//System.out.println("방번호 : " + roomNum);
 		
 		// 메뉴 정보
 		RoomDTO room = paymentService.getMenu(roomNum);
@@ -113,8 +110,6 @@ public class PaymentController {
 		System.out.println("couponName = " + couponName);
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String memId = authentication.getName();
-		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
-		//String cName = couponName;
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("mem_id", memId);

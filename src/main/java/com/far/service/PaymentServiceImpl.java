@@ -53,9 +53,4 @@ public class PaymentServiceImpl implements PaymentService {
 		paymentDao.pointEarn(pMap);
 	}
 
-//	@Override
-//	public void pointSub(Map<String, Object> psMap) {
-//		paymentDao.pointSub(psMap);
-//	}
-
 }

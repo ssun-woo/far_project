@@ -53,9 +53,4 @@ public class PaymentDAOImpl implements PaymentDAO {
 		sqlSession.update("pointEarn", pMap);
 	}
 
-//	@Override
-//	public void pointSub(Map<String, Object> psMap) {
-//		sqlSession.update("pointSub", psMap);
-//	}
-
 }

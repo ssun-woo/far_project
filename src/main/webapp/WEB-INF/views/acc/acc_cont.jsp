@@ -262,10 +262,6 @@
 											<input type="hidden" name="roomNum" value="${m.roomNum}">
 				                          	<input type="hidden" name="storeNum" value="${s.storeNum}">
                            				</form>
-                           				<form method="post" action="/payment/paymentEnd">
-			                              	<input type="hidden" id="date2" name="date2" value="">
-											<input type="hidden" name="roomNum" value="${m.roomNum}">
-                           				</form>
                         			</div>
 
                         			<div class="room_detailinfo">

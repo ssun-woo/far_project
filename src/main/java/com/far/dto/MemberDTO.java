@@ -43,27 +43,6 @@ public class MemberDTO {
 	
 	private int point;
 	
-	
-	private int pointDiscount;
-	private int pointEarn;
-
-	public int getPointDiscount() {
-		return pointDiscount;
-	}
-
-	public void setPointDiscount(int pointDiscount) {
-		this.pointDiscount = pointDiscount;
-	}
-
-	public int getPointEarn() {
-		return pointEarn;
-	}
-
-	public void setPointEarn(int pointEarn) {
-		this.pointEarn = pointEarn;
-	}
-
-	
 	public String getMemId() {
 		return memId;
 	}

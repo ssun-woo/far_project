@@ -24,6 +24,4 @@ public interface PaymentDAO {
 
 	void pointEarn(Map<String, Object> pMap);
 
-//	void pointSub(Map<String, Object> psMap);
-
 }
