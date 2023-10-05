@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.passwordParameter("memPwd")
 			.loginPage("/loginForm")
 			.loginProcessingUrl("/login")
-			.defaultSuccessUrl("/")	
+			.successForwardUrl("/forwardToUri")
 			.and()
 			.sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)

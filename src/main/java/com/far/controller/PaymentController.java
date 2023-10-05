@@ -63,11 +63,9 @@ public class PaymentController {
 		int year = cal.get(Calendar.YEAR);
 		String sdate = year + "-" + date1;
 		
-		
-//		
-//		if(Integer.parseInt(date1.substring(0,2)) > Integer.parseInt(date2.substring(0,2))) {
-//			year += 1;
-//		}
+		if(Integer.parseInt(date1.substring(0,2)) > Integer.parseInt(date2.substring(0,2))) {
+			year += 1;
+		}
 		String edate = year + "-" + date2;
 		
 		int totalCount = Integer.parseInt(request.getParameter("totalCount"));
