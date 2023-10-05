@@ -11,18 +11,18 @@
  		insert into review(reviewNum,memId,storeNum,reviewRating, reviewCont, reviewRecommend,reviewDate)
  		values(
  		NUM_SEQ.nextval,
- 		'abc123',
- 		10,
+ 		#{memId},
+ 		#{storeNum},
  		#{reviewRating},
  		#{reviewCont},
- 		1,
+ 		0,
  		sysdate
  		)
  	</insert>
  	
  	<!-- 리뷰 목록  -->
  	<select id = "get_review" resultType="com.far.dto.ReviewDTO">
- 		select * from review where storeNum = 10 order by reviewNum desc
+ 		select * from review where storeNum = #{storeNum} order by reviewNum desc
  	</select>
  	
  	<!-- 리뷰삭제 -->

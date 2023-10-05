@@ -167,7 +167,7 @@
 </style>
 </head>
 <body>
-	<form action="/acc/cont/update?cate=${cate}&storeNum=${storeNum}&reviewNum=${reviewNum}" method="post" id="reviewEditForm">
+	<form action="/acc/cont/update?detail_cate=${cate}&store_num=${store_num}&reviewNum=${reviewNum}" method="post" id="reviewEditForm">
 	
 					<table class="review_edit_table">
 					<tr>

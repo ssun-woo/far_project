@@ -46,16 +46,17 @@ function del_edit_check(){
     }
 }
 
-function jjim_check(){
-	if (!confirm("찜 목록에 저장하시겠습니까?")) {
-        window.location.reload();
-    }
-    
-}
+
 
 
 function jjim_del_check(){
 	if (!confirm("찜 목록에서 삭제하시겠습니까?")) {
+        window.location.reload();
+    }
+}
+
+function recommend_del_check(){
+	if (!confirm("리뷰 추천을 취소하시겠습니까?")) {
         window.location.reload();
     }
 }

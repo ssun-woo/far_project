@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -20,25 +21,30 @@
 <div class="shop_cont">
 	<div class="shop_name">
 
-		<h2>[${region} / ${sebu_cate}] ${s.store_name}</h2> 
-
+		<h2>[${region} / ${sebu_cate}] ${s.storeName}</h2> 
+		
+		
 			<label class="jjim_shop">
 				<c:if test="${JJim==0}">
-				<form action="/acc/cont/jjim?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" id="jjim" method="POST">
+				<form action="/acc/cont/jjim?detail_cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
 					<button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
 					<img src="../images/acc/NoJJim.png">
 				</button>
 				</form>
 				</c:if>
 				<c:if test="${JJim==1}">
-				<form action="/acc/cont/jjim_del?cate=${cate}&storeNum=${storeNum}" class="jjim_btn" method="POST">
+				<form action="/acc/cont/jjim_del?detail_cate=${cate}&store_num=${store_num}" class="jjim_btn" method="POST">
 					<button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
 					<img src="../images/acc/YesJJim.png">
 				</button>
 				</form>
 				</c:if>
 				</label>
+				<input type="hidden" id="memId" value="${id}">
+				
+				
 
+			
 	</div>
 	<hr style="width: 1050px;
 	text-align: center;
@@ -71,7 +77,7 @@
 
 			</ul>
 			<ul class="info_cont">
-				<li><p>${region}/${sebuCate}</p></li>
+				<li><p>${region} / ${sebuCate}</p></li>
 				<li><p>
 
 						<a href="#target" onclick="review_count_page_btn()">${review_count}개</a>의 상품평
@@ -79,16 +85,13 @@
 				<li><p>
 						${s.storeAddr1} ${s.storeAddr2 }<br>
 						<a href="#target" onclick="map_page_btn()">지도보기</a>
-						전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기">
+						<!--  전체 할인쿠폰 확인 &nbsp;&nbsp;<input type="button" value="쿠폰받기">-->
 					</p></li>
 				
 			</ul>
 		</div>
 	</div>
 
-	<div class="shop_info_event">
-		<!-- <img src="../images/ev_images/cont_event01.png"> -->
-	</div>
 
 	
 	
@@ -113,224 +116,222 @@
 		
 
 		<div id="shop_content">
+         <div id="service_content" class="shop_cont_div">
+            <div class="acc_room_list">
+               <div class="search2">
+                  <div class="search2Date">
+                     <div class="search2Date2">
+                        <label>날짜</label> 
+                        <input type="text" id="date" name="date" value="" />
+            <script type="text/javascript">
+            // 기본 출력
+            $(document).ready(function() {
+                var startDate = moment().startOf('day');
+                var endDate = moment().startOf('day').add(1, 'day');
+                var nights = 1;
+                
+                // 요일 포맷 변경
+                var startOfWeekday = startDate.format('ddd');
+                var endOfWeekday = endDate.format('ddd');
 
-			<div id="service_content" class="shop_cont_div">
-				<div class="acc_room_list">
-					<div class="search2">
-						<div class="search2Date">
-							<div class="search2Date2">
-								<label>날짜</label> <input type="text" id="date" name="date"
-									value="" />
-								<script type="text/javascript">
-				// 기본 출력
-				$(document).ready(function() {
-				    var startDate = moment().startOf('day');
-				    var endDate = moment().startOf('day').add(1, 'day');
-				    var nights = 1;
+                // 요일 한글로 변환
+                var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
+                var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
 
-				    // 요일 포맷 변경
-				    var startOfWeekday = startDate.format('ddd');
-				    var endOfWeekday = endDate.format('ddd');
+                // 이전 선택 날짜값 저장
+                var previousValue = '';
 
-				    // 요일 한글로 변환
-				    var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
-				    var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
+                // datepicker 설정
+                $('input[name="date"]').daterangepicker({
+                    "locale": {
+                        "format": "MM-DD (ddd)",
+                        "separator": " ~ ",
+                        "applyLabel": "확인",
+                        "cancelLabel": "취소",
+                        "fromLabel": "From",
+                        "toLabel": "To",
+                        "customRangeLabel": "Custom",
+                        "weekLabel": "W",
+                        "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
+                        "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                    },
+                    "startDate": startDate,
+                    "endDate": endDate,
+                    "minDate": moment().startOf('day'),
+                    "maxDate": moment().startOf('day').add(30, 'day'),
+                    "minYear": 2022,
+                    "maxYear": 2032,
+                    "drops": "down"
+                });
+                
+                // 기본 텍스트 설정
+                var defaultText = startDate.format('MM-DD (' + koreanStartOfWeekday + ')') + ' ~ ' + endDate.format('MM-DD (' + koreanEndOfWeekday + ')') + ' ' + nights + '박';
+               
+                // 입력란에 기본 텍스트 설정 적용
+                $('input[name="date"]').val(defaultText);
+                
 
-				    // 이전 선택 날짜값 저장
-				    var previousValue = '';
+                // 이벤트 핸들러
+                $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {
+                    var startOfWeekday = picker.startDate.format('ddd');
+                    var endOfWeekday = picker.endDate.format('ddd');
 
-				    // datepicker 설정
-				    $('input[name="date"]').daterangepicker({
-				        "locale": {
-				            "format": "MM-DD (ddd)",
-				            "separator": " ~ ",
-				            "applyLabel": "확인",
-				            "cancelLabel": "취소",
-				            "fromLabel": "From",
-				            "toLabel": "To",
-				            "customRangeLabel": "Custom",
-				            "weekLabel": "W",
-				            "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
-				            "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-				        },
-				        "startDate": startDate,
-				        "endDate": endDate,
-				        "minDate": moment().startOf('day'),
-				        "maxDate": moment().startOf('day').add(30, 'day'),
-				        "minYear": 2022,
-				        "maxYear": 2032,
-				        "drops": "down"
-				    });
-				    
-				    // 기본 텍스트 설정
-				    var defaultText = startDate.format('MM-DD (' + koreanStartOfWeekday + ')') + ' ~ ' + endDate.format('MM-DD (' + koreanEndOfWeekday + ')') + ' ' + nights + '박';
+                    // 요일 한글로 변환
+                    var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
+                    var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
 
-				    // 입력란에 기본 텍스트 설정 적용
-				    $('input[name="date"]').val(defaultText);
+                    // 요일 포맷 다시 설정
+                    var dateRangeText = picker.startDate.format('MM-DD (') + koreanStartOfWeekday + ') ~ ' + picker.endDate.format('MM-DD (') + koreanEndOfWeekday + ')';
+                  
+                   // 몇 박인지 계산
+                    var nights = picker.endDate.diff(picker.startDate, 'days');
+                    dateRangeText += ' ' + nights + '박';
+                
+                    // input에 변경된 텍스트 설정
+                    $('input[name="date"]').val(dateRangeText);
+                    $('input[name="date2"]').val(dateRangeText);
+                    
+                    // 기본 날짜 저장
+                    previousValue = dateRangeText;
+                });
+                
+                // 취소 버튼 클릭 시
+                $('input[name="date"]').on('cancel.daterangepicker', function(ev, picker) {
+                    $(this).val(previousValue); // 이전 값을 입력란에 설정
+                });
+                // 달력 바깥 영역 클릭 시
+                $('input[name="date"]').on('hide.daterangepicker', function(ev, picker) {
+                    $(this).val(previousValue); // 이전 값을 입력란에 설정
+                });
 
-				    // 이벤트 핸들러
-				    $('input[name="date"]').on('apply.daterangepicker', function(ev, picker) {
-				        var startOfWeekday = picker.startDate.format('ddd');
-				        var endOfWeekday = picker.endDate.format('ddd');
+                // 영어 요일을 한글 요일로 변환
+                function convertToKoreanDayOfWeek(englishDayOfWeek) {
+                    switch (englishDayOfWeek) {
+                        case 'Sun':
+                            return '일';
+                        case 'Mon':
+                            return '월';
+                        case 'Tue':
+                            return '화';
+                        case 'Wed':
+                            return '수';
+                        case 'Thu':
+                            return '목';
+                        case 'Fri':
+                            return '금';
+                        case 'Sat':
+                            return '토';
+                        default:
+                            return englishDayOfWeek;
+                    }
+                }
+            });
+            
+            
 
-				        // 요일 한글로 변환
-				        var koreanStartOfWeekday = convertToKoreanDayOfWeek(startOfWeekday);
-				        var koreanEndOfWeekday = convertToKoreanDayOfWeek(endOfWeekday);
+         </script>
+                     </div>
+                  </div>
 
-				        // 요일 포맷 다시 설정
-				        var dateRangeText = picker.startDate.format('MM-DD (') + koreanStartOfWeekday + ') ~ ' + picker.endDate.format('MM-DD (') + koreanEndOfWeekday + ')';
-						
-					 	// 몇 박인지 계산
-				        var nights = picker.endDate.diff(picker.startDate, 'days');
-				        dateRangeText += ' ' + nights + '박';
-				    
-				        // input에 변경된 텍스트 설정
-				        $('input[name="date"]').val(dateRangeText);
-				        
-				        // 기본 날짜 저장
-				        previousValue = dateRangeText;
-				    });
-				    
-				    // 취소 버튼 클릭 시
-				    $('input[name="date"]').on('cancel.daterangepicker', function(ev, picker) {
-				        $(this).val(previousValue); // 이전 값을 입력란에 설정
-				    });
-				    // 달력 바깥 영역 클릭 시
-				    $('input[name="date"]').on('hide.daterangepicker', function(ev, picker) {
-				        $(this).val(previousValue); // 이전 값을 입력란에 설정
-				    });
+                  <div class="search2Personnel">
+                     <div class="search2Personnel2">
+                        <label>인원</label>
+                        <p>성인0, 소아 0</p>
+                     </div>
 
-				    // 영어 요일을 한글 요일로 변환
-				    function convertToKoreanDayOfWeek(englishDayOfWeek) {
-				        switch (englishDayOfWeek) {
-				            case 'Sun':
-				                return '일';
-				            case 'Mon':
-				                return '월';
-				            case 'Tue':
-				                return '화';
-				            case 'Wed':
-				                return '수';
-				            case 'Thu':
-				                return '목';
-				            case 'Fri':
-				                return '금';
-				            case 'Sat':
-				                return '토';
-				            default:
-				                return englishDayOfWeek;
-				        }
-				    }
-				});
-			</script>
-							</div>
-						</div>
+                     <div class="personnel-controls">
+                        <div class="personnelAdult">
+                           <button id="decreaseAdult">-</button>
+                           <span>성인</span> <span id="adultCount">2</span>
+                           <button id="increaseAdult">+</button>
+                        </div>
+                        <div class="personnelChild">
+                           <button id="decreaseChild">-</button>
+                           <span>소아</span> <span id="childCount">0</span>
+                           <button id="increaseChild">+</button>
+                        </div>
+                     <input type="hidden" name="store_num" value="${param.store_num}">
+                     </div>
+                  </div>
+               </div>
+               <h3>객실리스트</h3>
+               <hr>
+               <div id="roomListContainer">
+               <c:forEach var="m" items="${mList}">
+                  <div class="room_list">
+                     <img src="/upload/store_menu/${s.cate}${m.roomPhoto}">
+                     <div class="room_info">
+                        <div class="booking_button">
+                           <h2>${m.roomName}</h2>
+                           <form method="post" action="/payment">
+                              <input type="submit" value="예약">
+                              <input type="hidden" id="date2" name="date2" value="">
+                              <input type="hidden" id="totalCount" name="totalCount" value="">
+                              <input type="hidden" name="roomNum" value="${m.roomNum}">
+                              <input type="hidden" name="storeNum" value="${s.storeNum}">
+                           </form>
+                        </div>
 
+                        <div class="room_detailinfo">
+                           <h4 class="check_in_out">체크인 ${m.checkIn} 체크아웃 ${m.checkOut}</h4>
+                           <p>기준인원 ${m.standardNum}인 / 최대인원 ${m.maxNum}인</p>
+                           <p>영유아 포함 최대인원을 초과하여 입실이 불가합니다.</p>
+                        </div>
+                     </div>
+                  </div>
+                  </c:forEach>
+               </div>
+               </div>
+            </div>
+         </div>
 
-						<div class="search2Personnel">
-							<div class="search2Personnel2">
-								<label>인원</label>
-								<p>성인 0, 소아 0</p>
-							</div>
-
-							<div class="personnel-controls">
-								<div class="personnelAdult">
-									<button id="decreaseAdult">-</button>
-									<span>성인</span> <span id="adultCount">0</span>
-									<button id="increaseAdult">+</button>
-								</div>
-								<div class="personnelChild">
-									<button id="decreaseChild">-</button>
-									<span>소아</span> <span id="childCount">0</span>
-									<button id="increaseChild">+</button>
-								</div>
-
-							</div>
-						</div>
-
-					</div>
-					<h3>객실리스트</h3>
-					<hr>
-					<c:forEach var="m" items="${mList}">
-						<div class="room_list">
-							<img src="/upload/store_menu/${s.cate}${m.roomPhoto}">
-							<div class="room_info">
-								<div class="booking_button">
-									<h2>${m.roomName}</h2>
-									<input type="button" value="예약" onclick="href='#'">
-								</div>
-
-								<div class="room_detailinfo">
-									<h4 class="check_in_out">체크인 ${m.checkIn} 체크아웃
-										${m.checkOut}</h4>
-									<p>기준인원 ${m.standardNum}인 / 최대인원 ${m.maxNum}인</p>
-									<p>영유아 포함 최대인원을 초과하여 입실이 불가합니다.</p>
-								</div>
-
-							</div>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-
-			<div id="information_content" style="display: none;"
-				class="shop_cont_div">
-				<div class="acc_policy">
-					<h3>호텔정책</h3>
-					<hr>
-					<ul>
-						<li>
-							<h4>&nbsp; 예약공지사항</h4>
-						</li>
-						<li>&blacktriangleright; 체크인정보 및 인원추가요금정보</li>
-						<li>&#45; 체크인시간: 15시</li>
-						<li>&#45; 체크아웃시간: 12시</li>
-						<li>&#45; 취소 및 변경 관련 문의는 1600-3886 로 연락 부탁드리겠습니다.</li>
-						<li>&#45; 22:00시 이후 체크인시 숙소 사전 연락 부탁드립니다.</li>
-						<li>&#45; 레이트 체크아웃의 경우 오후 3시까지 Half-day 비용이 발생합니다. (객실타입마다 금액
-							상이)</li>
-						<li>&#45; 기준인원 외 인원추가시 1인 1박당 성인(만 7세이상) 1인 22,000원,
-							소아(36개월~만 6세) 1인 13,200원 현장결제</li>
-						<li>&#45; 영유아 포함 최대인원을 초과하여 입실이 불가합니다.</li>
-						<li>&blacktriangleright; 엑스트라베드정보 및 트윈구성</li>
-						<li>&#45; 엑스트라베드 : 추가가능, 1박 38,500원 현장결제 (단 Studio, 원베드 트윈 에는
-							제공이 되지 않습니다.)</li>
-						<li>&#45; 침구 : 추가가능, 1채 1박당 22,000원 현장결제</li>
-						<li>&#45; 아기침대(만1세까지) : 1베드 룸타입에만 가능/ 체크인시 잔여수량 있을 시 가능
-							(사전요청불가)</li>
-						<li>&#45; 트윈 : 더블베드+싱글베드</li>
-					</ul>
-				</div>
-				<div class="acc_introduce">
-					<h3>호텔소개</h3>
-					<hr>
-					<ul>
-						<li>서울 강북의 중심 광화문에 위치한 서머셋 팰리스 서울은 최고의 서비스를 제공하는 레지던스입니다.</li>
-						<li>각국의 대사관, 다국적 기업 및 언론사들과 인접해 있으며, 경복궁, 인사동 등과도 도보로 쉽게 접근할
-							수 있는 최적의 위치입니다.</li>
-						<li>넓은 거실, 안락한 침실, 다양한 부대시설이 갖춰져 있어 품격 높은 시설과 서비스를 제공합니다.</li>
-						<li><br></li>
-						<li><label>조식정보</label></li>
-						<li>조식 이용 위치 : 라운지 2층</li>
-						<li>조식 이용 시간 : 평일 06:30~10:00 / 주말 07:30~10:30 / 명절 당일 미운영</li>
-						<li>조식 이용 요금 : 성인(만 7세이상) 1인 19,800원, 소아(36개월~만 6세) 1인
-							13,200원</li>
-						<li>조식 메뉴 : 뷔페식</li>
-						<li><br></li>
-						<li><label>주차정보</label></li>
-						<li>주차장 위치 : 건물 지하</li>
-						<li>주차 요금 : 무료 주차 가능 (객실당 1대 주차가능, 24시간 상주보안 경비시스템)</li>
-						<li>주차관련 유의사항 : 1객실 당 1대 무료주차가능(입실/퇴실시간 기준) 그 외 시간 주차 시 10분당
-							1000원 요금 부과</li>
-					</ul>
-				</div>
-				<div class="seller_info">
-					<h3>판매자</h3>
-					<hr>
-					<p>판매자 정보 보기</p>
-				</div>
-			</div>
-
+         <div id="information_content" style="display: none;" class="shop_cont_div">
+            <div class="acc_policy">
+               <h3>호텔정책</h3>
+               <hr>
+               <ul>
+                  <li><h4>&nbsp; 예약공지사항</h4></li>
+                  <li>&blacktriangleright; 체크인정보 및 인원추가요금정보</li>
+                  <li>&#45; 체크인시간: 15시</li>
+                  <li>&#45; 체크아웃시간: 12시</li>
+                  <li>&#45; 취소 및 변경 관련 문의는 1600-3886 로 연락 부탁드리겠습니다.</li>
+                  <li>&#45; 22:00시 이후 체크인시 숙소 사전 연락 부탁드립니다.</li>
+                  <li>&#45; 레이트 체크아웃의 경우 오후 3시까지 Half-day 비용이 발생합니다. (객실타입마다 금액상이)</li>
+                  <li>&#45; 기준인원 외 인원추가시 1인 1박당 성인(만 7세이상) 1인 22,000원, 소아(36개월~만 6세) 1인 13,200원 현장결제</li>
+                  <li>&#45; 영유아 포함 최대인원을 초과하여 입실이 불가합니다.</li>
+                  <li>&blacktriangleright; 엑스트라베드정보 및 트윈구성</li>
+                  <li>&#45; 엑스트라베드 : 추가가능, 1박 38,500원 현장결제 (단 Studio, 원베드 트윈에는 제공이 되지 않습니다.)</li>
+                  <li>&#45; 침구 : 추가가능, 1채 1박당 22,000원 현장결제</li>
+                  <li>&#45; 아기침대(만1세까지) : 1베드 룸타입에만 가능/ 체크인시 잔여수량 있을 시 가능(사전요청불가)</li>
+                  <li>&#45; 트윈 : 더블베드+싱글베드</li>
+               </ul>
+            </div>
+            <div class="acc_introduce">
+               <h3>호텔소개</h3>
+               <hr>
+               <ul>
+                  <li>서울 강북의 중심 광화문에 위치한 서머셋 팰리스 서울은 최고의 서비스를 제공하는 레지던스입니다.</li>
+                  <li>각국의 대사관, 다국적 기업 및 언론사들과 인접해 있으며, 경복궁, 인사동 등과도 도보로 쉽게 접근할 수 있는 최적의 위치입니다.</li>
+                  <li>넓은 거실, 안락한 침실, 다양한 부대시설이 갖춰져 있어 품격 높은 시설과 서비스를 제공합니다.</li>
+                  <li><br></li>
+                  <li><label>조식정보</label></li>
+                  <li>조식 이용 위치 : 라운지 2층</li>
+                  <li>조식 이용 시간 : 평일 06:30~10:00 / 주말 07:30~10:30 / 명절 당일 미운영</li>
+                  <li>조식 이용 요금 : 성인(만 7세이상) 1인 19,800원, 소아(36개월~만 6세) 1인 13,200원</li>
+                  <li>조식 메뉴 : 뷔페식</li>
+                  <li><br></li>
+                  <li><label>주차정보</label></li>
+                  <li>주차장 위치 : 건물 지하</li>
+                  <li>주차 요금 : 무료 주차 가능 (객실당 1대 주차가능, 24시간 상주보안 경비시스템)</li>
+                  <li>주차관련 유의사항 : 1객실 당 1대 무료주차가능(입실/퇴실시간 기준) 그 외 시간 주차 시 10분당 1,000원 요금 부과</li>
+               </ul>
+            </div>
+            <div class="seller_info">
+               <h3>판매자</h3>
+               <hr>
+               <p>판매자 정보 보기</p>
+            </div>
+         </div>
 
 
 			<!-- 환불정책 -->
@@ -447,7 +448,7 @@
 				<div class="review_rating_form">
 				
 				
-				<form name = "review" action="#" method="post" id="reviewForm">
+				<form name = "review" action="/acc/cont/review?detail_cate=${cate}&store_num=${store_num}" method="post" id="reviewForm">
 					<table class="review_write">
 					<tr>
 						<th colspan="2"><h3>후기 작성</h3></th>
@@ -486,7 +487,7 @@
 				
 				</div>
 					<div class="review_form">
-						<h3>이용후기 (${review_count }) </h3>
+						<h3>이용후기 (${review_count}) </h3>
 						<div class="detail_review">
 
 							<c:forEach var="review" items="${reviewList}">
@@ -494,8 +495,7 @@
 									<table class="detail_review_table">
 
 									<tr>
-									
-										<td rowspan="3" id="reviewNum">${review.reviewNum}&nbsp;&nbsp;&nbsp;</td>
+										<td rowspan="3"  id="reviewNum" >${review.reviewNum}&nbsp;&nbsp;&nbsp;</td>
 										<td style="text-align: left;">${review.memId} <label style="color:gray;">| ${review.reviewDate}</label></td>
 										<td style="text-align: left;">평점: ${review.reviewRating}</td>
 									</tr>
@@ -505,31 +505,81 @@
 									</tr>
 									</table>
 
-
+									
 									<div class="review_buttons">
-
-									<form name = "review_recommend" action="/acc/cont/recommend?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="post" id="recommendBtn"  name="reviewRecommend" >
-										<button type="submit" id="reviewRecommend" onclick="count()" >
-										<img src="../images/main/review_recommend.png">
-										<p id="recommend_count">${review.reviewRecommend-1}</p>
-									</button>
 									
+									
+									
+									<label class="review_recommend">
+									
+									
+									<c:if test="${recommendCheck==null}">
+									<form action="/acc/cont/recommend?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="post" id="recommendBtn" name="reviewRecommend">
+										<button type="submit" name="recommend" id="reviewRecommend" onclick="recommend_check(); updateLike(); return false;">
+											<img src="../images/main/review_recommend.png">
+											<p id="recommend_count">${review.reviewRecommend}</p>
+										</button>
 										
-									
 									</form>
-									<c:if test="${memId == review.memId}">
+									</c:if>
+									
+									<c:if test="${recommendCheck==1}">
+									<form action="/acc/cont/recommend_del?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="post">
+										<button type="submit" name="recommend" id="yes_re" onclick="recommend_del_check()">
+											<img src="../images/main/review_recommend_com.png">
+											<p id="recommend_count">${review.reviewRecommend}</p>
+										</button>
+									</form>
+									</c:if>
+									</label>
+									
+									<script>
+									var reviewNum = ${review.reviewNum};
+									var memId = document.getElementById('memId').value;
+
+									 function updateLike(){ 
+									     $.ajax({
+									            type : "POST",  
+									            url : "/cont",       
+									            dataType : "json",   
+									            data : {'reviewNum' : reviewNum, 'memId' : memId },
+									            error : function(){
+									               alert("통신 에러");
+									            },
+									            success : function(${recommendCheck}) {
+									                
+									                    if(${recommendCheck} == 0){
+									                    	alert("추천완료.");
+									                    	location.reload();
+									                    }
+									                    else if (${recommendCheck} == 1){
+									                     alert("추천취소");
+									                    	location.reload();
+
+									                    
+									                }
+									            }
+									        });
+									 }
+									</script>
+									
+									
+
+									
+									<c:if test="${review.memId == id}">
+									
 									<div class="review_edit_del">
 										
-										<form action="/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="POST">
+										<form action="/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="POST">
    											<input type="hidden" name="reviewNum" value="${review.reviewNum}">
     										<button type="submit" onclick="del_edit_check()" class="edit_review_btn">수정</button>
 										</form>
-										<form action="/acc/cont/delete?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}" method="POST" >
+										<form action="/acc/cont/delete?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="POST" >
    											<input type="hidden" name="reviewNum" value="${review.reviewNum}">
     										<button type="submit" onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
 										</form>
 									</div>
-									</c:if>	
+									</c:if>
 										
 										<script type="text/javascript">
                               $(document).on('click','.edit_review_btn',function(e){
@@ -543,7 +593,7 @@
 											
 									        window.name = "cont"
 									        
-									        window.open("/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum="+reviewNum,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
+									        window.open("/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum="+reviewNum,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
 									        // 수정 페이지의 URL 생성
 									       // var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
 											//let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
@@ -721,6 +771,60 @@
 function count(){
 	alert("추천하시겠습니까?");
 }
+
+function jjim_check(){
+	
+
+	var memId = document.getElementById('memId').value;
+    
+    if (memId === 'anonymousUser') {
+        if (confirm("로그인이 필요한 기능입니다. 로그인 페이지로 이동하시겠습니까?")) {
+        	window.open("http://localhost:7777/loginForm")
+        }
+    } else{
+    	if(!confirm("찜 목록에 저장하시겠습니까?")) {
+            window.location.reload();
+        }
+    }
+    
+    
+   	
+   	
+
+}
+
+function recommend_check(){
+	
+
+	var memId = document.getElementById('memId').value;
+    
+    if (memId === 'anonymousUser') {
+        if (confirm("로그인이 필요한 기능입니다. 로그인 페이지로 이동하시겠습니까?")) {
+        	window.open("http://localhost:7777/loginForm")
+        }
+    } else{
+    	
+    	if("${recommendCheck}" == 0){
+        	alert("추천완료.");
+        	location.reload();
+        }
+        else if ("${recommendCheck}" == 1){
+         alert("추천취소");
+        	location.reload();
+
+        
+    }
+    }
+    
+    
+   	
+   	
+
+}
+
+
+
+
 </script>
 	</body>
 	</html>

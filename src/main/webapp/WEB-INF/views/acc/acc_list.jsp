@@ -143,13 +143,15 @@
 				<div class="list_cont2">
 					<h2>75,000원</h2>
 					<p>★★★★☆</p>
-					<p>리뷰 196</p>
-					<div class="shop_JJim">
+					<p>리뷰 (${review_count})</p>
+					
+				
+					<!-- <div class="shop_JJim">
 						<button type="button" onclick="imgToggle()">
 							<img src="../images/acc/NoJJim.png" id="no">
 							<img src="../images/acc/YesJJim.png" id="yes">
 						</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</c:forEach> 
