@@ -51,4 +51,10 @@
 		select * from coupon
 	</select>
 	
+	<!-- 결제 시 포인트 차감 및 적립 -->
+	<update id="pointEarn" parameterType="hashmap">
+		UPDATE member
+		SET point = point - #{pointDiscount} + #{pointEarn} 
+		WHERE memId = #{memId}
+	</update>
 </mapper>

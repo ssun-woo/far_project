@@ -10,11 +10,15 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,7 +46,7 @@ public class PaymentController {
 		String date = request.getParameter("date2");
         Pattern pattern = Pattern.compile("(\\d+)박");
         Matcher matcher = pattern.matcher(date);
-        System.out.println("date" + date);
+        System.out.println("date 1 : " + date);
         int nights = 0;
         
         if (matcher.find()) {
@@ -65,7 +69,7 @@ public class PaymentController {
 		String edate = year + "-" + date2;
 		
 		int totalCount = Integer.parseInt(request.getParameter("totalCount"));
-		System.out.println("totalCount : " + totalCount);
+		//System.out.println("totalCount : " + totalCount);
 		
 		
 		ModelAndView mav = new ModelAndView();
@@ -74,10 +78,9 @@ public class PaymentController {
 		
 		
 		int roomNum = Integer.parseInt(request.getParameter("roomNum"));
-		System.out.println("방번호 : " + roomNum);
+		//System.out.println("방번호 : " + roomNum);
 		
 		// 메뉴 정보
-
 		RoomDTO room = paymentService.getMenu(roomNum);
 		StoreDTO store = paymentService.getStore(room.getStoreNum());
 
@@ -86,9 +89,7 @@ public class PaymentController {
 		
 		// 날짜 형식 변환
 		for(int i=0; i<coupons.size(); i++) {
-
 			coupons.get(i).setCouponStartDate(coupons.get(i).getCouponStartDate().substring(0, 10));
-
 			coupons.get(i).setCouponEndDate(coupons.get(i).getCouponEndDate().substring(0, 10));
 		}
 		
@@ -105,6 +106,7 @@ public class PaymentController {
 	}
 	
 	// 쿠폰 발급
+	@Secured("Role_m")
 	@RequestMapping("/couponIssue")
 	public @ResponseBody String couponIssue(@RequestParam("coupon_name") String couponName) {
 
@@ -149,8 +151,29 @@ public class PaymentController {
 	}
 	
 	@PostMapping("/paymentEnds")
-	public String paymentEnd() {
-		return "/payment/payment_end";
+	public ResponseEntity<String> paymentEnd(@RequestBody Map<String, Integer> requestMap) {
+	    int pointDiscount = requestMap.get("pointDiscount");
+	    int pointEarn = requestMap.get("pointEarn");
+	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	    String memId = authentication.getName();
+	    String msg = null;
+	    
+	    try {
+	    	Map<String, Object> pMap = new HashMap<>();
+			pMap.put("memId", memId);
+			pMap.put("pointDiscount", pointDiscount);
+			pMap.put("pointEarn", pointEarn);
+			paymentService.pointEarn(pMap);
+			
+			msg = "포인트가 적립되었습니다.";
+	    	
+	    	ModelAndView mav = new ModelAndView();
+	        mav.setViewName("redirect:/payment/payment_end");
+	        return ResponseEntity.ok(msg);
+		} catch (Exception e) {
+			msg = "포인트 적립에 실패하였습니다.";
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(msg);
+		}
 	}
 	
 	private String extractDate(String input) {

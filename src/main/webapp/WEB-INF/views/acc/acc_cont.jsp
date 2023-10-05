@@ -66,7 +66,7 @@
 					data: {"coupon_name" : coupon_name},
 					success: function(date) {
 				      	// 서버로부터 받은 응답을 처리
-				      	console.log(date);
+				      	// console.log(date);
 				      	//console.log(coupon_name);
 				      	//console.log("aaa");
 				      	if (date === "쿠폰이 발급되었습니다.") {
@@ -261,6 +261,10 @@
 				                           	<input type="hidden" id="totalCount" name="totalCount" value="">
 											<input type="hidden" name="roomNum" value="${m.roomNum}">
 				                          	<input type="hidden" name="storeNum" value="${s.storeNum}">
+                           				</form>
+                           				<form method="post" action="/payment/paymentEnd">
+			                              	<input type="hidden" id="date2" name="date2" value="">
+											<input type="hidden" name="roomNum" value="${m.roomNum}">
                            				</form>
                         			</div>
 

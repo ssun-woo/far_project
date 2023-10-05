@@ -32,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 			.authorizeRequests()
 			.antMatchers("/my_page/**").authenticated()
+			.antMatchers("/payment/couponIssue").authenticated()
 			//.antMatchers("/acc/payment_info").authenticated()// 해당 주소로 요청이 들어오면 인증이 필요함
 			//.antMatchers("/acc/target/**").authenticated()		// 해당 주소로 요청이 들어오면 인증이 필요함
 			.antMatchers("/**/payment_info").authenticated()

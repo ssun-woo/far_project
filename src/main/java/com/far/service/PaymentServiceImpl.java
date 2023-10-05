@@ -48,4 +48,14 @@ public class PaymentServiceImpl implements PaymentService {
 		return paymentDao.getMember(memId);
 	}
 
+	@Override
+	public void pointEarn(Map<String, Object> pMap) {
+		paymentDao.pointEarn(pMap);
+	}
+
+//	@Override
+//	public void pointSub(Map<String, Object> psMap) {
+//		paymentDao.pointSub(psMap);
+//	}
+
 }

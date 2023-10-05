@@ -131,7 +131,7 @@
 					src="/upload/store_logo${store.storeLogo}"></a>
 				<div class="list_cont">
 					<div class="shop_Name">
-						<h3>${store.storeName }</h3>
+						<h3>${store.storeName}</h3>
 					</div>
 			
 					<p>등급미정</p>

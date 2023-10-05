@@ -13,10 +13,10 @@
 
 	<select id="get_possible_list" parameterType="map" resultType="room">
 	SELECT *
-FROM room r
-WHERE r.maxnum >= #{totalPeople}
-  AND r.storeNum = #{storeNum}
-  AND r.roomNum NOT IN (
+	FROM room r
+	WHERE r.maxnum >= #{totalPeople}
+ 	AND r.storeNum = #{storeNum}
+  	AND r.roomNum NOT IN (
     SELECT res.roomNum
     FROM reservation res
     WHERE (#{startDay} >= startday  AND endday > #{startDay} )
@@ -31,7 +31,7 @@ WHERE r.maxnum >= #{totalPeople}
 	<select id="test" resultType="int">
 		select count(*) from dateTest where testdate >= #{date}
 	</select>
-
+	
 </mapper>
  
  

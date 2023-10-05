@@ -13,8 +13,7 @@ import lombok.Setter;
 //		roomNum
 //	);
 
-@Getter
-@Setter
+
 public class ResvDTO {
 
 	private int resvNum;
@@ -22,32 +21,52 @@ public class ResvDTO {
 	private int roomNum;
 	private String memId;
 
-	private String start_day;
-	private String end_day;
-	private int people_num;
-	public void setResv_num(int i) {
-		// TODO Auto-generated method stub
-		
+	private String startDay;
+	private String endDay;
+	private int peopleNum;
+	public int getResvNum() {
+		return resvNum;
 	}
-	public void setStore_num(int store_num2) {
-		// TODO Auto-generated method stub
-		
+	public void setResvNum(int resvNum) {
+		this.resvNum = resvNum;
 	}
-	public void setMemId(String id) {
-		// TODO Auto-generated method stub
-		
+	public int getStoreNum() {
+		return storeNum;
 	}
-	public void setStart_day(String string) {
-		// TODO Auto-generated method stub
-		
+	public void setStoreNum(int storeNum) {
+		this.storeNum = storeNum;
 	}
-	public void setEnd_day(String string) {
-		// TODO Auto-generated method stub
-		
+	public int getRoomNum() {
+		return roomNum;
 	}
-	public void setPeople_num(int i) {
-		// TODO Auto-generated method stub
-		
+	public void setRoomNum(int roomNum) {
+		this.roomNum = roomNum;
 	}
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	public String getStartDay() {
+		return startDay;
+	}
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
+	}
+	public String getEndDay() {
+		return endDay;
+	}
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
+	}
+	public int getPeopleNum() {
+		return peopleNum;
+	}
+	public void setPeopleNum(int peopleNum) {
+		this.peopleNum = peopleNum;
+	}
+	
+	
 
 }

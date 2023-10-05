@@ -327,6 +327,8 @@
 		return totalAmount;
 	}
 	
+	console.log("Point Discount: " + pointDiscount);
+	
 	function requestPay() {
 		var totalAmount = calculateTotalAmount();
 		
@@ -340,17 +342,29 @@
 			buyer_name: "${member.memId}",
 			buyer_tel: "${member.memTel}"
 		}, function (rsp) { // callback 
-			$.ajax({
-				type: 'POST',
-				url: '/payment/paymentEnds'
-			}).done(function(data) {
-				alert("결제 성공");
-				document.location.href="/payment/paymentEnd";
-			}); 
+			 if (rsp.success) {  // 결제가 성공한 경우
+				var totalAmount = calculateTotalAmount();
+				var pointEarn = totalAmount * 0.1;	// 포인트 적립금
+				var pointDiscount = parseFloat(document.getElementById("pointDiscount").textContent.replace(/[^\d.]/g, ''));
+				$.ajax({
+					type: 'POST',
+					url: '/payment/paymentEnds',
+	                data: JSON.stringify({pointDiscount: pointDiscount, pointEarn: pointEarn}),
+	                contentType: "application/json",
+	                success: function(response) {
+	                    alert("결제 성공 및 포인트 적립이 완료되었습니다.");
+	                    document.location.href="/payment/paymentEnd";
+	                },
+	                error: function(xhr, status, error) {
+	                    console.error("결제 성공, 포인트 적립 실패: " + error);
+	                }
+	            });
+	        } else {  // 결제가 실패한 경우
+	            alert("결제에 실패하였습니다: " + rsp.error_msg);
+	        }
 		});
 	}
 </script>
-
 
 		<button onclick="requestPay()">결제하기</button>
 		<input type="button" value="취소" class="cancle_button">

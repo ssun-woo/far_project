@@ -22,4 +22,8 @@ public interface PaymentDAO {
 
 	MemberDTO getMember(String memId);
 
+	void pointEarn(Map<String, Object> pMap);
+
+//	void pointSub(Map<String, Object> psMap);
+
 }

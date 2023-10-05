@@ -175,6 +175,7 @@ public class AccController {
 		int storeNum = Integer.parseInt(request.getParameter("store_num"));
 		List<ReviewDTO> rlist = reviewService.getReview(storeNum);
 		String cate = request.getParameter("cate");
+		StoreDTO s = accResvService.getInfo(storeNum);
 		
 		JJimDTO jdto = new JJimDTO();
 		jdto.setMemId("abdg1");
@@ -194,6 +195,7 @@ public class AccController {
 		mav.addObject("review_count",review_count);
 		mav.addObject("reviewList", rlist);
 		mav.addObject("storeNum", storeNum);
+		mav.addObject("s", s);
 		
 		return mav;
 	}
