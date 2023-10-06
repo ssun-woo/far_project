@@ -2,6 +2,9 @@
 
 .myPageListwrap {
 	width: 1300px;
+	 display: flex;
+	margin: 0 auto;
+	
 }
 
 .myPageReservation {
@@ -40,9 +43,7 @@
 	background-color: green;
 }
 
-.myPageListwrap {
-	display: flex;
-}
+
 
 .myPageList {
 	margin-left: 30px;
@@ -52,11 +53,10 @@
 }
 
 .myPageList>ul {
-	width: 170px;
+	width: 210px;
 	margin-top : 100px;
 	margin-right: 20px;
-	border: 1px solid black;
-	padding: 20px; /* 간격 벌리기 */
+	
 	padding-left: 20px;
 	margin-top: 100px;
 }

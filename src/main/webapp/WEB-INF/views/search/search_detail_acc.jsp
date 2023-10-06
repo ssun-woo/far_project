@@ -93,7 +93,7 @@
 												<div data-cell>
 													<div class="infoPrice" tabindex="0">
 														<p class="final">
-															<span class="bilnd">판매가</span> <strong>가격</strong> 원 ~
+															<span class="bilnd">판매가</span> <strong>${lowPrice[store.storeNum]}</strong> 원 ~
 															<!--  가격 -->
 														</p>
 													</div>

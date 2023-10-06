@@ -1,25 +1,24 @@
 @charset "UTF-8";
+.accContMain{
+	width: 1300px;
+   margin: auto;
+   
+}
+
+
+
 .shop_name{
 	display: flex;
-	margin-left: 350px;
-}
-.jjim_shop{
+	padding-left: 120px;
 	
 }
 .jjim_shop button{
-	 width : 45px;
-	 height: 35px;
-	margin-top: 20px;
-	margin-left: 5px;
 	background-color: white;
 	border: none;
 }
 
-.jjim_shop img{
-	width: 25px;
-	height: 25px;
-	margin-lrft: -20px;
-}
+
+
 .separator {
    margin-right: 4px;
    margin-left: 4px;
@@ -39,14 +38,19 @@
 /*숙박업체 사진 및 정보*/
 .shop_cont_top {
 	display: flex;
+	width: 1300px;
+	height: 350px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: 350px;
 }
 
 
 .shop_photo{
 	width: 500px;
 	height: 350px;
-	margin-left: 360px;
-	margin-top: 15px;
+	margin-left: 125px;
+	margin-bottom: 10px;
 }
 
 .shop_photo_div{
@@ -60,7 +64,7 @@
 
 .info_cate {
 	width: 200px;
-	margin-left: 10px;
+	
 	list-style: none;
 }
 
@@ -87,7 +91,7 @@
 	height: 100%;
 	margin-top: 40px;
 	border: 1px solid black;
-	margin-left: 350px;
+	margin:0 auto;
 }
 
 .shop_info_cont input[type=radio] {
@@ -812,6 +816,6 @@
 .list_button {
 	height: 50px;
 	width: 200px;
-	margin-left: 250px;
+	margin-right: 160px;
 }
 

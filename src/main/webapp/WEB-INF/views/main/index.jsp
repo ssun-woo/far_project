@@ -49,10 +49,10 @@
 				});
 			</script>
 			<!--------------------------   이벤트 게시물 미리보기  -------------------------->
-
+			
 			<div class="evFont">
-				<h2>✍️ 인기 후기 게시글</h2>
-				<h5 style="color: rgb(93, 93, 93);">누가누가 더 잘 갔다왔나</h5>
+				<h3><strong>✍️ 인기 후기 게시글</strong></h3>
+				<h5 style="color: rgb(90, 90, 90);">누가누가 더 잘 갔다왔나</h5>
 				<div class="exBox">
 					<ul class="exwrapbox">
 						<li class="exwrap">
@@ -144,10 +144,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
+								<br>
 									<!-- ---- 탑텐 텍스트 정보 ---- -->
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -162,9 +163,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -179,9 +182,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -196,9 +201,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -213,9 +220,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -230,9 +239,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -247,9 +258,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -264,21 +277,21 @@
 
 			<div class="butev">
 				<button>
-					<h3>
+					<h4>
 						<strong>🌮Taco Friday🌮</strong>
-					</h3>
+					</h4>
 					<a href=""></a>
 				</button>
 				<button>
-					<h3>
+					<h4>
 						<strong>🎂brithDay Party🎊</strong>
-					</h3>
+					</h4>
 					<a href=""></a>
 				</button>
 				<button>
-					<h3>
+					<h4>
 						<strong>⚽Let's Go Son7️⃣</strong>
-					</h3>
+					</h4>
 					<a href=""></a>
 				</button>
 			</div>
@@ -468,10 +481,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
+								<br>
 									<!-- ---- 탑텐 텍스트 정보 ---- -->
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -486,9 +500,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -503,9 +519,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -520,9 +538,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -537,9 +557,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -554,9 +576,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
@@ -571,9 +595,11 @@
 									<h4>카테고리</h4>
 								</div>
 								<div id="tptext">
-									<h4>&nbsp;가게이름</h4>
-									<h4>&nbsp;가격</h4>
-									<h4>&nbsp;상세내용</h4>
+								<br>
+									<!-- ---- 탑텐 텍스트 정보 ---- -->
+									<h5>&nbsp;가게이름</h5>
+									<h5>&nbsp;가격</h5>
+									<h5>&nbsp;상세내용</h5>
 								</div>
 							</div>
 						</li>
