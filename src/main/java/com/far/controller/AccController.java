@@ -62,7 +62,7 @@ public class AccController {
 
 	// 세부 카테 클릭 시 출력되는 목록
 	@RequestMapping("/list")
-	public ModelAndView acc_hotel(HttpServletRequest request, HttpSession session, Model model, @RequestParam(defaultValue = "0") int page) {
+	public ModelAndView acc_hotel(HttpServletRequest request, HttpSession session, Model model) {
 	    // 버튼을 눌러서 엄어올때는 여기에 값
 		String detailCate = request.getParameter("detail_cate");
 		
@@ -79,20 +79,18 @@ public class AccController {
 	    	countStore = storeService.countStore2(map);
 	    }
 	    
-	    System.out.println("detailCate : " + detailCate);
-	    Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "storeNum"));
 	    ModelAndView mav = new ModelAndView();
-	    Page<StoreDTO> storePage = storeService.storeList(pageable, detailCate);
-	    session.setAttribute("list", storePage);
+	    List<StoreDTO> storeList = storeService.storeList(detailCate);
+	    session.setAttribute("storeList", storeList);
 	    session.setAttribute("countStore", countStore);
-	    System.out.println("memId = " + memId);
+	    
 	    mav.setViewName("acc/acc_list");
 	    return mav;
 }
 
 	// 상품 상세보기
 	@RequestMapping("/cont")
-	public ModelAndView acc_cont(HttpServletRequest request) {
+	public ModelAndView acc_cont(HttpServletRequest request, int page) {
 		String detail_cate = request.getParameter("detail_cate"); // 현재 cate 받아옴
 		String cate = request.getParameter("cate"); // 현재 cate 받아옴
 		// int page = Integer.parseInt(request.getParameter("page")); // 페이지 책갈피 기능
@@ -127,6 +125,7 @@ public class AccController {
 		mav.addObject("sebu_cate", sebu_cate);
 		mav.setViewName("acc/acc_cont");
 		mav.addObject("mList", mList);
+		mav.addObject("page", page);
 
 		return mav;
 	}

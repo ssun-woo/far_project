@@ -29,14 +29,14 @@ public class MainController {
 	@RequestMapping("/")
 	public ModelAndView index(HttpSession session) {
 
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String memId = authentication.getName();
-        String memClass = findMemClass.findMemClass(memId);
-    
-        session.setAttribute("memId", memId);
+//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String memId = authentication.getName();
+//        String memClass = findMemClass.findMemClass(memId);
+//    
+//        session.setAttribute("memId", memId);
         ModelAndView mav = new ModelAndView("main/index");
-        mav.addObject("memId", memId);
-        session.setAttribute("memClass", memClass);
+//        mav.addObject("memId", memId);
+//        session.setAttribute("memClass", memClass);
         return mav;
 		
 	}

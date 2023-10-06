@@ -22,6 +22,4 @@ public interface PaymentService {
 
 	MemberDTO getMember(String memId);
 
-	void pointEarn(Map<String, Object> pMap);
-
 }

@@ -123,7 +123,7 @@
 			<hr>
 		</div>
 		
-		<c:forEach var="store" items="${list.content }">
+		<c:forEach var="store" items="${storeList}">
 		
 			<div class="list_div">
 
@@ -131,7 +131,7 @@
 					src="/upload/store_logo${store.storeLogo}"></a>
 				<div class="list_cont">
 					<div class="shop_Name">
-						<h3>${store.storeName}</h3>
+						<h3>${store.storeName }</h3>
 					</div>
 			
 					<p>등급미정</p>
@@ -141,7 +141,7 @@
 					<p>자가 무료주차 가능</p>
 				</div>
 				<div class="list_cont2">
-					<h2>75,000원</h2>
+					<h2>75000원</h2>
 					<p>★★★★☆</p>
 					<p>리뷰 196</p>
 					<div class="shop_JJim">
@@ -157,46 +157,5 @@
 
 	</div>
 </div>
-
-<div class="pagination">
-
-   <c:if test="${not empty list}">
-      <div class="pagination-list">
-         <table border="1">
-            <tr>
-               <td><a href="?detail_cate=${param.detail_cate}&page=0">첫 페이지</a></td>
-      
-				
-				<script>
-					var currentPage = ${list.number }; // 현재 페이지 번호
-					var pageSize = 5; // 한 번에 보여줄 페이지 인덱스 수
-					
-					if (endPage > totalPages) {
-					    endPage = totalPages;
-					}
-					
-					if (currentPage > 0) { // 현재 페이지가 1보다 큰 경우에만 "이전" 링크를 생성
-					    document.write('<td><a href="?detail_cate=${param.detail_cate}&page=' + (currentPage - 1) + '">이전</a></td>');
-					} else {
-					   document.write('');
-					}
-					
-					for (var i = startPage; i <= endPage; i++) {
-					    document.write('<td><a href="?detail_cate=${param.detail_cate}&page=' + (i - 1) + '">' + i + '</a></td>');
-					}
-					
-					if (currentPage < totalPages - 1) { // 현재 페이지가 마지막 페이지에서 두 번째 페이지보다 작을 경우에만 "다음" 표시
-					    document.write('<td><a href="?detail_cate=${param.detail_cate}&page=' + (currentPage + 1) + '">다음</a></td>');
-					}
-					console.log(currentPage);
-				</script>
-            
-            <td><a href="?detail_cate=${param.detail_cate}&page=${list.totalPages - 1}">마지막 페이지</a></td>
-            </tr>
-            
-            </table>
-        </div>
-        </c:if>
-   </div>
    
 <jsp:include page="../main/footer.jsp"/>

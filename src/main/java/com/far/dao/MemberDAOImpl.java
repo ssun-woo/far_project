@@ -28,7 +28,9 @@ public class MemberDAOImpl implements MemberDAO {
         sqlSession.update("resetPwd", resetPwd);
     }
 
-	
-
+	@Override
+	public String findMemClass(String memId) {
+		return sqlSession.selectOne("getMemClass", memId);
+	}
 
 }

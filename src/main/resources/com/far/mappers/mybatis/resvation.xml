@@ -6,10 +6,6 @@
 
 <mapper namespace="Resv">
 
-	<insert id="resv_acc">
-		insert into reservation values(#{resv_num}, #{store_num}, #{memId},
-		#{start_day}, #{end_day}, #{people_num})
-	</insert>
 
 	<select id="get_possible_list" parameterType="map" resultType="room">
 	SELECT *

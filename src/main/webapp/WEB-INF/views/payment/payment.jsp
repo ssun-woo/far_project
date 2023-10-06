@@ -315,55 +315,68 @@
 
 
 <script>
-	var IMP = window.IMP;
-	IMP.init("imp17372284");
-	
-	function calculateTotalAmount() {
-		var roomPrice = parseFloat("${room.roomPrice}");
-		var nights = parseInt("${nights}");
-		var couponDiscount = parseFloat(document.getElementById("couponDiscount").textContent.replace(/[^\d.]/g, '')); // 쿠폰 할인 금액 추출
-		var pointDiscount = parseFloat(document.getElementById("pointDiscount").textContent.replace(/[^\d.]/g, '')); // 포인트 할인 금액 추출
-		var totalAmount = roomPrice * nights - couponDiscount - pointDiscount;
-		return totalAmount;
-	}
-	
-	console.log("Point Discount: " + pointDiscount);
-	
-	function requestPay() {
-		var totalAmount = calculateTotalAmount();
-		
-		IMP.request_pay({
-			pg: 'kakaopay',
-			pay_method: "card",
-			merchant_uid: 'merchant_' + new Date().getTime(),   // 주문번호
-			name: "${room.roomName}",
-			amount: totalAmount, // 유동적으로 계산된 총 결제 금액 사용
-			buyer_email: "${member.memEmail}",
-			buyer_name: "${member.memId}",
-			buyer_tel: "${member.memTel}"
-		}, function (rsp) { // callback 
-			 if (rsp.success) {  // 결제가 성공한 경우
-				var totalAmount = calculateTotalAmount();
-				var pointEarn = totalAmount * 0.1;	// 포인트 적립금
-				var pointDiscount = parseFloat(document.getElementById("pointDiscount").textContent.replace(/[^\d.]/g, ''));
-				$.ajax({
-					type: 'POST',
-					url: '/payment/paymentEnds',
-	                data: JSON.stringify({pointDiscount: pointDiscount, pointEarn: pointEarn}),
-	                contentType: "application/json",
-	                success: function(response) {
-	                    alert("결제 성공 및 포인트 적립이 완료되었습니다.");
-	                    document.location.href="/payment/paymentEnd";
-	                },
-	                error: function(xhr, status, error) {
-	                    console.error("결제 성공, 포인트 적립 실패: " + error);
-	                }
-	            });
-	        } else {  // 결제가 실패한 경우
-	            alert("결제에 실패하였습니다: " + rsp.error_msg);
-	        }
-		});
-	}
+   var IMP = window.IMP;
+   IMP.init("imp17372284");
+   
+   function calculateTotalAmount() {
+      var roomPrice = parseFloat("${room.roomPrice}");
+      var nights = parseInt("${nights}");
+      var couponDiscount = parseFloat(document.getElementById("couponDiscount").textContent.replace(/[^\d.]/g, '')); // 쿠폰 할인 금액 추출
+      var pointDiscount = parseFloat(document.getElementById("pointDiscount").textContent.replace(/[^\d.]/g, '')); // 포인트 할인 금액 추출
+      var totalAmount = roomPrice * nights - couponDiscount - pointDiscount;
+      console.log('totalAmount : ' + totalAmount);
+      console.log('pointDiscount : ' + pointDiscount);
+      
+      return totalAmount;
+   }
+   
+   function requestPay() {
+       var totalAmount = calculateTotalAmount();
+	   var pointEarn = totalAmount * 0.1;
+       IMP.request_pay({
+           pg: 'kakaopay',
+           pay_method: "card",
+           merchant_uid: 'merchant_' + new Date().getTime(),   // 주문번호
+           name: "${room.roomName}",
+           amount: totalAmount, // 유동적으로 계산된 총 결제 금액 사용
+           buyer_email: "${member.memEmail}",
+           buyer_name: "${member.memId}",
+           buyer_tel: "${member.memTel}"
+       }, function (rsp) { // callback 
+           if (rsp.success) {
+               // 결제 성공 처리
+               var totalAmount = calculateTotalAmount();
+               var pointEarn = totalAmount * 0.01;   // 포인트 적립금
+               var pointDiscount = parseFloat(document.getElementById("pointDiscount").textContent.replace(/[^\d.]/g, ''));
+
+               $.ajax({
+                   type: 'POST',
+                   url: '/payment/paymentEnds',
+                   data: {
+                       resvNum: 'merchant_' + new Date().getTime(),
+                       storeNum: "${store.storeNum}",
+                       storeName: "${store.storeName}",
+                       roomNum: "${room.roomNum}",
+                       roomName: "${room.roomName}",
+                       memId: "${member.memId}",
+                       amount: totalAmount,
+                       sdate: "${sdate}",
+                       edate: "${edate}",
+                       pointDiscount: pointDiscount,
+                       pointEarn: pointEarn
+                   }
+               }).done(function (data) {
+                   alert("결제 성공");
+                   document.location.href = "/payment/paymentEnd";
+               });
+           } else {
+               // 결제 실패 처리
+               alert("결제 실패");
+               document.location.href = "/";
+           }
+       });
+   }
+
 </script>
 
 		<button onclick="requestPay()">결제하기</button>

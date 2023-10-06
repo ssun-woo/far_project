@@ -48,9 +48,4 @@ public class PaymentDAOImpl implements PaymentDAO {
 		return sqlSession.selectOne("getMember", memId);
 	}
 
-	@Override
-	public void pointEarn(Map<String, Object> pMap) {
-		sqlSession.update("pointEarn", pMap);
-	}
-
 }
