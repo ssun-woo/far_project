@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.far.dao.FindMemClassDAO;
-import com.far.dto.StoreDTO;
 import com.far.service.CeoService;
 
 
@@ -30,14 +29,14 @@ public class MainController {
 	@RequestMapping("/")
 	public ModelAndView index(HttpSession session) {
 
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String memId = authentication.getName();
-        String memClass = findMemClass.findMemClass(memId);
-    
-        session.setAttribute("memId", memId);
+//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String memId = authentication.getName();
+//        String memClass = findMemClass.findMemClass(memId);
+//    
+//        session.setAttribute("memId", memId);
         ModelAndView mav = new ModelAndView("main/index");
-        mav.addObject("memId", memId);
-        session.setAttribute("memClass", memClass);
+//        mav.addObject("memId", memId);
+//        session.setAttribute("memClass", memClass);
         return mav;
 		
 	}

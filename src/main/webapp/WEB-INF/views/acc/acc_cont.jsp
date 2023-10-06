@@ -232,7 +232,7 @@
                         <p>성인0, 소아 0</p>
                      </div>
 
-                     <div class="personnel-controls">
+                     <div class="personnel-controls" style="width: 200px; height: 120px;">
                         <div class="personnelAdult">
                            <button id="decreaseAdult">-</button>
                            <span>성인</span> <span id="adultCount">2</span>
@@ -247,6 +247,8 @@
                      </div>
                   </div>
                </div>
+               <br>
+               <br>
                <h3>객실리스트</h3>
                <hr>
                <div id="roomListContainer">
@@ -765,7 +767,8 @@ function review_check(){
     
     if (memId === 'anonymousUser') {
         if (confirm("로그인이 필요한 기능입니다. 로그인 페이지로 이동하시겠습니까?")) {
-           window.open("http://localhost:7777/loginForm")
+           window.open("http://localhost:7777/loginForm");
+           location.reload();
         }
     } 
     

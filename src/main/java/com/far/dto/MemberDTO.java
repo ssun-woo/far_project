@@ -5,9 +5,6 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
-import lombok.Getter;
-import lombok.Setter;
-
 //CREATE TABLE member(
 //	memId 		varchar2(100)	primary key,	-- 아이디
 //	memPwd 		varchar2(100) 	not null,       -- 비밀번호
@@ -45,7 +42,7 @@ public class MemberDTO {
 	private String memClass;
 	
 	private int point;
-
+	
 	public String getMemId() {
 		return memId;
 	}

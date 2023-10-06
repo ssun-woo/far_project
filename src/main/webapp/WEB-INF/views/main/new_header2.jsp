@@ -147,9 +147,8 @@
 							<li><a href="/signUp">회원가입</a></li>
 						</c:if>
 
-
-						<li><a href="/my_page">마이페이지</a></li>
-
+						<li><a href="/chkResv">마이페이지</a></li>
+						
 						<c:if test="${memClass == 'Role_c' }">
 							<li><a href="ceo/index">내 가게 관리</a></li>
 						</c:if>

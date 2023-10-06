@@ -106,7 +106,7 @@ public class AccController {
 	    System.out.println("detailCate : " + detailCate);
 	    Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "storeNum"));
 	    ModelAndView mav = new ModelAndView();
-	    Page<StoreDTO> storePage = storeService.storeList(pageable, detailCate);
+	    List<StoreDTO> storePage = storeService.storeList(detailCate);
 	    
 	    Map<Integer, Integer> lowPrice = new HashMap<>();
 	    Map<Integer, Integer> reviewCount = new HashMap<>();

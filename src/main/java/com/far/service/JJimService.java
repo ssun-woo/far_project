@@ -1,7 +1,5 @@
 package com.far.service;
 
-import org.springframework.stereotype.Service;
-
 import com.far.dto.JJimDTO;
 
 public interface JJimService {

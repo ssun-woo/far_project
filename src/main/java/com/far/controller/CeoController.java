@@ -1,4 +1,3 @@
-
 package com.far.controller;
 
 import java.io.File;
@@ -40,7 +39,6 @@ public class CeoController {
 	public ModelAndView ceo_index() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		// id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		System.out.println(id);
 		List<StoreDTO> slist = ceoService.getStores(id);
 		ModelAndView mav = new ModelAndView("ceo/ceo_index");
@@ -63,7 +61,6 @@ public class CeoController {
 	public ModelAndView ceo_store_regi_ok(StoreDTO s, HttpServletRequest request) throws Exception {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		// id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		String saveFolder = request.getRealPath("upload/store_logo"); // 이진 파일 업로드 서버 경로
 		int fileSize = 5 * 1024 * 1024; // 이진파일 업로드 최대크기
 		MultipartRequest multi = null; // 이진파일을 가져올 참조변수
@@ -150,7 +147,6 @@ public class CeoController {
 	public ModelAndView store_choice(HttpSession session) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		// id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		List<StoreDTO> sList = ceoService.getStores(id);
 		ModelAndView mav = new ModelAndView();
 		System.out.println(sList.size());
@@ -159,16 +155,15 @@ public class CeoController {
 		return mav;
 	}
 
+
 	// 가게 관리 - 메뉴 관리 페이지 호출
 	@GetMapping("/store_menu_list")
 	public ModelAndView loadStoreMenuRegis(String store_num) {
-
 		int s_num = Integer.parseInt(store_num);
 		List<RoomDTO> mlist = ceoService.getMenuList(s_num);
 
 		for (RoomDTO r : mlist) {
 			System.out.println("방이름 : " + r.getRoomName());
-
 		}
 
 		StoreDTO s = ceoService.getStore(s_num);
@@ -273,8 +268,6 @@ public class CeoController {
 	// 메뉴 삭제
 	@RequestMapping("/store_menu_del")
 	public ModelAndView store_menu_del(int menu_id, int store_num, HttpServletRequest request) throws Exception {
-//      System.out.println(menu_id);
-//      System.out.println(store_num);
 		StoreDTO s = ceoService.getStore(store_num);
 		RoomDTO m = ceoService.getMenu(menu_id);
 		String delFolder = request.getRealPath("upload/store_menu/" + s.getCate());
@@ -348,8 +341,6 @@ public class CeoController {
 	    ceoService.storeUpdate(storeUpdate);
 	    return new ModelAndView("redirect:/ceo/store_info_edit_list?store_num=" + store_num);
 	}
-
-	
 	
 	// 가게 관리 - 메뉴 수정
 	@GetMapping("/store_menu_edit_ok")

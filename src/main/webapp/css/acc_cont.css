@@ -148,7 +148,7 @@
 .shop_info_cont hr {
 	border: 1px solid #303030;
 	border-width: thin;
-	margin-top: -1px;
+	margin-top: -9px;
 	transform: scaleY(0.5);
 }
 
@@ -167,7 +167,9 @@
 	margin-left: 350px;
 	border: 1px solid;
 }
-
+.roomListContainer{
+	margin-top: 50px;
+}
 .room_list {
 	margin-left: 350px;
 	margin-top: 20px;

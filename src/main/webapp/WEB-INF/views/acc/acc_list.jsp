@@ -36,8 +36,6 @@
 
 	</div>
 
-
-
 	<div class="list_main">
 		<div class="row">
 			<div class="col-md-9">
@@ -56,7 +54,7 @@
 					<div class="tab-pane fade show active" id="popularity"
 						role="tabpanel" aria-labelledby="popularity-tab">
 						<!-- 인기순 콘텐츠가 여기에 들어갑니다 -->
-						<c:forEach var="store" items="${list.content }" varStatus="loop">
+						<c:forEach var="store" items="${list }" varStatus="loop">
 
 							<div class="list_div">
 								<div class="img">
@@ -102,7 +100,6 @@
 							<hr>
 						</c:forEach>
 
-
 					</div>
 
 				</div>
@@ -113,30 +110,12 @@
 
 	</div>
 
-	<div class="pagination">
-
-		<c:if test="${not empty list}">
-			<div class="pagination-list">
-				<table>
-					<tr>
-						<td><a href="?page=0">첫 페이지 /</a></td>
-
-
-
-
-						<td><a href="?page=${list.totalPages - 1}">/ 마지막 페이지</a></td>
-					</tr>
-
-				</table>
-			</div>
-		</c:if>
-	</div>
 
 </div>
-</div>
+
 
 <jsp:include page="../main/footer.jsp" />
-</div>
+
 
 <script>
 	var currentPage = $
@@ -167,4 +146,3 @@
 	}
 	console.log(currentPage);
 </script>
-

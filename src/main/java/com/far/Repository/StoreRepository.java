@@ -1,5 +1,7 @@
 package com.far.Repository;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +15,6 @@ public interface StoreRepository extends JpaRepository<StoreDTO, Integer>{
 	Page<StoreDTO> findAll(Pageable pageable);
 
 	Page<StoreDTO> findByDetailCate(Pageable pageable, String detailCate);
+
 	
 }

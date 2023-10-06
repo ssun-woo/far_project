@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 //create table store(
 //       store_num int primary key,
