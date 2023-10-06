@@ -38,12 +38,6 @@ function store_regis_write_check() {
       return false;
    }
    
-   if($.trim($("#storeAddressSecond").val()) == "") {
-      alert("상세 주소를 입력하세요");
-      $("#storeAddress").val("").focus();
-      return false;
-   }
-   
    if($.trim($("#businessRegistrationNumber").val()) == "") {
       alert("사업자등록번호를 입력하세요");
       $("#businessRegistrationNumber").val("").focus();
