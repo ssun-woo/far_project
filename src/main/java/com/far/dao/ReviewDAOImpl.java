@@ -21,39 +21,37 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public void setReview(ReviewDTO rdto) {
-		sqlSession.insert("setReview", rdto);
+		sqlSession.insert("set_review", rdto);
 	}
 
 	@Override
 	public void delReview(int reviewNum) {
-		sqlSession.delete("delReview", reviewNum);		
+
+		sqlSession.delete("del_review", reviewNum);		
 	}
 
 	@Override
 	public void editReview(ReviewDTO dto) {
-		sqlSession.update("editReview",dto);
+		sqlSession.update("edit_review",dto);
 		
 	}
 
 	@Override
-	public ReviewDTO getUpdateReview(int review_num) {
-		return sqlSession.selectOne("get_update_review",review_num);
+	public ReviewDTO getUpdateReview(int reviewNum) {
+		return sqlSession.selectOne("get_update_review",reviewNum);
 	}
 
-//	@Override
-//	public void editReview(int review_num) {
-//		sqlSession.update("edit_review", review_num);
-//	}
+	@Override
+	public int getReivewCount(ReviewDTO rdto) {
+		return sqlSession.selectOne("review_count",rdto);
+	}
 
+	@Override
+	public void setRecommend(ReviewDTO rdto) {
+		sqlSession.update("recommend_up",rdto);
+		
+	}
 
-
-	
-
-
-
-
-
-	
 
 
 

@@ -1,5 +1,6 @@
 package com.far.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class StoreService {
 	@Autowired
 	private StoreDAO storeDAO;
 
-	public Page<StoreDTO> storeList(Pageable pageable, String detailCate) {
-		return storeRepository.findByDetailCate(pageable, detailCate);
+	public List<StoreDTO> storeList(String detailCate) {
+		return storeDAO.storeList(detailCate);
 	}
 	
 	public StoreDTO findById(int id) {
@@ -36,4 +37,9 @@ public class StoreService {
 	public int countStore2(Map<String, String> map) {
 		return storeDAO.countStore2(map);
 	}
+
+	public int getLowerPrice(int storeNum) {
+		return storeDAO.getLowerPrice(storeNum);
+	}
+
 }

@@ -1,5 +1,8 @@
 package com.far.controller;
 
+import java.io.IOException;
+import java.net.URLDecoder;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.far.dao.MemberDAO;
 import com.far.model.Member;
@@ -33,7 +37,10 @@ public class LoginController {
 	private FindIdService findIdService;
 	// 로그인 폼으로 이동
 	@GetMapping("/loginForm")
-	public String loginForm() {
+	public String loginForm(HttpServletRequest request) {
+		String referer = (String)request.getHeader("REFERER");
+		request.getSession().setAttribute("previousPage", referer);
+		
 		return "login/login";
 	}
 	
@@ -91,4 +98,15 @@ public class LoginController {
 	        return "main/index";
 	     
 	}
+	
+    @RequestMapping("/forwardToUri")
+    public String forwardToUri(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String uri = request.getParameter("uri");
+        if (uri != null) {
+            String decodedUri = URLDecoder.decode(uri, "UTF-8");
+            return "redirect:" + decodedUri;
+        } else {
+            return "redirect:/"; // URI가 전달되지 않은 경우의 기본 리다이렉트 페이지
+        }
+    }
 }

@@ -1,15 +1,18 @@
-@charset "UTF-8";
+
 
 #ceo_main {
 	margin-bottom: 50px;
 	width: 1300px;
+	height: 1300px;
+	margin-bottom: 30px;
 }
 
 #ceo_middle {
 	align-items: center;
-	/*height: 120px;*/
 	width: 1300px;
+	height: 120px;
 	margin-top: 20px;
+	height: 100%;
 }
 
 #center a{
@@ -22,7 +25,7 @@
 	margin-right: 20px;
 	display: flex;
 	justify-content: center;
-	display: flex;
+	
 }
 
 .ceo_list {
@@ -33,6 +36,12 @@
 	text-align: center;
 }
 
+.ceo_box {
+	height: 120px;
+	width: 120px;
+	
+	border-radius: 10px;
+}
 
 #ceo_list div:hover {
 	position: relative;
@@ -41,8 +50,14 @@
 	font-weight: bold;
 	cursor: pointer;
 }
+/*.ceo_box {*/
+/*	height: 60px;*/
+/*	width: 60px;*/
+/*	text-align: center;*/
+/*}*/
 
 .ceo_list p {
+	margin-top: 30px;
 	color: black;
 	font-weight: bold;
 }
@@ -56,6 +71,7 @@
 
 #contentArea {
 	width: 1300px;
+	height: 100%;
 	margin: auto;
 	margin-left: 20px;
 	margin-right: 20px;

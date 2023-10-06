@@ -32,23 +32,22 @@ public class CouponDTO {
 	private int couponNum;
 	private String memId;
 	private int couponUsed;
-
 	public String getCouponName() {
 		return couponName;
 	}
-	public void setCoupon_name(String couponName) {
+	public void setCouponName(String couponName) {
 		this.couponName = couponName;
 	}
-	public double getCouponDiscount() {
+	public double getCouponDiscountrate() {
 		return couponDiscountrate;
 	}
-	public void setCoupon_discount(int couponDiscountrate) {
+	public void setCouponDiscountrate(double couponDiscountrate) {
 		this.couponDiscountrate = couponDiscountrate;
 	}
 	public String getCouponStartDate() {
 		return couponStartDate;
 	}
-	public void setCoupon_startDate(String couponStartDate) {
+	public void setCouponStartDate(String couponStartDate) {
 		this.couponStartDate = couponStartDate;
 	}
 	public String getCouponEndDate() {
@@ -60,7 +59,7 @@ public class CouponDTO {
 	public int getCouponNum() {
 		return couponNum;
 	}
-	public void setCoupon_num(int couponNum) {
+	public void setCouponNum(int couponNum) {
 		this.couponNum = couponNum;
 	}
 	public String getMemId() {
@@ -75,5 +74,7 @@ public class CouponDTO {
 	public void setCouponUsed(int couponUsed) {
 		this.couponUsed = couponUsed;
 	}
+
+	 
 
 }

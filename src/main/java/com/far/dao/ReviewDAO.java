@@ -17,10 +17,11 @@ public interface ReviewDAO {
 
 	public ReviewDTO getUpdateReview(int reviewNum);
 
-//	void editReview(int review_num);
+	int getReivewCount(ReviewDTO rdto);
+
+	public void setRecommend(ReviewDTO rdto);
 
 
-	
 	
 
 }

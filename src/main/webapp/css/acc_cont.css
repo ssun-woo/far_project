@@ -27,8 +27,8 @@
 
 
 /*숙박 상세정보 전체*/
-.shop_cont {
-	width: 1000px;
+.shop_cont{
+	width: 100%;
 	height: 100%;
 	text-align: center;
 	margin-left: -100px;
@@ -41,21 +41,26 @@
 	display: flex;
 }
 
-.shop_photo {
-	width: 100px;
-	height: 60px;
-	margin-left: 350px;
+
+.shop_photo{
+	width: 500px;
+	height: 350px;
+	margin-left: 360px;
 	margin-top: 15px;
 }
 
-.shop_info {
+.shop_photo_div{
+	width: 500px;
+	height: 350px;
+}
+.shop_info{
 	width: 100%;
 	display: flex;
 }
 
 .info_cate {
 	width: 200px;
-	margin-left: 450px;
+	margin-left: 10px;
 	list-style: none;
 }
 
@@ -74,14 +79,7 @@
 	margin-bottom: 30px;
 }
 
-.shop_info_event img {
-	width: 450px;
-	height: 100px;
-	background-color: blue;
-	margin-left: 940px;
-	margin-top: -30px;
-	border-radius: 10px;
-}
+
 
 /* 내용 */
 .shop_info_cont {
@@ -96,9 +94,12 @@
 	display: none;
 }
 
-#service:checked ~ .tab label:nth-child(1), #information:checked ~ .tab label:nth-child(2),
-	#cancellation:checked ~ .tab label:nth-child(3), #map:checked ~ .tab label:nth-child(4),
-	#review:checked ~ .tab label:nth-child(5) {
+
+#service:checked ~ .tab label:nth-child(1),
+#information:checked ~ .tab label:nth-child(2),
+#cancellation:checked ~ .tab label:nth-child(3),
+#map_guide:checked ~ .tab label:nth-child(4) ,
+#review:checked ~ .tab label:nth-child(5) {
 	background-color: black;
 	color: white;
 	box-shadow: none;
@@ -108,10 +109,11 @@
 	display: none;
 }
 
-#service:checked ~ .shop_content div:nth-child(1), #information:checked 
-	 ~ .shop_content div:nth-child(2), #cancellation:checked ~
-	.shop_content div:nth-child(3), #map:checked ~ .shop_content div:nth-child(4),
-	#review:checked ~ .shop_content div:nth-child(5) {
+#service:checked ~ .shop_content div:nth-child(1),
+#information:checked ~ .shop_content div:nth-child(2),
+#cancellation:checked ~ .shop_content div:nth-child(3),
+#map_guide:checked ~ .shop_content div:nth-child(4) ,
+#review:checked ~ .shop_content div:nth-child(5) {
 	display: block;
 }
 
@@ -301,7 +303,13 @@
 }
 
 /*지도 상세보기*/
-.acc_map {
+
+#map{
+	margin-left: 355px;
+	width: 900px;
+	height:400px;
+}
+.acc_map{
 	width: 900px;
 	margin-left: -280px;
 	margin-top: 40px;
@@ -319,13 +327,6 @@
 	border: 1px solid;
 }
 
-.acc_map .kakao_map {
-	width: 850px;
-	height: 600px;
-	border: 1px solid;
-	margin-left: 375px;
-	margin-top: 40px;
-}
 
 /* 교통안내 */
 .guide {
@@ -548,6 +549,7 @@
 
 .review_rating_form {
 	margin-top: 50px;
+	margin-left: 150px;
 }
 
 .review_write h3 {
@@ -615,7 +617,7 @@
 	margin-right: 10px;
 }
 
-.review_recommend {
+#reviewRecommend{
 	background-color: white;
 	border: 1px solid lightgray;
 	border-radius: 5px;
@@ -626,17 +628,39 @@
 	margin-left: 60px
 }
 
-.review_recommend IMG {
+#reviewRecommend IMG{
 	margin-top: 2px;
 }
-
-.review_recommend p {
+#reviewRecommend p{
 	margin-left: 1px;
 	margin-top: 4px;
 	font-size: 13pt;
 	font-weight: lighter;
 	color: #a8a8a8;
 }
+
+#yes_re{
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 5px;
+	display: flex;
+	height: 30px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	margin-left: 60px
+}
+
+#yes_re IMG{
+	margin-top: 2px;
+}
+#yes_re p{
+	margin-left: 1px;
+	margin-top: 4px;
+	font-size: 13pt;
+	font-weight: lighter;
+	color: #000000;
+}
+
 
 .detail_review_table hr {
 	width: 910px;
@@ -655,6 +679,10 @@
 .table_space {
 	marigin-left: 540px;
 }
+#review_recommend:active{
+	border-color: black;
+	
+}
 /*글자수*/
 .text_length {
 	
@@ -669,11 +697,38 @@
 	margin-top: 5px;
 }
 /*별점*/
-#review_rating {
+
+#reviewRating{
 	width: 500px;
 	margin-top: -20px;
 	margin-bottom: 10px;
 	margin-left: -10px;
+	
+}
+#reviewRating fieldset{
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+#reviewRating fieldset legend{
+    text-align: left;
+}
+#reviewRating input[type=radio]{
+    display: none;
+}
+#reviewRating label{
+    font-size: 20pt;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#reviewRating label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#reviewRating label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#reviewRating input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
 
 #review_rating fieldset {
@@ -709,43 +764,38 @@
 }
 
 /*별점*/
-#review_rating_edit {
+
+#reviewRating_edit{
 	width: 500px;
 	margin-top: -20px;
 	margin-bottom: 10px;
 	margin-left: -10px;
 }
 
-#review_rating_edit fieldset {
-	display: inline-block;
-	direction: rtl;
-	border: 0;
+#reviewRating_edit fieldset{
+    display: inline-block;
+    direction: rtl;
+    border:0;
 }
-
-#review_rating_edit fieldset legend {
-	text-align: left;
+#reviewRating_edit fieldset legend{
+    text-align: left;
 }
-
-#review_rating_edit input[type=radio] {
-	display: none;
+#reviewRating_edit input[type=radio]{
+    display: none;
 }
-
-#review_rating_edit label {
-	font-size: 20pt;
-	color: transparent;
-	text-shadow: 0 0 0 #f0f0f0;
+#reviewRating_edit label{
+    font-size: 20pt;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
 }
-
-#review_rating_edit label:hover {
-	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+#reviewRating_edit label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-
-#review_rating_edit label:hover ~ label {
-	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+#reviewRating_edit label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-
-#review_rating_edit input[type=radio]:checked ~ label {
-	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+#reviewRating_edit input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
 
 .show .popup {
@@ -760,7 +810,8 @@
 }
 
 .list_button {
-	height: 100px;
-	width: 400px;
+	height: 50px;
+	width: 200px;
 	margin-left: 250px;
 }
+

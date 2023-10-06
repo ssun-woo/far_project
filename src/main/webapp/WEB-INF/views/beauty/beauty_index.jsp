@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<jsp:include page="../main/new_header2.jsp" />
+<jsp:include page="../main/new_header.jsp" />
 
 <div class="beauty_list">
 	
@@ -30,7 +30,7 @@
 		</a>
 	</div>
 </div>
-<div class="main">
+<main class="mainEv">
 	<section class="eventMs">
 		<div>
 			<a href="https://google.com"> <img
@@ -74,3 +74,4 @@
 	</script>
 
 <jsp:include page="../main/footer.jsp"/>
+</main>

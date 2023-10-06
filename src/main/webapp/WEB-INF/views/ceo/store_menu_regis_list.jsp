@@ -39,7 +39,7 @@
                     <c:if test="${!empty slist}">
                         <c:forEach var="s" items="${slist}">
                             <tr class="light-gray-bg">
-                                <td>${s.storeNum}</td>
+                                <td style="color: blue;">${s.storeNum}</td>
                                 <td>${s.cate}</td>
                                 <td>${s.detailCate}</td>
                                 <td><a href="store_menu_regis.jsp?mem_id=${s.memId}" style="color: #007bff;">${s.storeName}</a></td>

@@ -34,5 +34,7 @@
         where roomNum = #{roomNum}
     </update>
     
-
+	<update id="storeIntro_edit">
+		update store set storeIntro = #{storeIntro} , storeAddr1 = #{storeAddr1}, storeAddr2 = #{storeAddr2} where memId = #{memId};
+	</update>
  </mapper>

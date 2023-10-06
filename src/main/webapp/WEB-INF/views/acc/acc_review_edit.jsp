@@ -128,64 +128,64 @@
 
 
 /*별점*/
-#review_rating{
+#reviewRating{
 	width: 500px;
 	margin-top: -20px;
 	margin-bottom: 10px;
 	margin-left: 50px;
 	
 }
-#review_rating fieldset{
+#reviewRating fieldset{
     display: inline-block;
     direction: rtl;
     border:0;
 }
-#review_rating fieldset legend{
+#reviewRating fieldset legend{
     text-align: left;
 }
-#review_rating input[type=radio]{
+#reviewRating input[type=radio]{
     display: none;
 }
-#review_rating span{
+#reviewRating span{
 	color: gray;
 }
-#review_rating label{
+#reviewRating label{
     font-size: 20pt;
     color: transparent;
     text-shadow: 0 0 0 #f0f0f0;
 }
-#review_rating label:hover{
+#reviewRating label:hover{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-#review_rating label:hover ~ label{
+#reviewRating label:hover ~ label{
    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-#review_rating input[type=radio]:checked ~ label{
+#reviewRating input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
 	
 </style>
 </head>
 <body>
-	<form action="/acc/cont/update?cate=${cate}&store_num=${store_num}&review_num=${review_num}" method="post" id="reviewEditForm">
+	<form action="/acc/cont/update?detail_cate=${cate}&store_num=${store_num}&reviewNum=${reviewNum}&page=${page}" method="post" id="reviewEditForm">
 	
 					<table class="review_edit_table">
 					<tr>
-						<th><h2>후기 수정 (${review_num})</h2></th>
+						<th><h2>후기 수정 (${reviewNum})</h2></th>
 					</tr>
 					<tr>
 							
-								<td colspan="2"><div class="mb-3" id="review_rating" class="review_rating_edit"><fieldset>
+								<td colspan="2"><div class="mb-3" id="reviewRating" class="review_rating_edit"><fieldset>
 								<span>별점을 선택해주세요 </span>
-		<input type="radio" name="review_rating" value="5" id="rate1" <c:if test="${review_rating==5.0}">checked</c:if>>
+		<input type="radio" name="reviewRating" value="5" id="rate1" <c:if test="${reviewRating==5.0}">checked</c:if>>
 		<label for="rate1">★</label>
-		<input type="radio" name="review_rating" value="4" id="rate2" <c:if test="${review_rating==4.0}">checked</c:if>>
+		<input type="radio" name="reviewRating" value="4" id="rate2" <c:if test="${reviewRating==4.0}">checked</c:if>>
 		<label for="rate2">★</label>
-		<input type="radio" name="review_rating" value="3" id="rate3" <c:if test="${review_rating==3.0}">checked</c:if>>
+		<input type="radio" name="reviewRating" value="3" id="rate3" <c:if test="${reviewRating==3.0}">checked</c:if>>
 		<label for="rate3">★</label>
-		<input type="radio" name="review_rating" value="2" id="rate4" <c:if test="${review_rating==2.0}">checked</c:if>>
+		<input type="radio" name="reviewRating" value="2" id="rate4" <c:if test="${reviewRating==2.0}">checked</c:if>>
 		<label for="rate4">★</label>
-		<input type="radio" name="review_rating" value="1" id="rate5" <c:if test="${review_rating==1.0}">checked</c:if>>
+		<input type="radio" name="reviewRating" value="1" id="rate5" <c:if test="${reviewRating==1.0}">checked</c:if>>
 		<label for="rate5">★</label>
 	</fieldset>
 	
@@ -197,7 +197,7 @@
 						
 						<tr>
 							<th colspan="2"><textarea rows="10" cols="30"
-									id="review_cont" name="review_cont" class="review_edit_cont">${review_cont}</textarea></th>
+									id="reviewCont" name="reviewCont" class="review_edit_cont">${reviewCont}</textarea></th>
 						</tr>
 						<tr>
 						<td><a class="review_cancel_btn"><button type="reset" onclick="window.close(); opener.document.location.reload();">닫기</button></a>&nbsp;<a class="review_edit_btn"><button type="submit" id="edit_submit"  onclick="edit_check();">수정</button></a></td>

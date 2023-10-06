@@ -15,6 +15,7 @@
 <title>숙소 검색결과</title>
 </head>
 <body>
+<div class="searchArea">
 	<jsp:include page="../main/new_header2.jsp" />
 	<div class="tabArea">
 		<ul class="n1 nav nav-tabs" id="myTabs">
@@ -57,27 +58,27 @@
 				<c:otherwise>
 					<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 					<c:forEach var="store" items="${stores}" varStatus="loop">
-						<c:if test="${store.cate == 'food' && foodCount < 2}">
+						<c:if test="${store.cate == 'resto' && foodCount < 2}">
 							<!-- 최대 2개의 결과만 출력 -->
 							<div class="box_list">
 								<ul class="box_meun">
 									<li class="box_prd">
 										<div class="box_img">
-											<a href=""><img src="img/feature-6.jpg" alt="acc"></a>
+											<a href='/acc/cont?detail_cate=${store.detailCate}&store_num=${store.storeNum}'><img src="/upload/store_logo${store.storeLogo}" alt="acc"></a>
 										</div>
 										<div class="box_text">
 											<div data-row>
 												<div data-cell>
 													<div class="infoIcon">
-														<i class="icon icondHot">${store.detail_cate}</i> <i
-															class="icon"> ${store.store_addr} </i>
+														<i class="icon icondHot">${store.detailCate}</i> <i
+															class="icon"> ${store.storeAddr1} </i>
 													</div>
 												</div>
 											</div>
 											<div data-row>
 												<div data-cell>
 													<a href="">
-														<h5 class="infoTitle">${store.store_name}</h5>
+														<h5 class="infoTitle">${store.storeName}</h5>
 													</a>
 													<p class="infoSubTitle">이벤트</p>
 												</div>
@@ -93,12 +94,12 @@
 												<div data-cell>
 													<p class="infoInfostar">
 														<!-- 가게 등급 -->
-														${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}  <!-- 오류는 뜨지만 아주 잘 작동함...! -->
-														<strong>(${store.store_score})</strong>
+														${'<span>⭐</span>'.repeat(Math.floor(store.storeScore))}  <!-- 오류는 뜨지만 아주 잘 작동함...! -->
+														<strong>(${store.storeScore})</strong>
 													</p>
 													<p class="info">
 														<!-- 가게 상세 주소 -->
-														${store.store_detail_addr}
+														${store.storeAddr2}
 													</p>
 												</div>
 											</div>
@@ -129,5 +130,5 @@
 
 	<!-- footer -->
 	<jsp:include page="../main/footer.jsp" />
-
+</div>
 </body>

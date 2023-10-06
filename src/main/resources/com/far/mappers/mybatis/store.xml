@@ -7,7 +7,7 @@
  <mapper namespace="STORE">
 
     
-    <select id="get_detail_cate_list" resultType="store">
+    <select id="store_list" resultType="store">
        select * from store where detailCate = #{detailCate}
     </select>
     
@@ -46,6 +46,10 @@
     
     <select id="get_menu" resultType="room">
        select * from room where roomNum = #{menuId}
+    </select>
+    
+    <select id="get_lowerPrice" resultType="int">
+    	SELECT MIN(roomPrice) FROM room WHERE storeNum = #{storeNum}
     </select>
     
  </mapper>

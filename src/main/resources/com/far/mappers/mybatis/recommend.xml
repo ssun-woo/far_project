@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="recommend">
+
+	<!-- 추천 
+ 	<insert id="set_recommend">
+ 		insert into recommend(storeNum, memId, reviewNum) values (#{storeNum},#{memId},#{reviewNum})
+ 	</insert>-->
+ 	
+ 	<!-- 추천 여부
+ 	<select id="get_recommend" resultType="int">
+
+ 		select count(*) from recommend where memId=#{memId} and storeNum=#{storeNum} and reviewNum=#{reviewNum}
+ 	</select> -->
+ 	
+ 	<!-- 추천 취소
+ 	<delete id="del_recommend">
+ 		delete recommend where memId=#{memId} and storeNum=#{storeNum} and reviewNum=#{reviewNum}
+ 	</delete> -->
+ 	
+ 	<!-- 추천 개수 
+ 	<update id="count_recommend" parameterType="int">
+ 		update review set reviewRecommend = reiewRecommend+1 where reviewNum = #{reviewNum}
+ 	</update> -->
+ 	
+ 	
+ 	<!-- 게시글 추천수 -->
+	<update id="update_recommend" parameterType="int">
+	update review set reviewrecommend = reviewrecommend+1 where reviewNum = #{reviewNum}
+	</update>
+
+	<!-- 게시글 추천수취소 -->
+	<update id="update_recommend_cancel" parameterType="int">
+	update review set 
+	reviewRecommend = reviewRecommend - 1
+	where reviewNum = #{reviewNum}
+	</update>
+
+	<!-- 게시글 추천 시 Like 테이블에 insert -->
+	<insert id="set_recommend">
+	insert into recommend(recommendNo , reviewNum , memId) 
+	values((SELECT NVL(MAX(recommendNo), 0) + 1 FROM recommend) ,#{reviewNum} ,#{memId})
+	</insert>
+
+	<!-- 게시글 추천취소 시 delete -->
+	<delete id="del_recommend">
+	delete from recommend where reviewNum = #{reviewNum} and memId = #{memId}
+	</delete>
+
+	<!-- 게시글 추천 시 Check를 1로 만들어서 중복방지-->
+	<update id="check_recommend">
+	update recommend set recommendCheck = 1
+	where reviewNum = #{reviewNum} and memId = #{memId}
+	</update>
+
+	<!-- 게시글 추천취소 시 다시 0  -->
+	<update id="check_recommend_cancel">
+	update recommend set recommendCheck = 0
+	where reviewNum = #{reviewNum} and memId = #{memId}
+	</update>
+	
+	
+	<!-- 게시글 추천 중복방지 select문 -->
+<select id="recommend_count" resultType="int">
+    select count(*) from RECOMMEND where reviewNum = #{reviewNum} and memId = #{memId} 
+</select>
+ 	
+</mapper>
