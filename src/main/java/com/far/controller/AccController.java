@@ -121,7 +121,7 @@ public class AccController {
 
    // 상품 상세보기
    @RequestMapping("/cont")
-   public ModelAndView acc_cont(HttpServletRequest request) {
+   public ModelAndView acc_cont(HttpServletRequest request, @RequestParam(defaultValue = "0") int page) {
       String detail_cate = request.getParameter("detail_cate"); // 현재 cate 받아옴
       String cate = request.getParameter("cate"); // 현재 cate 받아옴
       // int page = Integer.parseInt(request.getParameter("page")); // 페이지 책갈피 기능
@@ -129,7 +129,7 @@ public class AccController {
       System.out.println("store_num : " + store_num);
       
       String date = request.getParameter("date2");
-      System.out.println("date2 : " + date);
+      //System.out.println("date : " + date);
       
       StoreDTO s = accResvService.getInfo(store_num);
 
