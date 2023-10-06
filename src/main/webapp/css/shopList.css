@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+li {
+    list-style-type: none; /* 불릿 스타일을 'none'으로 설정하여 제거 */
+}
+
 .main_shop {
 /*  justify-content: center;*/
 /*  align-items: center;*/

@@ -15,6 +15,9 @@
 <script src="/js/rs_menu.js"></script>
 <script src="/js/rs_pic.js"></script>
 <script src="/js/acc_cont.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/search_detail.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/acc_search.css">
 <link rel="stylesheet" type="text/css" href="/css/acc_cont.css">
 <link rel="stylesheet" type="text/css" href="/css/accommodation.css">

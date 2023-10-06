@@ -9,7 +9,7 @@
 
         .evMain {
             padding-top: 30px;
-            padding-bottom: 10px;
+            padding-bottom: 60px;
         }
 
         .eventMs {
@@ -79,14 +79,16 @@
             content: "\e940";
         }
         
-                .evFont {
+        .evFont {
             text-align: center;
+            margin-top: 60px;
         }
                 .butev {
             text-align: center;
             /* 텍스트 가운데 정렬 */
-            margin-top: 20px;
-            /* 위 여백 추가 (원하는 값으로 조정 가능) */
+            
+            
+           
         }
 
         .butev button {

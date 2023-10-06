@@ -2,5 +2,3 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="../main/new_header2.jsp"/>
-
-
