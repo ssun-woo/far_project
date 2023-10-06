@@ -72,7 +72,7 @@
                   <div class="storeAddressArea">
                      <div class="storeAddressF">
                         <input type="text" id="storeAddressFirst" name="storeAddr1" placeholder="주소 검색">
-                           <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+                           <input type="button" onclick="sample6_execDaumPostcode()" value="주소 찾기"><br>
                         <!-- <button id="storeAddressSearchBtn">주소 검색</button> -->
                   
                         

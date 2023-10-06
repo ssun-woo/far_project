@@ -19,14 +19,14 @@
       
          <label class="jjim_shop">
             <c:if test="${JJim==0}">
-            <form action="/acc/cont/jjim?detail_cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
+            <form action="/acc/cont/jjim?detail_cate=${cate}&store_num=${store_num}&page=${page}" class="jjim_btn" id="jjim" method="POST">
                <button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
                <img src="../images/acc/NoJJim.png">
             </button>
             </form>
             </c:if>
             <c:if test="${JJim==1}">
-            <form action="/acc/cont/jjim_del?detail_cate=${cate}&store_num=${store_num}" class="jjim_btn" method="POST">
+            <form action="/acc/cont/jjim_del?detail_cate=${cate}&store_num=${store_num}&page=${page}" class="jjim_btn" method="POST">
                <button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
                <img src="../images/acc/YesJJim.png">
             </button>
@@ -232,7 +232,7 @@
                         <p>성인0, 소아 0</p>
                      </div>
 
-                     <div class="personnel-controls">
+                     <div class="personnel-controls" style="width: 200px; height: 120px;">
                         <div class="personnelAdult">
                            <button id="decreaseAdult">-</button>
                            <span>성인</span> <span id="adultCount">2</span>
@@ -247,6 +247,8 @@
                      </div>
                   </div>
                </div>
+               <br>
+               <br>
                <h3>객실리스트</h3>
                <hr>
                <div id="roomListContainer">
@@ -441,7 +443,7 @@
             <div class="review_rating_form">
             
             
-            <form name = "review" action="/acc/cont/review?detail_cate=${cate}&store_num=${store_num}" method="post" id="reviewForm">
+            <form name = "review" action="/acc/cont/review?detail_cate=${cate}&store_num=${store_num}&page=${page}" method="post" id="reviewForm">
                <table class="review_write">
                <tr>
                   <th colspan="2"><h3>후기 작성</h3></th>
@@ -508,7 +510,7 @@
                            
                            
                            <c:if test="${recommendCheck==null}">
-                           <form action="/acc/cont/recommend?detail_cate=${detailCate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="post" id="recommendBtn" name="reviewRecommend">
+                           <form action="/acc/cont/recommend?detail_cate=${detailCate}&store_num=${store_num}&reviewNum=${review.reviewNum}&page=${page}" method="post" id="recommendBtn" name="reviewRecommend">
                               <button type="submit" name="recommend" id="reviewRecommend" onclick="recommend_check(); updateLike(); return false;">
                                  <img src="../images/main/review_recommend.png">
                                  <p id="recommend_count">${review.reviewRecommend}</p>
@@ -527,35 +529,7 @@
                            </c:if>
                            </label>
                            
-                           <script>
-                           var reviewNum = ${review.reviewNum};
-                           var memId = document.getElementById('memId').value;
-
-                            function updateLike(){ 
-                                $.ajax({
-                                       type : "POST",  
-                                       url : "/cont",       
-                                       dataType : "json",   
-                                       data : {'reviewNum' : reviewNum, 'memId' : memId },
-                                       error : function(){
-                                          alert("통신 에러");
-                                       },
-                                       success : function(recommendCheck) {
-                                           
-                                               if(recommendCheck == 0){
-                                                  alert("추천완료.");
-                                                  location.reload();
-                                               }
-                                               else if (recommendChecks == 1){
-                                                alert("추천취소");
-                                                  location.reload();
-
-                                               
-                                           }
-                                       }
-                                   });
-                            }
-                           </script>
+                          
                            
                            
 
@@ -564,11 +538,11 @@
                            
                            <div class="review_edit_del">
                               
-                              <form action="/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="POST">
+                              <form action="/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}&page=${page}" method="POST">
                                     <input type="hidden" name="reviewNum" value="${review.reviewNum}">
                                   <button type="submit" onclick="del_edit_check()" class="edit_review_btn">수정</button>
                               </form>
-                              <form action="/acc/cont/delete?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="POST" >
+                              <form action="/acc/cont/delete?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}&page=${page}" method="POST" >
                                     <input type="hidden" name="reviewNum" value="${review.reviewNum}">
                                   <button type="submit" onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
                               </form>
@@ -586,7 +560,7 @@
                                  
                                    window.name = "cont"
                                    
-                                   window.open("/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum="+reviewNum,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
+                                   window.open("/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum="+reviewNum+"&page=${page}","update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
                                    // 수정 페이지의 URL 생성
                                   // var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
                                  //let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
@@ -722,9 +696,13 @@
     </script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a88d036132dec983608208b58361c621a88d036132dec983608208b58361c621" async></script>
                <script>
+               
+               
+               
+               
                var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
                 mapOption = { 
-                    center: new kakao.maps.LatLng(37.5750793, 126.981199), // 지도의 중심좌표
+                  center: new kakao.maps.LatLng(37.5750793, 126.981199), // 지도의 중심좌표
                     level: 3 // 지도의 확대 레벨
                 };
 
@@ -742,6 +720,8 @@
             marker.setMap(map);
             
             //map.setDraggable(false); 
+            
+            
                
    </script>
    
@@ -793,7 +773,8 @@ function review_check(){
     
     if (memId === 'anonymousUser') {
         if (confirm("로그인이 필요한 기능입니다. 로그인 페이지로 이동하시겠습니까?")) {
-           window.open("http://localhost:7777/loginForm")
+           window.open("http://localhost:7777/loginForm");
+           location.reload();
         }
     } 
     
@@ -932,7 +913,7 @@ function recommend_check(){
         document.getElementById("date2").value = dateValue;
         document.getElementById("totalCount").value = totalCount;
         
-        document.forms[1].submit();
+        document.forms[2].submit();
     }
 
 
@@ -940,7 +921,6 @@ function recommend_check(){
 
    </body>
    </html>
-
 
 
 
