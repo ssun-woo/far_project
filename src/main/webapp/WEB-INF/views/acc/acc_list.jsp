@@ -9,70 +9,7 @@
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <div class="main_shop">
 	<div class="shop_List">
-		<!-- <div class="filter">
-		<div class="filter_top">
-			<div>
-				<h4>가격 설정</h4>
-				<p>1박 기준 요금</p>
-			</div>
-			<button>필터 초기화</button>
-		</div>
-		<hr>
-
-		<div class="price_range">
-			<h5>가격대</h5>
-			<div class="middle">
-				<div class="multi-range-slider">
-					<input type="range" id="input-left" min="0" max="100" value="25">
-					<input type="range" id="input-right" min="0" max="100" value="75">
-
-					<div class="slider">
-						<div class="track"></div>
-						<div class="range"></div>
-						<div class="thumb left"></div>
-						<div class="thumb right"></div>
-					</div>
-				</div>
-				<script src="../js/price_range.js"></script>
-			</div>
-		</div>
-
-		<div class="price_input">
-			<input type="text" name="min_price" class="text_box" value="10000">
-			~ <input type="text" name="max_price" class="text_box"
-				value="16000000">
-		</div>
-		<hr>
-		<div class="theme">
-			<h5>테마</h5>
-			<input type="checkbox" name="all3"
-				onclick="allselect3(this.checked);"> <label>전체</label> <br>
-			<input type="checkbox" name="theme"> <label>반려동물</label> <br>
-			<input type="checkbox" name="theme"> <label>커플</label> <br>
-			<input type="checkbox" name="theme"> <label>가족</label>
-		</div>
-		<hr>
-
-		<div class="grade">
-			<h5>평점</h5>
-			<input type="checkbox"> 전체 <br> <input type="checkbox">
-			9점이상 <br> <input type="checkbox"> 8점 <br> <input
-				type="checkbox"> 7점 <br> <input type="checkbox">
-			6점 <br> <input type="checkbox"> 5점
-		</div>
-		<hr>
-
-		<div class="additional_facilities">
-			<h5>부대시설</h5>
-			<input type="checkbox"> 전체 <br> <input type="checkbox">
-			수영장 <br> <input type="checkbox"> 사우나 <br> <input
-				type="checkbox"> 스파 <br> <input type="checkbox">
-			키즈라운지 <br>
-		</div>
-
-	</div> -->
-		<div class="list_page">
-			<div class="list_top">
+		
 				<ul>
 					<li class="cate_name"><c:if test="${param.cate == 'motel'}">
 							<img src="../images/acc/motel.png">
@@ -105,7 +42,7 @@
 						<ul class="nav nav-tabs">
 							<li class="nav-item"><a class="nav-link active"
 								id="popularity-tab" data-toggle="tab" href="#popularity"
-								role="tab" aria-controls="popularity" aria-selected="true">인기순</a></li>
+								role="tab" aria-controls="popularity" aria-selected="true">최신순</a></li>
 							<li class="nav-item"><a class="nav-link" id="rating-tab"
 								data-toggle="tab" href="#rating" role="tab"
 								aria-controls="rating" aria-selected="false">평점 높은 순</a></li>
@@ -117,7 +54,7 @@
 							<div class="tab-pane fade show active" id="popularity"
 								role="tabpanel" aria-labelledby="popularity-tab">
 								<!-- 인기순 콘텐츠가 여기에 들어갑니다 -->
-								<c:forEach var="store" items="${list.content }">
+								<c:forEach var="store" items="${list.content }" varStatus="loop">
 
 									<div class="list_div">
 										<div class="img">
@@ -127,17 +64,19 @@
 										</div>
 										<div class="list_cont">
 											<div class="list_name">
-												<h3>${store.storeName }</h3>
+												<h4>${store.storeName }</h4>
 											</div>
 											<div class="list_addr">
 												<p>${store.storeAddr1 }</p>
 											</div>
 											<div class="list_detail">
-												<div class="cate_list">호텔</div>
+												<div class="cate_list">${store.detailCate}</div>
 											</div>
 											<div class="list_star">
-												<p>⭐⭐⭐⭐</p>
-												<p id="list_count">리뷰 196</p>
+												${'<span>⭐</span>'.repeat(Math.floor(store.storeScore))}
+														<!-- 오류는 뜨지만 아주 잘 작동함...! -->
+														<strong>(${store.storeScore})</strong>
+												
 											</div>
 
 										</div>
@@ -156,120 +95,17 @@
 
 											<div class="list_price">
 												<h2>
-													<strong>75,000원</strong>
+													<strong>"가격"원</strong>
 												</h2>
 												<h5>* 세금 포함된 가격입니다</h5>
 											</div>
 										</div>
 									</div>
-
+<hr>
 								</c:forEach>
-								<hr>
+								
 							</div>
-							<div class="tab-pane fade" id="rating" role="tabpanel"
-								aria-labelledby="rating-tab">
-								<!-- 평점 높은 순 콘텐츠가 여기에 들어갑니다 -->
-								<c:forEach var="store" items="${list.content }">
-
-									<div class="list_div">
-										<div class="img">
-											<a
-												href='/acc/cont?detail_cate=${store.detailCate}&store_num=${store.storeNum}'><img
-												src="/upload/store_logo${store.storeLogo}"></a>
-										</div>
-										<div class="list_cont">
-											<div class="list_name">
-												<h3>${store.storeName }</h3>
-											</div>
-											<div class="list_addr">
-												<p>${store.storeAddr1 }</p>
-											</div>
-											<div class="list_detail">
-												<div class="cate_list">호텔</div>
-											</div>
-											<div class="list_star">
-												<p>⭐⭐⭐⭐</p>
-												<p id="list_count">리뷰 196</p>
-											</div>
-
-										</div>
-										<div class="list_cont2">
-											<div class="list_JJim">
-												<div class="jjim_but">
-													<button type="button" onclick="imgToggle()">
-														<div id="yes">💖</div>
-													</button>
-													<button>
-														<div id="no">💔</div>
-													</button>
-												</div>
-											</div>
-
-
-											<div class="list_price">
-												<h2>
-													<strong>75,000원</strong>
-												</h2>
-												<h5>* 세금 포함된 가격입니다</h5>
-											</div>
-										</div>
-									</div>
-
-								</c:forEach>
-								<hr>
-							</div>
-							<div class="tab-pane fade" id="price" role="tabpanel"
-								aria-labelledby="price-tab">
-								<!-- 낮은 가격순 콘텐츠가 여기에 들어갑니다 -->
-								<c:forEach var="store" items="${list.content }">
-
-									<div class="list_div">
-										<div class="img">
-											<a
-												href='/acc/cont?detail_cate=${store.detailCate}&store_num=${store.storeNum}'><img
-												src="/upload/store_logo${store.storeLogo}"></a>
-										</div>
-										<div class="list_cont">
-											<div class="list_name">
-												<h3>${store.storeName }</h3>
-											</div>
-											<div class="list_addr">
-												<p>${store.storeAddr1 }</p>
-											</div>
-											<div class="list_detail">
-												<div class="cate_list">호텔</div>
-											</div>
-											<div class="list_star">
-												<p>⭐⭐⭐⭐</p>
-												<p id="list_count">리뷰 196</p>
-											</div>
-
-										</div>
-										<div class="list_cont2">
-											<div class="list_JJim">
-												<div class="jjim_but">
-													<button type="button" onclick="imgToggle()">
-														<div id="yes">💖</div>
-													</button>
-													<button>
-														<div id="no">💔</div>
-													</button>
-												</div>
-											</div>
-
-
-											<div class="list_price">
-												<h2>
-													<strong>75,000원</strong>
-												</h2>
-												<h5>* 세금 포함된 가격입니다</h5>
-											</div>
-										</div>
-									</div>
-
-								</c:forEach>
-								<hr>
-							</div>
+							
 						</div>
 
 					</div>

@@ -26,7 +26,7 @@
 				<li class="nav-item"><a class="nav-link active"
 					 href="/search?keyword=${keyword}">통합검색</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="acc/list?detail_cate=hotel">숙소</a></li>
+					href="/search/acc?keyword=${keyword}">숙소</a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="/search/food?keyword=${keyword}">음식</a></li>
 				<li class="nav-item"><a class="nav-link"
@@ -70,7 +70,7 @@
 											<ul class="box_meun">
 												<li class="box_prd">
 													<div class="box_img">
-														<a href=""><img src="images/ev_images/feature-4.jpg"
+														<a href='/acc/cont?detail_cate=${store.detailCate}&store_num=${store.storeNum}'><img src="/upload/store_logo${store.storeLogo}"
 															alt="acc"></a>
 													</div>
 													<div class="box_text">
@@ -149,13 +149,13 @@
 						<c:otherwise>
 							<!-- 데이터가 있는 경우, 데이터를 반복하여 표시 -->
 							<c:forEach var="store" items="${stores}" varStatus="loop">
-								<c:if test="${store.cate == 'food' && foodCount < 2}">
+								<c:if test="${store.cate == 'resto' && foodCount < 2}">
 									<!-- 최대 2개의 결과만 출력 -->
 									<div class="box_list">
 										<ul class="box_meun">
 											<li class="box_prd">
 												<div class="box_img">
-													<a href=""><img src="img/feature-6.jpg" alt="acc"></a>
+													<a href='/acc/cont?detail_cate=${store.detailCate}&store_num=${store.storeNum}'><img src="/upload/store_logo${store.storeLogo}" alt="acc"></a>
 												</div>
 												<div class="box_text">
 													<div data-row>
@@ -238,7 +238,7 @@
 									<ul class="box_meun">
 										<li class="box_prd">
 											<div class="box_img">
-												<a href=""><img src="img/feature-6.jpg" alt="acc"></a>
+												<a href=""><img src="/upload/store_logo${store.storeLogo}" alt="acc"></a>
 											</div>
 											<div class="box_text">
 												<div data-row>

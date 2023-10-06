@@ -1,6 +1,7 @@
 package com.far.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +65,10 @@ public class CeoDAOImpl implements CeoDAO {
 	public void editMenu(RoomDTO m) {
 		sqlSession.update("edit_menu", m);
 	}
+	
+	public void storeIntroUpdate(Map<String, String> storeUpdate) {
+		sqlSession.update("storeIntro_edit", storeUpdate);
+	}
 
+		
 }

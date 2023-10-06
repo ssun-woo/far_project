@@ -24,8 +24,8 @@
 						onclick="location='/ceo/store_list'"><strong>메뉴</strong> 등록 및
 						수정</li>
 					<li class="storeInfoEdit list-group-item"
-						onclick="loadStorePage2('info_edit')"><strong>소개글</strong> 및
-						정보 수정</li>
+								onclick="location='/ceo/store_info_edit_list'"><strong>소개글</strong>
+								및 정보 수정</li>
 				</ul>
 			</div>
 		</div>
@@ -81,6 +81,7 @@
 			</div>
 		</div>
 	</div>
+	<jsp:include page="ceo_footer.jsp" />
+	
 </div>
 
-<jsp:include page="ceo_footer.jsp" />

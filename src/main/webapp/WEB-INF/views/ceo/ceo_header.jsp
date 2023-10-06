@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+
 <head>
 <meta charset="UTF-8">
 <title></title>
@@ -23,12 +22,12 @@
 	href="../css/store_registration.css">
 
 </head>
-<body>
+
 	<div id="wrap">
 		<div id="top">
 			<div id="logo">
 				<a href="/"><img src="../images/main/logo.png" class="logoImg"></a>
-				<h3>CEO</h3>
+				<h3>CEO 페이지</h3>
 			</div>
 			<hr>
 		</div>

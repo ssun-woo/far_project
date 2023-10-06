@@ -22,8 +22,9 @@
 						onclick="location='/ceo/store_regi'"><strong>업체 등록</strong></li>
 					<li class="storeMenuRegis list-group-item" onclick="location='/ceo/store_list'"><strong>메뉴</strong>
 						등록 및 수정</li>
-					<li class="storeInfoEdit list-group-item" onclick="loadStorePage2('info_edit')"><strong>소개글</strong>
-						및 정보 수정</li>
+					<li class="storeInfoEdit list-group-item"
+								onclick="location='/ceo/store_info_edit_list'"><strong>소개글</strong>
+								및 정보 수정</li>
 				</ul>
 			</div>
 		</div>
@@ -33,18 +34,18 @@
 					<table class="table table-hover">
 					<thead>
 						<tr style="text-align: center;">
-							<th colspan="4">스토어 목록</th>
-							<!-- "Shop List" (상점 목록으로 변경) -->
+							<th colspan="4">메뉴 수정</th>
+							
 						</tr>
 						<tr>
-							<th>번호</th>
-							<!-- "no." (번호로 변경) -->
+							<th>No.</th>
+							
 							<th>업종</th>
-							<!-- "Business classification" (업종으로 변경) -->
+							
 							<th>상세 업종</th>
-							<!-- "Detailed classification" (상세 업종으로 변경) -->
+							
 							<th>가게 이름</th>
-							<!-- "Store Name" (가게 이름으로 변경) -->
+						
 						</tr>
 					</thead>
 						<tbody>

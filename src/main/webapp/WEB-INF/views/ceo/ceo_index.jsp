@@ -22,8 +22,9 @@
 						onclick="location='/ceo/store_regi'"><strong>업체 등록</strong></li>
 					<li class="storeMenuRegis list-group-item" onclick="location='/ceo/store_list'"><strong>메뉴</strong>
 						등록 및 수정</li>
-					<li class="storeInfoEdit list-group-item" onclick="loadStorePage2('info_edit')"><strong>소개글</strong>
-						및 정보 수정</li>
+					<li class="storeInfoEdit list-group-item"
+								onclick="location='/ceo/store_info_edit_list'"><strong>소개글</strong>
+								및 정보 수정</li>
 				</ul>
 
 			</div>

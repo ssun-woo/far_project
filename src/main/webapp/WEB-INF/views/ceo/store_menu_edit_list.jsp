@@ -5,7 +5,7 @@
 	<form>
 		<table border="1">
 			<tr style="text-align: center;">
-				<th colspan="4">가게 목록</th>
+				<th colspan="4">메뉴 수정</th>
 			</tr>
 			<tr>
 				<th>no.</th>
