@@ -42,7 +42,7 @@
 	
 	<!-- admin 쿠폰 등록 -->
 	<insert id="insertAdCoupon">
-		INSERT INTO coupon(couponName, couponDiscountrate, couponStartDate, couponEndDate) 
+		INSERT INTO coupon(COUPONNAME, couponDiscountrate, couponStartDate, couponEndDate) 
 		VALUES(#{couponName}, #{couponDiscountrate}, #{couponStartDate}, #{couponEndDate})
 	</insert>
 	

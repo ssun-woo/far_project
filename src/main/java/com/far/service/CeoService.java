@@ -1,6 +1,7 @@
 package com.far.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
@@ -28,7 +29,8 @@ public interface CeoService {
 	void delMenu(int menuId);
 
 	void editMenu(RoomDTO m);
-
+	
+	void storeUpdate(Map<String, String> storeUpdate);
 //	StoreDTO getCont(int store_num);
 
 }

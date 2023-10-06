@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 .searchArea {
 	width: 100%;
 	margin: 0 auto;
+=======
+
+
+
+.searchArea{
+	width: 1300px;
+   margin: 0 auto;
+>>>>>>> 6c709ce47b7c271da337773f204cb9ef34ab3109
 }
 
 .mainText {
@@ -144,6 +153,7 @@
 	font-size: 14px;
 }
 
+<<<<<<< HEAD
 .mainText {
 	margin-left: 15px;
 }
@@ -282,3 +292,5 @@
 	color: #777;
 	font-size: 14px;
 }
+=======
+>>>>>>> 6c709ce47b7c271da337773f204cb9ef34ab3109

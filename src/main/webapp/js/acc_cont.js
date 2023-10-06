@@ -42,16 +42,11 @@ function del_edit_check(){
 	if (!confirm("후기를 수정하시겠습니까?")) {
         window.location.reload();
     } else {
-    window.open("/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}","update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes");
+    window.open("/acc/cont/edit?cate=${cate}&storeNum=${storeNum}&reviewNum=${review.reviewNum}&page=${page}","update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes");
     }
 }
 
-function jjim_check(){
-	if (!confirm("찜 목록에 저장하시겠습니까?")) {
-        window.location.reload();
-    }
-    
-}
+
 
 
 function jjim_del_check(){
@@ -59,6 +54,13 @@ function jjim_del_check(){
         window.location.reload();
     }
 }
+
+function recommend_del_check(){
+	if (!confirm("리뷰 추천을 취소하시겠습니까?")) {
+        window.location.reload();
+    }
+}
+
 function submit_check(){
 	let rf = document.getElementById("reviewForm");
 	
@@ -82,6 +84,8 @@ function submit_check(){
 	return true;
 	}
 	});
+	
+	
 	
 }
 

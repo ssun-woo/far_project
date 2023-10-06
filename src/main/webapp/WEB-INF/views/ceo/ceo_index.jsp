@@ -11,42 +11,30 @@
 <script src="../js/store_main.js"></script>
 
 <jsp:include page="ceo_header.jsp" />
-<style>
-table {
-	width: 100%;
-}
 
-.first-line {
-	text-align: center;
-}
-
-.menuRegisForm img {
-	width: 150px;
-	height: 150px;
-}
-</style>
 
 <div id="contentArea">
 	<div class="storeMainWrap">
 		<div class="storeStickyArea">
 			<div class="storeMain">
-				<ul>
-					<li class="storeRegistrationMain"
+				<ul class="list-group list-group-flush">
+					<li class="storeRegistrationMain list-group-item"
 						onclick="location='/ceo/store_regi'"><strong>업체 등록</strong></li>
-					<li class="storeMenuRegis" onclick="location='/ceo/store_list'"><strong>메뉴</strong>
+					<li class="storeMenuRegis list-group-item" onclick="location='/ceo/store_list'"><strong>메뉴</strong>
 						등록 및 수정</li>
-					<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')"><strong>소개글</strong>
-						및 정보 수정</li>
+					<li class="storeInfoEdit list-group-item"
+								onclick="location='/ceo/store_info_edit_list'"><strong>소개글</strong>
+								및 정보 수정</li>
 				</ul>
 
 			</div>
 		</div>
 		<div id="storeContentArea">
 			<form>
-				<table class="table table-hover">
+				<table class="table">
 					<thead>
 						<tr style="text-align: center;">
-							<th colspan="4">상점 목록</th>
+							<th colspan="4">스토어 목록</th>
 							<!-- "Shop List" (상점 목록으로 변경) -->
 						</tr>
 						<tr>
@@ -83,9 +71,10 @@ table {
 			</form>
 		</div>
 	</div>
+	<jsp:include page="ceo_footer.jsp" />
 </div>
 
-<jsp:include page="ceo_footer.jsp" />
+
 
 <!-- <script>
 	var store_num = "${store_num}";

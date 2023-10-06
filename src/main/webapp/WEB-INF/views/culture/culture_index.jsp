@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<jsp:include page="../main/new_header2.jsp" />
+<jsp:include page="../main/new_header.jsp" />
 
 
 <div class="culture_list">
@@ -31,8 +31,9 @@
 		</a>
 	</div>
 </div>
-<div class="main">
-	<section class="evMain">
+<main class="mainEv">
+	
+			<section class="evMain">
 				<div class="eventMsBox">
 					<ul class="eventMs">
 						<li><a href=""> <img src="/images/ev_images/intev1.avif"
@@ -68,6 +69,5 @@
 
 				});
 			</script>
-
-</div>
 <jsp:include page="../main/footer.jsp"/>
+</main>

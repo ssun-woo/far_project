@@ -23,7 +23,7 @@ public class StoreService {
 	private StoreDAO storeDAO;
 
 	public List<StoreDTO> storeList(String detailCate) {
-		return storeRepository.findByDetailCate(detailCate);
+		return storeDAO.storeList(detailCate);
 	}
 	
 	public StoreDTO findById(int id) {
@@ -41,4 +41,5 @@ public class StoreService {
 	public int getLowerPrice(int storeNum) {
 		return storeDAO.getLowerPrice(storeNum);
 	}
+
 }
