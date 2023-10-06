@@ -21,7 +21,7 @@
 						및 정보 수정</li>
 				</ul>
 
-<<<<<<< HEAD
+
 							<div class="storeRegistration">
 								<label>업체 소개글</label>
 								<textarea id="storeIntro" name="storeIntro" rows="3"
@@ -83,8 +83,7 @@
 						</form>
 					</div>
 				</div>
-=======
->>>>>>> 9a7c4933f9f9c2d3bb70da333de0e8f80d866cc5
+
 			</div>
 		</div>
 

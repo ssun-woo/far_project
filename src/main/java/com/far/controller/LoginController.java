@@ -33,7 +33,10 @@ public class LoginController {
 	private FindIdService findIdService;
 	// 로그인 폼으로 이동
 	@GetMapping("/loginForm")
-	public String loginForm() {
+	public String loginForm(HttpServletRequest request) {
+		String referer = (String)request.getHeader("REFERER");
+		request.getSession().setAttribute("previousPage", referer);
+		
 		return "login/login";
 	}
 	
