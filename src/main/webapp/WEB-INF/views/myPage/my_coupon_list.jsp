@@ -7,17 +7,18 @@
 
 <!-- 뷰페이지 연결 X -->
 <form>
-	<table border="1" class="my_coupon_list">
+	<table border="1" class="my_coupon_list table table-hover">
+		<thead>
 		<tr class="cp_list_center">
 			<th colspan="3">보유 중인 쿠폰 목록</th>
 		</tr>
 		
 		<tr>
-			<th style="width: 300px;">쿠폰 이름</th>
-			<th style="width: 200px;">쿠폰 발급일</th>
-			<th style="width: 200px;">쿠폰 만료일</th>
+			<th>쿠폰 이름</th>
+			<th >쿠폰 발급일</th>
+			<th >쿠폰 만료일</th>
 		</tr>
-		
+		</thead>
 		<c:if test="${!empty cplist}">
 			<c:forEach var="cp" items="${cplist}">
 				<tr>

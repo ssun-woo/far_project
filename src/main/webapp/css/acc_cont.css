@@ -9,16 +9,17 @@
 .jjim_shop button{
 	 width : 45px;
 	 height: 35px;
-	margin-top: 20px;
+	 margin-top: 5px;
 	margin-left: 5px;
 	background-color: white;
 	border: none;
 }
 
 .jjim_shop img{
-	width: 25px;
-	height: 25px;
+	width: 35px;
+	height: 35px;
 	margin-lrft: -20px;
+	margin-top: -10px;
 }
 .separator {
    margin-right: 4px;
