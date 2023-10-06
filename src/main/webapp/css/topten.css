@@ -3,12 +3,18 @@
             position: relative;
             align-items: center;
             margin: 0 auto;
+            padding-top: 20px;
 
         }
-
+		
+		.tptext{
+			margin-top: 30px;
+		}
+		
         .topTen {
             width: 1400px;
             position: relative;
+           
             overflow: hidden;
             margin: 0 auto;
 
