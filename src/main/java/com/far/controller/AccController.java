@@ -279,7 +279,7 @@ public class AccController {
 	
 	//리뷰등록
 	@PostMapping("/cont/review")
-	public String acc_reviewForm(HttpServletRequest request,ReviewDTO rdto, int page) {
+	public String acc_reviewForm(HttpServletRequest request,ReviewDTO rdto, @RequestParam(defaultValue = "0") int page) {
 		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
@@ -426,7 +426,7 @@ public class AccController {
 	 
 	 	//리뷰 추천
 		@RequestMapping(value = "/cont/recommend" , method = RequestMethod.POST)
-		public ModelAndView updateRecommend(int reviewNum, String memId, HttpServletRequest request, int page)throws Exception{
+		public ModelAndView updateRecommend(int reviewNum, String memId, HttpServletRequest request, @RequestParam(defaultValue = "0") int page)throws Exception{
 	 		 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 			 String id = authentication.getName();
 				int store_num = Integer.parseInt(request.getParameter("store_num"));

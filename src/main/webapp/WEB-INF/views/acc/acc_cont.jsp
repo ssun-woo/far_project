@@ -527,35 +527,7 @@
                            </c:if>
                            </label>
                            
-                           <script>
-                           var reviewNum = ${review.reviewNum};
-                           var memId = document.getElementById('memId').value;
-
-                            function updateLike(){ 
-                                $.ajax({
-                                       type : "POST",  
-                                       url : "/cont",       
-                                       dataType : "json",   
-                                       data : {'reviewNum' : reviewNum, 'memId' : memId },
-                                       error : function(){
-                                          alert("통신 에러");
-                                       },
-                                       success : function(recommendCheck) {
-                                           
-                                               if(recommendCheck == 0){
-                                                  alert("추천완료.");
-                                                  location.reload();
-                                               }
-                                               else if (recommendChecks == 1){
-                                                alert("추천취소");
-                                                  location.reload();
-
-                                               
-                                           }
-                                       }
-                                   });
-                            }
-                           </script>
+                          
                            
                            
 
