@@ -82,11 +82,11 @@ public class AccController {
    // 세부 카테 클릭 시 출력되는 목록
    @RequestMapping("/list")
    public ModelAndView acc_hotel(HttpServletRequest request, HttpSession session, Model model, @RequestParam(defaultValue = "0") int page) {
-      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-      String id = authentication.getName();
+      //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+      //String id = authentication.getName();
 
       
-      System.out.println(id);
+      //System.out.println(id);
       // 버튼을 눌러서 엄어올때는 여기에 값
       String detailCate = request.getParameter("detail_cate");
 
@@ -103,7 +103,7 @@ public class AccController {
           countStore = storeService.countStore2(map);
        }
        
-       System.out.println("detailCate : " + detailCate);
+       //System.out.println("detailCate : " + detailCate);
        Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "storeNum"));
        ModelAndView mav = new ModelAndView();
        List<StoreDTO> storePage = storeService.storeList(detailCate);
@@ -116,8 +116,13 @@ public class AccController {
           // System.out.println("어떤식으로 나옴 : " + s);
           // System.out.println("이런것도됨? " + s.getStoreNum());
           
-          int lowerPrice = storeService.getLowerPrice(s.getStoreNum());
-          lowPrice.put(s.getStoreNum(), lowerPrice);
+    	   int lowerPrice = 0;
+    	   
+    	   if(storePage.size() != 0) {
+    		   lowerPrice = storeService.getLowerPrice(s.getStoreNum());
+    	   }
+            
+    	   	lowPrice.put(s.getStoreNum(), lowerPrice);
           
 //          int reviewCount2 = storeService.getReviewCount(s.getStoreNum());
 //          reviewCount.put(s.getStoreNum(), reviewCount2);
@@ -131,7 +136,7 @@ public class AccController {
        
        session.setAttribute("list", storePage);
        session.setAttribute("countStore", countStore);
-       System.out.println("memId = " + memId);
+       //System.out.println("memId = " + memId);
        
        mav.setViewName("acc/acc_list");
        mav.addObject("page", page);
