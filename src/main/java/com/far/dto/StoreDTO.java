@@ -62,7 +62,7 @@ public class StoreDTO {
     private String storeLogo;
 	
 	@Column(name = "REGDATE", columnDefinition = "TIMESTAMP DEFAULT SYSDATE")
-	private Timestamp regDate;
+	private String regDate;
 	
 	@Column(name = "STORESCORE", columnDefinition = "INT DEFAULT 0")
 	private int storeScore;
@@ -150,11 +150,11 @@ public class StoreDTO {
 		this.memId = memId;
 	}
 
-	public Timestamp getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(Timestamp regDate) {
+	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
 

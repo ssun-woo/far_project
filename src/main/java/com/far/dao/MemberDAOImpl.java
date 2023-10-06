@@ -19,7 +19,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public void insertMember(MemberDTO m) {
-		sqlSession.insert("memIn", m);
+		sqlSession.insert("mem_in", m);
 	}
 
 	@Override
@@ -31,11 +31,21 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
 	@Override
-	public String findMemClass(String memId) {
-		return sqlSession.selectOne("getMemClass", memId);
+	public int isexist_mem(MemberDTO memberDTO) {
+		int member = sqlSession.selectOne("memSelect", memberDTO);
+		return member;
 	}
-
 	
+	@Override
+    public String findIdEmail(@Param("memName") String memName, @Param("memTel") String memTel) {
+        // MyBatis를 사용하여 SQL 쿼리 실행
+        String memId = sqlSession.selectOne("findId", new HashMap<String, String>() {{
+            put("memName", memName);
+            put("memTel", memTel);
+        }});
+
+        return memId;
+    }
 
 
 }

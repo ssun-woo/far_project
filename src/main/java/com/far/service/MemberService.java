@@ -7,5 +7,6 @@ public interface MemberService {
 
 	void insertMember(MemberDTO m);
 	void updateMemPwd(String memPwd, String memId);
-	String findMemClass(String memId);
+	int isexist_mem(MemberDTO memberDTO);
+	
 }

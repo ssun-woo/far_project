@@ -21,7 +21,7 @@ public class StoreService {
 	private StoreDAO storeDAO;
 
 	public List<StoreDTO> storeList(String detailCate) {
-		return storeRepository.findByDetailCate(detailCate);
+		return storeDAO.storeList(detailCate);
 	}
 	
 	public StoreDTO findById(int id) {
@@ -34,5 +34,9 @@ public class StoreService {
 
 	public int countStore2(Map<String, String> map) {
 		return storeDAO.countStore2(map);
+	}
+
+	public int getLowerPrice(int storeNum) {
+		return storeDAO.getLowerPrice(storeNum);
 	}
 }

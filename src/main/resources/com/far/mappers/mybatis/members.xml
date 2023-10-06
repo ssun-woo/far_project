@@ -36,9 +36,5 @@
  		select * from member where memClass = #{memClass}
  	</select>
  	
- 	<select id="getMemClass" resultType="member">
- 		select * from member where memId = #{memId}
- 	</select>
- 	
  </mapper>
  

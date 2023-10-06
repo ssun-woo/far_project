@@ -22,9 +22,11 @@ public class MemberServiceImpl implements MemberService{
 	public void updateMemPwd(String memPwd, String memId) {
 		memberDao.updateMemPwd(memPwd, memId);
 	}
-
+	
 	@Override
-	public String findMemClass(String memId) {
-		return memberDao.findMemClass(memId);
+	public int isexist_mem(MemberDTO memberDTO) {
+		int member = memberDao.isexist_mem(memberDTO);
+		return member;
+		
 	}
 }

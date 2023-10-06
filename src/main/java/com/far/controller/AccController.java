@@ -2,8 +2,6 @@ package com.far.controller;
 
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.text.ParseException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -21,8 +19,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -67,8 +63,10 @@ public class AccController {
 
 	// 세부 카테 클릭 시 출력되는 목록
 	@RequestMapping("/list")
-	public ModelAndView acc_hotel(HttpServletRequest request, HttpSession session, Model model) {
-	    // 버튼을 눌러서 엄어올때는 여기에 값
+	public ModelAndView acc_hotel(HttpServletRequest request, HttpSession session, Model model, @RequestParam(defaultValue = "0") int page) {
+	    
+		
+		// 버튼을 눌러서 엄어올때는 여기에 값
 		String detailCate = request.getParameter("detail_cate");
 		
 	    String cate = request.getParameter("cate");
@@ -84,12 +82,44 @@ public class AccController {
 	    	countStore = storeService.countStore2(map);
 	    }
 	    
+	    System.out.println("detailCate : " + detailCate);
 	    ModelAndView mav = new ModelAndView();
-	    List<StoreDTO> storeList = storeService.storeList(detailCate);
-	    session.setAttribute("storeList", storeList);
-	    session.setAttribute("countStore", countStore);
+	    List<StoreDTO> storePage = storeService.storeList(detailCate);
 	    
+	    Map<Integer, Integer> lowPrice = new HashMap<>();
+	    Map<Integer, Integer> reviewCount = new HashMap<>();
+	    Map<Integer, Float> score = new HashMap<>(); 
+	    
+	    for(StoreDTO s : storePage) {
+	    	// System.out.println("어떤식으로 나옴 : " + s);
+	    	// System.out.println("이런것도됨? " + s.getStoreNum());
+	    	int lowerPrice = 0;
+	    	
+	    	if(storePage.size() != 0) {
+	    		lowerPrice = storeService.getLowerPrice(s.getStoreNum());
+	    	}
+	    	
+	    	lowPrice.put(s.getStoreNum(), lowerPrice);
+//	    	int reviewCount2 = storeService.getReviewCount(s.getStoreNum());
+//	    	reviewCount.put(s.getStoreNum(), reviewCount2);
+//	    	
+//	    	Float starScore = storeService.getStarScore(s.getStoreNum());
+//	    	score.put(s.getStoreNum(), starScore);
+	    	
+	    	
+	    }
+	   
+	    
+	    session.setAttribute("list", storePage);
+	    session.setAttribute("countStore", countStore);
+	    System.out.println("memId = " + memId);
 	    mav.setViewName("acc/acc_list");
+	    mav.addObject("page", page);
+	    if(storePage.size() != 0) {
+	    	mav.addObject("lowPrice", lowPrice);
+	    }else {
+	    	mav.addObject("lowPrice", 0);
+	    }
 	    return mav;
 }
 
@@ -100,6 +130,11 @@ public class AccController {
 		String cate = request.getParameter("cate"); // 현재 cate 받아옴
 		// int page = Integer.parseInt(request.getParameter("page")); // 페이지 책갈피 기능
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		System.out.println("store_num : " + store_num);
+		
+		String date = request.getParameter("date2");
+		System.out.println("date2 : " + date);
+		
 		StoreDTO s = accResvService.getInfo(store_num);
 
 		List<RoomDTO> mList = ceoService.getMenuList(store_num);
@@ -171,35 +206,35 @@ public class AccController {
 		return "redirect:/acc/cont?cate="+cate+"&storeNum="+storeNum;
 	}
 
-	//리뷰목록
-	@GetMapping("/cont")
-	public ModelAndView acc_reviewlist(HttpServletRequest request, ReviewDTO rdto) {
-		
-		int storeNum = Integer.parseInt(request.getParameter("store_num"));
-		List<ReviewDTO> rlist = reviewService.getReview(storeNum);
-		String cate = request.getParameter("cate");
-		
-		JJimDTO jdto = new JJimDTO();
-		jdto.setMemId("abdg1");
-		jdto.setStoreNum(storeNum);
-		System.out.println("memId:"+jdto);
-		
-		
-		int count = jjimService.getCount(jdto);
-		System.out.println("JJim_count: "+count);
-		
-		int review_count = reviewService.getReivewCount(rdto);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("acc/acc_cont");
-		mav.addObject("cate", cate);
-		mav.addObject("JJim",count);
-		mav.addObject("review_count",review_count);
-		mav.addObject("reviewList", rlist);
-		mav.addObject("storeNum", storeNum);
-		
-		return mav;
-	}
+//	//리뷰목록
+//	@GetMapping("/cont")
+//	public ModelAndView acc_reviewlist(HttpServletRequest request, ReviewDTO rdto) {
+//		
+//		int storeNum = Integer.parseInt(request.getParameter("store_num"));
+//		List<ReviewDTO> rlist = reviewService.getReview(storeNum);
+//		String cate = request.getParameter("cate");
+//		
+//		JJimDTO jdto = new JJimDTO();
+//		jdto.setMemId("abdg1");
+//		jdto.setStoreNum(storeNum);
+//		System.out.println("memId:"+jdto);
+//		
+//		
+//		int count = jjimService.getCount(jdto);
+//		System.out.println("JJim_count: "+count);
+//		
+//		int review_count = reviewService.getReivewCount(rdto);
+//		
+//		ModelAndView mav = new ModelAndView();
+//		mav.setViewName("acc/acc_cont");
+//		mav.addObject("cate", cate);
+//		mav.addObject("JJim",count);
+//		mav.addObject("review_count",review_count);
+//		mav.addObject("reviewList", rlist);
+//		mav.addObject("storeNum", storeNum);
+//		
+//		return mav;
+//	}
 	
 	//리뷰등록
 	@PostMapping("/cont")
@@ -397,7 +432,6 @@ public class AccController {
 		
 		return mav;
 	}
-	
 	
 
 }

@@ -11,7 +11,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-
+<<<<<<< Updated upstream
 <div class="container storeRegistrationForm">
 	<h2>업체 등록하기</h2>
 	<hr>
@@ -28,7 +28,7 @@
 				<option value="beauty">뷰티</option>
 			</select>
 		</div>
-
+=======
 	<div class="storeRegistrationForm">
 		<h2>업체 등록하기</h2>
 		<hr>
@@ -60,7 +60,7 @@
 				<textarea id="storeIntro" name="store_intro" rows="3"
 					placeholder="가게를 소개하는 글을 입력해주세요."></textarea>
 			</div>
-
+>>>>>>> Stashed changes
 
 		<div class="form-group storeRegistration">
 			<label for="typeSelect2">세부 선택</label> <select class="form-control"

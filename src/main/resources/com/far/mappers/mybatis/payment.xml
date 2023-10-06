@@ -55,4 +55,10 @@
 		INSERT INTO RESERVATION(RESVNUM, STORENUM, STORENAME, ROOMNUM, ROOMNAME, MEMID, AMOUNT, STARTDAY, ENDDAY)
 		VALUES(#{resvNum}, #{storeNum}, #{storeName}, #{roomNum}, #{roomName}, #{memId}, #{amount}, #{startDay}, #{endDay})
 	</insert>
+	
+	<update id="pointEarn" parameterType="hashmap">
+		UPDATE member
+		SET point = point - #{pointDiscount} + #{pointEarn} 
+		WHERE memId = #{memId}
+	</update>
 </mapper>

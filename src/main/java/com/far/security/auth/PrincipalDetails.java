@@ -31,12 +31,6 @@ public class PrincipalDetails implements UserDetails {
 	    
 	    return authorities;
 	}
-	
-
-	public String getAuthority() {
-	    // 사용자의 역할 (예: "ROLE_ADMIN")을 "ROLE_" 접두사와 함께 반환합니다.
-	    return member.getMemClass();
-	}
 
 
 	@Override

@@ -36,7 +36,6 @@ public class CeoController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
 		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
-		System.out.println(id);
 		List<StoreDTO> slist = ceoService.getStores(id);
 		ModelAndView mav = new ModelAndView("ceo/ceo_index");
 		mav.addObject("slist", slist);
@@ -48,8 +47,6 @@ public class CeoController {
 	public ModelAndView ceo_store_regi() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
-		System.out.println(id);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("ceo/ceo_store_reg");
 		return mav;
@@ -59,7 +56,6 @@ public class CeoController {
 	public ModelAndView ceo_store_regi_ok(StoreDTO s, HttpServletRequest request) throws Exception {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
-		//id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
 		String saveFolder = request.getRealPath("upload/store_logo"); // 이진 파일 업로드 서버 경로
 		int fileSize = 5 * 1024 * 1024; // 이진파일 업로드 최대크기
 		MultipartRequest multi = null; // 이진파일을 가져올 참조변수
@@ -151,7 +147,6 @@ public class CeoController {
       //id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
       List<StoreDTO> sList = ceoService.getStores(id);
       ModelAndView mav = new ModelAndView();
-      System.out.println(sList.size());
       mav.setViewName("ceo/store_list");
       mav.addObject("slist", sList);
       return mav;
@@ -276,8 +271,6 @@ public class CeoController {
    // 메뉴 삭제
    @RequestMapping("/store_menu_del")
    public ModelAndView store_menu_del(int menu_id, int store_num, HttpServletRequest request) throws Exception {
-//      System.out.println(menu_id);
-//      System.out.println(store_num);
       StoreDTO s = ceoService.getStore(store_num);
       RoomDTO m = ceoService.getMenu(menu_id);
       String delFolder = request.getRealPath("upload/store_menu/" + s.getCate());

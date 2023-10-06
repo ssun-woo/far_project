@@ -9,5 +9,6 @@ public interface MemberDAO {
 
 	void insertMember(MemberDTO m);
 	void updateMemPwd(String memPwd, String memId);
-	String findMemClass(String memId);
+	public int isexist_mem(MemberDTO memberDTO);
+	String findIdEmail(@Param("memName") String memName, @Param("memEmail") String memTel);
 }
