@@ -122,12 +122,13 @@
 		<div class="list_main">
 			<hr>
 		</div>
+		<script>
+			console.log(${lowPrice});
+		</script>
 		
 		<c:forEach var="store" items="${list.content }">
-		
 			<div class="list_div">
-
-				<a href='/acc/cont?detail_cate=${store.detailCate}&store_num=${store.storeNum}'><img
+				<a href='/acc/cont?detail_cate=${store.detailCate}&store_num=${store.storeNum}&page=${page}'><img
 					src="/upload/store_logo${store.storeLogo}"></a>
 				<div class="list_cont">
 					<div class="shop_Name">
@@ -141,7 +142,7 @@
 					<p>자가 무료주차 가능</p>
 				</div>
 				<div class="list_cont2">
-					<h2>75,000원</h2>
+					<h2>${lowPrice[store.storeNum]}원 ~</h2>
 					<p>★★★★☆</p>
 					<p>리뷰 (${review_count})</p>
 					

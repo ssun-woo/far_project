@@ -84,6 +84,7 @@ public class AccController {
 	public ModelAndView acc_hotel(HttpServletRequest request, HttpSession session, Model model, @RequestParam(defaultValue = "0") int page) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
+
 		
 		System.out.println(id);
 		// 버튼을 눌러서 엄어올때는 여기에 값
@@ -106,17 +107,42 @@ public class AccController {
 	    Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "storeNum"));
 	    ModelAndView mav = new ModelAndView();
 	    Page<StoreDTO> storePage = storeService.storeList(pageable, detailCate);
+	    
+	    Map<Integer, Integer> lowPrice = new HashMap<>();
+	    Map<Integer, Integer> reviewCount = new HashMap<>();
+	    Map<Integer, Float> score = new HashMap<>(); 
+	    
+	    for(StoreDTO s : storePage) {
+	    	// System.out.println("어떤식으로 나옴 : " + s);
+	    	// System.out.println("이런것도됨? " + s.getStoreNum());
+	    	
+	    	int lowerPrice = storeService.getLowerPrice(s.getStoreNum());
+	    	lowPrice.put(s.getStoreNum(), lowerPrice);
+	    	
+//	    	int reviewCount2 = storeService.getReviewCount(s.getStoreNum());
+//	    	reviewCount.put(s.getStoreNum(), reviewCount2);
+//	    	
+//	    	Float starScore = storeService.getStarScore(s.getStoreNum());
+//	    	score.put(s.getStoreNum(), starScore);
+	    	
+	    	
+	    }
+	   
+	    
 	    session.setAttribute("list", storePage);
 	    session.setAttribute("countStore", countStore);
 	    System.out.println("memId = " + memId);
 	    
 	    mav.setViewName("acc/acc_list");
+	    mav.addObject("page", page);
+	    mav.addObject("lowPrice", lowPrice);
 	    return mav;
 }
 
 	// 상품 상세보기
 	@RequestMapping("/cont")
-	public ModelAndView acc_cont(HttpServletRequest request) {
+	public ModelAndView acc_cont(HttpServletRequest request, @RequestParam(defaultValue = "0") int page) {
+
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
 		//int reviewNum =  Integer.parseInt(request.getParameter("reviewNum"));
@@ -197,7 +223,9 @@ public class AccController {
 		//mav.addObject("recommend",recommend_count);
 		mav.addObject("review_count",review_count);
 		mav.addObject("reviewList", rlist);
-		mav.addObject("id",id);
+
+		mav.addObject("page", page);
+
 
 		return mav;
 	}
@@ -206,7 +234,7 @@ public class AccController {
 
 	//찜 등록
 	@PostMapping("/cont/jjim")
-	public String jjim_btn(HttpServletRequest request, String memId) {
+	public String jjim_btn(HttpServletRequest request, String memId, @RequestParam(defaultValue = "0") int page) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
@@ -228,14 +256,14 @@ public class AccController {
 		
 		System.out.println("jjim : " + jjim);
         
-		return "redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num;
+		return "redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num+"&page="+page;
 	}
 	
 	//찜 삭제
 	@PostMapping("/cont/jjim_del")
-	public String jjim_del_btn(HttpServletRequest request) {
+	public String jjim_del_btn(HttpServletRequest request, int page) {
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
-		String cate = request.getParameter("cate");
+		String cate = request.getParameter("sebu_cate");
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
 		
@@ -245,14 +273,13 @@ public class AccController {
 		jdto.setStoreNum(store_num);
 		jjimService.delJJim(jdto);
 		
-		return "redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num;
+		return "redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num+"&page="+page;
 	}
 
 	
-	
 	//리뷰등록
 	@PostMapping("/cont/review")
-	public String acc_reviewForm(HttpServletRequest request,ReviewDTO rdto) {
+	public String acc_reviewForm(HttpServletRequest request,ReviewDTO rdto, int page) {
 		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
@@ -267,7 +294,7 @@ public class AccController {
 	
 		reviewService.setReview(rdto);
 		
-		return "redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num;
+		return "redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num+"&page="+page;
 	}
 	
 
@@ -275,7 +302,7 @@ public class AccController {
 	
 	//리뷰 삭제
 	 @RequestMapping("/cont/delete")
-	 public ModelAndView delete_review(HttpServletRequest request) {
+	 public ModelAndView delete_review(HttpServletRequest request, @RequestParam(defaultValue = "0") int page) {
 		 
 		 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 			String id = authentication.getName();
@@ -283,7 +310,7 @@ public class AccController {
 		 
 		 int reviewNum = Integer.parseInt(request.getParameter("reviewNum"));
 		 String store_num  = request.getParameter("store_num");
-		 String cate = request.getParameter("cate");
+		String cate = request.getParameter("cate");
 		 
 		 System.out.println(cate);
 		 System.out.println(store_num);
@@ -293,12 +320,12 @@ public class AccController {
 		 
 		 
 		 
-		 return new ModelAndView("redirect:/acc/cont?detail_cate=" + cate + "&store_num="+ store_num);
+		 return new ModelAndView("redirect:/acc/cont?detail_cate=" + cate + "&store_num="+ store_num +"&page="+page);
 	 }
 	 
 	 //리뷰 수정폼 이동
 	 @RequestMapping("/cont/edit")
-	 public ModelAndView edit_review(HttpServletRequest request) {
+	 public ModelAndView edit_review(HttpServletRequest request, @RequestParam(defaultValue = "0") int page) {
 		 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		 String id = authentication.getName();
 		 
@@ -333,13 +360,13 @@ public class AccController {
 	 
 	 //리뷰 수정
 	 @RequestMapping("/cont/update")
-	 public ModelAndView update_review(HttpServletRequest request, ReviewDTO dto){
+	 public ModelAndView update_review(HttpServletRequest request, ReviewDTO dto, @RequestParam(defaultValue = "0") int page, String cate){
 		 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		 String id = authentication.getName();
 		 System.out.println(id);
 		 int reviewNum = Integer.parseInt(request.getParameter("reviewNum"));
 		 String store_num  = request.getParameter("store_num");
-		 String cate = request.getParameter("cate");
+		 //String cate = request.getParameter("cate");
 		 
 		 System.out.println(cate);
 		 System.out.println(store_num);
@@ -347,61 +374,9 @@ public class AccController {
 		 
 		 reviewService.editReview(dto);
 		 
-		 return new ModelAndView("redirect:/acc/cont/edit?detail_cate=" + cate + "&store_num="+ store_num+"&reviewNum="+reviewNum);
+		 return new ModelAndView("redirect:/acc/cont/edit?detail_cate=" + cate + "&store_num="+ store_num+"&reviewNum="+reviewNum+"&page="+page);
 	 }
 	
-//		
-//		//리뷰 추천
-//		@RequestMapping("/cont/recommend")
-//		public String recommend_btn(HttpServletRequest request, String memId) {
-//			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//			String id = authentication.getName();
-//			int store_num = Integer.parseInt(request.getParameter("store_num"));
-//			int reviewNum = Integer.parseInt(request.getParameter("reviewNum"));
-//			//String jjim = request.getParameter("jjim");
-//			
-//			
-//			
-//			RecommendDTO redto = new RecommendDTO();
-//			redto.setMemId(id);
-//			redto.setReviewNum(reviewNum);
-//			redto.setStoreNum(store_num);
-//			System.out.println("리뷰 추천: "+redto);
-//			
-//			if(id!="anonymousUser") {
-//				recommendService.setRecommend(redto);
-//			}
-//			
-//			
-//					
-//			
-//			String cate = request.getParameter("cate");
-//			
-//	        
-//			return "redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num;
-//		}
-//		
-////		//리뷰 추천 개수
-////		@GetMapping("/cont/recommend")
-////		public ModelAndView recommend_count(HttpServletRequest request, String memId) {
-////			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-////			String id = authentication.getName();
-////			
-////			int reviewNum = Integer.parseInt(request.getParameter("reviewNum"));
-////			int store_num = Integer.parseInt(request.getParameter("store_num"));
-////			
-////			RecommendDTO redto = new RecommendDTO();
-////			redto.setMemId(id);
-////			redto.setStoreNum(store_num);
-////			redto.setReviewNum(reviewNum);
-////			System.out.println("reviewNum:"+reviewNum);
-////			
-////			ModelAndView mav = new ModelAndView();
-////			mav.addObject("reviewNum2",reviewNum);
-////			
-////			return mav;
-////		}
-//		
 		//추천 취소
 	 @RequestMapping(value = "/cont/recommend_del" , method = RequestMethod.POST)
 		public ModelAndView updateRecommend_del(int reviewNum, String memId, HttpServletRequest request)throws Exception{
@@ -451,7 +426,7 @@ public class AccController {
 	 
 	 	//리뷰 추천
 		@RequestMapping(value = "/cont/recommend" , method = RequestMethod.POST)
-		public ModelAndView updateRecommend(int reviewNum, String memId, HttpServletRequest request)throws Exception{
+		public ModelAndView updateRecommend(int reviewNum, String memId, HttpServletRequest request, int page)throws Exception{
 	 		 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 			 String id = authentication.getName();
 				int store_num = Integer.parseInt(request.getParameter("store_num"));
@@ -485,7 +460,7 @@ public class AccController {
 				
 				ModelAndView mav = new ModelAndView();
 				mav.addObject("recommendCheck",recommendCheck);
-				mav.setViewName("redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num);
+				mav.setViewName("redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num+"&page="+page);
 			
 				
 				//return null;

@@ -26,21 +26,21 @@
 		
 			<label class="jjim_shop">
 				<c:if test="${JJim==0}">
-				<form action="/acc/cont/jjim?detail_cate=${cate}&store_num=${store_num}" class="jjim_btn" id="jjim" method="POST">
+				<form action="/acc/cont/jjim?detail_cate=${cate}&store_num=${store_num}&page=${page}" class="jjim_btn" id="jjim" method="POST">
 					<button type="submit" name="jjim" id="no_jjim" onclick="jjim_check()">
 					<img src="../images/acc/NoJJim.png">
 				</button>
 				</form>
 				</c:if>
 				<c:if test="${JJim==1}">
-				<form action="/acc/cont/jjim_del?detail_cate=${cate}&store_num=${store_num}" class="jjim_btn" method="POST">
+				<form action="/acc/cont/jjim_del?detail_cate=${cate}&store_num=${store_num}&page=${page}" class="jjim_btn" method="POST">
 					<button type="submit" name="jjim" id="yes_jjim" onclick="jjim_del_check()">
 					<img src="../images/acc/YesJJim.png">
 				</button>
 				</form>
 				</c:if>
 				</label>
-				<input type="hidden" id="memId" value="${id}">
+				<input type="hidden" id="memId" value="${memId}">
 				
 				
 
@@ -77,7 +77,7 @@
 
 			</ul>
 			<ul class="info_cont">
-				<li><p>${region} / ${sebuCate}</p></li>
+				<li><p>${region} / ${sebu_cate}</p></li>
 				<li><p>
 
 						<a href="#target" onclick="review_count_page_btn()">${review_count}개</a>의 상품평
@@ -448,7 +448,7 @@
 				<div class="review_rating_form">
 				
 				
-				<form name = "review" action="/acc/cont/review?detail_cate=${cate}&store_num=${store_num}" method="post" id="reviewForm">
+				<form name = "review" action="/acc/cont/review?detail_cate=${cate}&store_num=${store_num}&page=${page}" method="post" id="reviewForm">
 					<table class="review_write">
 					<tr>
 						<th colspan="2"><h3>후기 작성</h3></th>
@@ -479,7 +479,7 @@
 						</tr>
 						<tr>
 						<td><input type="submit" value="등록"
-								onclick="submit_check();" class="ReviewWriteBtn"></td>
+								onclick="submit_check();  review_check();" class="ReviewWriteBtn"></td>
 						</tr>
 						
 					</table>
@@ -487,6 +487,7 @@
 				
 				</div>
 					<div class="review_form">
+					
 						<h3>이용후기 (${review_count}) </h3>
 						<div class="detail_review">
 
@@ -514,7 +515,7 @@
 									
 									
 									<c:if test="${recommendCheck==null}">
-									<form action="/acc/cont/recommend?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="post" id="recommendBtn" name="reviewRecommend">
+									<form action="/acc/cont/recommend?detail_cate=${detailCate}&store_num=${store_num}&reviewNum=${review.reviewNum}&page=${page}" method="post" id="recommendBtn" name="reviewRecommend">
 										<button type="submit" name="recommend" id="reviewRecommend" onclick="recommend_check(); updateLike(); return false;">
 											<img src="../images/main/review_recommend.png">
 											<p id="recommend_count">${review.reviewRecommend}</p>
@@ -566,15 +567,15 @@
 									
 
 									
-									<c:if test="${review.memId == id}">
+									<c:if test="${review.memId == memId}">
 									
 									<div class="review_edit_del">
 										
-										<form action="/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="POST">
+										<form action="/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}&page=${page}" method="POST">
    											<input type="hidden" name="reviewNum" value="${review.reviewNum}">
     										<button type="submit" onclick="del_edit_check()" class="edit_review_btn">수정</button>
 										</form>
-										<form action="/acc/cont/delete?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}" method="POST" >
+										<form action="/acc/cont/delete?detail_cate=${cate}&store_num=${store_num}&reviewNum=${review.reviewNum}&page=${page}" method="POST" >
    											<input type="hidden" name="reviewNum" value="${review.reviewNum}">
     										<button type="submit" onclick="return confirm('후기를 삭제하시겠습니까?')">삭제</button>
 										</form>
@@ -587,13 +588,12 @@
                                  // 클릭한 수정 버튼에 가까운 form 요소 찾기
                                    var form = $(this).closest("form");
 
-
 									        // 해당 form 내부에서 input 요소 중 name이 'review_num'인 것의 값을 가져오기
 									        var reviewNum = form.find("input[name='reviewNum']").val();
 											
 									        window.name = "cont"
 									        
-									        window.open("/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum="+reviewNum,"update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
+									        window.open("/acc/cont/edit?detail_cate=${cate}&store_num=${store_num}&reviewNum="+reviewNum+"&page=${page}","update","width=650px,height=490px,top=300px,left=300px,scrollbars=yes")
 									        // 수정 페이지의 URL 생성
 									       // var popUrl = "/acc/cont/edit?cate=${cate}&store_num=${store_num}&review_num="+review_num;
 											//let popOption = "width=650px,height=490px,top=300px,left=300px,scrollbars=yes"
@@ -793,6 +793,25 @@ function jjim_check(){
 
 }
 
+function review_check(){
+	
+
+	var memId = document.getElementById('memId').value;
+    
+    if (memId === 'anonymousUser') {
+        if (confirm("로그인이 필요한 기능입니다. 로그인 페이지로 이동하시겠습니까?")) {
+        	window.open("http://localhost:7777/loginForm")
+        }
+    } 
+    
+    
+    return false;
+    
+   	
+   	
+
+}
+
 function recommend_check(){
 	
 
@@ -825,7 +844,110 @@ function recommend_check(){
 
 
 
+
+
 </script>
+<script>
+   
+   
+   
+    $(document).ready(function() {
+       
+       console.log($('#date').val());
+       
+       loadPayPage3();
+       
+        $('#date').on('change', function() {
+           loadPayPage3();
+        });
+        
+        $('.personnel-controls').hide();
+       
+       $('.search2Personnel2 p').click(function() {
+           $('.personnel-controls').toggle();
+        });
+        
+       var adultCount = 2;
+       var childCount = 0;
+       updateCounts();
+       
+       $('#decreaseAdult').click(function() {
+           if (adultCount > 0) {
+             adultCount--;
+             updateCounts();
+             loadPayPage3();
+            }
+       });
+
+       $('#increaseAdult').click(function() {
+          adultCount++;
+            updateCounts();
+            loadPayPage3();
+       });
+
+       $('#decreaseChild').click(function() {
+          if (childCount > 0) {
+             childCount--;
+             updateCounts();
+             loadPayPage3();
+          }
+       });
+
+       $('#increaseChild').click(function() {
+            childCount++;
+            updateCounts();
+            loadPayPage3();
+       });
+
+       function updateCounts() {
+          $('#adultCount').text(adultCount);
+            $('#childCount').text(childCount);
+            $('.search2Personnel2 p').text('성인 ' + adultCount + ', 소아 ' + childCount);
+        }
+        
+        $(document).click(function(event) {
+            if (!$('.search2Personnel2 p').is(event.target) && !$('.personnel-controls').is(event.target) && $('.personnel-controls').has(event.target).length === 0) {
+                $('.personnel-controls').hide();
+            }
+        });
+    });
+
+    function loadPayPage3() {
+        var pageContent = document.getElementById('roomListContainer');
+        var dateValue = $('#date').val();
+        var adult = parseInt($('#adultCount').text());
+        var child = parseInt($('#childCount').text());
+        var totalCount = adult + child;
+        var store_num = ${param.store_num};
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                pageContent.innerHTML = this.responseText;
+            }
+        };
+        // 서버로 요청을 보낼 때 date 값을 포함하여 GET 요청 보내기
+        xhttp.open("GET", "/acc/reload_menu?date=" + dateValue + "&totalCount=" + totalCount + "&store_num=" + store_num, true);
+        xhttp.send();
+    }
+    
+   
+    function changeValues(roomNum) {
+        var dateValue = $('#date').val();
+        var adult = parseInt($('#adultCount').text());
+        var child = parseInt($('#childCount').text());
+        var totalCount = adult + child;
+        
+        document.getElementById("roomNum").value = roomNum;
+        document.getElementById("date2").value = dateValue;
+        document.getElementById("totalCount").value = totalCount;
+        
+        document.forms[2].submit();
+    }
+
+
+</script>
+
 	</body>
 	</html>
 
