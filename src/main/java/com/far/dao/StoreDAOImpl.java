@@ -22,5 +22,10 @@ public class StoreDAOImpl implements StoreDAO {
 	public int countStore2(Map<String, String> map) {
 		return sqlSession.selectOne("list_cate_keyword", map);
 	}
+
+	@Override
+	public int getLowerPrice(int storeNum) {
+		return sqlSession.selectOne("get_lowerPrice", storeNum);
+	}
 	
 }

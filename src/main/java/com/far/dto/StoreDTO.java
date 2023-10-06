@@ -60,6 +60,7 @@ public class StoreDTO {
    
    @Column(name = "STORELOGO")
     private String storeLogo;
+
    
    @Column(name = "REGDATE", columnDefinition = "TIMESTAMP DEFAULT SYSDATE")
    private Timestamp regDate;
@@ -69,6 +70,7 @@ public class StoreDTO {
    
    @Column(name = "AUTH", columnDefinition = "INT DEFAULT 0")
    private int auth;
+
 
    public int getStoreNum() {
       return storeNum;
@@ -150,6 +152,7 @@ public class StoreDTO {
       this.memId = memId;
    }
 
+
    public Timestamp getRegDate() {
       return regDate;
    }
@@ -157,6 +160,7 @@ public class StoreDTO {
    public void setRegDate(Timestamp regDate) {
       this.regDate = regDate;
    }
+
 
    public int getStoreScore() {
       return storeScore;

@@ -36,6 +36,7 @@
 
 	</div>
 
+
 	<div class="list_main">
 		<div class="row">
 			<div class="col-md-9">
@@ -103,6 +104,7 @@
 							</div>
 							<hr>
 						</c:forEach>
+
 
 					</div>
 
