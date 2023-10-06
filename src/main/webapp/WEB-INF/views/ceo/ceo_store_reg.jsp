@@ -1,7 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../js/store_main.js"></script>
 
 <jsp:include page="ceo_header.jsp" />
@@ -9,20 +15,24 @@
 
 
 <div id="contentArea">
-   <div class="storeMainWrap">
-      <div class="storeStickyArea">
-         <div class="storeMain">
-            <ul>
-               <li class="storeRegistrationMain"
-                  onclick="location='/ceo/store_regi'">업체 등록</li>
-               <li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴
-                  등록 및 수정</li>
-               <li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글
-                  및 정보 수정</li>
-            </ul>
+	<div class="storeMainWrap">
+		<div class="storeStickyArea">
+			<div class="storeMain">
+				<ul class="list-group list-group-flush">
+					<li class="storeRegistrationMain list-group-item"
+						onclick="location='/ceo/store_regi'"><strong>업체 등록</strong></li>
+					<li class="storeMenuRegis list-group-item"
+						onclick="location='/ceo/store_list'"><strong>메뉴</strong> 등록 및
+						수정</li>
+					<li class="storeInfoEdit list-group-item"
+						onclick="location='/ceo/store_info_edit_list'"><strong>소개글</strong>
+						및 정보 수정</li>
+				</ul>
 
-         </div>
-      </div>
+
+			</div>
+		</div>
+
 
 
       <div id="storeContentArea">
@@ -96,7 +106,9 @@
 </div>
 
 
-
+<br>
+<br>
+<br>
 <jsp:include page="ceo_footer.jsp" />
 
 <!-- <script>
@@ -394,25 +406,25 @@
 
 </script> -->
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-    function sample6_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+	function sample6_execDaumPostcode() {
+		new daum.Postcode({
+			oncomplete : function(data) {
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var addr = ''; // 주소 변수
-                var extraAddr = ''; // 참고항목 변수
+				// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				var addr = ''; // 주소 변수
+				var extraAddr = ''; // 참고항목 변수
 
-                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                    addr = data.roadAddress;
-                } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                    addr = data.jibunAddress;
-                }
-
+				//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+				if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+					addr = data.roadAddress;
+				} else { // 사용자가 지번 주소를 선택했을 경우(J)
+					addr = data.jibunAddress;
+				}
                 
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -423,4 +435,5 @@
             }
         }).open();
     }
+
 </script>

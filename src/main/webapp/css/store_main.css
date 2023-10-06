@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 .storeMainWrap {
-	width: 1350px;
-	height: 750px;
+	width: 1300px;
+	height: 1300px;
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: center;	/* 수평 중앙 정렬 */
@@ -19,15 +19,7 @@
 	
 }
 
-.storeMain {
-	border: 1px solid rgb(192, 192, 192);
-    width: 200px;
-    height: 250px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-   
-    
-}
+
  .storeMain li {
       padding-left: 10px; /* 점과 글자 사이의 간격을 조절하려면 이 값을 조정하세요. */
       margin-top: 20px; /* 각 목록 항목 사이에 추가 간격을 부여합니다. */
@@ -47,8 +39,9 @@
 
 #storeContentArea {
 	width: 950px;
+	height: 900px;
 	margin-left: 15px;
-	margin-top: 10px;
+/*	margin-top: 10px;*/
 }
 
 table {
@@ -65,4 +58,13 @@ table {
 .menuRegisForm img {
 	width: 150px;
 	height: 150px;
+}
+.menuRegisForm {
+	height: 100%;
+	width: 950px;
+}
+
+.contentArea{
+	height: 1100px;
+	width: 950px;
 }

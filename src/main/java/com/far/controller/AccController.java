@@ -261,7 +261,7 @@ public class AccController {
 	
 	//찜 삭제
 	@PostMapping("/cont/jjim_del")
-	public String jjim_del_btn(HttpServletRequest request, int page) {
+	public String jjim_del_btn(HttpServletRequest request, @RequestParam(defaultValue = "0") int page) {
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
 		String cate = request.getParameter("sebu_cate");
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

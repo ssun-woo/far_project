@@ -30,148 +30,152 @@ import lombok.ToString;
 @Table(name = "store")
 public class StoreDTO {
    
-	@Id
-	@Column(name = "STORENUM")
-	private int storeNum;
-	
-	@Column(name = "CATE")
+   @Id
+   @Column(name = "STORENUM")
+   private int storeNum;
+   
+   @Column(name = "CATE")
     private String cate;
-	
-	@Column(name = "DETAILCATE")
+   
+   @Column(name = "DETAILCATE")
     private String detailCate; // 세부 카페 예 - food 일경우 한식 일식 등
-	
-	@Column(name = "MEMID")
+   
+   @Column(name = "MEMID")
     private String memId;
-	
-	@Column(name = "STORENAME")
+   
+   @Column(name = "STORENAME")
     private String storeName;
-	
-	@Column(name = "STOREINTRO")
+   
+   @Column(name = "STOREINTRO")
     private String storeIntro;
-	
-	@Column(name = "STOREADDR1")
+   
+   @Column(name = "STOREADDR1")
     private String storeAddr1;
-	
-	@Column(name = "STOREADDR2")
+   
+   @Column(name = "STOREADDR2")
     private String storeAddr2;
-	
-	@Column(name = "REGNUM")
+   
+   @Column(name = "REGNUM")
     private String regNum;
-	
-	@Column(name = "STORELOGO")
+   
+   @Column(name = "STORELOGO")
     private String storeLogo;
-	
-	@Column(name = "REGDATE", columnDefinition = "TIMESTAMP DEFAULT SYSDATE")
-	private String regDate;
-	
-	@Column(name = "STORESCORE", columnDefinition = "INT DEFAULT 0")
-	private int storeScore;
-	
-	@Column(name = "AUTH", columnDefinition = "INT DEFAULT 0")
-	private int auth;
 
-	public int getStoreNum() {
-		return storeNum;
-	}
+   
+   @Column(name = "REGDATE", columnDefinition = "TIMESTAMP DEFAULT SYSDATE")
+   private Timestamp regDate;
+   
+   @Column(name = "STORESCORE", columnDefinition = "INT DEFAULT 0")
+   private int storeScore;
+   
+   @Column(name = "AUTH", columnDefinition = "INT DEFAULT 0")
+   private int auth;
 
-	public void setStoreNum(int storeNum) {
-		this.storeNum = storeNum;
-	}
 
-	public String getCate() {
-		return cate;
-	}
+   public int getStoreNum() {
+      return storeNum;
+   }
 
-	public void setCate(String cate) {
-		this.cate = cate;
-	}
+   public void setStoreNum(int storeNum) {
+      this.storeNum = storeNum;
+   }
 
-	public String getDetailCate() {
-		return detailCate;
-	}
+   public String getCate() {
+      return cate;
+   }
 
-	public void setDetailCate(String detailCate) {
-		this.detailCate = detailCate;
-	}
+   public void setCate(String cate) {
+      this.cate = cate;
+   }
 
-	public String getStoreName() {
-		return storeName;
-	}
+   public String getDetailCate() {
+      return detailCate;
+   }
 
-	public void setStoreName(String storeName) {
-		this.storeName = storeName;
-	}
+   public void setDetailCate(String detailCate) {
+      this.detailCate = detailCate;
+   }
 
-	public String getStoreIntro() {
-		return storeIntro;
-	}
+   public String getStoreName() {
+      return storeName;
+   }
 
-	public void setStoreIntro(String storeIntro) {
-		this.storeIntro = storeIntro;
-	}
+   public void setStoreName(String storeName) {
+      this.storeName = storeName;
+   }
 
-	public String getStoreAddr1() {
-		return storeAddr1;
-	}
+   public String getStoreIntro() {
+      return storeIntro;
+   }
 
-	public void setStoreAddr1(String storeAddr1) {
-		this.storeAddr1 = storeAddr1;
-	}
+   public void setStoreIntro(String storeIntro) {
+      this.storeIntro = storeIntro;
+   }
 
-	public String getStoreAddr2() {
-		return storeAddr2;
-	}
+   public String getStoreAddr1() {
+      return storeAddr1;
+   }
 
-	public void setStoreAddr2(String storeAddr2) {
-		this.storeAddr2 = storeAddr2;
-	}
+   public void setStoreAddr1(String storeAddr1) {
+      this.storeAddr1 = storeAddr1;
+   }
 
-	public String getRegNum() {
-		return regNum;
-	}
+   public String getStoreAddr2() {
+      return storeAddr2;
+   }
 
-	public void setRegNum(String regNum) {
-		this.regNum = regNum;
-	}
+   public void setStoreAddr2(String storeAddr2) {
+      this.storeAddr2 = storeAddr2;
+   }
 
-	public String getStoreLogo() {
-		return storeLogo;
-	}
+   public String getRegNum() {
+      return regNum;
+   }
 
-	public void setStoreLogo(String storeLogo) {
-		this.storeLogo = storeLogo;
-	}
+   public void setRegNum(String regNum) {
+      this.regNum = regNum;
+   }
 
-	public String getMemId() {
-		return memId;
-	}
+   public String getStoreLogo() {
+      return storeLogo;
+   }
 
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
+   public void setStoreLogo(String storeLogo) {
+      this.storeLogo = storeLogo;
+   }
 
-	public String getRegDate() {
-		return regDate;
-	}
+   public String getMemId() {
+      return memId;
+   }
 
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
-	}
+   public void setMemId(String memId) {
+      this.memId = memId;
+   }
 
-	public int getStoreScore() {
-		return storeScore;
-	}
 
-	public void setStoreScore(int storeScore) {
-		this.storeScore = storeScore;
-	}
+   public Timestamp getRegDate() {
+      return regDate;
+   }
 
-	public int getAuth() {
-		return auth;
-	}
+   public void setRegDate(Timestamp regDate) {
+      this.regDate = regDate;
+   }
 
-	public void setAuth(int auth) {
-		this.auth = auth;
-	}
-	
+
+   public int getStoreScore() {
+      return storeScore;
+   }
+
+   public void setStoreScore(int storeScore) {
+      this.storeScore = storeScore;
+   }
+
+   public int getAuth() {
+      return auth;
+   }
+
+   public void setAuth(int auth) {
+      this.auth = auth;
+   }
+   
 }

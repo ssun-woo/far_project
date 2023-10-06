@@ -1,6 +1,7 @@
 package com.far.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
@@ -26,7 +27,8 @@ public interface CeoDAO {
 	void delMenu(int menu_id);
 
 	void editMenu(RoomDTO m);
-
+	
+	void storeIntroUpdate(Map<String, String> storeUpdate);
 //	StoreDTO getCont(int store_num);
 
 }

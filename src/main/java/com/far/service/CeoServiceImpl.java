@@ -1,6 +1,7 @@
 package com.far.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,12 @@ public class CeoServiceImpl implements CeoService {
 	@Override
 	public void editMenu(RoomDTO m) {
 		ceoDao.editMenu(m);
+	}
+
+	@Override
+	public void storeUpdate(Map<String, String> storeUpdate) {
+		ceoDao.storeIntroUpdate(storeUpdate);
+		
 	}
 	
 	

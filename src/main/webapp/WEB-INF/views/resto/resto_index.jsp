@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<jsp:include page="../main/new_header2.jsp"/>
+<jsp:include page="../main/new_header.jsp"/>
 
 <div class="rest_list">
 	<div class="rest_list01">
@@ -42,7 +42,7 @@
 		</a>
 	</div>
 </div>
-<div class="main">
+<main class="mainEv">
  	<section class="eventMs">
 		<div>
 			<a href="https://google.com"> <img
@@ -84,6 +84,7 @@
 			autoplaySpeed : 12000,
 		});
 	</script>
-
-</div>
+	
+	
 <jsp:include page="../main/footer.jsp"/>
+</main>

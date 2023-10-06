@@ -12,52 +12,40 @@
 <script src="../js/store_main.js"></script>
 
 <jsp:include page="ceo_header.jsp" />
-<style>
-table {
-	width: 100%;
-}
 
-.first-line {
-	text-align: center;
-}
-
-.menuRegisForm img {
-	width: 150px;
-	height: 150px;
-}
-</style>
 <div id="contentArea">
 	<div class="storeMainWrap">
 		<div class="storeStickyArea">
 			<div class="storeMain">
-				<ul>
-					<li class="storeRegistrationMain"
-						onclick="location='/ceo/store_regi'">업체 등록</li>
-					<li class="storeMenuRegis" onclick="location='/ceo/store_list'">메뉴
+				<ul class="list-group list-group-flush">
+					<li class="storeRegistrationMain list-group-item"
+						onclick="location='/ceo/store_regi'"><strong>업체 등록</strong></li>
+					<li class="storeMenuRegis list-group-item" onclick="location='/ceo/store_list'"><strong>메뉴</strong>
 						등록 및 수정</li>
-					<li class="storeInfoEdit" onclick="loadStorePage2('info_edit')">소개글
-						및 정보 수정</li>
+					<li class="storeInfoEdit list-group-item"
+								onclick="location='/ceo/store_info_edit_list'"><strong>소개글</strong>
+								및 정보 수정</li>
 				</ul>
 			</div>
 		</div>
-		<div class="container mt-4">
+		<div >
 			<div id="storeContentArea">
 				<form>
 					<table class="table table-hover">
 					<thead>
 						<tr style="text-align: center;">
-							<th colspan="4">상점 목록</th>
-							<!-- "Shop List" (상점 목록으로 변경) -->
+							<th colspan="4">메뉴 수정</th>
+							
 						</tr>
 						<tr>
-							<th>번호</th>
-							<!-- "no." (번호로 변경) -->
+							<th>No.</th>
+							
 							<th>업종</th>
-							<!-- "Business classification" (업종으로 변경) -->
+							
 							<th>상세 업종</th>
-							<!-- "Detailed classification" (상세 업종으로 변경) -->
+							
 							<th>가게 이름</th>
-							<!-- "Store Name" (가게 이름으로 변경) -->
+						
 						</tr>
 					</thead>
 						<tbody>
@@ -67,7 +55,7 @@ table {
 									<tr
 										onclick="location='/ceo/store_menu_list?store_num=${s.storeNum}'">
 
-										<td>${s.storeNum}</td>
+										<td style="color: blue;">${s.storeNum}</td>
 										<td>${s.cate}</td>
 										<td>${s.detailCate}</td>
 										<td>${s.storeName}</td>
@@ -76,7 +64,7 @@ table {
 							</c:if>
 							<c:if test="${empty slist}">
 								<tr class="text-center">
-									<td colspan="4">There are no registered stores.</td>
+									<td colspan="4">동록된 정보가 존재하지 않습니다.</td>
 								</tr>
 							</c:if>
 						</tbody>
