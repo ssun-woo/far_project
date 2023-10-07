@@ -4,48 +4,54 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="STORE">
+<mapper namespace="STORE">
 
     
-    <select id="store_list" resultType="store">
-       select * from store where detailCate = #{detailCate}
+	<select id="store_list" resultType="store">
+       	SELECT store.*, roomCount FROM store
+      	LEFT JOIN (SELECT storeNum, COUNT(*) AS roomCount FROM room GROUP BY storeNum)
+   		roomCounts ON store.storeNum = roomCounts.storeNum
+   		WHERE store.detailCate = #{detailCate} AND NVL(roomCount, 0) >= 1
     </select>
     
     <select id="detailCateCount" resultType="int">
-       select count(*) from store where detailCate = #{detailCate}
+       	SELECT COUNT(*) AS recordCount FROM (SELECT store.*, roomCount FROM store
+       	LEFT JOIN (SELECT storeNum, COUNT(*) AS roomCount FROM room GROUP BY storeNum) 
+       	roomCounts ON store.storeNum = roomCounts.storeNum
+       	WHERE store.detailCate = #{detailCate} AND NVL(roomCount, 0) >= 1)
     </select>
     
     <select id="store_info" resultType="store">
-       select * from store where storeNum = #{storeNum}
+       	select * from store where storeNum = #{storeNum}
     </select>
     
     <select id="get_stores" resultType="store">
-       select * from store where memId = #{id}
+       	select * from store where memId = #{id}
     </select>
     
 
     <select id="storePermit" resultType="store">
-       select * from store where auth = #{auth}
+       	select * from store where auth = #{auth}
     </select>
     
     <update id="storeOK">
-       update store set auth = 1 where storeNum = #{storeNum}
+       	update store set auth = 1 where storeNum = #{storeNum}
     </update>
      
-     <update id="storeDenied">
-       update store set auth = 2 where storeNum = #{storeNum}
+    <update id="storeDenied">
+       	update store set auth = 2 where storeNum = #{storeNum}
     </update>
 
     <select id="get_menu_list" resultType="room">
-       select * from room where storeNum = #{s_num}
+       	select * from room where storeNum = #{s_num}
     </select>
     
     <select id="get_store" resultType="store">
-       select * from store where storeNum = #{s_num}
+       	select * from store where storeNum = #{s_num}
     </select>
     
     <select id="get_menu" resultType="room">
-       select * from room where roomNum = #{menuId}
+       	select * from room where roomNum = #{menuId}
     </select>
     
     <select id="get_lowerPrice" resultType="int">
