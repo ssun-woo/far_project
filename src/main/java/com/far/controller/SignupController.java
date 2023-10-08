@@ -25,7 +25,7 @@ public class SignupController {
 	private SignUpService signUpService;
 
 	@Autowired
-	private MemberExistService memexservice;
+	private MemberExistService memExService;
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -64,7 +64,7 @@ public class SignupController {
 	  @ResponseBody
 	  public int iddbchk(String memId) throws ClassNotFoundException {
 			
-		int cnt = memexservice.isexist_mem_id(memId);
+		int cnt = memExService.isexist_mem_id(memId);
 		
 		return cnt;
 

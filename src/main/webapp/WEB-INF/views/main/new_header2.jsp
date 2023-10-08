@@ -10,7 +10,6 @@
 <meta charset="UTF-8">
 <title></title>
 <script src="/js/jquery.js"></script>
-<script src="/js/event.js"></script>
 <script src="/js/acc_script.js"></script>
 <script src="/js/rs_menu.js"></script>
 <script src="/js/rs_pic.js"></script>
@@ -27,7 +26,7 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css">
 <link rel="stylesheet" type="text/css" href="/css/myPage.css">
 <link rel="stylesheet" type="text/css" href="/css/myPage_info.css">
-<link rel="stylesheet" type="text/css" href="/css/jjim.css">
+<link rel="stylesheet" type="text/css" href="/css/Jjim.css">
 <link rel="stylesheet" type="text/css" href="/css/payment.css">
 <link rel="stylesheet" type="text/css" href="/css/rest_com.css">
 <link rel="stylesheet" type="text/css" href="/css/restaurant.css">

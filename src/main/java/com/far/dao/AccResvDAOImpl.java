@@ -33,8 +33,8 @@ public class AccResvDAOImpl implements AccResvDAO {
 	}
 
 	@Override
-	public StoreDTO getInfo(int store_num) {
-		return sqlSession.selectOne("store_info", store_num);
+	public StoreDTO getInfo(int storeNum) {
+		return sqlSession.selectOne("store_info", storeNum);
 	}
 
 	@Override

@@ -7,12 +7,16 @@
  <mapper namespace="STORE">
 
     
-    <select id="get_detail_cate_list" resultType="store">
-       select * from store where detailCate = #{detailCate}
+    <select id="store_list" resultType="store">
+   SELECT store.*, roomCount FROM store
+		LEFT JOIN (SELECT storeNum, COUNT(*) AS roomCount FROM room GROUP BY storeNum)
+	roomCounts ON store.storeNum = roomCounts.storeNum WHERE store.detailCate = #{detailCate} AND NVL(roomCount, 0) >= 1
     </select>
     
     <select id="detailCateCount" resultType="int">
-       select count(*) from store where detailCate = #{detailCate}
+       SELECT COUNT(*) AS recordCount FROM (SELECT store.*, roomCount FROM store
+    	LEFT JOIN (SELECT storeNum, COUNT(*) AS roomCount FROM room GROUP BY storeNum) 
+    	roomCounts ON store.storeNum = roomCounts.storeNum WHERE store.detailCate = #{detailCate} AND NVL(roomCount, 0) >= 1)
     </select>
     
     <select id="store_info" resultType="store">

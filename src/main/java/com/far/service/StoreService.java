@@ -1,10 +1,9 @@
 package com.far.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.far.Repository.StoreRepository;
@@ -21,8 +20,8 @@ public class StoreService {
 	@Autowired
 	private StoreDAO storeDAO;
 
-	public Page<StoreDTO> storeList(Pageable pageable, String detailCate) {
-		return storeRepository.findByDetailCate(pageable, detailCate);
+	public List<StoreDTO> storeList(String detailCate) {
+		return storeDAO.storeList(detailCate);
 	}
 	
 	public StoreDTO findById(int id) {
