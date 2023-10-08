@@ -128,11 +128,11 @@
 						<li><a href="/my_page">마이페이지</a></li>
 						
 						<c:if test="${memClass == 'Role_c' }">
-						<li><a href="ceo/index">내 가게 관리</a></li>	
+						<li><a href="/ceo/index">내 가게 관리</a></li>	
 						</c:if>
 						
 						<c:if test="${memClass == 'Role_a' }">
-						<li><a href="admin/index">페이지 관리</a></li>	
+						<li><a href="/admin/index">페이지 관리</a></li>	
 						</c:if>
 					</ul>
 				</div>

@@ -27,7 +27,7 @@
 			</tr>
 			
 			<tr>
-				<td>결제 금액: ${resvDTO.amount }</td>
+				<td>결제 금액: ${resvDTO.amount }원</td>
 			</tr>
 			
 			<tr style="height: 60px;">

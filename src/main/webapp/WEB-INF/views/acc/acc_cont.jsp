@@ -43,9 +43,6 @@
    text-align: center;
    margin-left: 350px;
    border: 1px solid;">
-    
-                     
-   
    <div class="shop_cont_top">
       <div class="shop_photo">
 		<div class="shop_photo_div">
@@ -56,25 +53,12 @@
 				<img src="/upload/store_menu/${s.cate}${m.roomPhoto}" width="500px" height="340px">
 			</div>
 		</c:forEach>
-		<!-- <div class="shop_photo_div">
-			<img src="../images/acc/room01.png" width="500px" height="340px">
-		</div>
-		
-		<div class="shop_photo_div">
-			<img src="../images/acc/room01.png" width="500px" height="340px">
-		</div>
-		
-		<div class="shop_photo_div"> 
-			<img src="../images/acc/room01.png" width="500px" height="340px">
-		</div> -->
-
       </div>
       <div class="shop_info">
          <ul class="info_cate">
             <li><h3>분류</h3></li>
             <li><h3>상품평</h3></li>
             <li><h3>주소</h3></li>
-			   
          </ul>
          <ul class="info_cont">
             <li><p>${region} / ${sebu_cate}</p></li>
@@ -239,7 +223,7 @@
                         <p>성인0, 소아 0</p>
                      </div>
 
-                     <div class="personnel-controls">
+                     <div class="personnel-controls" style="width: 200px; height: 120px;">
                         <div class="personnelAdult">
                            <button id="decreaseAdult">-</button>
                            <span>성인</span> <span id="adultCount">2</span>
@@ -254,6 +238,8 @@
                      </div>
                   </div>
                </div>
+               <br>
+               <br>
                <h3>객실리스트</h3>
                <hr>
                <div id="roomListContainer">
@@ -563,10 +549,6 @@
                                    });
                             }
                            </script>
-                           
-                           
-
-                           
                            <c:if test="${review.memId == memId}">
                            
                            <div class="review_edit_del">
@@ -805,7 +787,8 @@ function review_check(){
     
     if (memId === 'anonymousUser') {
         if (confirm("로그인이 필요한 기능입니다. 로그인 페이지로 이동하시겠습니까?")) {
-           window.open("http://localhost:7777/loginForm")
+           window.open("http://localhost:7777/loginForm");
+           location.reload();
         }
     } 
     
@@ -952,8 +935,5 @@ function recommend_check(){
 
    </body>
    </html>
-
-
-
 
 

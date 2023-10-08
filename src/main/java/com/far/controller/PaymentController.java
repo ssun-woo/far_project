@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.far.dao.ReservationDAO;
 import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
 import com.far.dto.ResvDTO;
@@ -37,18 +40,18 @@ public class PaymentController {
 	private PaymentService paymentService;
 	
 	@Autowired
-	   private ReservationService resvService;
+	private ReservationService resvService;
 	
 	// 결제 페이지
 	@RequestMapping("")
-	public ModelAndView payment(HttpSession session, HttpServletRequest request) {
+	public ModelAndView payment(HttpServletRequest request) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String id = authentication.getName();
 		
 		String date = request.getParameter("date2");
+		System.out.println("date : " + date);
         Pattern pattern = Pattern.compile("(\\d+)박");
         Matcher matcher = pattern.matcher(date);
-        System.out.println("date" + date);
         int nights = 0;
         
         if (matcher.find()) {
@@ -69,7 +72,6 @@ public class PaymentController {
 		String edate = year + "-" + date2;
 		
 		int totalCount = Integer.parseInt(request.getParameter("totalCount"));
-		System.out.println("totalCount : " + totalCount);
 		
 		
 		ModelAndView mav = new ModelAndView();
@@ -78,10 +80,8 @@ public class PaymentController {
 		
 		
 		int roomNum = Integer.parseInt(request.getParameter("roomNum"));
-		System.out.println("방번호 : " + roomNum);
 		
 		// 메뉴 정보
-
 		RoomDTO room = paymentService.getMenu(roomNum);
 		StoreDTO store = paymentService.getStore(room.getStoreNum());
 
@@ -90,9 +90,7 @@ public class PaymentController {
 		
 		// 날짜 형식 변환
 		for(int i=0; i<coupons.size(); i++) {
-
 			coupons.get(i).setCouponStartDate(coupons.get(i).getCouponStartDate().substring(0, 10));
-
 			coupons.get(i).setCouponEndDate(coupons.get(i).getCouponEndDate().substring(0, 10));
 		}
 		
@@ -109,28 +107,26 @@ public class PaymentController {
 	}
 	
 	// 쿠폰 발급
+	@Secured("Role_m")
 	@RequestMapping("/couponIssue")
-	public @ResponseBody String couponIssue(HttpSession session,
-			@RequestParam("coupon_name") String couponName) {
+	public @ResponseBody String couponIssue(@RequestParam("coupon_name") String couponName) {
 
 		System.out.println("couponName = " + couponName);
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String id = authentication.getName();
-		id = "sunwoo"; // 일단 결과를 위해 하드코딩 한 부분, 나중에 없애야 함
-		String cName = couponName;
+		String memId = authentication.getName();
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("mem_id", id);
-		map.put("coupon_name", cName);
+		map.put("mem_id", memId);
+		map.put("coupon_name", couponName);
 		CouponDTO c = paymentService.getCouponIssue(map);
 		
 		String msg = null;
 		
 		CouponDTO newc = new CouponDTO();
 		
-		newc.setCouponNum(1);
+		
 		newc.setCouponName(couponName);
-		newc.setMemId(id);
+		newc.setMemId(memId);
 		
 		if(c == null) {
 			paymentService.insertCoupon(newc);
@@ -149,39 +145,57 @@ public class PaymentController {
 	}
 	
 	@GetMapping("/paymentEnd")
-	   public String gopaymentEnd(HttpSession session) {
-		  ResvDTO resvDTO = (ResvDTO) session.getAttribute("resvDTO");
-	      return "/payment/payment_end";
-	   }
-	   
-	   @PostMapping("/paymentEnds")
-	   public String paymentEnd(HttpSession session, @RequestParam("resvNum") String resvNum, 
-			   					@RequestParam("storeNum") String storeNum,
-			   					@RequestParam("storeName") String storeName,
-			   					@RequestParam("roomNum") String roomNum,
-			   					@RequestParam("roomName") String roomName,
-			   					@RequestParam("memId") String memId,
-			   					@RequestParam("amount") String amount,
-			   					@RequestParam("sdate") String startDay,
-			   					@RequestParam("edate") String endDay
-			   ) {
-		  ResvDTO resvDTO = new ResvDTO();
-		  int storeNum2 = Integer.parseInt(storeNum);
-		  int roomNum2 = Integer.parseInt(roomNum);
-		  
-		  resvDTO.setResvNum(resvNum);
-		  resvDTO.setStoreNum(storeNum2);
-		  resvDTO.setStoreName(storeName);
-		  resvDTO.setRoomNum(roomNum2);
-		  resvDTO.setRoomName(roomName);
-		  resvDTO.setMemId(memId);
-		  resvDTO.setAmount(amount);
-		  resvDTO.setStartDay(startDay);
-		  resvDTO.setEndDay(endDay);
-		  resvService.reservation(resvDTO);
-	      session.setAttribute("resvDTO", resvDTO);
-		  return "/payment/payment_end";
-	   }
+	public String gopaymentEnd(HttpSession session) {
+	  ResvDTO resvDTO = (ResvDTO) session.getAttribute("resvDTO");
+      return "/payment/payment_end";
+   }
+	
+   	@PostMapping("/paymentEnds")
+   	public String paymentEnd(HttpSession session,
+   							Model model,
+		   					@RequestParam("resvNum") String resvNum,
+		   					@RequestParam("storeNum") String storeNum,
+		   					@RequestParam("storeName") String storeName,
+		   					@RequestParam("roomNum") String roomNum,
+		   					@RequestParam("roomName") String roomName,
+		   					@RequestParam("memId") String memId,
+		   					@RequestParam("amount") String amount,
+		   					@RequestParam("sdate") String startDay,
+		   					@RequestParam("edate") String endDay,
+		   					@RequestParam("pointDiscount") String pointDiscount,
+		   					@RequestParam("pointEarn") String pointEarn) {
+   		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+   		String mem_id = authentication.getName();
+   		String msg = null;
+   		
+        ResvDTO resvDTO = new ResvDTO();
+        int storeNum2 = Integer.parseInt(storeNum);
+        int roomNum2 = Integer.parseInt(roomNum);
+        
+        resvDTO.setResvNum(resvNum);
+        resvDTO.setStoreNum(storeNum2);
+        resvDTO.setStoreName(storeName);
+        resvDTO.setRoomNum(roomNum2);
+        resvDTO.setRoomName(roomName);
+        resvDTO.setMemId(memId);
+        resvDTO.setAmount(amount);
+        resvDTO.setStartDay(startDay);
+        resvDTO.setEndDay(endDay);
+        
+        Map<String, Object> pMap = new HashMap<>();
+        pMap.put("memId", mem_id);
+        pMap.put("pointDiscount", pointDiscount);
+        pMap.put("pointEarn", pointEarn);
+        resvService.reservation(resvDTO, pMap);
+        msg = "결제가 완료되었습니다.";
+        
+        session.setAttribute("resvDTO", resvDTO);
+        model.addAttribute("message", msg);
+       
+        
+        return "payment/payment_end";
+
+   	}
 	
 	private String extractDate(String input) {
 		String[] parts = input.split(" ");

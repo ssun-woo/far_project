@@ -5,7 +5,7 @@
 	<form>
 		<table border="1">
 			<tr style="text-align: center;">
-				<th colspan="4">가게 목록</th>
+				<th colspan="4">메뉴 수정</th>
 			</tr>
 			<tr>
 				<th>no.</th>
@@ -16,7 +16,7 @@
 			<c:if test="${!empty slist}">
 				<c:forEach var="s" items="${slist}">
 					<tr>
-						<td>${s.store_num}</td>
+						<td style="color: blue;">${s.store_num}</td>
 						<td>${s.cate}</td>
 						<td>${s.detail_cate}</td>
 						<td>
@@ -35,27 +35,4 @@
 		</table>
 	</form>
 	
-	<style>
-	    table {
-	        border-collapse: collapse;
-	        width: 800px;
-	    }
 	
-	    th, td {
-	        padding: 8px;
-	        text-align: left;
-	    }
-	
-	    th {
-	        background-color: #f2f2f2;
-	    }
-	
-	    a {
-	        text-decoration: none;
-	        color: blue;
-	    }
-	
-	    a:hover {
-	        text-decoration: underline;
-	    }
-	</style>

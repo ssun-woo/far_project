@@ -23,16 +23,16 @@
 
 	</select>
 	
-	<select id="get_couponIssue" parameterType="hashmap" resultType="coupon">
+	<select id="getCouponIssue" parameterType="hashmap" resultType="coupon">
 		SELECT * FROM coupon c
 		INNER JOIN couponPersonal cp
 		ON c.couponName = cp.couponName
 		WHERE cp.couponName = #{coupon_name} AND memId = #{mem_id}
 	</select>
 	
-	<insert id="insert_coupon">
-		INSERT INTO couponPersonal(couponNum, couponName, memId)
-		VALUES (#{couponNum}, #{couponName}, #{memId})
+	<insert id="insertCoupon">
+		INSERT INTO couponPersonal(couponName, memId)
+		VALUES (#{couponName}, #{memId})
 	</insert>
 	
 	<select id="getMember" resultType="member">
@@ -42,7 +42,7 @@
 	
 	<!-- admin 쿠폰 등록 -->
 	<insert id="insertAdCoupon">
-		INSERT INTO coupon(couponName, couponDiscountrate, couponStartDate, couponEndDate) 
+		INSERT INTO coupon(COUPONNAME, couponDiscountrate, couponStartDate, couponEndDate) 
 		VALUES(#{couponName}, #{couponDiscountrate}, #{couponStartDate}, #{couponEndDate})
 	</insert>
 	
@@ -51,8 +51,16 @@
 		select * from coupon
 	</select>
 	
+	<!-- 결제 시 포인트 차감 및 적립 -->
+	<update id="pointEarn" parameterType="hashmap">
+		UPDATE member
+		SET point = point - #{pointDiscount} + #{pointEarn} 
+		WHERE memId = #{memId}
+	</update>
+
 	<insert id="reservation">
 		INSERT INTO RESERVATION(RESVNUM, STORENUM, STORENAME, ROOMNUM, ROOMNAME, MEMID, AMOUNT, STARTDAY, ENDDAY)
 		VALUES(#{resvNum}, #{storeNum}, #{storeName}, #{roomNum}, #{roomName}, #{memId}, #{amount}, #{startDay}, #{endDay})
 	</insert>
+	
 </mapper>

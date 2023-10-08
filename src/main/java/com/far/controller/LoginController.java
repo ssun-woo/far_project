@@ -37,7 +37,10 @@ public class LoginController {
 	private FindIdService findIdService;
 	// 로그인 폼으로 이동
 	@GetMapping("/loginForm")
-	public String loginForm() {
+	public String loginForm(HttpServletRequest request) {
+		String referer = (String)request.getHeader("REFERER");
+		request.getSession().setAttribute("previousPage", referer);
+		
 		return "login/login";
 	}
 	
@@ -103,7 +106,7 @@ public class LoginController {
             String decodedUri = URLDecoder.decode(uri, "UTF-8");
             return "redirect:" + decodedUri;
         } else {
-            return "redirect:/defaultPage"; // URI가 전달되지 않은 경우의 기본 리다이렉트 페이지
+            return "redirect:/"; // URI가 전달되지 않은 경우의 기본 리다이렉트 페이지
         }
     }
 }

@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.title{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 .payment{
 	width:1300px;
 	margin: 0 auto;
@@ -21,7 +26,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	overflow: hidden;
-	display:
+	display: flex
 }
 
 .product_img img {
@@ -61,27 +66,28 @@
 
 .pay_storeInfo {
 	border: 1px solid black;
+	height: 250px;
 }
-
 .title, .info {
 	margin-left: 50px;
 }
 
 .pay_storeInfo .info table {
 	width: 80%;
-	margin: auto;
+	margin: 0 auto;
 }
 
 .pay_storeInfo .info div {
-	width: 150px;
-	height: 150px;
-	border-radius: 10px;
+	width: 250px;
+	height: 250px;
+	
 	overflow: hidden;
 }
 
 .pay_storeInfo .info img {
-	width: 150px;
-	height: 150px;
+	width: 245px;
+	height: 245px;
+	
 }
 
 .info2 {
@@ -107,9 +113,7 @@
 	border-right: 1px solid black;
 }
 
-.dc_point .info .table1 {
-	
-}
+
 
 .dc_point .info .table2 {
 	width: 500px;
@@ -137,10 +141,10 @@
 }
 
 .pay_storeInfo, .pay_dcInfo, .pay_means {
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
-.payment_button {
+.pay_payment button {
 	width: 300px;
 	height: 80px;
 	margin-left: 50px;

@@ -4,19 +4,12 @@
 <!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/css/sc_detail.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
 <title>숙소 검색결과</title>
 </head>
 <body>
 	<jsp:include page="../main/new_header2.jsp" />
-	
+	<div class="searchArea">
 	<div class="tabArea">
 		<ul class="n1 nav nav-tabs" id="myTabs">
 			<li class="nav-item"><a class="nav-link " 
@@ -68,16 +61,16 @@
 								<ul class="box_meun">
 									<li class="box_prd">
 										<div class="box_img">
-											<a href=""><img src="images/ev_images/feature-4.jpg"
+											<a href='/acc/cont?detail_cate=${store.detailCate}&store_num=${store.storeNum}'><img src="/upload/store_logo${store.storeLogo}"
 												alt="acc"></a>
 										</div>
 										<div class="box_text">
 											<div data-row>
 												<div data-cell>
 													<div class="infoIcon">
-														<i class="icon icondHot">${store.detail_cate}</i>
+														<i class="icon icondHot">${store.detailCate}</i>
 														<!-- 디테일 카테 예- 호텔 모텔등  -->
-														<i class="icon"> ${store.store_addr} </i>
+														<i class="icon"> ${store.storeAddr1} </i>
 														<!-- 가게 주소 -->
 													</div>
 												</div>
@@ -85,7 +78,7 @@
 											<div data-row>
 												<div data-cell>
 													<a href="">
-														<h5 class="infoTitle">${store.store_name}</h5> <!--  가게 이름 -->
+														<h5 class="infoTitle">${store.storeName}</h5> <!--  가게 이름 -->
 													</a>
 													<p class="infoSubTitle">이벤트</p>
 													<!--  이벤트  -->
@@ -93,7 +86,7 @@
 												<div data-cell>
 													<div class="infoPrice" tabindex="0">
 														<p class="final">
-															<span class="bilnd">판매가</span> <strong>가격</strong> 원 ~
+															<span class="bilnd">판매가</span> <strong>${lowPrice[store.storeNum]}</strong> 원 ~
 															<!--  가격 -->
 														</p>
 													</div>
@@ -103,13 +96,13 @@
 												<div data-cell>
 													<p class="infoInfostar">
 														<!-- 가게 등급 -->
-														${'<span>⭐</span>'.repeat(Math.floor(store.store_score))}
+														${'<span>⭐</span>'.repeat(Math.floor(store.storeScore))}
 														<!-- 오류는 뜨지만 아주 잘 작동함...! -->
-														<strong>(${store.store_score})</strong>
+														<strong>(${store.storeScore})</strong>
 													</p>
 													<p class="info">
 														<!-- 가게 상세 주소 -->
-														${store.store_detail_addr}
+														${store.storeAddr2}
 													</p>
 												</div>
 											</div>
@@ -145,4 +138,5 @@
 
 	<!-- footer -->
 	<jsp:include page="../main/footer.jsp" />
+	</div>
 </body>

@@ -39,4 +39,5 @@ public class StoreService {
 	public int getLowerPrice(int storeNum) {
 		return storeDAO.getLowerPrice(storeNum);
 	}
+
 }

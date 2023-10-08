@@ -7,7 +7,7 @@
 }
 
 .nav_bar {
-   float: left;
+   
    margin-left: 120px;
    margin-top: 37px;
 }
@@ -22,7 +22,7 @@
 
 .top_nav2 li {
    height: 26px;
-   width: 80px;
+   width: 120px;
    margin-left: 0px;
    text-align: center;
    line-height: 26px;
@@ -68,6 +68,7 @@
    height: 100px;
    width: 600px;
    float: left;
+ 
 }
 
 .search_bar {
@@ -164,7 +165,7 @@
    margin: 5px 0;
 }
 
-/* 留덉슦�뒪瑜� 濡쒓퀬 �씠誘몄� �쐞濡� �삱�졇�쓣 �븣 �뙘�뾽�쓣 �몴�떆�빀�땲�떎. */
+/* 筌띾뜆�뒭占쎈뮞�몴占� 嚥≪뮄�� 占쎌뵠沃섎챷占� 占쎌맄嚥∽옙 占쎌궞占쎌죬占쎌뱽 占쎈르 占쎈솚占쎈씜占쎌뱽 占쎈ご占쎈뻻占쎈�占쎈빍占쎈뼄. */
 .logo:hover .logo-popup {
    display: block;
 }
@@ -184,7 +185,7 @@
    margin-top: -30px;
 }
 
-/* 吏��뿭, �궇吏�, 媛앹떎.�씤�썝 寃��깋李� */
+/* 筌욑옙占쎈열, 占쎄텊筌욑옙, 揶쏆빘�뼄.占쎌뵥占쎌뜚 野껓옙占쎄퉳筌∽옙 */
 .search2 {
 	border: 1px solid;
 	border-radius: 20px;

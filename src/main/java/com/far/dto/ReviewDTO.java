@@ -1,24 +1,10 @@
 package com.far.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+
 import lombok.ToString;
 
-//create table review(
-//	    review_num int primary key,    --리뷰 글번호
-//	    memId varchar(50) not null,        -- 리뷰 단 사람 아이디
-//	    store_num int not null, --가게 고유 번호
-//	    review_cont varchar2(4000) not null,   -- 리뷰 내용
-//	    review_rating int not null, --평점
-//	    review_recommend int default 0, --추천수 
-//	    review_date date default sysdate   -- 리뷰 날짜
-//	);   
 
-
-@Getter
-@Setter
 @ToString
-
 
 public class ReviewDTO {
 	private int reviewNum; //리뷰 글번호
@@ -26,7 +12,8 @@ public class ReviewDTO {
 	private String memId; //아이디
 
 	private int storeNum; //가게 번호
-
+	
+	
 	private double reviewRating; //평점
 	
 	private String reviewCont; //리뷰 내용
@@ -47,6 +34,7 @@ public class ReviewDTO {
 	public String getMemId() {
 		return memId;
 	}
+
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
@@ -94,5 +82,6 @@ public class ReviewDTO {
 	
 	
 	
-}
 	
+	
+}

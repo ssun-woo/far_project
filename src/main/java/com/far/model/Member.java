@@ -2,11 +2,7 @@ package com.far.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import lombok.Data;
 
 @Entity
 public class Member {
@@ -65,9 +61,12 @@ public class Member {
 	public int getPoint() {
 		return point;
 	}
-	public void setPoint(int point) {
-		this.point = point;
+	public void setPoint(Integer point) {
+	    if (point == null) {
+	        this.point = 0;
+	    } else {
+	        this.point = point;
+	    }
 	}
-	
 	
 }

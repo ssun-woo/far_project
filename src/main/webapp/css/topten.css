@@ -3,12 +3,18 @@
             position: relative;
             align-items: center;
             margin: 0 auto;
+            padding-top: 20px;
 
         }
-
+		
+		.tptext{
+			margin-top: 30px;
+		}
+		
         .topTen {
             width: 1400px;
             position: relative;
+           
             overflow: hidden;
             margin: 0 auto;
 
@@ -16,9 +22,8 @@
 
         .topTen li .tpbox #tpbutton {
             width: 120px;
-            height: 35px;
-
-            background-color: hsla(220, 100%, 49%, 0.922);
+            height: 38px;
+			background-color: hsla(220, 100%, 49%, 0.922);
             color: white;            
             position: absolute;
             top: 52.5%;
@@ -27,8 +32,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            
         }
-
+		
+		#tpbutton h4{
+			margin-top: 10px;
+		}
 
         .tpbox {
             width: 380px;
@@ -63,6 +72,7 @@
             top: 50%;
             transform: translateY(-50%);
 			}
+		
 			
         .topTen button:before {
             font-family: 'xeicon';

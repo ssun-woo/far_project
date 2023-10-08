@@ -46,6 +46,7 @@
         color: #f7ea32 !important;
     }
 </style>
+
 <body>
 	<fieldset class="starEx">
         <input type="radio" id="rating10" name="rating" value="10"><label for="rating10" title="5점"></label>
@@ -59,15 +60,4 @@
         <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="1점"></label>
         <input type="radio" id="rating1" name="rating" value="1"><label class="half" for="rating1" title="0.5점"></label>
     </fieldset>
-
-
-
-
-
-
-
-
-
-
-
 </body>

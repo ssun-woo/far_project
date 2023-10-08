@@ -12,5 +12,10 @@
 		ON coupon.couponName = couponPersonal.couponName
 		WHERE memId = #{memId}
 	</select>
+	
+	<select id="getResvList" resultType="resv">
+		SELECT * FROM reservation
+		WHERE memId = #{memId}
+	</select>
 
 </mapper>

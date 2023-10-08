@@ -15,6 +15,7 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
@@ -29,6 +30,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 // UserDetailsService를 구현한 객체를 DI
     private UserDetailsService userDetailService;
 	
+	
+	 @Autowired
+	 private AuthenticationSuccessHandler customAuthenticationSuccessHandler;
+	 
 	@Bean
 	public BCryptPasswordEncoder encodePwd() {
 		return new BCryptPasswordEncoder();
@@ -39,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 			.authorizeRequests()
 			.antMatchers("/my_page/**").authenticated()
-			//.antMatchers("/acc/payment_info").authenticated()// 해당 주소로 요청이 들어오면 인증이 필요함
+			.antMatchers("/payment").authenticated()// 해당 주소로 요청이 들어오면 인증이 필요함
 			//.antMatchers("/acc/target/**").authenticated()		// 해당 주소로 요청이 들어오면 인증이 필요함
 			.antMatchers("/**/payment_info").authenticated()
 //			.antMatchers("/ceo/**").access("hasRole('Role_a') or hasRole('Role_c')")	// 해당 url에는 ROLE_ADMIN, ROLE_MANAGER만 접근 가능
@@ -53,7 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.passwordParameter("memPwd")
 			.loginPage("/loginForm")
 			.loginProcessingUrl("/login")
-			.successForwardUrl("/forwardToUri")
+			.successHandler(customAuthenticationSuccessHandler)
+			//.defaultSuccessUrl("/")	
 			.and()
 			.sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
