@@ -696,9 +696,13 @@
     </script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a88d036132dec983608208b58361c621a88d036132dec983608208b58361c621" async></script>
                <script>
+               
+               
+               
+               
                var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
                 mapOption = { 
-                    center: new kakao.maps.LatLng(37.5750793, 126.981199), // 지도의 중심좌표
+                  center: new kakao.maps.LatLng(37.5750793, 126.981199), // 지도의 중심좌표
                     level: 3 // 지도의 확대 레벨
                 };
 
@@ -716,6 +720,8 @@
             marker.setMap(map);
             
             //map.setDraggable(false); 
+            
+            
                
    </script>
    
@@ -915,7 +921,6 @@ function recommend_check(){
 
    </body>
    </html>
-
 
 
 

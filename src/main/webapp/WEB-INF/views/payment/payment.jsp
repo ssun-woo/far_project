@@ -18,7 +18,7 @@
 		<div class="info">
 			<table> 
 				<tr>
-					<th rowspan="4" width="150px" height="150px">
+					<th rowspan="4" >
 						<div>
 							<img src="/upload/store_menu/${store.cate}${room.roomPhoto}">
 						</div>
