@@ -243,29 +243,7 @@
                <h3>객실리스트</h3>
                <hr>
                <div id="roomListContainer">
-               <c:forEach var="m" items="${mList}">
-                  <div class="room_list">
-                     <img src="/upload/store_menu/${s.cate}${m.roomPhoto}">
-                     <div class="room_info">
-                        <div class="booking_button">
-                           <h2>${m.roomName}</h2>
-                           <form method="post" action="/payment">
-                              <input type="submit" value="예약">
-                              <input type="hidden" id="date2" name="date2" value="">
-                              <input type="hidden" id="totalCount" name="totalCount" value="">
-                              <input type="hidden" name="roomNum" value="${m.roomNum}">
-                              <input type="hidden" name="storeNum" value="${s.storeNum}">
-                           </form>
-                        </div>
-
-                        <div class="room_detailinfo">
-                           <h4 class="check_in_out">체크인 ${m.checkIn} 체크아웃 ${m.checkOut}</h4>
-                           <p>기준인원 ${m.standardNum}인 / 최대인원 ${m.maxNum}인</p>
-                           <p>영유아 포함 최대인원을 초과하여 입실이 불가합니다.</p>
-                        </div>
-                     </div>
-                  </div>
-                  </c:forEach>
+               
                </div>
                </div>
             </div>
@@ -419,12 +397,6 @@
                <div id="map"></div>
                
             </div>
-            <div class="guide">
-               <h3>교통안내</h3>
-               <hr>
-               <h4>안국역 6번출구 도보 6분</h4>
-               <h4>주차 가능 여부는 별도 문의 부탁드립니다.</h4>
-            </div>
          </div>
 
          <!-- 리뷰 -->
@@ -434,7 +406,7 @@
             <div class="review_rating_form">
             
             
-            <form name = "review" action="/acc/cont/review?detail_cate=${cate}&store_num=${store_num}" method="post" id="reviewForm">
+            <form name = "review" action="/acc/cont/review?detail_cate=${param.detail_cate}&store_num=${store_num}" method="post" id="reviewForm">
                <table class="review_write">
                <tr>
                   <th colspan="2"><h3>후기 작성</h3></th>
@@ -927,7 +899,7 @@ function recommend_check(){
         document.getElementById("date2").value = dateValue;
         document.getElementById("totalCount").value = totalCount;
         
-        document.forms[1].submit();
+        document.forms[2].submit();
     }
 
 

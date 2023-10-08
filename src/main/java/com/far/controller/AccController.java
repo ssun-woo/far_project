@@ -16,6 +16,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -160,14 +162,10 @@ public class AccController {
 					JsonNode jsonNode = objectMapper.readTree(responseBody);
 					double latitude = jsonNode.get("documents").get(0).get("y").asDouble();
 					double longitude = jsonNode.get("documents").get(0).get("x").asDouble();
-					// System.out.println("위도: " + latitude);
-					// System.out.println("경도: " + longitude);
-
 					mav.addObject("lat", latitude);
 					mav.addObject("lon", longitude);
 
 				} catch (Exception e) {
-					e.printStackTrace();
 				}
 			} else {
 				System.out.println("API 호출 실패: " + response.getStatusCodeValue());
@@ -208,33 +206,25 @@ public class AccController {
 			return mav;
 	   }
 
+		@PreAuthorize("hasRole('Role_m') or hasRole('Role_c')")
+		@PostMapping("/cont/jjim")
+		public String jjim_btn(HttpServletRequest request, String memId) {
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			String id = authentication.getName();
+			int store_num = Integer.parseInt(request.getParameter("store_num"));
+			String jjim = request.getParameter("jjim");
 
-   //찜 등록
-   @PostMapping("/cont/jjim")
-   public String jjim_btn(HttpServletRequest request, String memId) {
-      Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-      String id = authentication.getName();
-      int store_num = Integer.parseInt(request.getParameter("store_num"));
-      String jjim = request.getParameter("jjim");
-      
-      JJimDTO jdto = new JJimDTO();
-      jdto.setMemId(id);
-      jdto.setStoreNum(store_num);
-      
-      if(id!="anonymousUser") {
-         jjimService.setJJim(jdto);
-      }
-      
-      
-            
-      
-      String cate = request.getParameter("cate");
-      
-      
-      System.out.println("jjim : " + jjim);
-        
-      return "redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num;
-   }
+			JJimDTO jdto = new JJimDTO();
+			jdto.setMemId(id);
+			jdto.setStoreNum(store_num);
+
+			if (id != "anonymousUser") {
+				jjimService.setJJim(jdto);
+			}
+			String cate = request.getParameter("cate");
+			System.out.println("jjim : " + jjim);
+			return "redirect:/acc/cont?detail_cate=" + cate + "&store_num=" + store_num;
+		}
    
    //찜 삭제
    @PostMapping("/cont/jjim_del")
@@ -263,13 +253,17 @@ public class AccController {
       System.out.println(id);
       
       int store_num = Integer.parseInt(request.getParameter("store_num"));
-      String cate = request.getParameter("cate");
+      String cate = request.getParameter("detail_cate");
+      System.out.println("detail_cate : " + cate);
       
       rdto.setMemId(id);
       rdto.setStoreNum(store_num);
       
    
       reviewService.setReview(rdto);
+      
+      ModelAndView mav = new ModelAndView();
+      mav.addObject("detail_cate", cate);
       
       return "redirect:/acc/cont?detail_cate="+cate+"&store_num="+store_num;
    }

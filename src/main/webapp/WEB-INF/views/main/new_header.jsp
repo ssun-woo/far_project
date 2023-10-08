@@ -32,8 +32,9 @@
 <link rel="stylesheet" type="text/css" href="/css/shopList.css">
 <link rel="stylesheet" type="text/css" href="/css/signupForm.css">
 <link rel="stylesheet" type="text/css" href="/css/findId.css">
-<link rel="stylesheet" type="text/css" href="/css/findPwd.css">
+<link rel="stylesheet" type="text/css" href="/css/findPwd.css"> 
 <link rel="stylesheet" type="text/css" href="/css/top.css">
+<link rel="stylesheet" type="text/css" href="/css/top2.css">
 <link rel="stylesheet" type="text/css" href="/css/topten.css">
 <link rel="stylesheet" type="text/css" href="/css/rs_stopic.css">
 <link rel="stylesheet" type="text/css" href="/css/topten_culture.css">
@@ -119,18 +120,30 @@
 
 			<div class="end_line">
 				<ul>
-					<li><a href="/acc/cate_list"> <i><img
-								src="/images/main/travel.png" alt="숙소"></i> <span>숙소</span>
-					</a></li>
-					<li><a href="/resto/cate_list"> <i><img
-								src="/images/main/restaurant.png" alt="식당"></i> <span>식당</span>
-					</a></li>
-					<li><a href="/culture/cate_list"> <i><img
-								src="/images/main/ticket.png" alt="문호"></i> <span>문화</span>
-					</a></li>
-					<li><a href="/beauty/cate_list"> <i><img
-								src="/images/main/makeup.png" alt="뷰티"></i> <span>뷰티</span>
-					</a></li>
+					<li>
+						<a href="/acc/list?detail_cate=hotel">
+							<i><img src="/images/acc/hotel.png" alt="호텔"></i>
+							<span>호텔</span>
+						</a>
+					</li>
+					<li>
+						<a href="/acc/list?detail_cate=motel">
+							<i><img src="/images/acc/motel.png" alt="모텔"></i>
+							<span>모텔</span>
+						</a>
+					</li>
+					<li>
+						<a href="/acc/list?detail_cate=pension">
+							<i><img src="/images/acc/pool_house.png" alt="펜션/풀빌라"></i>
+							<span>펜션/풀빌라</span>
+						</a>
+					</li>
+					<li>
+						<a href="/acc/list?detail_cate=camping">
+							<i><img src="/images/acc/camping.png" alt="글램핑/캠핑"></i>
+							<span>글램핑/캠핑</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 

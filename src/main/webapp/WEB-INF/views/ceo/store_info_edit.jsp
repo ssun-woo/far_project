@@ -36,8 +36,7 @@
 						<hr>
 
 						<form method="post" action="/ceo/store_info_edit_ok"
-							onsubmit="return info_regis_write_check();"
-							enctype="multipart/form-data">
+							onsubmit="return info_regis_write_check();">
 							<input type="hidden" name="store_num" value="${param.store_num}">
 							<input type="hidden" name="menu_id" value="${param.menu_id}">
 							

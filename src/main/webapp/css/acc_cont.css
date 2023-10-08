@@ -806,15 +806,4 @@
 	transition: all .5s;
 }
 
-.list_button_div {
-	width: 1300px;
-	justify-content: center;
-	display: flex;
-}
-
-.list_button {
-	height: 50px;
-	width: 200px;
-	margin-left: 250px;
-}
 

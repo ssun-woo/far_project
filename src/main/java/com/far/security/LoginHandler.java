@@ -17,9 +17,9 @@ import java.io.IOException;
 
 @Component
 public class LoginHandler implements AuthenticationSuccessHandler {
-	@Autowired
-	private FindMemClassDAO findMemClass;
-	
+   @Autowired
+   private FindMemClassDAO findMemClass;
+   
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
@@ -28,16 +28,15 @@ public class LoginHandler implements AuthenticationSuccessHandler {
 
         if (previousPage != null && !previousPage.isEmpty()) {
             // 이전 페이지로 리다이렉션
-        	 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
              String memId = auth.getName();
              String memClass = findMemClass.findMemClass(memId);
-             System.out.println(memId);
 
              // memId를 세션에 저장
              HttpSession session = request.getSession();
              session.setAttribute("memId", memId);
              session.setAttribute("memClass", memClass);
-        	
+           
             response.sendRedirect(previousPage);
         } else {
             // 이동할 기본 페이지 지정 또는 다른 로직 수행

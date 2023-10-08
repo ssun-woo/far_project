@@ -9,13 +9,13 @@
     <select id="store_list" resultType="store">
    SELECT store.*, roomCount FROM store
 		LEFT JOIN (SELECT storeNum, COUNT(*) AS roomCount FROM room GROUP BY storeNum)
-	roomCounts ON store.storeNum = roomCounts.storeNum WHERE store.detailCate = #{detailCate} AND NVL(roomCount, 0) >= 1
+	roomCounts ON store.storeNum = roomCounts.storeNum WHERE store.detailCate = #{detailCate} AND NVL(roomCount, 0) >= 1 and store.auth = 1
     </select>
     
     <select id="detailCateCount" resultType="int">
        SELECT COUNT(*) AS recordCount FROM (SELECT store.*, roomCount FROM store
     	LEFT JOIN (SELECT storeNum, COUNT(*) AS roomCount FROM room GROUP BY storeNum) 
-    	roomCounts ON store.storeNum = roomCounts.storeNum WHERE store.detailCate = #{detailCate} AND NVL(roomCount, 0) >= 1)
+    	roomCounts ON store.storeNum = roomCounts.storeNum WHERE store.detailCate = #{detailCate} AND NVL(roomCount, 0) >= 1 and store.auth = 1) 
     </select>
     
     <select id="store_info" resultType="store">
@@ -23,7 +23,7 @@
     </select>
     
     <select id="get_stores" resultType="store">
-       	select * from store where memId = #{id}
+       	select * from store where memId = #{id} and auth = 1
     </select>
     
 

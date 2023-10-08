@@ -35,6 +35,10 @@
     </update>
     
 	<update id="storeIntro_edit">
-		update store set storeIntro = #{storeIntro} , storeAddr1 = #{storeAddr1}, storeAddr2 = #{storeAddr2} where memId = #{memId};
+		update store set storeIntro = #{storeIntro} , storeAddr1 = #{storeAddr1}, storeAddr2 = #{storeAddr2} where storeNum = #{storeNum}
 	</update>
+	
+	<select id="getResvList2" resultType="resv">
+		select * from reservation where storeNum = #{store_num} order by startday asc
+	</select>
  </mapper>

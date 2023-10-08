@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.far.dao.CeoDAO;
+import com.far.dto.ResvDTO;
 import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 
@@ -70,6 +71,16 @@ public class CeoServiceImpl implements CeoService {
 	public void storeUpdate(Map<String, String> storeUpdate) {
 		ceoDao.storeIntroUpdate(storeUpdate);
 		
+	}
+
+	@Override
+	public List<ResvDTO> getResvList(int store_num) {
+		return ceoDao.getResvList(store_num);
+	}
+
+	@Override
+	public String getTel(String memId) {
+		return ceoDao.getTel(memId);
 	}
 	
 	

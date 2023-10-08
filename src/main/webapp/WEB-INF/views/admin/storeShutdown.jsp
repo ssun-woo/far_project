@@ -41,7 +41,7 @@
 
 
 		<section class="menu_cont">
-			<h3 class="adTitle">페점 승인 </h3>
+			<h3 class="adTitle">폐점 승인 </h3>
 
 			<div class="cate_cont">
 				<table class="table table-hover">

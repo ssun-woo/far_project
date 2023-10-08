@@ -40,5 +40,9 @@
  		select * from member where memId = #{memId}
  	</select>
  	
+ 	<select id="getTel" resultType="String">
+ 		select memtel from member where memId = #{memId}
+ 	</select>
+ 	
  </mapper>
  

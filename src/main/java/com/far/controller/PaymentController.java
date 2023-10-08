@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.far.dao.ReservationDAO;
 import com.far.dto.CouponDTO;
 import com.far.dto.MemberDTO;
 import com.far.dto.ResvDTO;
 import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
+import com.far.service.AccResvService;
 import com.far.service.PaymentService;
 import com.far.service.ReservationService;
 
@@ -38,6 +38,9 @@ public class PaymentController {
 
 	@Autowired
 	private PaymentService paymentService;
+	
+	@Autowired
+	private AccResvService accService;
 	
 	@Autowired
 	private ReservationService resvService;
@@ -137,12 +140,6 @@ public class PaymentController {
 		return msg;
 	}
 
-	// 결제 완료 페이지
-	@RequestMapping("/end")
-	public ModelAndView payment_end() {
-		ModelAndView mav = new ModelAndView("payment/payment_end");
-		return mav;
-	}
 	
 	@GetMapping("/paymentEnd")
 	public String gopaymentEnd(HttpSession session) {
@@ -189,7 +186,10 @@ public class PaymentController {
         resvService.reservation(resvDTO, pMap);
         msg = "결제가 완료되었습니다.";
         
+        StoreDTO s = accService.getInfo(resvDTO.getStoreNum());
+        
         session.setAttribute("resvDTO", resvDTO);
+        session.setAttribute("s", s);
         model.addAttribute("message", msg);
        
         

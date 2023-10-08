@@ -17,7 +17,7 @@
 				</form>
 			</div>
 			<div class="room_detailinfo">
-				<h4 class="check_in_out">체크인 ${m.checkIn} 체크아웃 ${m.checkOut}</h4>
+				<h4 class="check_in_out">체크인 ${m.checkIn} <br>체크아웃 ${m.checkOut}</h4>
 				<p>기준인원 ${m.standardNum}인 / 최대인원 ${m.maxNum}인</p>
 				<p>영유아 포함 최대인원을 초과하여 입실이 불가합니다.</p>
 				<p>${m.roomPrice}</p>

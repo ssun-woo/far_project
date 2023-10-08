@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.far.dto.ResvDTO;
 import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 
@@ -68,6 +69,16 @@ public class CeoDAOImpl implements CeoDAO {
 	
 	public void storeIntroUpdate(Map<String, String> storeUpdate) {
 		sqlSession.update("storeIntro_edit", storeUpdate);
+	}
+
+	@Override
+	public List<ResvDTO> getResvList(int store_num) {
+		return sqlSession.selectList("getResvList2", store_num);
+	}
+
+	@Override
+	public String getTel(String memId) {
+		return sqlSession.selectOne("getTel", memId);
 	}
 
 		

@@ -20,12 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.far.dto.ResvDTO;
 import com.far.dto.RoomDTO;
 import com.far.dto.StoreDTO;
 import com.far.service.CeoService;
 import com.oreilly.servlet.MultipartRequest;
-
-import retrofit2.http.POST;
 
 @Controller
 @RequestMapping("/ceo")
@@ -149,7 +148,6 @@ public class CeoController {
 		String id = authentication.getName();
 		List<StoreDTO> sList = ceoService.getStores(id);
 		ModelAndView mav = new ModelAndView();
-		System.out.println(sList.size());
 		mav.setViewName("ceo/store_list");
 		mav.addObject("slist", sList);
 		return mav;
@@ -323,27 +321,19 @@ public class CeoController {
 	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 	    String id = authentication.getName();
 
-	    //String storeIntro = request.getParameter("storeIntro");
-	    //String storeAddr1 = request.getParameter("storeAddr1");
-	    //String storeAddr2 = request.getParameter("storeAddr2");
-	    String store_num = request.getParameter("storeNum");
-	    System.out.println("storeNum = " + store_num);
-	    //s.setMemId(id);
-	    //s.setStoreIntro(storeIntro);
-	    //s.setStoreAddr1(storeAddr1);
-	    //s.setStoreAddr2(storeAddr2);
-	    //s.setStoreNum(store_num);
-	    //ceoService.insertStore(s);
+	    String storeNum = request.getParameter("store_num");
+	    System.out.println("storeNum = " + storeNum);
 	    Map<String, String> storeUpdate = new HashMap<String, String>();
 	    storeUpdate.put("storeIntro", storeIntro);
 	    storeUpdate.put("storeAddr1", storeAddr1);
 	    storeUpdate.put("storeAddr2", storeAddr2);
+	    storeUpdate.put("storeNum", storeNum);
 	    ceoService.storeUpdate(storeUpdate);
-	    return new ModelAndView("redirect:/ceo/store_info_edit_list?store_num=" + store_num);
+	    return new ModelAndView("redirect:/ceo/store_info_edit_list?store_num=" + storeNum);
 	}
 	
 	// 가게 관리 - 메뉴 수정
-	@GetMapping("/store_menu_edit_ok")
+	@GetMapping("/store_menu_edit")
 	public ModelAndView ceo_store_menu_edit(int menu_id, int store_num) {
 
 		RoomDTO m = ceoService.getMenu(menu_id);
@@ -503,6 +493,42 @@ public class CeoController {
 
 		return new ModelAndView("redirect:/");
 
+	}
+	
+	@RequestMapping("/store_list_resvChk")
+	public ModelAndView store_list_resvChk() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String id = authentication.getName();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("ceo/store_resv_list");
+		List<StoreDTO> slist = ceoService.getStores(id);
+		mav.addObject("slist", slist);
+		
+		return mav;
+	}
+	
+	@RequestMapping("/store_rsev_list")
+	public ModelAndView store_rsev_list(HttpServletRequest request) {
+		
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("ceo/store_resv_list2");
+		List<ResvDTO> rlist = ceoService.getResvList(store_num);
+		mav.addObject("rlist", rlist);
+		Map<String, String> memTel = new HashMap<>();
+		
+		for(ResvDTO r : rlist) {
+			String id = r.getMemId();
+			String tel = ceoService.getTel(r.getMemId());
+			
+			if(!memTel.containsKey(id)) {
+				memTel.put(id, tel);
+			}
+		}
+		mav.addObject("memTel", memTel);
+		return mav;
 	}
 
 //   // 사진 출력을 위한 테스트 페이지

@@ -36,7 +36,7 @@
 			<div id="ceo_middle">
 				<div id="ceo_list">
 					<div class="ceo_list">
-						<div class="ceo_box" id="booking" onclick="loadCeoPage1()">
+						<div class="ceo_box" id="booking" onclick="location='/ceo/store_list_resvChk'">
 							<img src="../images/ceo/booking.png">
 							<p>예약관리</p>
 						</div>
