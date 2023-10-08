@@ -2,21 +2,14 @@
 
 <jsp:include page="../main/header.jsp" />
 
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 		<div class="storeRegistrationForm">
 			<h2>업체 등록하기</h2>
 			<hr>
-			<form method="post" action="store_registration_ok"
-				onsubmit="return store_regis_write_check();">
+			<form method="post" action="store_registration_ok" onsubmit="return store_regis_write_check();">
 				<div class="storeRegistration">
 					<label>업소 선택</label> <select id="typeSelect1" name="cate"
 						onchange="onchange_select()">
@@ -95,5 +88,4 @@
 		</div>
 
 
-
-		<jsp:include page="../main/footer.jsp" />
+<jsp:include page="../main/footer.jsp" />

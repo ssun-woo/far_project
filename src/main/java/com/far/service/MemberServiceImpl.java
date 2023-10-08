@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.far.dao.MemberDAO;
 import com.far.dto.MemberDTO;
-import com.far.model.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -22,4 +21,10 @@ public class MemberServiceImpl implements MemberService{
 	public void updateMemPwd(String memPwd, String memId) {
 		memberDao.updateMemPwd(memPwd, memId);
 	}
+	
+	@Override
+	public String findMemClass(String memId) {
+		return memberDao.findMemClass(memId);
+	}
+	
 }
